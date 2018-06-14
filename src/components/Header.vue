@@ -4,20 +4,25 @@
             <div class="logo">
                 <img src="../assets/images/logo.png" alt="logo">
             </div>
-            <div class="burger-icon"
-                 v-show="showBurgerMenu">
+            <div :class="classObject"
+                 class="burger-icon"
+                 @click="showNav = !showNav"
+            >
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
         </header>
-        <nav>
-            <ul v-show="showNav">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <nav v-show="showNav">
+            <transition-group tag="ul" name="bounce">
+                <li v-for="item in menuItems"
+                    :key="item"
+                    :class="{ active: isActive }"
+
+                >
+                    <a href="#">{{item }}</a>
+                </li>
+            </transition-group>
         </nav>
     </div>
 </template>
@@ -26,10 +31,21 @@
     export default {
         data() {
             return {
+                menuItems: ['Home', 'About', 'Skills', 'Contact'],
                 showNav: true,
-                showBurgerMenu: true,
+                isActive: false
             }
-        }
+        },
+
+        computed: {
+            classObject() {
+                return {
+                    'cross': this.showNav,
+                }
+            }
+        },
+
+        methods: {}
     }
 </script>
 <style lang="less">
@@ -37,13 +53,15 @@
 
     .header {
         & header {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 15px 25px;
 
             & .logo {
-                margin: 5px;
+                margin: 15px 5px;
+                cursor: pointer;
                 img {
                     width: 35px;
                 }
@@ -80,7 +98,7 @@
                         }
 
                         &:last-child {
-                            transform: rotate(-45deg) translate(3px, -7px);
+                            transform: rotate(-45deg) translate(6px, -9px);
                         }
                     }
 
@@ -89,11 +107,31 @@
         }
 
         & nav {
+            padding-left: 45px;
+            position: absolute;
+            right: 34px;
+            z-index: 5;
+            background: #eeeeef;
             ul {
                 margin: 0;
                 padding: 0;
                 list-style: none;
+
                 li {
+                    text-align: right;
+                    font-size: 2rem;
+                    border-right: 1px solid @mainColor;
+                    padding: 15px 4rem 15px 0;
+                    transition: all 0.3s ease-in-out;
+
+                    &:hover, &.active {
+                        border-right: 5px solid black;
+
+                        & a {
+                            color: black;
+                        }
+                    }
+
                     a {
                         color: @mainColor;
                         text-decoration: none;
@@ -116,6 +154,35 @@
                 }
 
             }
+
+            & nav {
+                margin-right: 21rem;
+                ul {
+                    li {
+                        font-size: 4rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .bounce-enter-active {
+        animation: bounce-in .5s;
+    }
+
+    .bounce-leave-active {
+        animation: bounce-in .5s reverse;
+    }
+
+    @keyframes bounce-in {
+        0% {
+            transform: scale(0);
+        }
+        50% {
+            transform: scale(1.5);
+        }
+        100% {
+            transform: scale(1);
         }
     }
 

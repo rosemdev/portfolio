@@ -47,6 +47,7 @@
 
             changeBackground(theme) {
                 this.background = theme;
+                this.$emit('on-background-changed', theme);
             },
         }
     }
