@@ -3,7 +3,9 @@
     <div class="first screen">
         <gradient-screen></gradient-screen>
     </div>
-
+      <div class="main-container">
+          <rosem-header></rosem-header>
+      </div>
   </div>
 </template>
 
@@ -11,6 +13,8 @@
 <script>
 
     import GradientScreen from "./components/GradientScreen"
+    import RosemHeader from "./components/Header"
+
     export default {
         data() {
             return {
@@ -19,7 +23,8 @@
         },
 
         components: {
-            'gradient-screen' : GradientScreen
+            'gradient-screen' : GradientScreen,
+            'rosem-header' : RosemHeader
         }
     }
 </script>
@@ -38,7 +43,26 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  /*color: #2c3e50;*/
+    background-color: #f2f2f2;
+
+    & .main-container {
+        background-color: white;
+        max-width: 1600px;
+        width: 100%;
+        margin: auto;
+        margin-top: 1rem;
+        box-shadow: 0 9px 31px 20px #0000001a;
+        height: 1000px;
+    }
+
+    @media (min-width: 1200px) {
+
+        & .main-container {
+            margin-top: 20rem;
+
+        }
+    }
 }
 
 </style>
