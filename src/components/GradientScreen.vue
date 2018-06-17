@@ -1,9 +1,6 @@
 <template>
     <div>
-        <div class="gradient"
-             :style="{
-              background: background,
-             }">
+        <div class="gradient">
             <div class="intro">
                 <h1>Hello! I'm rosem</h1>
                 <h2>And I like to create pretty cool websites</h2>
@@ -13,18 +10,13 @@
             <div class="theme">
                 <p class="check">Check it out</p>
                 <div class="select-theme">
-                    <span @click="changeBackground(theme1)">Click me</span>
-                    <span @click="changeBackground(theme2)">...or me</span>
-                    <span @click="changeBackground(theme3)">meeee!!</span>
+                    <span @click= "$emit('change-theme', 'theme1')">Click me</span>
+                    <span @click="$emit('change-theme', 'theme2')">...or me</span>
+                    <span @click="$emit('change-theme', 'theme3')">meeee!!</span>
                 </div>
-                <p class="reset" @click="changeBackground(themeDefault)">reset</p>
+                <p class="reset" @click="$emit('change-theme', 'theme-default')">reset</p>
             </div>
-            <div class="slider-container">
-                <img class="notebook" src="../assets/images/macbook.png"/>
-                <div class="images">
-                    <!--<img src="../assets/images/me/araby1.jpg"/>-->
-                </div>
-            </div>
+            <slot name="mainPage"></slot>
         </div>
     </div>
 </template>
@@ -33,11 +25,7 @@
     export default {
         data() {
             return {
-                themeDefault: 'radial-gradient(circle, #136560, #0e4b54, #18323f, #161b23, #010101)',
-                theme1: 'linear-gradient(#12c2e9, #c471ed, #f64f59)',
-                theme2: 'linear-gradient(#4b6cb7, #182848)',
-                theme3: 'linear-gradient(#ff0099, #493240)',
-                background: ''
+
 
             }
         },
@@ -45,10 +33,6 @@
         computed: {},
         methods: {
 
-            changeBackground(theme) {
-                this.background = theme;
-                this.$emit('on-background-changed', theme);
-            },
         }
     }
 
@@ -59,7 +43,7 @@
     @import "../assets/styles/globalVariables";
 
     .gradient {
-        background-image: @gradient;
+        background-image: @theme-default;
         width: 100%;
         height: 1000px;
         border-bottom-left-radius: 12rem;
@@ -89,29 +73,6 @@
                 width: 100%;
                 margin: auto;
                 font-size: 1em;
-            }
-
-        }
-
-        & .slider-container {
-            position: relative;
-            top: 0;
-            left: 0;
-            z-index: 1;
-
-            & .notebook {
-                width: 80%;
-            }
-
-            & .images {
-                position: absolute;
-                top: 22px;
-                z-index: -1;
-
-                & img {
-                    width: 50%;
-                    object-fit: cover;
-                }
             }
 
         }
@@ -197,10 +158,6 @@
                 padding-top: 19rem;
 
             }
-
-            & .slider-container {
-                margin-top: 5rem;
-            }
         }
 
     }
@@ -218,10 +175,6 @@
                 h2 {
                     font-size: 2.7rem;
                 }
-            }
-
-            & .slider-container {
-                margin-top: 20rem;
             }
 
             & .theme {

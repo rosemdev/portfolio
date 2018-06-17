@@ -52,12 +52,12 @@
     @import "../assets/styles/globalVariables";
 
     .header {
+        position: relative;
+
         & header {
-            position: relative;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 15px 25px;
 
             & .logo {
                 margin: 15px 5px;
@@ -109,18 +109,16 @@
         & nav {
             padding-left: 45px;
             position: absolute;
-            right: 34px;
+            margin-right: 17px;
+            right: 0;
             z-index: 5;
             background: #eeeeef;
+            width: 300px;
             ul {
-                margin: 0;
-                padding: 0;
-                list-style: none;
-
                 li {
                     text-align: right;
                     font-size: 2rem;
-                    border-right: 1px solid @mainColor;
+                    border-right: 2px solid @mainColor;
                     padding: 15px 4rem 15px 0;
                     transition: all 0.3s ease-in-out;
 
@@ -143,9 +141,6 @@
 
     @media (min-width: 1200px) {
         .header {
-            max-width: 1200px;
-            margin: auto;
-            width: 100%;
             & header {
                 & .logo {
                     img {
@@ -156,7 +151,6 @@
             }
 
             & nav {
-                margin-right: 21rem;
                 ul {
                     li {
                         font-size: 4rem;

@@ -1,40 +1,30 @@
 <template>
-    <div>
-        <a class="btn btn-standard"
-           :style="{
-              background: background,
-             }"
-        ><slot name="button"></slot></a>
-    </div>
+        <a class="button">
+            <slot name="button"></slot>
+        </a>
 </template>
 <script>
-    export default  {
+    export default {
         data() {
-            return {
-                background: '',
-            }
-        }
+            return {}
+        },
     }
 </script>
-<style lang="less">
+<style lang="less"  scoped>
 
     @import "../assets/styles/globalVariables";
 
-    .btn {
+    .button {
         display: block;
         width: 100px;
         height: 25px;
         font-size: 1.2rem;
         padding: 15px 35px;
         border-radius: 35px;
-        background: @gradient;
         color: white;
         cursor: pointer;
-        box-shadow: 5px 3px 14px 0px #333;
-
-        &:hover {
-            background: @mainColor;
-        }
+        box-shadow: 5px 3px 14px 0 #333;
+        background-color: @mainColor;
 
     }
 </style>
