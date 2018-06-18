@@ -112,7 +112,7 @@
             margin-right: 17px;
             right: 0;
             z-index: 5;
-            background: #eeeeef;
+            background-color: white;
             width: 300px;
             ul {
                 li {
