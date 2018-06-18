@@ -4,22 +4,53 @@
             <gradient-screen @change-theme="theme = $event"></gradient-screen>
         </div>
         <div class="main-container">
-            <div class="code"></div>
-            <div class="main-content">
-                <rosem-header></rosem-header>
-                <div class="order">
-                    <h2>Rosem</h2>
-                    <h3>Ps... Want a website? You are here</h3>
-                    <rosem-button><span slot="button">get it</span></rosem-button>
-                </div>
-                <div class="bottom-contact-panel">
-                    <div class="history">
-                        <span class="year">2017</span>
-                        <span class="line"></span>
-                        <span class="year">{{ getYear }}</span>
+            <!--<div class="code"></div>-->
+            <div class="greeting white-background">
+                <div class="main-content">
+                    <rosem-header></rosem-header>
+                    <div class="order">
+                        <h2>Rosem</h2>
+                        <h3>Ps... Want a website? You are here</h3>
+                        <rosem-button><span slot="button">get it</span></rosem-button>
                     </div>
-                    <div class="social">
-                        <rosem-social :socialLinks="socialLinks"></rosem-social>
+                    <div class="bottom-contact-panel">
+                        <div class="history">
+                            <span class="year">2017</span>
+                            <span class="line"></span>
+                            <span class="year">{{ getYear }}</span>
+                        </div>
+                        <div class="social">
+                            <rosem-social :socialLinks="socialLinks"></rosem-social>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="grey-background">
+                <div class="done-works main-content">
+                    <div class="carousel">
+                        <carousel :per-page="1"
+                                  mouse-drag="true"
+                                  navigationEnabled="true"
+                                  navigationNextLabel="next work"
+                                  navigationPrevLabel="prev work"
+                        >
+                            <slide>
+                                <div class="slide-content">
+                                    <div class="image">
+                                        <img src="./assets/images/me/araby1.jpg"/>
+                                    </div>
+                                    <div class="description">
+                                        <rosem-slide-description
+                                                :descriptions="slideDescriptions"
+                                        ></rosem-slide-description>
+                                    </div>
+
+                                </div>
+                            </slide>
+                            <slide>
+                                Slide 2 Content
+                            </slide>
+                        </carousel>
                     </div>
                 </div>
             </div>
@@ -30,37 +61,22 @@
 
 <script>
 
-    import GradientScreen from "./components/GradientScreen"
+    import {descriptions, socialLinks} from "./data/data"
+    import GradientScreen from "./views/GradientScreen"
     import RosemHeader from "./components/Header"
     import RosemButton from "./components/Button"
     import RosemSocialBlock from "./components/SocialBlock"
+    import {Carousel, Slide} from 'vue-carousel'
+    import RosemSlideDescription from './components/SlideDescription'
+
 
     export default {
         data() {
             return {
                 theme: 'theme-default',
-                socialLinks: [
-                    {
-                        name: 'Linkedin',
-                        link: 'https://www.linkedin.com/in/romanna-semenyshyn-565322135/',
-                        isIcon: false,
+                socialLinks: socialLinks,
+                slideDescriptions: descriptions,
 
-                    },
-
-                    {
-                        name: 'Github',
-                        link: 'https://github.com/RomSem/',
-                        isIcon: false,
-
-                    },
-
-                    {
-                        name: 'Facebook',
-                        link: 'https://www.facebook.com/profile.php?id=100003626938421',
-                        isIcon: false,
-
-                    }
-                ],
             }
         },
 
@@ -69,13 +85,18 @@
             'rosem-header': RosemHeader,
             'rosem-button': RosemButton,
             'rosem-social': RosemSocialBlock,
+            'rosem-slide-description': RosemSlideDescription,
+            Carousel,
+            Slide
         },
 
         computed: {
             getYear() {
                 return new Date().getFullYear();
             }
-        }
+        },
+
+        methods: {}
     }
 </script>
 
@@ -84,12 +105,26 @@
 </style>
 
 <style lang="less">
-    @import "./assets/styles/globalVariables";
     @import "./assets/styles/reset";
+    @import "./assets/styles/globalVariables";
+    @import "assets/styles/themes";
 
     body {
         margin: 0;
         background-color: #f2f2f2;
+    }
+
+    .white-background {
+        background-color: white;
+    }
+
+    .grey-background {
+        background-color: #fafafa;
+    }
+
+    .white-background, .grey-background {
+        padding-top: 50px;
+        padding-bottom: 50px;
     }
 
     .main-content {
@@ -98,45 +133,9 @@
         padding: 15px 25px;
     }
 
-    .theme-default {
-        & .gradient {
-            background: @theme-default;
-
-        }
-
-        & .button {
-            background: @theme-default;
-        }
-
-    }
-
-    .theme1 {
-        & .gradient {
-            background: @theme1;
-        }
-
-        & .button {
-            background: @theme1;
-        }
-    }
-
-    .theme2 {
-        & .gradient {
-            background: @theme2;
-        }
-
-        & .button {
-            background: @theme2;
-        }
-    }
-
-    .theme3 {
-        & .gradient {
-            background: @theme3;
-        }
-
-        & .button {
-            background: @theme3;
+    .button {
+        &:hover {
+            box-shadow: -5px -3px 14px 0 #333;
         }
     }
 
@@ -156,7 +155,6 @@
             width: 100%;
             margin: auto;
             box-shadow: 0 9px 31px 20px #0000001a;
-            height: 1000px;
 
             & .code {
                 position: relative;
@@ -188,10 +186,7 @@
 
                 & .button {
                     margin: auto;
-
-                    &:hover {
-                        background: @mainColor;
-                    }
+                    width: 100px;
                 }
             }
 
@@ -231,6 +226,11 @@
                             font-weight: 600;
                             position: relative;
 
+                            &:hover {
+                                text-shadow: 4px 4px 2px #d8d6d6;
+                                transition: all .3s ease-in-out;
+                            }
+
                             :before {
                                 content: '';
                                 display: inline-block;
@@ -244,6 +244,46 @@
                         }
                     }
                 }
+            }
+
+            & .done-works {
+                & .carousel {
+
+                    & .VueCarousel-wrapper {
+                    }
+                        & .VueCarousel-navigation {
+                            position: absolute;
+                            right: 0;
+                            margin-right: 10rem;
+                            bottom: 9rem;
+                            white-space: nowrap;
+                        }
+
+                    .slide-content {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+
+                            & .image {
+                                width: 65%;
+                                margin: 25px 0;
+                                img {
+                                    width: 100%;
+                                }
+                            }
+
+                            & .description {
+                                width: 35%;
+                                margin: 25px;
+                                text-align: right;
+
+                                .button {
+                                    margin-left: 44%;
+                                }
+                            }
+                    }
+                }
+
             }
         }
 
