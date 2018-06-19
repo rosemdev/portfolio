@@ -6,7 +6,7 @@
                 <a :href="link.link" v-if="link.isIcon">
                     <slot name="icon"></slot>
                 </a>
-                <a :href="link.link" v-else>{{ link.name }}</a>
+                <a :href="link.link" target="_blank"  v-else>{{ link.name }}</a>
             </li>
         </ul>
     </div>
@@ -41,7 +41,6 @@
                 margin: 15px;
                 a {
                     color: @mainColor;
-                    text-decoration: none;
                 }
             }
         }

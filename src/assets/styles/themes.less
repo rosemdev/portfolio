@@ -10,6 +10,23 @@
     background: @theme-default;
   }
 
+  .VueCarousel-dot {
+      &.VueCarousel-dot {
+        &.VueCarousel-dot--active {
+          & .VueCarousel-dot-button {
+            background: @theme-default-main !important;
+          }
+
+        }
+
+    }
+
+  }
+
+  .card-overlay {
+    background: @theme-default-main;
+  }
+
 }
 
 .theme1 {
@@ -19,6 +36,23 @@
 
   & .button {
     background: @theme1;
+  }
+
+  .VueCarousel-dot {
+    &.VueCarousel-dot {
+      &.VueCarousel-dot--active {
+        & .VueCarousel-dot-button {
+          background: @theme1-main !important;
+        }
+
+      }
+
+    }
+
+  }
+
+  .card-overlay {
+    background: @theme1-main !important;
   }
 }
 
@@ -30,6 +64,23 @@
   & .button {
     background: @theme2;
   }
+
+  .VueCarousel-dot {
+    &.VueCarousel-dot {
+      &.VueCarousel-dot--active {
+        & .VueCarousel-dot-button {
+          background: @theme2-main !important;
+        }
+
+      }
+
+    }
+
+  }
+
+  .card-overlay {
+    background: @theme2-main !important;
+  }
 }
 
 .theme3 {
@@ -39,5 +90,22 @@
 
   & .button {
     background: @theme3;
+  }
+
+  .VueCarousel-dot {
+    &.VueCarousel-dot {
+      &.VueCarousel-dot--active {
+        & .VueCarousel-dot-button {
+          background: @theme3-main !important;
+        }
+
+      }
+
+    }
+
+  }
+
+  .card-overlay {
+    background: @theme3-main !important;
   }
 }

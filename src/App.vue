@@ -1,7 +1,7 @@
 <template>
     <div id="rosem" :class="theme">
         <div class="first-screen">
-            <gradient-screen @change-theme="theme = $event"></gradient-screen>
+            <gradient-screen @change-theme="theme = $event.theme"></gradient-screen>
         </div>
         <div class="main-container">
             <!--<div class="code"></div>-->
@@ -29,29 +29,36 @@
                 <div class="done-works main-content">
                     <div class="carousel">
                         <carousel :per-page="1"
-                                  mouse-drag="true"
-                                  navigationEnabled="true"
+                                  :mouse-drag="true"
+                                  :navigationEnabled="true"
                                   navigationNextLabel="next work"
                                   navigationPrevLabel="prev work"
+                                  paginationColor="#5c59599e"
+                                  :loop="true"
+                                  :autoplay="false"
+                                  easing="ease-in-out"
+                                  :speed="500"
                         >
-                            <slide>
-                                <div class="slide-content">
-                                    <div class="image">
-                                        <img src="./assets/images/me/araby1.jpg"/>
-                                    </div>
-                                    <div class="description">
-                                        <rosem-slide-description
-                                                :descriptions="slideDescriptions"
-                                        ></rosem-slide-description>
-                                    </div>
-
-                                </div>
-                            </slide>
-                            <slide>
-                                Slide 2 Content
+                            <slide v-for="(slide, index) in slideContents"
+                                   :key="index">
+                                <rosem-slide-content :descriptions="{slide}"></rosem-slide-content>
                             </slide>
                         </carousel>
                     </div>
+                </div>
+            </div>
+            <div class="white-background">
+                <div class="main-content stages">
+                    <rosem-card v-for="(card, index) in cards"
+                                :key="index"
+                                @change-theme="themeMainColor = $event.color"
+                                :style="{background: themeMainColor}">
+                        <div class="stage-container">
+                            <p><span class="stage">{{ card.stage }}</span>
+                                <span class="stage-name">{{ card.name }}</span></p>
+                            <p class="stage-description">{{ card.description }}</p>
+                        </div>
+                    </rosem-card>
                 </div>
             </div>
         </div>
@@ -61,31 +68,36 @@
 
 <script>
 
-    import {descriptions, socialLinks} from "./data/data"
+    import {cards, descriptions, socialLinks} from "./data/data"
     import GradientScreen from "./views/GradientScreen"
     import RosemHeader from "./components/Header"
     import RosemButton from "./components/Button"
     import RosemSocialBlock from "./components/SocialBlock"
+    import RosemCard from "./views/Card"
     import {Carousel, Slide} from 'vue-carousel'
-    import RosemSlideDescription from './components/SlideDescription'
+    import RosemSlideDescription from './components/SlideContent'
 
 
     export default {
         data() {
             return {
                 theme: 'theme-default',
+                themeMainColor: 'theme-default-main',
                 socialLinks: socialLinks,
-                slideDescriptions: descriptions,
+                slideContents: descriptions,
+                cards: cards,
 
             }
         },
 
         components: {
+            RosemSlideDescription,
             'gradient-screen': GradientScreen,
             'rosem-header': RosemHeader,
             'rosem-button': RosemButton,
             'rosem-social': RosemSocialBlock,
-            'rosem-slide-description': RosemSlideDescription,
+            'rosem-slide-content': RosemSlideDescription,
+            'rosem-card': RosemCard,
             Carousel,
             Slide
         },
@@ -135,7 +147,7 @@
 
     .button {
         &:hover {
-            box-shadow: -5px -3px 14px 0 #333;
+            box-shadow: -7px 0 4vw -0.7vw rgba(0, 0, 0, .2);
         }
     }
 
@@ -162,7 +174,6 @@
                     content: '';
                     display: block;
                     background-color: #333;
-                    /*background: url("./assets/images/code.jpeg") no-repeat fixed center;*/
                     width: 100%;
                     height: 100px;
                     background-size: cover;
@@ -171,9 +182,10 @@
             }
 
             & .order {
-                margin-top: 7rem;
                 padding: 15px 25px;
                 color: @mainColor;
+                margin-top: -1rem;
+
                 h2 {
                     text-transform: uppercase;
                     font-size: 3rem;
@@ -191,7 +203,6 @@
             }
 
             & .bottom-contact-panel {
-                margin-top: 1rem;
                 display: flex;
                 flex-direction: column;
                 padding: 15px 25px;
@@ -248,42 +259,103 @@
 
             & .done-works {
                 & .carousel {
+                    & .VueCarousel-navigation {
+                        position: absolute;
+                        right: 0;
+                        margin-right: 9rem;
+                        bottom: 4rem;
+                        white-space: nowrap;
 
-                    & .VueCarousel-wrapper {
-                    }
-                        & .VueCarousel-navigation {
-                            position: absolute;
-                            right: 0;
-                            margin-right: 10rem;
-                            bottom: 9rem;
-                            white-space: nowrap;
+                        & button {
+                            color: @mainColor;
+
                         }
-
-                    .slide-content {
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-between;
-
-                            & .image {
-                                width: 65%;
-                                margin: 25px 0;
-                                img {
-                                    width: 100%;
-                                }
-                            }
-
-                            & .description {
-                                width: 35%;
-                                margin: 25px;
-                                text-align: right;
-
-                                .button {
-                                    margin-left: 44%;
-                                }
-                            }
                     }
                 }
 
+            }
+
+            & .stages {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                margin: auto;
+
+                & .card {
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+
+                    & .stage-container {
+                        color: @mainColor;
+                        transition: all .5s ease-in-out;
+                        margin: auto;
+                        .stage {
+                            font-size: 5em;
+                            margin-right: 3px;
+                            font-weight: 500;
+                            border-bottom: 3px solid @mainColor;
+                        }
+
+                        .stage-name {
+                            font-weight: 600;
+                        }
+                    }
+
+                    & .button {
+                        background: #fafafa;
+                        color: @mainColor;
+                        margin-top: 3rem;
+                        width: 100px;
+                    }
+
+                    &:hover {
+                        & .stage-container {
+                            color: white;
+                            transform: translateY(-5rem);
+
+                            & .stage {
+                                border-bottom-color: white;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .card + .card-overlay {
+                &::after {
+                    content: '';
+                    height: 100%;
+                    width: 100%;
+                    overflow: hidden;
+                    position: absolute;
+                    background-size: cover;
+                    z-index: -1;
+                    opacity: 0.2;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    top: 0;
+                }
+            }
+
+            div:nth-child(1) > div.card + .card-overlay {
+                &::after {
+                    background: url("./assets/images/prototype.jpg") no-repeat center;
+                }
+            }
+
+            div:nth-child(2) > div.card + .card-overlay {
+                &::after {
+                    background: url("./assets/images/development.png") no-repeat center;
+                }
+            }
+
+            div:nth-child(3) > div.card + .card-overlay {
+                &::after {
+                    background: url("./assets/images/overview.png") no-repeat center;
+                }
             }
         }
 
@@ -294,7 +366,6 @@
 
             & .main-container {
                 & .bottom-contact-panel {
-                    margin-top: 10rem;
                     align-items: flex-end;
                     justify-content: space-between;
                     flex-direction: row;
@@ -307,6 +378,17 @@
                             }
                         }
                     }
+                }
+
+                & .done-works {
+                    & .carousel {
+
+                        & .VueCarousel-navigation {
+                            margin-right: 50%;
+                            top: 15rem;
+                        }
+                    }
+
                 }
             }
 
@@ -328,6 +410,24 @@
                         font-size: 2rem;
                     }
 
+                }
+
+                & .done-works {
+                    & .carousel {
+
+                        & .VueCarousel-navigation {
+                            margin-right: 10%;
+                            top: 22rem;
+                        }
+                    }
+
+                }
+
+                & .stages {
+                    flex-direction: row;
+                    & .card {
+                        border-right: 1px solid #615f5f1a;
+                    }
                 }
 
             }

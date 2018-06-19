@@ -22,7 +22,7 @@
         color: white;
         cursor: pointer;
         white-space: nowrap;
-        box-shadow: 5px 3px 14px 0 #333;
+        box-shadow: 0 1.8vw 4vw -0.7vw rgba(0,0,0,.2);
         background-color: @mainColor;
 
     }
