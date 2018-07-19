@@ -3,10 +3,10 @@
         <ul>
             <li v-for="link in socialLinks"
                 :key="link.link">
-                <a :href="link.link" v-if="link.isIcon">
-                    <slot name="icon"></slot>
+                <a :href="link.link" v-if="link.isIcon" target="_blank">
+                    <img :src="link.src"/>
                 </a>
-                <a :href="link.link" target="_blank"  v-else>{{ link.name }}</a>
+                <a :href="link.link" target="_blank" v-else>{{ link.name }}</a>
             </li>
         </ul>
     </div>
@@ -41,6 +41,11 @@
                 margin: 15px;
                 a {
                     color: @mainColor;
+
+                    img {
+                        width: 25px;
+                        margin: -5px;
+                    }
                 }
             }
         }

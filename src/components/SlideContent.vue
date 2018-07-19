@@ -99,7 +99,7 @@
 
                     & img {
                         width: 20px;
-
+                        cursor: pointer;
                     }
                 }
             }

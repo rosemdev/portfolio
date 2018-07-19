@@ -48,7 +48,7 @@
                 </div>
             </div>
             <div class="white-background">
-                <div class="main-content stages">
+                <div class="stages main-content">
                     <rosem-card v-for="(card, index) in cards"
                                 :key="index"
                                 @change-theme="themeMainColor = $event.color"
@@ -61,6 +61,45 @@
                     </rosem-card>
                 </div>
             </div>
+            <div class="grey-background without-padding">
+                <div class="about-me main-content">
+                    <div class="about">
+                        <p>About me</p>
+                        <h2>Romanna Semenyshyn</h2>
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure iusto quibusdam temporibus voluptatem voluptatibus?</h3>
+                        <rosem-button><span slot="button">see projects</span></rosem-button>
+                        <div class="social">
+                            <rosem-social :socialLinks="socialIconsLinks"></rosem-social>
+                        </div>
+                    </div>
+                    <div class="photo-carousel">
+                        <carousel :per-page="1"
+                                  :mouse-drag="true"
+                                  :navigationEnabled="true"
+                                  :paginationEnabled="false"
+                                  paginationColor="#5c59599e"
+                                  :loop="true"
+                                  :autoplay="false"
+                                  easing="ease-in-out"
+                                  :speed="500">
+                            <slide><img src="./assets/images/me/rosem2.jpg"/></slide>
+                            <slide><img src="./assets/images/me/rosem.jpg"/></slide>
+                            <slide><img src="./assets/images/me/me.jpg"/></slide>
+                            <slide><img src="./assets/images/me/me2.jpg"/></slide>
+                        </carousel>
+                    </div>
+                </div>
+            </div>
+            <div class="white-background">
+                <div class="contact-form main-content">
+
+                </div>
+            </div>
+            <div class="footer white-background">
+                <div class="main-content">
+                    <rosem-footer></rosem-footer>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -68,7 +107,7 @@
 
 <script>
 
-    import {cards, descriptions, socialLinks} from "./data/data"
+    import {cards, descriptions, socialLinks, socialIconsLinks, aboutMyself} from "./data/data"
     import GradientScreen from "./views/GradientScreen"
     import RosemHeader from "./components/Header"
     import RosemButton from "./components/Button"
@@ -76,6 +115,7 @@
     import RosemCard from "./views/Card"
     import {Carousel, Slide} from 'vue-carousel'
     import RosemSlideDescription from './components/SlideContent'
+    import RosemFooter from './components/Footer'
 
 
     export default {
@@ -84,7 +124,9 @@
                 theme: 'theme-default',
                 themeMainColor: 'theme-default-main',
                 socialLinks: socialLinks,
+                socialIconsLinks: socialIconsLinks,
                 slideContents: descriptions,
+                aboutMyself: aboutMyself,
                 cards: cards,
 
             }
@@ -98,6 +140,7 @@
             'rosem-social': RosemSocialBlock,
             'rosem-slide-content': RosemSlideDescription,
             'rosem-card': RosemCard,
+            'rosem-footer': RosemFooter,
             Carousel,
             Slide
         },
@@ -357,6 +400,89 @@
                     background: url("./assets/images/overview.png") no-repeat center;
                 }
             }
+
+            /*& .without-padding {*/
+                /*padding: 0;*/
+                /*margin-bottom: 50px;*/
+                /*margin-top: 50px;*/
+            /*}*/
+
+            .about-me {
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 0;
+
+                & .about {
+                    text-align: left;
+                    width: calc(100% - 50px);
+                    margin: 25px 0;
+                    padding: 15px 25px;
+                    color: @mainColor;
+
+                    p {
+                        font-size: 15px;
+                        font-weight: 300;
+                        margin-bottom: -20px;
+                    }
+
+                    h2 {
+                        font-weight: 800;
+                        font-size: 35px;
+                    }
+
+                    h3 {
+                        font-weight: 400;
+                        font-size: 15px;
+                        margin: 25px 0;
+                    }
+
+                    .button {
+                        margin: auto;
+                    }
+
+                    & .social {
+                        position: relative;
+
+                       &::after {
+                           content: '';
+                           position: absolute;
+                           top: 20%;
+                           right: 30%;
+                           width: 2px;
+                           height: 40px;
+                           background-color: @mainColor;
+                           transform: rotate(90deg);
+                       }
+                    }
+                }
+
+                & .photo-carousel {
+                    position: relative;
+                    width: 100%;
+                    margin: 0 25px;
+
+                    .VueCarousel-navigation {
+                        position: absolute;
+                        left: 50%;
+                        margin-top: 25px;
+                    }
+
+                    img {
+                        width: 100%;
+                        /*height: 100%;*/
+                    }
+                }
+            }
+
+            .contact-form {
+                height: 25rem;
+            }
+
+            .footer {
+                background-color: @mainColor;
+            }
         }
 
         @media (min-width: 768px) {
@@ -428,6 +554,18 @@
                     & .card {
                         border-right: 1px solid #615f5f1a;
                     }
+                }
+
+                .about-me {
+                    flex-direction: row;
+
+                    & .photo-carousel {
+                        .VueCarousel-navigation {
+                            position: static;
+                        }
+
+                    }
+
                 }
 
             }

@@ -1,6 +1,9 @@
 import TravelAgency from "../assets/images/myWorks/travelAgency.png";
 import mobApp from "../assets/images/myWorks/mobApp.png";
 import ToDoList from "../assets/images/myWorks/todoList.png";
+import linkedinSocialImage from '../assets/images/icons/linkedin-logo.svg'
+import githubSocialImage from '../assets/images/icons/github-sign.svg'
+import facebookSocialImage from '../assets/images/icons/facebook-app-logo.svg'
 
 export let socialLinks = [
     {
@@ -21,6 +24,30 @@ export let socialLinks = [
         name: 'Facebook',
         link: 'https://www.facebook.com/profile.php?id=100003626938421',
         isIcon: false,
+
+    }
+];
+
+export let socialIconsLinks = [
+    {
+        link: 'https://www.linkedin.com/in/romanna-semenyshyn-565322135/',
+        isIcon: true,
+        src: linkedinSocialImage
+
+    },
+
+    {
+        link: 'https://github.com/RomSem/',
+        isIcon: true,
+        src: githubSocialImage
+
+
+    },
+
+    {
+        link: 'https://www.facebook.com/profile.php?id=100003626938421',
+        isIcon: true,
+        src: facebookSocialImage
 
     }
 ];
@@ -77,3 +104,10 @@ export let cards = [
         description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
     },
 ];
+
+export let aboutMyself = {
+    name: 'Romanna Semenyshyn',
+    nickname: 'rosem',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+
+};
