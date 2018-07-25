@@ -37,6 +37,16 @@
             }
         },
 
+        props: {
+            className: {
+                type: String,
+            },
+
+            offsetValue: {
+                type: Number,
+            }
+        },
+
         computed: {
             classObject() {
                 return {
@@ -45,7 +55,30 @@
             }
         },
 
-        methods: {}
+        methods: {
+            stickHeader() {
+                let header = document.querySelector(".header");
+                    console.log(header);
+                if (window.pageYOffset > this.offsetValue) {
+                    header.classList.add(this.className);
+
+                } else {
+                    header.classList.remove(this.className);
+
+                }
+
+                // this.$emit("on-scroll");
+            }
+        },
+
+        created () {
+            window.addEventListener('scroll', this.stickHeader);
+
+        },
+
+        destroyed () {
+            window.removeEventListener('scroll', this.stickHeader);
+        }
     }
 </script>
 <style lang="less">

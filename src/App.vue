@@ -7,7 +7,7 @@
             <!--<div class="code"></div>-->
             <div class="greeting white-background">
                 <div class="main-content">
-                    <rosem-header></rosem-header>
+                    <rosem-header className="sticky" :offsetValue="600"></rosem-header>
                     <div class="order">
                         <h2>Rosem</h2>
                         <h3>Ps... Want a website? You are here</h3>
@@ -194,6 +194,27 @@
         }
     }
 
+    .header.sticky {
+        position: fixed;
+        z-index: 133;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+
+        & header  {
+            margin: auto;
+            max-width: 1200px;
+            width: 100%;
+
+            & .logo {
+                img {
+                    width: 30px;
+                }
+            }
+        }
+    }
+
     #rosem {
         font-family: 'Montserrat', sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -210,6 +231,12 @@
             width: 100%;
             margin: auto;
             box-shadow: 0 9px 31px 20px #0000001a;
+
+            .header {
+                transition: all 0.5s ease-in-out;
+            }
+
+
 
             & .code {
                 position: relative;

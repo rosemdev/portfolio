@@ -8,7 +8,17 @@
 </template>
 <script>
 
-    export default {}
+    export default {
+        data() {
+            return {
+
+            }
+        },
+
+        methods: {
+
+        }
+    }
 </script>
 <style lang="less" scoped>
     .scroll-block {
@@ -56,26 +66,28 @@
             position: absolute;
         }
 
-        &:hover span {
+        &:hover {
+            & span {
 
-            &:first-child {
-                transform: rotate(-225deg) translate(-46px, -16px);
-                opacity: .5;
-            }
+                &:first-child {
+                    transform: rotate(-225deg) translate(-46px, -16px);
+                    opacity: .5;
+                }
 
-            &:last-child {
-                transform: rotate(315deg) translate(112px, -106px);
-                opacity: .5;
-            }
+                &:last-child {
+                    transform: rotate(315deg) translate(112px, -106px);
+                    opacity: .5;
+                }
 
-            &:nth-child(2) {
-                transform: rotate(45deg) translate(-52px, -59px);
-                opacity: .5;
-            }
+                &:nth-child(2) {
+                    transform: rotate(45deg) translate(-52px, -59px);
+                    opacity: .5;
+                }
 
-            &:nth-child(3) {
-                transform: rotate(-135deg) translate(38px, 99px);
-                opacity: .5;
+                &:nth-child(3) {
+                    transform: rotate(-135deg) translate(38px, 99px);
+                    opacity: .5;
+                }
             }
         }
     }
