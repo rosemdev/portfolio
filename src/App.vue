@@ -370,17 +370,6 @@
 
                     & .social {
                         position: relative;
-
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            top: 20%;
-                            right: 30%;
-                            width: 2px;
-                            height: 40px;
-                            background-color: @mainColor;
-                            transform: rotate(90deg);
-                        }
                     }
                 }
 

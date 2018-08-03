@@ -11,7 +11,7 @@
                 <span></span>
                 <span></span>
                 <span></span>
-            </div> //TODO
+            </div>
         </header>
         <nav v-show="showNav">
             <transition-group tag="ul" name="bounce">
@@ -174,7 +174,7 @@
             right: 0;
             z-index: 5;
             background-color: white;
-            width: 300px;
+            width: 405px;
             ul {
                 li {
                     text-align: right;

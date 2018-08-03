@@ -37,7 +37,7 @@
 
             li {
                 list-style: none;
-                margin: 15px;
+                margin: 30px;
                 text-transform: uppercase;
                 font-size: 11px;
                 font-weight: 600;
@@ -51,11 +51,11 @@
                 :before {
                     content: '';
                     display: inline-block;
-                    width: 10px;
+                    width: 20px;
                     height: 2px;
                     position: absolute;
                     background-color: @mainColor;
-                    left: -12px;
+                    left: -30px;
                     bottom: 8px;
                 }
 
