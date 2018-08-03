@@ -221,7 +221,7 @@
 
                 & .button {
                     margin: auto;
-                    width: 100px;
+                    width: 185px; //TODO
                 }
             }
 
@@ -282,7 +282,7 @@
                         background: #fafafa;
                         color: @mainColor;
                         margin-top: 3rem;
-                        width: 100px;
+                        width: 185px;
                     }
 
                     &:hover {
