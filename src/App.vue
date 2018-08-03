@@ -4,8 +4,7 @@
             <gradient-screen @change-theme="theme = $event.theme"></gradient-screen>
         </div>
         <div class="main-container">
-                    <rosem-header className="sticky" :offsetValue="1465"></rosem-header>
-            <!--<div class="code"></div>-->
+            <rosem-header className="sticky" :offsetValue="1465"></rosem-header>
             <div class="greeting white-background">
                 <div class="main-content">
                     <div class="order">
@@ -14,14 +13,8 @@
                         <rosem-button><span slot="button">get it</span></rosem-button>
                     </div>
                     <div class="bottom-contact-panel">
-                        <div class="history">
-                            <span class="year">2017</span>
-                            <span class="line"></span>
-                            <span class="year">{{ getYear }}</span>
-                        </div>
-                        <div class="social">
-                            <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
-                        </div>
+                        <rosem-history-line></rosem-history-line>
+                        <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
                     </div>
                 </div>
             </div>
@@ -66,7 +59,8 @@
                     <div class="about">
                         <p>About me</p>
                         <h2>Romanna Semenyshyn</h2>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure iusto quibusdam temporibus voluptatem voluptatibus?</h3>
+                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure iusto quibusdam
+                            temporibus voluptatem voluptatibus?</h3>
                         <rosem-button><span slot="button">see projects</span></rosem-button>
                         <div class="social">
                             <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
@@ -111,6 +105,7 @@
     import GradientScreen from "./views/GradientScreen"
     import RosemHeader from "./components/Header"
     import RosemButton from "./components/Button"
+    import RosemHistoryLine from "./components/HistoryLine"
     import RosemSocialBlock from "./components/SocialBlock"
     import RosemCard from "./views/Card"
     import {Carousel, Slide} from 'vue-carousel'
@@ -137,17 +132,12 @@
             GradientScreen,
             RosemHeader,
             RosemButton,
+            RosemHistoryLine,
             RosemSocialBlock,
             RosemCard,
             RosemFooter,
             Carousel,
             Slide
-        },
-
-        computed: {
-            getYear() {
-                return new Date().getFullYear();
-            }
         },
 
         methods: {}
@@ -197,7 +187,6 @@
         }
     }
 
-
     #rosem {
         font-family: 'Montserrat', sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -214,19 +203,6 @@
             width: 100%;
             margin: auto;
             box-shadow: 0 9px 31px 20px #0000001a;
-
-            & .code {
-                position: relative;
-                &:after {
-                    content: '';
-                    display: block;
-                    background-color: #333;
-                    width: 100%;
-                    height: 100px;
-                    background-size: cover;
-                }
-
-            }
 
             & .order {
                 padding: 15px 25px;
@@ -254,54 +230,6 @@
                 flex-direction: column;
                 padding: 15px 25px;
 
-                & .history {
-                    margin-bottom: 20px;
-                    align-self: flex-start;
-
-                    span {
-                        display: block;
-                    }
-
-                    & .year {
-                        transform: rotate(90deg);
-                        font-size: 12px;
-                        font-weight: 300;
-                    }
-
-                    .line {
-                        border-right: 2px solid @mainColor;
-                        height: 75px;
-                        margin: 15px;
-                    }
-                }
-
-                & .social {
-                    ul {
-                        justify-content: center;
-                        li {
-                            text-transform: uppercase;
-                            font-size: 11px;
-                            font-weight: 600;
-                            position: relative;
-
-                            &:hover {
-                                text-shadow: 4px 4px 2px #d8d6d6;
-                                transition: all .3s ease-in-out;
-                            }
-
-                            :before {
-                                content: '';
-                                display: inline-block;
-                                width: 10px;
-                                height: 2px;
-                                position: absolute;
-                                background-color: @mainColor;
-                                left: -12px;
-                                bottom: 8px;
-                            }
-                        }
-                    }
-                }
             }
 
             & .done-works {
@@ -405,12 +333,6 @@
                 }
             }
 
-            /*& .without-padding {*/
-                /*padding: 0;*/
-                /*margin-bottom: 50px;*/
-                /*margin-top: 50px;*/
-            /*}*/
-
             .about-me {
                 display: flex;
                 align-items: center;
@@ -449,16 +371,16 @@
                     & .social {
                         position: relative;
 
-                       &::after {
-                           content: '';
-                           position: absolute;
-                           top: 20%;
-                           right: 30%;
-                           width: 2px;
-                           height: 40px;
-                           background-color: @mainColor;
-                           transform: rotate(90deg);
-                       }
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: 20%;
+                            right: 30%;
+                            width: 2px;
+                            height: 40px;
+                            background-color: @mainColor;
+                            transform: rotate(90deg);
+                        }
                     }
                 }
 
@@ -475,7 +397,6 @@
 
                     img {
                         width: 100%;
-                        /*height: 100%;*/
                     }
                 }
             }

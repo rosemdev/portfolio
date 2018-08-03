@@ -36,9 +36,29 @@
             align-items: center;
 
             li {
-                font-size: 25px;
                 list-style: none;
                 margin: 15px;
+                text-transform: uppercase;
+                font-size: 11px;
+                font-weight: 600;
+                position: relative;
+
+                &:hover {
+                    text-shadow: 4px 4px 2px #d8d6d6; //TODO
+                    transition: all .3s ease-in-out;
+                }
+
+                :before {
+                    content: '';
+                    display: inline-block;
+                    width: 10px;
+                    height: 2px;
+                    position: absolute;
+                    background-color: @mainColor;
+                    left: -12px;
+                    bottom: 8px;
+                }
+
                 a {
                     color: @mainColor;
 
@@ -50,6 +70,5 @@
             }
         }
     }
-
 
 </style>

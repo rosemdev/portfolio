@@ -11,7 +11,7 @@
                 <span></span>
                 <span></span>
                 <span></span>
-            </div>
+            </div> //TODO
         </header>
         <nav v-show="showNav">
             <transition-group tag="ul" name="bounce">
@@ -135,7 +135,7 @@
                 & span {
                     background-color: @mainColor;
                     margin: 5px;
-                    padding: 1px;
+                    padding: 2px;
                     border-radius: 5px;
                     display: block;
                     height: 2px;
@@ -151,7 +151,7 @@
                 &.cross {
                     & span {
                         &:first-child {
-                            transform: rotate(-135deg) translate(-3px, -7px)
+                            transform: rotate(-135deg) translate(-1px, -4px)
                         }
 
                         &:nth-last-of-type(2) {
@@ -159,7 +159,7 @@
                         }
 
                         &:last-child {
-                            transform: rotate(-45deg) translate(6px, -9px);
+                            transform: rotate(-45deg) translate(9px, -11px);
                         }
                     }
 
