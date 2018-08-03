@@ -4,10 +4,10 @@
             <gradient-screen @change-theme="theme = $event.theme"></gradient-screen>
         </div>
         <div class="main-container">
+                    <rosem-header className="sticky" :offsetValue="1465"></rosem-header>
             <!--<div class="code"></div>-->
             <div class="greeting white-background">
                 <div class="main-content">
-                    <rosem-header className="sticky" :offsetValue="600"></rosem-header>
                     <div class="order">
                         <h2>Rosem</h2>
                         <h3>Ps... Want a website? You are here</h3>
@@ -20,7 +20,7 @@
                             <span class="year">{{ getYear }}</span>
                         </div>
                         <div class="social">
-                            <rosem-social :socialLinks="socialLinks"></rosem-social>
+                            <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         >
                             <slide v-for="(slide, index) in slideContents"
                                    :key="index">
-                                <rosem-slide-content :descriptions="{slide}"></rosem-slide-content>
+                                <rosem-slide-description :descriptions="{slide}"></rosem-slide-description>
                             </slide>
                         </carousel>
                     </div>
@@ -69,7 +69,7 @@
                         <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure iusto quibusdam temporibus voluptatem voluptatibus?</h3>
                         <rosem-button><span slot="button">see projects</span></rosem-button>
                         <div class="social">
-                            <rosem-social :socialLinks="socialIconsLinks"></rosem-social>
+                            <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
                         </div>
                     </div>
                     <div class="photo-carousel">
@@ -134,13 +134,12 @@
 
         components: {
             RosemSlideDescription,
-            'gradient-screen': GradientScreen,
-            'rosem-header': RosemHeader,
-            'rosem-button': RosemButton,
-            'rosem-social': RosemSocialBlock,
-            'rosem-slide-content': RosemSlideDescription,
-            'rosem-card': RosemCard,
-            'rosem-footer': RosemFooter,
+            GradientScreen,
+            RosemHeader,
+            RosemButton,
+            RosemSocialBlock,
+            RosemCard,
+            RosemFooter,
             Carousel,
             Slide
         },
@@ -182,10 +181,14 @@
         padding-bottom: 50px;
     }
 
-    .main-content {
+    .header, .main-content {
         max-width: 1200px;
         margin: auto;
+    }
+
+    .main-content {
         padding: 15px 25px;
+
     }
 
     .button {
@@ -194,26 +197,6 @@
         }
     }
 
-    .header.sticky {
-        position: fixed;
-        z-index: 133;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 60px;
-
-        & header  {
-            margin: auto;
-            max-width: 1200px;
-            width: 100%;
-
-            & .logo {
-                img {
-                    width: 30px;
-                }
-            }
-        }
-    }
 
     #rosem {
         font-family: 'Montserrat', sans-serif;
@@ -231,12 +214,6 @@
             width: 100%;
             margin: auto;
             box-shadow: 0 9px 31px 20px #0000001a;
-
-            .header {
-                transition: all 0.5s ease-in-out;
-            }
-
-
 
             & .code {
                 position: relative;

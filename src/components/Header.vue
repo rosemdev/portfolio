@@ -1,5 +1,5 @@
 <template>
-    <div class="header">
+    <div :class="['header', {[className]: isStuck}]">
         <header>
             <div class="logo">
                 <img src="../assets/images/logo.png" alt="logo">
@@ -31,6 +31,7 @@
     export default {
         data() {
             return {
+                isStuck: false,
                 menuItems: ['Home', 'About', 'Skills', 'Contact'],
                 showNav: true,
                 isActive: false
@@ -57,22 +58,43 @@
 
         methods: {
             stickHeader() {
-                let header = document.querySelector(".header");
-                    console.log(header);
+                let elRect = this.$el.getBoundingClientRect();
+
                 if (window.pageYOffset > this.offsetValue) {
-                    header.classList.add(this.className);
+                    if (!this.isStuck) {
+                        this.isStuck = true;
+                        this.elOffsetTop = this.$el.offsetTop;
+                        this.$el.style.top = `-${elRect.height}px`;
+                        this.$el.nextElementSibling.style.paddingTop =
+                            `${parseFloat(getComputedStyle(this.$el.nextElementSibling).paddingTop) + elRect.height}px`;
+                        this.$nextTick(() => {
+                            this.$el.style.top = '0';
+                        });
+                    }
 
-                } else {
-                    header.classList.remove(this.className);
-
+                } else if (this.isStuck) {
+                    if (window.pageYOffset > this.elOffsetTop + elRect.height) {
+                        this.$el.style.top = `-${elRect.height}px`;
+                        this.$el.addEventListener('transitionend', this.elTransitionEnd);
+                    } else {
+                        this.elTransitionEnd();
+                    }
                 }
 
                 // this.$emit("on-scroll");
+            },
+            elTransitionEnd() {
+                this.isStuck = false;
+                this.$el.style.top = '';
+                this.$el.nextElementSibling.style.paddingTop = '';
+                this.$el.removeEventListener('transitionend', this.elTransitionEnd);
             }
         },
 
         created () {
-            window.addEventListener('scroll', this.stickHeader);
+            this.$nextTick(() => {
+                window.addEventListener('scroll', this.stickHeader);
+            })
 
         },
 
@@ -86,11 +108,17 @@
 
     .header {
         position: relative;
+        /*top: 0; Do not use it!!! */
+        left: 0;
+        right: 0;
+        z-index: 2;
+        transition: top .4s;
 
         & header {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            box-shadow: none;
 
             & .logo {
                 margin: 15px 5px;
@@ -172,6 +200,34 @@
         }
     }
 
+    .header.sticky {
+        position: fixed;
+        height: 60px;
+        max-width: 100%;
+        box-shadow: rgba(94, 89, 94, 0.93) 0 0 15px 1px;
+
+        & header  {
+            margin-left: 15px;
+            margin-right: 15px;
+
+            & .logo {
+                img {
+                    width: 30px;
+                    filter:invert(100%);
+                    transition: 1s;
+                }
+            }
+
+            & .burger-icon {
+                & span {
+                    background-color: #c6c7b4;
+                    transition: 1s;
+
+                }
+            }
+        }
+    }
+
     @media (min-width: 1200px) {
         .header {
             & header {
@@ -190,26 +246,6 @@
                     }
                 }
             }
-        }
-    }
-
-    .bounce-enter-active {
-        animation: bounce-in .5s;
-    }
-
-    .bounce-leave-active {
-        animation: bounce-in .5s reverse;
-    }
-
-    @keyframes bounce-in {
-        0% {
-            transform: scale(0);
-        }
-        50% {
-            transform: scale(1.5);
-        }
-        100% {
-            transform: scale(1);
         }
     }
 
