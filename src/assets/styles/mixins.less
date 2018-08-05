@@ -1,0 +1,16 @@
+.shadowText (){
+  &:hover {
+    text-shadow: 4px 4px 2px #d8d6d6;
+    transition: all .3s ease-in-out;
+  }
+}
+
+@tablet: 768px;
+@desktop: 1200px;
+
+.responsive(@minWidth; @rules) {
+  @media (min-width: @minWidth) {
+    @rules();
+  }
+}
+

@@ -151,6 +151,7 @@
 <style lang="less">
     @import "./assets/styles/reset";
     @import "./assets/styles/globalVariables";
+    @import "assets/styles/mixins";
     @import "assets/styles/themes";
 
     body {
@@ -179,12 +180,6 @@
     .main-content {
         padding: 15px 25px;
 
-    }
-
-    .button {
-        &:hover {
-            box-shadow: -7px 0 4vw -0.7vw rgba(0, 0, 0, .2);
-        }
     }
 
     #rosem {
@@ -399,7 +394,7 @@
             }
         }
 
-        @media (min-width: 768px) {
+        .responsive(@tablet, {
             & .first-screen {
                 height: 900px;
             }
@@ -432,9 +427,9 @@
                 }
             }
 
-        }
+        });
 
-        @media (min-width: 1200px) {
+        .responsive(@desktop, {
 
             & .first-screen {
                 height: 1100px;
@@ -483,7 +478,7 @@
                 }
 
             }
-        }
+        })
     }
 
 </style>

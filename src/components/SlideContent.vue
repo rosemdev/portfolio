@@ -43,6 +43,7 @@
 
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
+    @import "../assets/styles/mixins";
 
     .slide-content {
         display: flex;
@@ -106,7 +107,7 @@
         }
     }
 
-    @media (min-width: 768px) {
+    .responsive(@tablet, {
         .slide-content {
             & .slide-image {
 
@@ -118,9 +119,9 @@
                 }
             }
         }
-    }
+    });
 
-    @media (min-width: 1200px) {
+    .responsive(@desktop, {
         .slide-content {
             flex-direction: row;
             & .slide-image {
@@ -137,7 +138,7 @@
                 }
             }
         }
-    }
+    });
 
 
 </style>

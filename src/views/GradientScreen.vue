@@ -36,6 +36,7 @@
 <style lang="less">
 
     @import "../assets/styles/globalVariables";
+    @import "../assets/styles/mixins";
 
     .gradient {
         background-image: @theme-default;
@@ -139,7 +140,7 @@
         }
     }
 
-    @media (min-width: 768px) {
+    .responsive(@tablet, {
 
         .gradient {
             height: 1000px;
@@ -155,9 +156,9 @@
             }
         }
 
-    }
+    });
 
-    @media (min-width: 1200px) {
+    .responsive(@desktop, {
 
         .gradient {
             height: 1800px;
@@ -185,6 +186,6 @@
 
         }
 
-    }
+    });
 
 </style>

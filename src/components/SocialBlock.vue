@@ -28,8 +28,9 @@
 </script>
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
+    @import "../assets/styles/mixins";
 
-    .social {
+    .social { //TODO social mobile view
         ul {
             display: flex;
             justify-content: flex-end;
@@ -43,10 +44,7 @@
                 font-weight: 600;
                 position: relative;
 
-                &:hover {
-                    text-shadow: 4px 4px 2px #d8d6d6; //TODO
-                    transition: all .3s ease-in-out;
-                }
+                .shadowText();
 
                 :before {
                     content: '';

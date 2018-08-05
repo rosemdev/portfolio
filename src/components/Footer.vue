@@ -44,14 +44,11 @@
 </script>
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
+    @import "../assets/styles/mixins";
     a {
         cursor: pointer;
         color: white;
-
-        &:hover {
-            text-shadow: 4px 4px 2px #d8d6d6;
-            transition: all .3s ease-in-out;
-        }
+        .shadowText();
     }
 
 
@@ -94,7 +91,7 @@
         }
     }
 
-    @media (min-width: 768px) {
+    .responsive(@tablet,{
         footer {
             & .footer-links {
                 ul {
@@ -108,9 +105,9 @@
                 }
             }
         }
-    }
+    });
 
-    @media (min-width: 1200px) {
+    .responsive(@desktop,{
         footer {
             flex-direction: row;
 
@@ -118,5 +115,5 @@
                 margin-top: 0;
             }
         }
-    }
+    });
 </style>

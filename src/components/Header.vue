@@ -105,6 +105,7 @@
 </script>
 <style lang="less">
     @import "../assets/styles/globalVariables";
+    @import "../assets/styles/mixins";
 
     .header {
         position: relative;
@@ -228,7 +229,7 @@
         }
     }
 
-    @media (min-width: 1200px) {
+    .responsive(@desktop, {
         .header {
             & header {
                 & .logo {
@@ -247,6 +248,6 @@
                 }
             }
         }
-    }
+    });
 
 </style>

@@ -25,5 +25,9 @@
         box-shadow: 0 1.8vw 4vw -0.7vw rgba(0,0,0,.2);
         background-color: @mainColor;
 
+        &:hover {
+            box-shadow: -7px 0 4vw -0.7vw rgba(0, 0, 0, .2);
+        }
+
     }
 </style>
