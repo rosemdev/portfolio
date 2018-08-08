@@ -1,6 +1,7 @@
 <template>
     <div class="scroll-block"
-    @click="Scroll">
+         @click="Scroll"
+    >
         <span></span>
         <span></span>
         <span></span>
@@ -11,9 +12,7 @@
 
     export default {
         data() {
-            return {
-
-            }
+            return {}
         },
 
         methods: {
@@ -23,7 +22,7 @@
                     left: 0,
                     behavior: 'smooth'
                 });
-            }
+            },
         },
 
     }
@@ -36,6 +35,7 @@
         width: 50px;
         height: 50px;
         margin-top: 40px;
+        transition: background-color .3s;
 
         span {
             width: 1px;
@@ -45,6 +45,7 @@
             display: block;
             height: 55px;
             transition: all .5s ease-in-out;
+            opacity: 0;
 
             &:first-child {
                 transform: rotate(90deg) translate(-33px, -19px);
@@ -55,7 +56,7 @@
             }
 
             &:nth-child(2) {
-                transform: translate(-7px, -62px)
+                transform: translate(-7px, -62px);
             }
 
             &:nth-child(3) {
@@ -75,30 +76,33 @@
             transition: .5s;
             border-radius: 2px;
 
-
         }
 
         &:hover {
             & span {
-                    opacity: .5;
+                opacity: .5;
                 box-shadow: 0 9px 31px 20px #0000001a;
 
                 &:first-child {
-                    transform: rotate(-225deg) translate(-44px, -10px);
+                    animation: span1 1.5s ease-in-out reverse;
+                    animation-fill-mode: forwards;
                 }
 
-                &:last-child {
-                    transform: rotate(-45deg) translate(109px, -107px);
-                }
 
                 &:nth-child(2) {
-                    transform: rotate(45deg) translate(-55px, -57px);
+                    animation: span2 1.5s ease-in-out reverse;
+                    animation-fill-mode: forwards;
                 }
 
                 &:nth-child(3) {
-                    transform: rotate(-135deg) translate(42px, 96px);
+                    animation: span3 1.5s ease-in-out reverse;
+                    animation-fill-mode: forwards;
                 }
 
+                &:last-child {
+                    animation: span4 1.5s ease-in-out reverse;
+                    animation-fill-mode: forwards;
+                }
             }
 
             &:before {
@@ -118,6 +122,91 @@
                 left: 26px;
                 border-radius: 3px;
             }
+        }
+    }
+
+
+    @keyframes span1 {
+        from {
+            transform: rotate(90deg) translate(-33px, -19px);
+            opacity: 1;
+        }
+
+        25% {
+            transform: rotate(-225deg) translate(-44px, -10px);
+            opacity: .5;
+        }
+
+        50% {
+            transform: rotate(-225deg) translate(-36px, -5px) scale(0.5);
+        }
+
+        to {
+            transform: rotate(-270deg) translate(-6px, -30px);
+            opacity: 0;
+        }
+    }
+
+    @keyframes span2 {
+        from {
+            transform: translate(-7px, -62px);
+            opacity: 1;
+        }
+
+        25% {
+            transform: rotate(45deg) translate(-55px, -57px);
+            opacity: .5;
+        }
+
+        50% {
+            transform: rotate(45deg) translate(-47px, -61px) scale(0.5);
+        }
+
+        to {
+            transform: rotate(90deg) translate(-61px, -9px);
+            opacity: 0;
+        }
+    }
+
+    @keyframes span3 {
+        from {
+            transform: translate(45px, -117px);
+            opacity: 1;
+        }
+
+        25% {
+            transform: rotate(-135deg) translate(42px, 96px);
+            opacity: .5;
+        }
+
+        50% {
+            transform: rotate(-135deg) translate(60px, 100px) scale(0.5);
+        }
+
+        to {
+            transform: rotate(-90deg) translate(116px, 30px);
+            opacity: 0;
+        }
+    }
+
+    @keyframes span4 {
+        from {
+            transform: rotate(90deg) translate(-146px, -19px);
+            opacity: 1;
+        }
+
+        25% {
+            transform: rotate(-45deg) translate(109px, -107px);
+            opacity: .5;
+        }
+
+        50% {
+            transform: rotate(-45deg) translate(126px, -112px) scale(0.5);
+        }
+
+        to {
+            transform: rotate(-90deg) translate(171px, 9px);
+            opacity: 0;
         }
     }
 </style>

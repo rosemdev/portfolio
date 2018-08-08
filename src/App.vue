@@ -245,7 +245,7 @@
 
             }
 
-            & .stages {
+            & .stages { //TODO
                 display: flex;
                 flex-direction: column;
                 justify-content: space-between;

@@ -23,6 +23,7 @@
 </script>
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
+    @import "../assets/styles/mixins";
 
     div {
         position: relative;
@@ -64,11 +65,25 @@
         top: 0;
         width: 100%;
         height: 100%;
-        opacity: 0;
+        opacity: 1;
         background-color: @theme-default-main;
-        transform: rotateX(100deg) translateX(-300px) scale(.8);
         transition: all .5s ease-in-out;
 
     }
+
+    .responsive(@desktop, {
+        .card-overlay {
+            position: absolute;
+            z-index: 0;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: @theme-default-main;
+            transform: rotateX(100deg) translateX(-300px) scale(.8);
+            transition: all .5s ease-in-out;
+        }
+    });
 
 </style>

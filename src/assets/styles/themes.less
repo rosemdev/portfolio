@@ -10,18 +10,24 @@
     background-color: fade(@theme-default-main, 80%);
   }
 
+  & .scroll-block {
+    &:hover {
+      background-color: @theme-default-main;
+    }
+  }
+
   & .button {
     background: @theme-default;
   }
 
   .VueCarousel-dot {
-      &.VueCarousel-dot {
-        &.VueCarousel-dot--active {
-          & .VueCarousel-dot-button {
-            background: @theme-default-main !important;
-          }
-
+    &.VueCarousel-dot {
+      &.VueCarousel-dot--active {
+        & .VueCarousel-dot-button {
+          background: @theme-default-main !important;
         }
+
+      }
 
     }
 
@@ -40,6 +46,12 @@
 
   & .header.sticky {
     background-color: fade(@theme1-main, 80%);
+  }
+
+  & .scroll-block {
+    &:hover {
+      background-color: @theme1-main;
+    }
   }
 
   & .button {
@@ -73,6 +85,12 @@
     background-color: fade(@theme2-main, 80%);
   }
 
+  & .scroll-block {
+    &:hover {
+      background-color: @theme2-main;
+    }
+  }
+
   & .button {
     background: @theme2;
   }
@@ -102,6 +120,12 @@
 
   & .header.sticky {
     background-color: fade(@theme3-main, 80%);
+  }
+
+  & .scroll-block {
+    &:hover {
+      background-color: @theme3-main;
+    }
   }
 
   & .button {
