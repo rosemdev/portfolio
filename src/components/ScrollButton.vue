@@ -38,30 +38,18 @@
         transition: background-color .3s;
 
         span {
+            position: absolute;
+            top: -3px;
+            left: -2px;
             width: 1px;
             cursor: pointer;
             padding: 2px;
             background-color: white;
             display: block;
-            height: 55px;
-            transition: all .5s ease-in-out;
+            height: 56px;
+            /*transition: all .5s ease-in-out;*/
+            transform-origin: 28px;
             opacity: 0;
-
-            &:first-child {
-                transform: rotate(90deg) translate(-33px, -19px);
-            }
-
-            &:last-child {
-                transform: rotate(90deg) translate(-146px, -19px);
-            }
-
-            &:nth-child(2) {
-                transform: translate(-7px, -62px);
-            }
-
-            &:nth-child(3) {
-                transform: translate(45px, -117px);
-            }
         }
 
         &:before {
@@ -82,26 +70,26 @@
             & span {
                 opacity: .5;
                 box-shadow: 0 9px 31px 20px #0000001a;
+                animation-fill-mode: forwards;
+                animation-duration: .5s;
+                animation-timing-function: ease-in-out;
 
                 &:first-child {
-                    animation: span1 1.5s ease-in-out reverse;
-                    animation-fill-mode: forwards;
+                    animation-name: span1;
                 }
 
-
                 &:nth-child(2) {
-                    animation: span2 1.5s ease-in-out reverse;
-                    animation-fill-mode: forwards;
+                    animation-name: span2;
+
                 }
 
                 &:nth-child(3) {
-                    animation: span3 1.5s ease-in-out reverse;
-                    animation-fill-mode: forwards;
+                    animation-name: span3;
                 }
 
                 &:last-child {
-                    animation: span4 1.5s ease-in-out reverse;
-                    animation-fill-mode: forwards;
+                    animation-name: span4;
+
                 }
             }
 
@@ -128,85 +116,90 @@
 
     @keyframes span1 {
         from {
-            transform: rotate(90deg) translate(-33px, -19px);
-            opacity: 1;
+            transform: rotate(90deg) translate(26px, 26px);
+            /*transform: rotate(0) translate(26px, -26px);*/
+            opacity: 0;
         }
 
-        25% {
-            transform: rotate(-225deg) translate(-44px, -10px);
+        33% {
+            transform: rotate(45deg) scale(.5);
+        }
+
+        66% {
+            transform: rotate(45deg);
             opacity: .5;
         }
 
-        50% {
-            transform: rotate(-225deg) translate(-36px, -5px) scale(0.5);
-        }
-
         to {
-            transform: rotate(-270deg) translate(-6px, -30px);
-            opacity: 0;
+            transform: rotate(90deg);
+            opacity: 1;
         }
     }
 
     @keyframes span2 {
         from {
-            transform: translate(-7px, -62px);
-            opacity: 1;
+            transform: rotate(-90deg) translate(26px, 26px);
+            /*transform: translate(26px, -26px);*/
+            opacity: 0;
         }
 
-        25% {
-            transform: rotate(45deg) translate(-55px, -57px);
+
+        33% {
+            transform: rotate(-45deg) translate(26px, 0) scale(.5);
+        }
+
+        66% {
+            transform: rotate(-45deg) translateX(52px);
             opacity: .5;
         }
 
-        50% {
-            transform: rotate(45deg) translate(-47px, -61px) scale(0.5);
-        }
-
         to {
-            transform: rotate(90deg) translate(-61px, -9px);
-            opacity: 0;
+            transform: rotate(0deg) translateX(52px);
+            opacity: 1;
         }
     }
 
     @keyframes span3 {
         from {
-            transform: translate(45px, -117px);
-            opacity: 1;
+            transform: rotate(90deg) translate(26px, -26px);
+            /*transform: translate(26px, 26px);*/
+            opacity: 0;
         }
 
-        25% {
-            transform: rotate(-135deg) translate(42px, 96px);
+        33% {
+            transform: rotate(45deg) translateX(26px) scale(0.5);
+        }
+
+        66% {
+            transform: rotate(45deg) translateX(52px);
             opacity: .5;
         }
 
-        50% {
-            transform: rotate(-135deg) translate(60px, 100px) scale(0.5);
-        }
-
         to {
-            transform: rotate(-90deg) translate(116px, 30px);
-            opacity: 0;
+            transform: rotate(90deg) translateX(52px);
+            opacity: 1;
         }
     }
 
     @keyframes span4 {
         from {
-            transform: rotate(90deg) translate(-146px, -19px);
-            opacity: 1;
+            transform: rotate(-90deg) translate(26px, -26px);
+            /*transform: rotate(0) translate(26px, 26px);*/
+            opacity: 0;
         }
 
-        25% {
-            transform: rotate(-45deg) translate(109px, -107px);
+        33% {
+            transform: rotate(-45deg) scale(0.5);
+        }
+
+        66% {
+            transform: rotate(-45deg);
             opacity: .5;
         }
 
-        50% {
-            transform: rotate(-45deg) translate(126px, -112px) scale(0.5);
-        }
-
         to {
-            transform: rotate(-90deg) translate(171px, 9px);
-            opacity: 0;
+            transform: rotate(0deg);
+            opacity: 1;
         }
     }
 </style>
