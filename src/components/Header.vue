@@ -62,11 +62,6 @@
         },
 
         computed: {
-            classObject() {
-                return {
-                    'cross': this.showNav,
-                }
-            }
         },
 
         methods: {
@@ -96,8 +91,6 @@
                         this.elTransitionEnd();
                     }
                 }
-
-                // this.$emit("on-scroll");
             },
             elTransitionEnd() {
                 this.isStuck = false;

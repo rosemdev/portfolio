@@ -32,7 +32,7 @@
     .card {
         position: relative;
         z-index: 1;
-        max-width: 320px;
+        width: 250px;
         min-height: 300px;
         padding: 1rem 2rem;
         margin: 0 25px;
@@ -57,6 +57,7 @@
 
         .card {
             min-height: 600px;
+            width: 320px;
 
         }
         .card-overlay {
