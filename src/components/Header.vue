@@ -4,14 +4,10 @@
             <div class="logo">
                 <img src="../assets/images/logo.png" alt="logo">
             </div>
-            <div :class="classObject"
-                 class="burger-icon"
-                 @click="showNav = !showNav"
-            >
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+            <rosem-burger-menu
+                    :open="showNav"
+                    @click.native="showNav = !showNav"
+            ></rosem-burger-menu>
         </header>
         <transition name="fade">
             <nav v-show="showNav">
@@ -30,6 +26,9 @@
 </template>
 
 <script>
+
+    import RosemBurgerMenu from "./BurgerMenu";
+
     export default {
         data() {
             return {
@@ -56,6 +55,10 @@
             offsetValueTablet: {
                 type: Number,
             }
+        },
+
+        components: {
+            RosemBurgerMenu,
         },
 
         computed: {
@@ -143,44 +146,6 @@
                 cursor: pointer;
                 img {
                     width: 35px;
-                }
-            }
-
-            & .burger-icon {
-                cursor: pointer;
-                margin: 5px;
-
-                & span {
-                    background-color: @mainColor;
-                    margin: 5px;
-                    padding: 2px;
-                    border-radius: 5px;
-                    display: block;
-                    height: 2px;
-                    width: 25px;
-                    transition: transform .3s ease-in;
-
-                }
-
-                & span:nth-last-of-type(2) {
-                    transition: opacity .3s ease-in-out;
-                }
-
-                &.cross {
-                    & span {
-                        &:first-child {
-                            transform: rotate(-135deg) translate(-1px, -4px)
-                        }
-
-                        &:nth-last-of-type(2) {
-                            opacity: 0;
-                        }
-
-                        &:last-child {
-                            transform: rotate(-45deg) translate(9px, -11px);
-                        }
-                    }
-
                 }
             }
         }

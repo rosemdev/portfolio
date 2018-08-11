@@ -109,9 +109,9 @@
     import RosemHistoryLine from "./components/HistoryLine"
     import RosemSocialBlock from "./components/SocialBlock"
     import RosemCard from "./views/Card"
-    import {Carousel, Slide} from 'vue-carousel'
-    import RosemSlideDescription from './components/SlideContent'
-    import RosemFooter from './components/Footer'
+    import {Carousel, Slide} from "vue-carousel"
+    import RosemSlideDescription from "./components/SlideContent"
+    import RosemFooter from "./components/Footer"
 
 
     export default {
@@ -384,13 +384,19 @@
                         position: relative;
 
                         ul {
-                            margin-top: 10px;
+                            margin-top: 40px;
                             li {
                                 border: none;
                                 box-shadow: none;
 
                                 &:after {
                                     content: none;
+                                }
+
+                                & a {
+                                    & img {
+                                        width: 39px;
+                                    }
                                 }
                             }
                         }
@@ -516,6 +522,20 @@
 
                 .about-me {
                     flex-direction: row;
+
+                    & .about {
+                        & .social {
+                            ul {
+                                li {
+                                    & a {
+                                        & img {
+                                            width: 27px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
 
                     & .photo-carousel {
                         .VueCarousel-navigation {
