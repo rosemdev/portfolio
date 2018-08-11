@@ -13,17 +13,19 @@
                 <span></span>
             </div>
         </header>
-        <nav v-show="showNav">
-            <transition-group tag="ul" name="bounce">
-                <li v-for="item in menuItems"
-                    :key="item"
-                    :class="{ active: isActive }"
+        <transition name="fade">
+            <nav v-show="showNav">
+                <ul>
+                    <li v-for="item in menuItems"
+                        :key="item"
+                        :class="{ active: isActive }"
 
-                >
-                    <a href="#">{{item }}</a>
-                </li>
-            </transition-group>
-        </nav>
+                    >
+                        <a href="#">{{ item }}</a>
+                    </li>
+                </ul>
+            </nav>
+        </transition>
     </div>
 </template>
 
@@ -45,6 +47,14 @@
 
             offsetValue: {
                 type: Number,
+            },
+
+            offsetValueMobile: {
+                type: Number,
+            },
+
+            offsetValueTablet: {
+                type: Number,
             }
         },
 
@@ -59,8 +69,11 @@
         methods: {
             stickHeader() {
                 let elRect = this.$el.getBoundingClientRect();
+                let deviceWidth = document.documentElement.clientWidth;
+                let threshold = deviceWidth < 767 ? this.offsetValueMobile
+                    : deviceWidth >= 768 && deviceWidth <= 1024 ? this.offsetValueTablet : this.offsetValue;
 
-                if (window.pageYOffset > this.offsetValue) {
+                if (window.pageYOffset > threshold) {
                     if (!this.isStuck) {
                         this.isStuck = true;
                         this.elOffsetTop = this.$el.offsetTop;
@@ -91,14 +104,14 @@
             }
         },
 
-        created () {
+        created() {
             this.$nextTick(() => {
                 window.addEventListener('scroll', this.stickHeader);
             })
 
         },
 
-        destroyed () {
+        destroyed() {
             window.removeEventListener('scroll', this.stickHeader);
         }
     }
@@ -120,6 +133,10 @@
             align-items: center;
             justify-content: space-between;
             box-shadow: none;
+            margin-left: 10px;
+            margin-right: 10px;
+            position: relative;
+            z-index: 10;
 
             & .logo {
                 margin: 15px 5px;
@@ -171,16 +188,23 @@
         & nav {
             padding-left: 45px;
             position: absolute;
-            margin-right: 17px;
+            margin-top: -75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             right: 0;
             z-index: 5;
             background-color: white;
-            width: 405px;
+            height: 130vh;
+            border-right: 2px solid @mainColor;
+            box-shadow: 0 1px 23px 5px #0000001a;
             ul {
+                margin-top: -30vh;
+                margin-right: -39px;
+
                 li {
                     text-align: right;
                     font-size: 2rem;
-                    border-right: 2px solid @mainColor;
                     padding: 15px 4rem 15px 0;
                     transition: all 0.3s ease-in-out;
 
@@ -205,16 +229,16 @@
         position: fixed;
         height: 60px;
         max-width: 100%;
-        box-shadow: rgba(94, 89, 94, 0.93) 0 0 15px 1px;
+        box-shadow: -2px 9px 20px 4px #00000054;
 
-        & header  {
+        & header {
             margin-left: 15px;
             margin-right: 15px;
 
             & .logo {
                 img {
                     width: 30px;
-                    filter:invert(100%);
+                    filter: invert(100%);
                     transition: 1s;
                 }
             }
@@ -227,27 +251,46 @@
                 }
             }
         }
+
+        & nav {
+            margin-right: 0;
+        }
     }
 
-    .responsive(@desktop, {
-        .header {
-            & header {
-                & .logo {
-                    img {
-                        width: 65px;
-                    }
+    .responsive(@desktop, { .header {
+        & header {
+            & .logo {
+                img {
+                    width: 65px;
                 }
-
             }
 
-            & nav {
-                ul {
-                    li {
-                        font-size: 4rem;
-                    }
+        }
+
+        & nav {
+            margin-right: 27px;
+            width: 405px;
+            margin-top: 0;
+            ul {
+                li {
+                    font-size: 4rem;
                 }
             }
         }
-    });
+    } });
+
+
+    .fade-enter-active {
+        transition: all .5s ease-in;
+    }
+
+    .fade-leave-active {
+
+    }
+    .fade-enter, .fade-leave-to {
+        transition: all .5s ease-out;
+        transform: translateX(50px);
+        opacity: 0;
+    }
 
 </style>

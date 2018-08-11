@@ -18,7 +18,7 @@
         display: inline-block;
         font-size: 1.2rem;
         padding: 15px 35px;
-        border-radius: 35px;
+        border-radius: 10px;
         color: white;
         cursor: pointer;
         white-space: nowrap;

@@ -33,28 +33,54 @@
     .social { //TODO social mobile view
         ul {
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
             align-items: center;
 
             li {
                 list-style: none;
-                margin: 30px;
+                margin: 10px;
                 text-transform: uppercase;
                 font-size: 11px;
                 font-weight: 600;
                 position: relative;
+                z-index: 1;
+                border: 1px solid black;
+                padding: 15px;
+                box-shadow: 4px 4px 7px 0 #0000004d;
+                border-radius: 5px;
 
-                .shadowText();
-
-                :before {
+                &:before {
                     content: '';
                     display: inline-block;
                     width: 20px;
                     height: 2px;
                     position: absolute;
                     background-color: @mainColor;
-                    left: -30px;
-                    bottom: 8px;
+                    left: -13px;
+                    bottom: 23px;
+                }
+
+                &:after {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    border-radius: 5px;
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+
+                }
+
+                &:hover {
+                    &:after {
+                        background-color: @theme-default-main;
+                        animation: overlay .3s ease-in-out;
+                    }
+
+                    a {
+                        color: white;
+                    }
                 }
 
                 a {
@@ -69,4 +95,46 @@
         }
     }
 
+    .responsive(@tablet, { .social { //TODO social mobile view
+        ul {
+            justify-content: flex-end;
+            li {
+                margin: 30px;
+                border: none;
+                box-shadow: none;
+
+                &:hover {
+                    &:after {
+                        content: none;
+                    }
+
+                    & a {
+                        color: @mainColor;
+                    }
+                    .shadowText();
+                }
+            }
+
+            a {
+
+                img {
+                    width: 25px;
+                    margin: -5px;
+                }
+            }
+        }
+    } });
+
+    @keyframes overlay {
+        from {
+            transform: translateY(45px) scale(.8);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+    }
 </style>

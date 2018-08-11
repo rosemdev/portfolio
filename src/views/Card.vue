@@ -1,8 +1,7 @@
 <template>
-    <div>
+    <div class="card-container">
         <div class="card">
             <slot></slot>
-            <rosem-button><span slot="button">more</span></rosem-button>
         </div>
         <div class="card-overlay"></div>
     </div>
@@ -25,37 +24,20 @@
     @import "../assets/styles/globalVariables";
     @import "../assets/styles/mixins";
 
-    div {
+    .card-container {
         position: relative;
+        margin-bottom: 35px;
     }
 
     .card {
         position: relative;
         z-index: 1;
         max-width: 320px;
-        min-height: 600px;
+        min-height: 300px;
         padding: 1rem 2rem;
         margin: 0 25px;
         overflow: hidden;
         transition: box-shadow .5s ease-in-out;
-
-
-
-        .button {
-            opacity: 0;
-            margin: auto;
-        }
-
-        &:hover, &:hover + .card-overlay {
-            opacity: 1;
-            box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
-            transform: rotateX(0deg) translateX(0) scale(1);
-
-            .button {
-                opacity: 1;
-                transition: all .5s ease-in-out;
-            }
-        }
     }
 
     .card-overlay {
@@ -71,7 +53,12 @@
 
     }
 
-    .responsive(@desktop, {
+    .responsive(@tablet, {
+
+        .card {
+            min-height: 600px;
+
+        }
         .card-overlay {
             position: absolute;
             z-index: 0;

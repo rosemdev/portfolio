@@ -4,7 +4,7 @@
             <gradient-screen @change-theme="theme = $event.theme"></gradient-screen>
         </div>
         <div class="main-container">
-            <rosem-header className="sticky" :offsetValue="1465"></rosem-header>
+            <rosem-header className="sticky" :offsetValue="1350" :offsetValueMobile="780" :offsetValueTablet="980"></rosem-header>
             <div class="greeting white-background">
                 <div class="main-content">
                     <div class="order">
@@ -50,6 +50,7 @@
                             <p><span class="stage">{{ card.stage }}</span>
                                 <span class="stage-name">{{ card.name }}</span></p>
                             <p class="stage-description">{{ card.description }}</p>
+                            <rosem-button><span slot="button">more</span></rosem-button>
                         </div>
                     </rosem-card>
                 </div>
@@ -179,7 +180,6 @@
 
     .main-content {
         padding: 15px 25px;
-
     }
 
     #rosem {
@@ -198,6 +198,7 @@
             width: 100%;
             margin: auto;
             box-shadow: 0 9px 31px 20px #0000001a;
+            overflow-x: hidden;
 
             & .order {
                 padding: 15px 25px;
@@ -257,21 +258,37 @@
                     flex-direction: column;
                     position: relative;
 
+                    .button {
+                        opacity: 1;
+                        margin: auto;
+                    }
+
                     & .stage-container {
-                        color: @mainColor;
+                        color: white;
                         transition: all .5s ease-in-out;
                         margin: auto;
                         .stage {
                             font-size: 5em;
                             margin-right: 3px;
                             font-weight: 500;
-                            border-bottom: 3px solid @mainColor;
+                            border-bottom: 3px solid white;
                         }
+
 
                         .stage-name {
                             font-weight: 600;
                         }
                     }
+
+                    .responsive(@tablet, {
+                        & .stage-container {
+                            color: @mainColor;
+
+                            & .stage {
+                                border-bottom-color: @mainColor;
+                            }
+                        }
+                    });
 
                     & .button {
                         background: #fafafa;
@@ -280,14 +297,14 @@
                         width: 185px;
                     }
 
-                    &:hover {
-                        & .stage-container {
-                            color: white;
-                            transform: translateY(-5rem);
+                    &:hover, &:hover + .card-overlay {
+                        opacity: 1;
+                        box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
+                        transform: rotateX(0deg) translateX(0) scale(1);
 
-                            & .stage {
-                                border-bottom-color: white;
-                            }
+                        .button {
+                            opacity: 1;
+                            transition: all .5s ease-in-out;
                         }
                     }
                 }
@@ -365,6 +382,18 @@
 
                     & .social {
                         position: relative;
+
+                        ul {
+                            margin-top: 10px;
+                            li {
+                                border: none;
+                                box-shadow: none;
+
+                                &:after {
+                                    content: none;
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -424,6 +453,26 @@
                         }
                     }
 
+                }
+
+                & .stages {
+                    & .card {
+
+                        & .button {
+                            opacity: 0;
+                        }
+                        &:hover {
+                            & .stage-container {
+                                color: white;
+                                transform: translateY(-5rem);
+
+                                & .stage {
+                                    border-bottom-color: white;
+                                }
+
+                            }
+                        }
+                    }
                 }
             }
 
