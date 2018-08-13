@@ -43,6 +43,7 @@
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
     @import "../assets/styles/mixins";
+
     a {
         cursor: pointer;
         color: white;

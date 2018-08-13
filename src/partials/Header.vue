@@ -128,6 +128,8 @@
         right: 0;
         z-index: 2;
         transition: top .4s;
+        max-width: 1200px;
+        margin: auto;
 
         & header {
             display: flex;
