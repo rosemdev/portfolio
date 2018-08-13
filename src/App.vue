@@ -1,124 +1,59 @@
 <template>
     <div id="rosem" :class="theme">
-        <div class="first-screen">
-            <gradient-screen @change-theme="theme = $event.theme"></gradient-screen>
-        </div>
+        <keep-alive>
+            <router-view name="underHeader"></router-view>
+        </keep-alive>
         <div class="main-container">
-            <rosem-header className="sticky" :offsetValue="1350" :offsetValueMobile="780" :offsetValueTablet="980"></rosem-header>
-            <div class="greeting white-background">
-                <div class="main-content">
-                    <div class="order">
-                        <h2>Rosem</h2>
-                        <h3>Ps... Want a website? You are here</h3>
-                        <rosem-button><span slot="button">get it</span></rosem-button>
-                    </div>
-                    <div class="bottom-contact-panel">
-                        <rosem-history-line></rosem-history-line>
-                        <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
-                    </div>
-                </div>
-            </div>
-            <div class="grey-background">
-                <div class="done-works main-content">
-                    <div class="carousel">
-                        <carousel :per-page="1"
-                                  :mouse-drag="true"
-                                  :navigationEnabled="true"
-                                  navigationNextLabel="next work"
-                                  navigationPrevLabel="prev work"
-                                  paginationColor="#5c59599e"
-                                  :loop="true"
-                                  :autoplay="false"
-                                  easing="ease-in-out"
-                                  :speed="500"
-                        >
-                            <slide v-for="(slide, index) in slideContents"
-                                   :key="index">
-                                <rosem-slide-description :descriptions="{slide}"></rosem-slide-description>
-                            </slide>
-                        </carousel>
-                    </div>
-                </div>
-            </div>
-            <div class="white-background">
-                <div class="stages main-content">
-                    <rosem-card v-for="(card, index) in cards"
-                                :key="index"
-                                @change-theme="themeMainColor = $event.color"
-                                :style="{background: themeMainColor}">
-                        <div class="stage-container">
-                            <p><span class="stage">{{ card.stage }}</span>
-                                <span class="stage-name">{{ card.name }}</span></p>
-                            <p class="stage-description">{{ card.description }}</p>
-                            <rosem-button><span slot="button">more</span></rosem-button>
-                        </div>
-                    </rosem-card>
-                </div>
-            </div>
-            <div class="grey-background without-padding">
-                <div class="about-me main-content">
-                    <div class="about">
-                        <p>About me</p>
-                        <h2>Romanna Semenyshyn</h2>
-                        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure iusto quibusdam
-                            temporibus voluptatem voluptatibus?</h3>
-                        <rosem-button><span slot="button">see projects</span></rosem-button>
-                        <div class="social">
-                            <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
-                        </div>
-                    </div>
-                    <div class="photo-carousel">
-                        <carousel :per-page="1"
-                                  :mouse-drag="true"
-                                  :navigationEnabled="true"
-                                  :paginationEnabled="false"
-                                  paginationColor="#5c59599e"
-                                  :loop="true"
-                                  :autoplay="false"
-                                  easing="ease-in-out"
-                                  :speed="500">
-                            <slide><img src="./assets/images/me/rosem2.jpg"/></slide>
-                            <slide><img src="./assets/images/me/rosem.jpg"/></slide>
-                            <slide><img src="./assets/images/me/me.jpg"/></slide>
-                            <slide><img src="./assets/images/me/me2.jpg"/></slide>
-                        </carousel>
-                    </div>
-                </div>
-            </div>
-            <div class="white-background">
-                <div class="contact-form main-content">
-
-                </div>
-            </div>
+            <rosem-header className="sticky" :offsetValue="1350" :offsetValueMobile="780" :offsetValueTablet="980"
+                          v-once
+            ></rosem-header>
+            <component :is="$route.meta.layout">
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
+            </component>
+            <!--TODO: remove 2 unnecessary 'DIV' elements-->
             <div class="footer white-background">
+                    <rosem-footer v-once></rosem-footer>
                 <div class="main-content">
-                    <rosem-footer></rosem-footer>
                 </div>
             </div>
         </div>
     </div>
 </template>
 
-
 <script>
+    import RosemHeader from "./partials/Header"
+    import RosemFooter from "./partials/Footer"
 
     import {cards, descriptions, socialLinks, socialIconsLinks, aboutMyself} from "./data/data"
-    import GradientScreen from "./views/GradientScreen"
-    import RosemHeader from "./components/Header"
-    import RosemButton from "./components/Button"
+    import GradientScreen from "./components/GradientScreen"
+    import RosemButton from "./ui-components/Button"
     import RosemHistoryLine from "./components/HistoryLine"
     import RosemSocialBlock from "./components/SocialBlock"
-    import RosemCard from "./views/Card"
+    import RosemCard from "./components/Card"
     import {Carousel, Slide} from "vue-carousel"
-    import RosemSlideDescription from "./components/SlideContent"
-    import RosemFooter from "./components/Footer"
+    import RosemSlideDescription from "./partials/SlideContent"
 
 
     export default {
+        components: {
+            RosemHeader,
+            RosemFooter,
+
+            RosemSlideDescription,
+            GradientScreen,
+            RosemButton,
+            RosemHistoryLine,
+            RosemSocialBlock,
+            RosemCard,
+            Carousel,
+            Slide
+        },
+
         data() {
             return {
                 theme: 'theme-default',
-                themeMainColor: 'theme-default-main',
                 socialLinks: socialLinks,
                 socialIconsLinks: socialIconsLinks,
                 slideContents: descriptions,
@@ -128,20 +63,11 @@
             }
         },
 
-        components: {
-            RosemSlideDescription,
-            GradientScreen,
-            RosemHeader,
-            RosemButton,
-            RosemHistoryLine,
-            RosemSocialBlock,
-            RosemCard,
-            RosemFooter,
-            Carousel,
-            Slide
-        },
+        methods: {},
 
-        methods: {}
+        created() {
+            this.$root.$on('change-theme', theme => this.theme = theme)
+        }
     }
 </script>
 
@@ -188,7 +114,7 @@
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
 
-        & .first-screen {
+        & .gradient-screen {
             height: 700px;
         }
 
@@ -430,7 +356,7 @@
         }
 
         .responsive(@tablet, {
-            & .first-screen {
+            & .gradient-screen {
                 height: 900px;
             }
 
@@ -486,7 +412,7 @@
 
         .responsive(@desktop, {
 
-            & .first-screen {
+            & .gradient-screen {
                 height: 1100px;
             }
 

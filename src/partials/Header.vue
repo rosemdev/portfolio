@@ -13,11 +13,11 @@
             <nav v-show="showNav">
                 <ul>
                     <li v-for="item in menuItems"
-                        :key="item"
+                        :key="item.url"
                         :class="{ active: isActive }"
 
                     >
-                        <a href="#">{{ item }}</a>
+                        <router-link :to="{path: item.url}">{{ item.text }}</router-link>
                     </li>
                 </ul>
             </nav>
@@ -27,14 +27,19 @@
 
 <script>
 
-    import RosemBurgerMenu from "./BurgerMenu";
+    import RosemBurgerMenu from "../ui-components/BurgerMenu";
 
     export default {
         data() {
             return {
                 isStuck: false,
-                menuItems: ['Home', 'About', 'Skills', 'Contact'],
-                showNav: true,
+                menuItems: [
+                    {text: 'Home', url: '/'},
+                    {text: 'About', url: '/hello'},
+                    {text: 'Skills', url: '/skills'},
+                    {text: 'Contact', url: '/contact'},
+                ],
+                showNav: false,
                 isActive: false
             }
         },

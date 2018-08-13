@@ -44,11 +44,8 @@
 
         &.cross {
             & span {
-                animation-duration: .5s;
-                animation-timing-function: ease-out;
                 &:first-child {
                     transform: translateY(9px) rotate(45deg);
-                    animation: span1;
 
                 }
 

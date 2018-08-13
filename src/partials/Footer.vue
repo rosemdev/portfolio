@@ -1,41 +1,39 @@
 <template>
-    <div>
-        <footer>
-            <div class="footer-logo">
-                <a href="#">
-                    <img src="../assets/images/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="footer-links">
-                <ul>
-                    <li>
-                        <a>Projects</a>
-                    </li>
-                    <li>
-                        <a>Development Stages</a>
-                    </li>
-                    <li>
-                        <a>About</a>
-                    </li>
-                    <li>
-                        <a>Skills</a>
-                    </li>
-                    <li>
-                        <a>Contact</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="copyright">
-                <p>All rights reserved by <a href="https://github.com/RomSem/">@rosem</a></p>
-            </div>
-            <div class="scroll-top">
-                <rosem-scroll-block></rosem-scroll-block>
-            </div>
-        </footer>
-    </div>
+    <footer>
+        <div class="footer-logo">
+            <a href="#">
+                <img src="../assets/images/logo.png" alt="logo">
+            </a>
+        </div>
+        <div class="footer-links">
+            <ul>
+                <li>
+                    <a>Projects</a>
+                </li>
+                <li>
+                    <a>Development Stages</a>
+                </li>
+                <li>
+                    <a>About</a>
+                </li>
+                <li>
+                    <a>Skills</a>
+                </li>
+                <li>
+                    <a>Contact</a>
+                </li>
+            </ul>
+        </div>
+        <div class="copyright">
+            <p>All rights reserved by <a href="https://github.com/RomSem/">@rosem</a></p>
+        </div>
+        <div class="scroll-top">
+            <rosem-scroll-block></rosem-scroll-block>
+        </div>
+    </footer>
 </template>
 <script>
-    import RosemScrollBlock from "./ScrollButton"
+    import RosemScrollBlock from "../ui-components/ScrollButton"
  export default {
         components: {
             "rosem-scroll-block" : RosemScrollBlock

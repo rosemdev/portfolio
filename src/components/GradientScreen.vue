@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="gradient-screen">
         <div class="gradient">
             <div class="intro">
                 <h1>Hello! I'm rosem</h1>
@@ -10,11 +10,11 @@
             <div class="theme">
                 <p class="check">Check it out</p>
                 <div class="select-theme">
-                    <span @click="$emit('change-theme', {theme: 'theme1', color: '@theme1-main'})">Click me</span>
-                    <span @click="$emit('change-theme', {theme: 'theme2', color: '@theme2-main'})">...or me</span>
-                    <span @click="$emit('change-theme', {theme: 'theme3', color: '@theme3-main'})">meeee!!</span>
+                    <span @click="$root.$emit('change-theme', 'theme1')">Click me</span>
+                    <span @click="$root.$emit('change-theme', 'theme2')">...or me</span>
+                    <span @click="$root.$emit('change-theme', 'theme3')">meeee!!</span>
                 </div>
-                <p class="reset" @click="$emit('change-theme', {theme: 'theme-default', color: '@@theme-default-main'})">reset</p>
+                <p class="reset" @click="$root.$emit('change-theme', 'theme-default')">reset</p>
             </div>
             <slot name="mainPage"></slot>
         </div>

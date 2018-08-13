@@ -23,7 +23,7 @@
 </template>
 
 <script>
-    import RosemButton from "./Button"
+    import RosemButton from "../ui-components/Button"
 
     export default {
 

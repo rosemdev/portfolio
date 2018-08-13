@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import RosemButton from "../components/Button"
+    import RosemButton from "../ui-components/Button"
 
     export default {
         data() {
