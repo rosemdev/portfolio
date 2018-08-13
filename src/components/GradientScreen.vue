@@ -143,7 +143,7 @@
     .responsive(@tablet, {
 
         .gradient {
-            height: 1000px;
+            height: 900px;
             border-bottom-left-radius: 45%;
             border-bottom-right-radius: 45%;
 
