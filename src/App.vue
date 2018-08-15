@@ -4,7 +4,7 @@
             <router-view name="underHeader"></router-view>
         </keep-alive>
         <div class="main-container">
-            <rosem-header className="sticky" :offsetValue="1350" :offsetValueMobile="780" :offsetValueTablet="980"
+            <rosem-header className="sticky" :offsetValue="200"
                           v-once
             ></rosem-header>
             <component :is="$route.meta.layout">
@@ -12,7 +12,6 @@
                     <router-view></router-view>
                 </keep-alive>
             </component>
-            <!--TODO: remove 2 unnecessary 'DIV' elements-->
             <rosem-footer v-once></rosem-footer>
         </div>
     </div>

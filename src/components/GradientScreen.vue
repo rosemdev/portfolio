@@ -28,7 +28,7 @@
         },
 
         computed: {},
-        methods: {}
+        methods: {},
     }
 
 </script>
@@ -140,52 +140,44 @@
         }
     }
 
-    .responsive(@tablet, {
+    .responsive(@tablet, { .gradient {
+        height: 900px;
+        border-bottom-left-radius: 45%;
+        border-bottom-right-radius: 45%;
 
-        .gradient {
-            height: 900px;
-            border-bottom-left-radius: 45%;
-            border-bottom-right-radius: 45%;
+        & .intro {
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding-top: 19rem;
 
-            & .intro {
-                max-width: 1200px;
-                width: 100%;
-                margin: auto;
-                padding-top: 19rem;
+        }
+    } });
 
+    .responsive(@desktop, { .gradient {
+        height: 1800px;
+
+        & .intro {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 2.7rem;
             }
         }
 
-    });
-
-    .responsive(@desktop, {
-
-        .gradient {
-            height: 1800px;
-
-            & .intro {
-                h1 {
-                    font-size: 2rem;
-                }
-
-                h2 {
-                    font-size: 2.7rem;
+        & .theme {
+            & .select-theme {
+                margin: 2.5rem 0;
+                & span {
+                    width: 100px;
+                    height: 100px;
+                    line-height: 100px;
                 }
             }
-
-            & .theme {
-                & .select-theme {
-                    margin: 2.5rem 0;
-                    & span {
-                        width: 100px;
-                        height: 100px;
-                        line-height: 100px;
-                    }
-                }
-            }
-
         }
 
-    });
+    } });
 
 </style>

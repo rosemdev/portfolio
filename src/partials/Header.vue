@@ -40,7 +40,10 @@
                     {text: 'Contact', url: '/contact'},
                 ],
                 showNav: false,
-                isActive: false
+                isActive: false,
+                isTopElement: false,
+                topElementHeight: ''
+
             }
         },
 
@@ -50,14 +53,6 @@
             },
 
             offsetValue: {
-                type: Number,
-            },
-
-            offsetValueMobile: {
-                type: Number,
-            },
-
-            offsetValueTablet: {
                 type: Number,
             }
         },
@@ -72,9 +67,8 @@
         methods: {
             stickHeader() {
                 let elRect = this.$el.getBoundingClientRect();
-                let deviceWidth = document.documentElement.clientWidth;
-                let threshold = deviceWidth < 767 ? this.offsetValueMobile
-                    : deviceWidth >= 768 && deviceWidth <= 1024 ? this.offsetValueTablet : this.offsetValue;
+                let threshold; 
+                threshold = this.isTopElement ? this.offsetValue + this.topElementHeight  : this.offsetValue;
 
                 if (window.pageYOffset > threshold) {
                     if (!this.isStuck) {
@@ -110,6 +104,20 @@
                 window.addEventListener('scroll', this.stickHeader);
             })
 
+        },
+
+        mounted() {
+            this.$nextTick(() => {
+                let topElement = this.$root.$el.firstChild;
+
+                if (topElement && topElement.nodeType === 1 ) {
+                    this.topElementHeight = topElement.getBoundingClientRect().height;
+                    this.isTopElement = true;
+
+                } else {
+                    this.isTopElement = false;
+                }
+            });
         },
 
         destroyed() {
