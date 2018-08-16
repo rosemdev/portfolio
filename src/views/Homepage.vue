@@ -49,7 +49,7 @@
                 </rosem-card>
             </div>
         </div>
-        <div class="grey-background without-padding">
+        <div class="grey-background">
             <div class="about-me main-content">
                 <div class="about">
                     <p>About me</p>
@@ -353,10 +353,6 @@
 
         .contact-form {
             height: 25rem;
-        }
-
-        .footer {
-            background-color: @mainColor;
         }
     }
 

@@ -85,6 +85,7 @@
 
                 a {
                     color: @mainColor;
+                    .shadowText();
 
                     img {
                         width: 25px;
@@ -110,8 +111,9 @@
 
                     & a {
                         color: @mainColor;
+                        .shadowText();
                     }
-                    .shadowText();
+
                 }
             }
 
