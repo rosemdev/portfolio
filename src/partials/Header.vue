@@ -2,7 +2,9 @@
     <div :class="['header', {[className]: isStuck}]">
         <header>
             <div class="logo">
-                <img src="../assets/images/logo.png" alt="logo">
+                <router-link to="/">
+                    <img src="../assets/images/logo.png" alt="logo">
+                </router-link>
             </div>
             <rosem-burger-menu
                     :open="showNav"
@@ -61,14 +63,13 @@
             RosemBurgerMenu,
         },
 
-        computed: {
-        },
+        computed: {},
 
         methods: {
             stickHeader() {
                 let elRect = this.$el.getBoundingClientRect();
-                let threshold; 
-                threshold = this.isTopElement ? this.offsetValue + this.topElementHeight  : this.offsetValue;
+                let threshold;
+                threshold = this.isTopElement ? this.offsetValue + this.topElementHeight : this.offsetValue;
 
                 if (window.pageYOffset > threshold) {
                     if (!this.isStuck) {
@@ -110,7 +111,7 @@
             this.$nextTick(() => {
                 let topElement = this.$root.$el.firstChild;
 
-                if (topElement && topElement.nodeType === 1 ) {
+                if (topElement && topElement.nodeType === 1) {
                     this.topElementHeight = topElement.getBoundingClientRect().height;
                     this.isTopElement = true;
 
@@ -131,7 +132,6 @@
 
     .header {
         position: relative;
-        /*top: 0; Do not use it!!! */
         left: 0;
         right: 0;
         z-index: 2;
@@ -252,7 +252,6 @@
         }
     } });
 
-
     .fade-enter-active {
         transition: all .5s ease-in;
     }
@@ -260,6 +259,7 @@
     .fade-leave-active {
 
     }
+
     .fade-enter, .fade-leave-to {
         transition: all .5s ease-out;
         transform: translateX(50px);

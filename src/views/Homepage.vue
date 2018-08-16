@@ -339,6 +339,10 @@
                 width: 100%;
                 margin: 0 25px;
 
+                & .VueCarousel-wrapper {
+                    height: 600px;
+                }
+
                 .VueCarousel-navigation {
                     position: absolute;
                     left: 50%;
@@ -347,6 +351,8 @@
 
                 img {
                     width: 100%;
+                    height: 600px;
+                    object-fit: cover;
                 }
             }
         }
