@@ -1,6 +1,6 @@
 <template>
     <div class="gradient-screen">
-        <div class="gradient">
+        <div class="gradient" :style="{background: this.GenerateRandomGradient()}">
             <slot name="gradientContent"></slot>
             <slot name="mainPage"></slot>
         </div>
@@ -11,9 +11,44 @@
     import RosemTheme from "../components/Theme"
 
     export default {
+        props: {
+            isRandGradient: {
+                type: Boolean,
+                default: false,
+            }
+        },
+
         components: {
             RosemTheme
-        }
+        },
+
+        methods: {
+            GenerateRandomGradient() {
+                let hexValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e"];
+
+                function createColor() {
+                    let color = "#";
+                    for (let i = 0; i < 6; i++) {
+                        let rand = Math.round(Math.random() * 14);
+                        color += hexValues[rand];
+                    }
+                    return color;
+                }
+
+                let angle = Math.round(Math.random() * 360);
+                let gradient = "linear-gradient(" + angle + "deg, " + createColor() + ", " + createColor() + ")";
+
+                if (this.isRandGradient) {
+
+                    return gradient;
+                }
+
+                return false;
+
+
+            },
+
+        },
     }
 
 </script>
