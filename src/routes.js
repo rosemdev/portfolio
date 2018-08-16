@@ -2,13 +2,14 @@ import OneColumnLayout from "./layouts/OneColumnLayout"
 import TwoColumnsLayout from "./layouts/TwoColumnsLayout"
 import Homepage from './views/Homepage'
 import HelloWorld from './views/HelloWorld'
-import GradientScreen from "./components/GradientScreen"
+import Gradient from "./components/Gradient"
+import GradientHomepage from "./partials/GradientHomepage"
 
 export const routes = [
     {
         path: '/',
         components: {
-            underHeader: GradientScreen,
+            underHeader: GradientHomepage,
             default: Homepage,
         },
         meta: {
@@ -21,5 +22,15 @@ export const routes = [
         meta: {
             layout: TwoColumnsLayout,
         }
-    }
+    },
+    {
+        path: '/test',
+        components: {
+            underHeader: Gradient,
+            default: HelloWorld,
+        },
+        meta: {
+            layout: OneColumnLayout,
+        },
+    },
 ];

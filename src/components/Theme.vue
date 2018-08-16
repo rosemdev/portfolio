@@ -14,7 +14,7 @@
     @import "../assets/styles/mixins";
     @import "../assets/styles/themes";
 
-    & .theme {
+    .theme {
         p {
             color: white;
             font-size: 1.5em;
@@ -51,6 +51,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 50px 0;
 
         }
 
@@ -65,6 +66,7 @@
             line-height: 80px;
             cursor: pointer;
             box-shadow: 0 3px 20px 3px #0000004d;
+            flex-shrink: 0;
 
             &:first-child {
                 background: @theme1;

@@ -38,7 +38,7 @@
                 menuItems: [
                     {text: 'Home', url: '/'},
                     {text: 'About', url: '/hello'},
-                    {text: 'Skills', url: '/skills'},
+                    {text: 'Skills', url: '/test'},
                     {text: 'Contact', url: '/contact'},
                 ],
                 showNav: false,
