@@ -37,8 +37,8 @@
                 isStuck: false,
                 menuItems: [
                     {text: 'Home', url: '/'},
-                    {text: 'About', url: '/hello'},
-                    {text: 'Skills', url: '/test'},
+                    {text: 'Gallery', url: '/gallery'},
+                    {text: 'Skills', url: '/skills'},
                     {text: 'Contact', url: '/contact'},
                 ],
                 showNav: false,

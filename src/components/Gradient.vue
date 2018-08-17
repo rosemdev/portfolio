@@ -35,19 +35,22 @@
                     return color;
                 }
 
-                let angle = Math.round(Math.random() * 360);
-                let gradient = "linear-gradient(" + angle + "deg, " + createColor() + ", " + createColor() + ")";
+                let angle = Math.round(Math.random() * 360),
+                    type = Math.floor(Math.random() * 2) + 1, //return a random type of the gradient (1 - linear, 2 - radial)
+                    gradient;
 
                 if (this.isRandGradient) {
+                    if (type === 1) {
+                        gradient = `linear-gradient(${angle}deg, ${createColor()}, ${createColor()})`;
+                    } else {
+                        gradient = `radial-gradient(circle, ${createColor()}, ${createColor()})`;
 
+                    }
                     return gradient;
                 }
 
                 return false;
-
-
             },
-
         },
     }
 

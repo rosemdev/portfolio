@@ -17,14 +17,14 @@ export const routes = [
         },
     },
     {
-        path: '/hello',
+        path: '/gallery',
         component: HelloWorld,
         meta: {
             layout: TwoColumnsLayout,
         }
     },
     {
-        path: '/test',
+        path: '/skills',
         components: {
             underHeader: Gradient,
             default: HelloWorld,
