@@ -127,8 +127,7 @@
     }
 </script>
 <style lang="less">
-    @import "../assets/styles/globalVariables";
-    @import "../assets/styles/mixins";
+    @import "../assets/styles/design";
 
     .header {
         position: relative;

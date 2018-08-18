@@ -128,8 +128,7 @@
 </script>
 <style lang="less">
     @import "../assets/styles/reset";
-    @import "../assets/styles/globalVariables";
-    @import "../assets/styles/mixins";
+    @import "../assets/styles/design";
     @import "../assets/styles/main";
     @import "../assets/styles/themes";
 

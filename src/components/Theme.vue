@@ -9,9 +9,15 @@
         <p class="reset" @click="$root.$emit('change-theme', 'theme-default')">reset</p>
     </div>
 </template>
+<script>
+    export default {
+        methods: {
+
+        }
+    }
+</script>
 <style lang="less" scoped>
-    @import "../assets/styles/globalVariables";
-    @import "../assets/styles/mixins";
+    @import "../assets/styles/design";
     @import "../assets/styles/themes";
 
     .theme {

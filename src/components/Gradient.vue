@@ -1,6 +1,6 @@
 <template>
     <div class="gradient-screen">
-        <div class="gradient" :style="{background: this.GenerateRandomGradient()}">
+        <div class="gradient" :style="isRandGradient ? {background: this.GenerateRandomGradient()} : ''">
             <slot name="gradientContent"></slot>
             <slot name="mainPage"></slot>
         </div>
@@ -23,33 +23,26 @@
         },
 
         methods: {
+
+            getRandomColor() {
+                let color = '#' + Math.round(Math.random() * 16777215).toString(16).padStart(6, '0');
+                console.log(color);
+                return color;
+            },
+
             GenerateRandomGradient() {
-                let hexValues = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e"];
-
-                function createColor() {
-                    let color = "#";
-                    for (let i = 0; i < 6; i++) {
-                        let rand = Math.round(Math.random() * 14);
-                        color += hexValues[rand];
-                    }
-                    return color;
-                }
-
                 let angle = Math.round(Math.random() * 360),
                     type = Math.floor(Math.random() * 2) + 1, //return a random type of the gradient (1 - linear, 2 - radial)
                     gradient;
 
-                if (this.isRandGradient) {
-                    if (type === 1) {
-                        gradient = `linear-gradient(${angle}deg, ${createColor()}, ${createColor()})`;
-                    } else {
-                        gradient = `radial-gradient(circle, ${createColor()}, ${createColor()})`;
+                if (type === 1) {
+                    gradient = `linear-gradient(${angle}deg, ${this.getRandomColor()}, ${this.getRandomColor()})`;
+                } else {
+                    gradient = `radial-gradient(circle, ${this.getRandomColor()}, ${this.getRandomColor()})`;
 
-                    }
-                    return gradient;
                 }
 
-                return false;
+                return gradient;
             },
         },
     }
@@ -57,9 +50,7 @@
 </script>
 
 <style lang="less">
-
-    @import "../assets/styles/globalVariables";
-    @import "../assets/styles/mixins";
+    @import "../assets/styles/design";
 
     .gradient {
         background-image: @theme-default;

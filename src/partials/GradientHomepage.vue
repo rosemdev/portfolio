@@ -1,16 +1,14 @@
 <template>
-    <div>
-        <rosem-gradient>
-            <div class="intro" slot="gradientContent">
-                <h1>Hello! I'm rosem</h1>
-                <h2>And I like to create pretty cool websites</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dignissimos dolorem
-                    eaque
-                    est facere laudantium magnam maiores, numquam quia quibusdam sequi, sit vero voluptas?</p>
-                <rosem-theme></rosem-theme>
-            </div>
-        </rosem-gradient>
-    </div>
+    <rosem-gradient :isRandGradient="true">
+        <div class="intro" slot="gradientContent">
+            <h1>Hello! I'm rosem</h1>
+            <h2>And I like to create pretty cool websites</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dignissimos dolorem
+                eaque
+                est facere laudantium magnam maiores, numquam quia quibusdam sequi, sit vero voluptas?</p>
+            <rosem-theme></rosem-theme>
+        </div>
+    </rosem-gradient>
 </template>
 
 <script>
@@ -27,9 +25,7 @@
 </script>
 
 <style lang="less">
-
-    @import "../assets/styles/globalVariables";
-    @import "../assets/styles/mixins";
+    @import "../assets/styles/design";
 
     .intro {
         margin: 0 2.2rem;

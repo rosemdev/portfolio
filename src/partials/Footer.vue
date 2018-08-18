@@ -44,8 +44,7 @@
     }
 </script>
 <style lang="less" scoped>
-    @import "../assets/styles/globalVariables";
-    @import "../assets/styles/mixins";
+    @import "../assets/styles/design";
 
     a {
         cursor: pointer;

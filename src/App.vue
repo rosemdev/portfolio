@@ -1,7 +1,7 @@
 <template>
     <div id="rosem" :class="theme">
         <keep-alive>
-            <router-view name="underHeader"></router-view>
+            <router-view name="underHeader" ref="underHeader"></router-view>
         </keep-alive>
         <div class="main-container">
             <rosem-header className="sticky" :offsetValue="200"
@@ -38,7 +38,14 @@
         methods: {},
 
         created() {
-            this.$root.$on('change-theme', theme => this.theme = theme)
+            this.$root.$on('change-theme', (theme) => {
+                console.log(this.$refs);
+                this.$refs.underHeader.$el.firstChild.style.background = '';
+                this.theme = theme;
+                localStorage.setItem('theme', this.theme);
+            });
+
+            this.theme = localStorage.getItem('theme') || this.theme;
         }
     }
 </script>
@@ -49,10 +56,9 @@
 
 <style lang="less">
     @import "./assets/styles/reset";
-    @import "./assets/styles/globalVariables";
-    @import "assets/styles/mixins";
-    @import "assets/styles/main";
-    @import "assets/styles/themes";
+    @import "./assets/styles/design";
+    @import "./assets/styles/main";
+    @import "./assets/styles/themes";
 
     #rosem {
         font-family: 'Montserrat', sans-serif;
