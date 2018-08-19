@@ -1,11 +1,6 @@
 <template>
     <footer>
         <div class="main-content footer">
-            <div class="footer-logo">
-                <router-link to="/">
-                    <img src="../assets/images/logo.png" alt="logo">
-                </router-link>
-            </div>
             <div class="footer-links">
                 <ul>
                     <li>
@@ -28,6 +23,15 @@
             <div class="copyright">
                 <p>All rights reserved by <a href="https://github.com/RomSem/">@rosem</a></p>
             </div>
+        </div>
+        <div class="social-block">
+            <div class="footer-logo">
+                <router-link to="/">
+                    <img src="../assets/images/logo.png" alt="logo">
+                </router-link>
+            </div>
+            <p>Find me in: </p>
+            <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
             <div class="scroll-top">
                 <rosem-scroll-block></rosem-scroll-block>
             </div>
@@ -35,11 +39,19 @@
     </footer>
 </template>
 <script>
+    import {socialLinks} from "../data/data"
     import RosemScrollBlock from "../ui-components/ScrollButton"
+    import RosemSocialBlock from "../components/SocialBlock"
 
     export default {
+        data() {
+            return {
+                socialLinks: socialLinks,
+            }
+        },
         components: {
-            "rosem-scroll-block": RosemScrollBlock
+            RosemScrollBlock,
+            RosemSocialBlock
         }
     }
 </script>
@@ -61,14 +73,9 @@
             justify-content: space-between;
             align-items: center;
             color: white;
-            /*padding: 15px 25px;*/
-
-            & .footer-logo {
-                img {
-                    width: 125px;
-                    filter: invert(100%);
-                }
-            }
+            margin-top: -8rem;
+            border-radius: 10px;
+            padding: 60px;
 
             & .footer-links {
                 ul {
@@ -87,9 +94,41 @@
             & .copyright {
                 margin-top: 25px;
             }
+        }
 
-            & .scroll-top {
-                margin-bottom: 40px;
+        .social-block {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            & .footer-logo {
+                margin-top: 25px;
+                img {
+                    width: 125px;
+                    filter: invert(100%);
+                }
+            }
+
+            p {
+                color: white;
+                font-size: 25px;
+                text-transform: lowercase;
+                margin-bottom: -15px;
+            }
+
+            .social {
+                & /deep/ ul {
+                    & li {
+                        &:before {
+                            background-color: white;
+                        }
+                        & a {
+                            color: white;
+                            font-size: 15px;
+                        }
+                    }
+                }
             }
         }
     }

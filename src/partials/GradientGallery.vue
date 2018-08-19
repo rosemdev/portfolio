@@ -1,5 +1,5 @@
 <template>
-    <rosem-gradient :is-rand-gradient="true">
+    <rosem-gradient :is-rand-gradient="true" :height="500">
         <div class="galleryIntro" slot="gradientContent">
             <h1>Check out the gallery</h1>
 
