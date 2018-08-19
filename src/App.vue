@@ -3,18 +3,14 @@
         <keep-alive>
             <router-view name="underHeader" ref="underHeader"></router-view>
         </keep-alive>
-        <div class="main-container">
-            <rosem-header className="sticky" :offsetValue="200"
-                          v-once
-            ></rosem-header>
-            <component :is="$route.meta.layout">
-                <keep-alive>
-                    <router-view></router-view>
-                </keep-alive>
-            </component>
+            <rosem-header className="sticky" :offsetValue="200" v-once></rosem-header>
+                <component :is="$route.meta.layout">
+                    <keep-alive>
+                        <router-view></router-view>
+                    </keep-alive>
+                </component>
             <rosem-footer v-once></rosem-footer>
         </div>
-    </div>
 </template>
 
 <script>

@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer class="limited-container">
         <div class="main-content footer">
             <div class="footer-logo">
                 <router-link to="/">

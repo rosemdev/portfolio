@@ -1,5 +1,6 @@
 <template>
-    <div :class="['header', {[className]: isStuck}]">
+    <div
+            :class="['header', {[className]: isStuck}]">
         <header>
             <div class="logo">
                 <router-link to="/">
@@ -11,7 +12,7 @@
                     @click.native="showNav = !showNav"
             ></rosem-burger-menu>
         </header>
-        <transition name="fade">
+        <transition name="fade" mode="out-in">
             <nav v-show="showNav">
                 <ul>
                     <li v-for="item in menuItems"
@@ -97,12 +98,20 @@
                 this.$el.style.top = '';
                 this.$el.nextElementSibling.style.paddingTop = '';
                 this.$el.removeEventListener('transitionend', this.elTransitionEnd);
+            },
+
+            closeMenu(event) {
+                if (this.showNav && event.target !== this.$el.firstChild.nextSibling
+                    && !this.$el.querySelector('.burger-icon').contains(event.target)) {
+                    this.showNav = false;
+                }
             }
         },
 
         created() {
             this.$nextTick(() => {
                 window.addEventListener('scroll', this.stickHeader);
+                document.addEventListener('click', this.closeMenu)
             })
 
         },
@@ -123,6 +132,7 @@
 
         destroyed() {
             window.removeEventListener('scroll', this.stickHeader);
+            document.removeEventListener('click', this.closeMenu)
         }
     }
 </script>
@@ -135,7 +145,8 @@
         right: 0;
         z-index: 2;
         transition: top .4s;
-        max-width: 1200px;
+        background-color: white;
+        max-width: 1600px;
         margin: auto;
 
         & header {
@@ -143,10 +154,13 @@
             align-items: center;
             justify-content: space-between;
             box-shadow: none;
-            margin-left: 10px;
-            margin-right: 10px;
             position: relative;
             z-index: 10;
+            max-width: 1200px;
+            margin: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+
 
             & .logo {
                 margin: 15px 5px;
@@ -166,25 +180,44 @@
             align-items: center;
             right: 0;
             z-index: 5;
-            background-color: white;
-            height: 130vh;
+            height: 100vh;
             border-right: 2px solid @mainColor;
             box-shadow: 0 1px 23px 5px #0000001a;
-            ul {
-                margin-top: -30vh;
-                margin-right: -39px;
 
+            &:before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 150vh;
+                background-color: white;
+
+            }
+
+            ul {
                 li {
                     text-align: right;
                     font-size: 2rem;
                     padding: 15px 4rem 15px 0;
                     transition: all 0.3s ease-in-out;
+                    position: relative;
+                    margin-right: -40px;
 
                     &:hover, &.active {
-                        border-right: 5px solid black;
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            right: 0;
+                            top: 0;
+                            background-color: black;
+                            width: 6px;
+                            height: 100%;
+                        }
 
                         & a {
                             color: black;
+                            margin-right: 1px;
                         }
                     }
 
@@ -204,8 +237,7 @@
         box-shadow: -2px 9px 20px 4px #00000054;
 
         & header {
-            margin-left: 15px;
-            margin-right: 15px;
+            margin: auto;
 
             & .logo {
                 img {

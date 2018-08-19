@@ -1,9 +1,7 @@
 <template>
     <div class="layout-2-cols">
         <slot></slot>
-        <aside>
-            <h2>SIDEBAR</h2>
-        </aside>
+
     </div>
 </template>
 <script>

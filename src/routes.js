@@ -1,9 +1,11 @@
 import OneColumnLayout from "./layouts/OneColumnLayout"
-import TwoColumnsLayout from "./layouts/TwoColumnsLayout"
+// import TwoColumnsLayout from "./layouts/TwoColumnsLayout"
 import Homepage from './views/Homepage'
+import Gallery from './views/Gallery'
 import HelloWorld from './views/HelloWorld'
 import Gradient from "./components/Gradient"
 import GradientHomepage from "./partials/GradientHomepage"
+import GradientGallery from "./partials/GradientGallery"
 
 export const routes = [
     {
@@ -18,9 +20,12 @@ export const routes = [
     },
     {
         path: '/gallery',
-        component: HelloWorld,
+        components: {
+            underHeader: GradientGallery,
+            default: Gallery,
+        },
         meta: {
-            layout: TwoColumnsLayout,
+            layout: OneColumnLayout,
         }
     },
     {

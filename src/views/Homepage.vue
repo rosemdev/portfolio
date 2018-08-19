@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main-container">
         <div class="greeting white-background">
             <div class="main-content">
                 <div class="order">
@@ -88,7 +88,7 @@
 </template>
 <script>
 
-    import {cards, descriptions, socialLinks, socialIconsLinks, aboutMyself} from "../data/data"
+    import {aboutMyself, cards, descriptions, socialIconsLinks, socialLinks} from "../data/data"
     import RosemHeader from "../partials/Header"
     import RosemButton from "../ui-components/Button"
     import RosemHistoryLine from "../components/HistoryLine"
@@ -179,7 +179,7 @@
 
         }
 
-        & .stages { //TODO
+        & .stages {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
