@@ -1,5 +1,5 @@
 <template>
-    <footer class="limited-container">
+    <footer>
         <div class="main-content footer">
             <div class="footer-logo">
                 <router-link to="/">
@@ -54,6 +54,7 @@
 
     footer {
         background-color: @mainColor;
+        padding: 50px 0;
         .footer {
             display: flex;
             flex-direction: column;

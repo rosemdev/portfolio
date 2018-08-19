@@ -1,5 +1,5 @@
 <template>
-    <rosem-gradient :isRandGradient="true">
+    <rosem-gradient>
         <div class="intro" slot="gradientContent">
             <h1>Hello! I'm rosem</h1>
             <h2>And I like to create pretty cool websites</h2>
@@ -24,7 +24,7 @@
 
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
     @import "../assets/styles/design";
 
     .intro {

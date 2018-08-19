@@ -156,10 +156,8 @@
             box-shadow: none;
             position: relative;
             z-index: 10;
-            max-width: 1200px;
-            margin: auto;
-            padding-left: 15px;
-            padding-right: 15px;
+            /*max-width: 1200px;*/ //TODO
+            margin: 0 25px;
 
 
             & .logo {
@@ -237,7 +235,7 @@
         box-shadow: -2px 9px 20px 4px #00000054;
 
         & header {
-            margin: auto;
+            max-width: 100%;
 
             & .logo {
                 img {

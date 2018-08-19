@@ -61,14 +61,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         text-align: center;
-
-        & .main-container {
-            background-color: white;
-            max-width: 1600px;
-            width: 100%;
-            margin: auto;
-            box-shadow: 0 9px 31px 20px #0000001a;
-        }
     }
 
 </style>

@@ -48,17 +48,6 @@
                 box-shadow: 4px 4px 7px 0 #0000004d;
                 border-radius: 5px;
 
-                &:before {
-                    content: '';
-                    display: inline-block;
-                    width: 20px;
-                    height: 2px;
-                    position: absolute;
-                    background-color: @mainColor;
-                    left: -13px;
-                    bottom: 23px;
-                }
-
                 &:after {
                     content: "";
                     width: 100%;
@@ -95,13 +84,24 @@
         }
     }
 
-    .responsive(@tablet, { .social { //TODO social mobile view
+    .responsive(@tablet, { .social {
         ul {
             justify-content: flex-end;
             li {
                 margin: 30px;
                 border: none;
                 box-shadow: none;
+
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    width: 20px;
+                    height: 2px;
+                    position: absolute;
+                    background-color: @mainColor;
+                    left: -13px;
+                    bottom: 23px;
+                }
 
                 &:hover {
                     &:after {
@@ -128,7 +128,7 @@
 
     @keyframes overlay {
         from {
-            transform: translateY(45px) scale(.8);
+            transform: translateX(45px) scale(.8);
             opacity: 0;
         }
 
