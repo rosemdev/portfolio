@@ -2,11 +2,7 @@
     <div
             :class="['header', {[className]: isStuck}]">
         <header>
-            <div class="logo">
-                <router-link to="/">
-                    <img src="../assets/images/logo.png" alt="logo">
-                </router-link>
-            </div>
+            <rosem-logo></rosem-logo>
             <rosem-burger-menu
                     :open="showNav"
                     @click.native="showNav = !showNav"
@@ -30,6 +26,7 @@
 
 <script>
 
+    import RosemLogo from "../partials/Logo";
     import RosemBurgerMenu from "../ui-components/BurgerMenu";
 
     export default {
@@ -62,6 +59,7 @@
 
         components: {
             RosemBurgerMenu,
+            RosemLogo
         },
 
         computed: {},
@@ -158,15 +156,6 @@
             z-index: 10;
             /*max-width: 1200px;*/ //TODO
             margin: 0 25px;
-
-
-            & .logo {
-                margin: 15px 5px;
-                cursor: pointer;
-                img {
-                    width: 35px;
-                }
-            }
         }
 
         & nav {
@@ -236,63 +225,63 @@
 
         & header {
             max-width: 100%;
+            .logo {
+                width: 65px;
+                height: 65px;
+                margin: 0;
 
-            & .logo {
-                img {
-                    width: 30px;
-                    filter: invert(100%);
-                    transition: 1s;
+                p {
+                    margin-left: 12px;
+                    margin-top: 20px;
+                    font-size: 30px;
+
+                    &:hover {
+                        sup {
+                            opacity: 0;
+                        }
+                    }
                 }
             }
 
             & .burger-icon {
                 & span {
-                    background-color: #c6c7b4;
-                    transition: 1s;
+                    background-color: white;
+                    transition: .3s;
 
                 }
             }
         }
 
-        & nav {
-            margin-right: 0;
-        }
-    }
-
-    .responsive(@desktop, { .header {
-        & header {
-            & .logo {
-                img {
-                    width: 65px;
-                }
-            }
-
-        }
-
-        & nav {
-            margin-right: 27px;
-            width: 405px;
-            margin-top: 0;
-            ul {
-                li {
-                    font-size: 4rem;
-                }
+            & nav {
+                margin-right: 0;
             }
         }
-    } });
 
-    .fade-enter-active {
-        transition: all .5s ease-in;
-    }
+        .responsive(@desktop, { .header {
+            & nav {
+                margin-right: 27px;
+                width: 405px;
+                margin-top: 0;
+                ul {
+                    li {
+                        font-size: 4rem;
+                    }
+                }
+            }
+        } });
 
-    .fade-leave-active {
+        .fade-enter-active {
+            transition: all .5s ease-in;
+        }
 
-    }
+        .fade-leave-active {
 
-    .fade-enter, .fade-leave-to {
-        transition: all .5s ease-out;
-        transform: translateX(50px);
-        opacity: 0;
-    }
+        }
+
+        .fade-enter, .fade-leave-to {
+            transition: all .5s ease-out;
+            transform: translateX(50px);
+            opacity: 0;
+        }
 
 </style>

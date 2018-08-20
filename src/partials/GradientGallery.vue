@@ -1,7 +1,7 @@
 <template>
     <rosem-gradient :is-rand-gradient="true" :height="500">
         <div class="galleryIntro" slot="gradientContent">
-            <h1>Check out the gallery</h1>
+            <h1>gallery</h1>
 
         </div>
     </rosem-gradient>
@@ -29,8 +29,8 @@
         padding-top: 5rem;
 
         & h1 {
-            font-weight: 500;
-            font-size: 1.7em;
+            font-weight: 900;
+            font-size: 3em;
             text-transform: uppercase;
         }
     }

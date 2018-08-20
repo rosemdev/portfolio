@@ -25,11 +25,7 @@
             </div>
         </div>
         <div class="social-block">
-            <div class="footer-logo">
-                <router-link to="/">
-                    <img src="../assets/images/logo.png" alt="logo">
-                </router-link>
-            </div>
+            <rosem-logo></rosem-logo>
             <p>Find me in: </p>
             <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
             <div class="scroll-top">
@@ -42,6 +38,7 @@
     import {socialLinks} from "../data/data"
     import RosemScrollBlock from "../ui-components/ScrollButton"
     import RosemSocialBlock from "../components/SocialBlock"
+    import RosemLogo from "../partials/Logo"
 
     export default {
         data() {
@@ -51,7 +48,8 @@
         },
         components: {
             RosemScrollBlock,
-            RosemSocialBlock
+            RosemSocialBlock,
+            RosemLogo
         }
     }
 </script>
@@ -102,11 +100,16 @@
             justify-content: center;
             align-items: center;
 
-            & .footer-logo {
-                margin-top: 25px;
-                img {
-                    width: 125px;
-                    filter: invert(100%);
+            & .logo {
+
+                & /deep/ p {
+                    font-size: 75px;
+                    margin: 25px;
+
+                    & sup {
+                        font-size: 25px;
+                        margin-left: -15px;
+                    }
                 }
             }
 
