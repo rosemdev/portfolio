@@ -161,11 +161,11 @@
 
         & nav {
             padding-left: 45px;
-            top: 0;
             position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
+            top: 0;
             right: 0;
             z-index: 5;
             height: 100vh;
@@ -243,7 +243,6 @@
 
     .responsive(@desktop, { .header {
         & nav {
-            /*margin-top: -130px;*/
             width: 410px;
             ul {
                 li {

@@ -65,6 +65,7 @@
     footer {
         background-color: @mainColor;
         padding: 50px 0;
+
         .footer {
             display: flex;
             flex-direction: column;
@@ -101,14 +102,10 @@
             align-items: center;
 
             & .logo {
-
-                & /deep/ p {
-                    font-size: 75px;
-                    margin: 25px;
-
+                & /deep/ a {
                     & sup {
-                        font-size: 25px;
-                        margin-left: -15px;
+                        margin-left: -7px;
+                        opacity: 1;
                     }
                 }
             }
@@ -121,6 +118,7 @@
             }
 
             .social {
+                margin-top: 45px;
                 & /deep/ ul {
                     & li {
                         &:before {
@@ -128,7 +126,7 @@
                         }
                         & a {
                             color: white;
-                            font-size: 15px;
+                            font-size: 12px;
                         }
                     }
                 }
@@ -136,19 +134,33 @@
         }
     }
 
-    .responsive(@tablet, { footer .footer {
-        & .footer-links {
-            ul {
-                flex-direction: row;
-                margin-top: 0;
+    .responsive(@tablet, {
+        footer {
+            .footer {
+                & .footer-links {
+                    ul {
+                        flex-direction: row;
+                        margin-top: 0;
 
-                li {
-                    margin-right: 25px;
+                        li {
+                            margin-right: 25px;
+                        }
+
+                    }
                 }
+            }
 
+            .social-block {
+                .logo {
+                    & /deep/ a {
+                        & sup {
+                            margin-left: -15px;
+                        }
+                    }
+                }
             }
         }
-    } });
+         });
 
     .responsive(@desktop, { footer .footer {
         flex-direction: row;

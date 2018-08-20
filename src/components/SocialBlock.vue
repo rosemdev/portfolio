@@ -2,7 +2,8 @@
     <div class="social">
         <ul>
             <li v-for="link in socialLinks"
-                :key="link.link">
+                :key="link.link"
+                :class="{mobileView: isMobileView}">
                 <a :href="link.link" v-if="link.isIcon" target="_blank">
                     <img :src="link.src"/>
                 </a>
@@ -14,7 +15,9 @@
 <script>
     export default {
         data() {
-            return {}
+            return {
+                isMobileView: false
+            }
         },
 
         props: {
@@ -29,7 +32,7 @@
 <style lang="less" scoped>
     @import "../assets/styles/design";
 
-    .social { //TODO social mobile view
+    .social { //TODO mobile view
         ul {
             display: flex;
             justify-content: center;
@@ -39,14 +42,23 @@
                 list-style: none;
                 margin: 10px;
                 text-transform: uppercase;
-                font-size: 11px;
                 font-weight: 600;
                 position: relative;
                 z-index: 1;
-                border: 1px solid black;
-                padding: 15px;
-                box-shadow: 4px 4px 7px 0 #0000004d;
-                border-radius: 5px;
+                padding: 0 8px;
+
+
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    width: 15px;
+                    height: 2px;
+                    position: absolute;
+                    background-color: @mainColor;
+                    left: -12px;
+                    bottom: 7px;
+                }
+
 
                 &:after {
                     content: "";
@@ -74,12 +86,20 @@
                 a {
                     color: @mainColor;
                     .shadowText();
+                    font-size: 11px;
 
                     img {
                         width: 25px;
                         margin: -5px;
                     }
                 }
+            }
+
+            li .mobileView {
+                border: 1px solid black;
+                box-shadow: 4px 4px 7px 0 #0000004d;
+                border-radius: 5px;
+
             }
         }
     }
@@ -92,16 +112,6 @@
                 border: none;
                 box-shadow: none;
 
-                &:before {
-                    content: '';
-                    display: inline-block;
-                    width: 20px;
-                    height: 2px;
-                    position: absolute;
-                    background-color: @mainColor;
-                    left: -13px;
-                    bottom: 23px;
-                }
 
                 &:hover {
                     &:after {

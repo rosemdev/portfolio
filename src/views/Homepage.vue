@@ -150,7 +150,7 @@
 
             & .button {
                 margin: auto;
-                width: 185px; //TODO
+                width: 185px;
             }
         }
 
@@ -316,11 +316,9 @@
                     ul {
                         margin-top: 40px;
                         li {
-                            border: none;
-                            box-shadow: none;
-
-                            &:after {
-                                content: none;
+                            &:before {
+                                left: -15px;
+                                bottom: 17px;
                             }
 
                             & a {

@@ -5,21 +5,13 @@
                 <img :src="getSrc(row, col)"/>
             </div>
         </div>
-        <!--<div class="row" v-for="row in rows" :key="row">-->
-            <!--<div class="col" v-for="photo in photosArrays[row]" :key="photo.imageSource">-->
-                <!--<img :src="photo.imageSource"/>-->
-            <!--</div>-->
-        <!--</div>-->
     </div>
 </template>
 <script>
 
     export default {
         data() {
-            return {
-                // photosArrays: '',
-                // rows: '',
-            }
+            return {}
         },
 
         props: {
@@ -48,23 +40,7 @@
             getSrc(row, col) {
                 return this.imageWarehouse[(row - 1) * this.cols + col - 1].imageSource
             },
-            chunkArray(incomingArray, chunkSize) {
-                let index = 0,
-                    chunkArray = [];
-
-                for (index = 0; index < incomingArray.length; index += chunkSize) {
-                    let chunk = incomingArray.slice(index, index + chunkSize);
-                    chunkArray.push(chunk);
-                }
-
-                return chunkArray;
-            }
         },
-
-        created() {
-            // this.photosArrays = this.chunkArray(this.imageWarehouse, this.cols);
-            // this.rows = this.photosArrays.length;
-        }
     }
 </script>
 <style lang="less" scoped>
@@ -75,7 +51,6 @@
         height: 400px;
         display: flex;
         flex-flow: column nowrap;
-        /*margin-top: 700px;*/
 
         & .row {
             display: flex;
@@ -117,10 +92,8 @@
 
     }
 
-    .responsive(@tablet, {
-        .gallery {
-            height: 900px;
-        }
-    });
+    .responsive(@tablet, { .gallery {
+        height: 900px;
+    } });
 
 </style>
