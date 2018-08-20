@@ -141,26 +141,27 @@
         position: relative;
         left: 0;
         right: 0;
-        z-index: 2;
         transition: top .4s;
         background-color: white;
         max-width: 1600px;
         margin: auto;
+        z-index: 10;
 
         & header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             box-shadow: none;
-            position: relative;
-            z-index: 10;
-            /*max-width: 1200px;*/ //TODO
             margin: 0 25px;
+
+            .burger-icon {
+                z-index: 10;
+            }
         }
 
         & nav {
             padding-left: 45px;
-            margin-top: -115px;
+            top: 0;
             position: absolute;
             display: flex;
             justify-content: center;
@@ -168,7 +169,6 @@
             right: 0;
             z-index: 5;
             height: 100vh;
-            border-right: 2px solid @mainColor;
             box-shadow: 0 1px 23px 5px #0000001a;
 
             &:before {
@@ -179,6 +179,7 @@
                 width: 100%;
                 height: 150vh;
                 background-color: white;
+                border-right: 2px solid @mainColor;
 
             }
 
@@ -189,7 +190,7 @@
                     padding: 15px 4rem 15px 0;
                     transition: all 0.3s ease-in-out;
                     position: relative;
-                    margin-right: -40px;
+                    margin-right: -42px;
 
                     &:hover, &.active {
                         &:after {
@@ -228,7 +229,7 @@
 
             & .burger-icon {
                 & span {
-                    background-color: white;
+                    background-color: @mainColor;
                     transition: .3s;
 
                 }
@@ -236,15 +237,13 @@
         }
 
         & nav {
-            margin-right: 0;
-            margin-top: 0;
+            top: 65px;
         }
     }
 
     .responsive(@desktop, { .header {
         & nav {
-            margin-right: 10px;
-            margin-top: -116px;
+            /*margin-top: -130px;*/
             width: 410px;
             ul {
                 li {
@@ -264,7 +263,7 @@
 
     .fade-enter, .fade-leave-to {
         transition: all .5s ease-out;
-        transform: translateX(50px);
+        transform: translateX(70px);
         opacity: 0;
     }
 

@@ -3,7 +3,7 @@
         <keep-alive>
             <router-view name="underHeader" ref="underHeader"></router-view>
         </keep-alive>
-            <rosem-header className="sticky" :offsetValue="200" v-once></rosem-header>
+            <rosem-header className="sticky" :offsetValue="110" v-once></rosem-header>
                 <component :is="$route.meta.layout">
                     <keep-alive>
                         <router-view></router-view>

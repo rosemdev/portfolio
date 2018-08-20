@@ -17,7 +17,7 @@
         height: 65px;
         width: 65px;
         background-color: @mainColor;
-        margin: 25px;
+        margin: 15px 5px;
         transition: all .3s ease-out;
 
         & a {
