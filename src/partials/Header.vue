@@ -160,8 +160,8 @@
 
         & nav {
             padding-left: 45px;
+            margin-top: -115px;
             position: absolute;
-            margin-top: -75px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -225,23 +225,6 @@
 
         & header {
             max-width: 100%;
-            .logo {
-                width: 65px;
-                height: 65px;
-                margin: 0;
-
-                p {
-                    margin-left: 12px;
-                    margin-top: 20px;
-                    font-size: 30px;
-
-                    &:hover {
-                        sup {
-                            opacity: 0;
-                        }
-                    }
-                }
-            }
 
             & .burger-icon {
                 & span {
@@ -252,36 +235,37 @@
             }
         }
 
-            & nav {
-                margin-right: 0;
-            }
+        & nav {
+            margin-right: 0;
+            margin-top: 0;
         }
+    }
 
-        .responsive(@desktop, { .header {
-            & nav {
-                margin-right: 27px;
-                width: 405px;
-                margin-top: 0;
-                ul {
-                    li {
-                        font-size: 4rem;
-                    }
+    .responsive(@desktop, { .header {
+        & nav {
+            margin-right: 10px;
+            margin-top: -116px;
+            width: 410px;
+            ul {
+                li {
+                    font-size: 4rem;
                 }
             }
-        } });
-
-        .fade-enter-active {
-            transition: all .5s ease-in;
         }
+    } });
 
-        .fade-leave-active {
+    .fade-enter-active {
+        transition: all .5s ease-in;
+    }
 
-        }
+    .fade-leave-active {
 
-        .fade-enter, .fade-leave-to {
-            transition: all .5s ease-out;
-            transform: translateX(50px);
-            opacity: 0;
-        }
+    }
+
+    .fade-enter, .fade-leave-to {
+        transition: all .5s ease-out;
+        transform: translateX(50px);
+        opacity: 0;
+    }
 
 </style>
