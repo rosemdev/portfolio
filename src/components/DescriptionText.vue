@@ -34,8 +34,6 @@
     @import "../assets/styles/mixins";
 
     .text-description {
-        max-width: 600px;
-        width: 100%;
         color: white;
 
         p.text-background {
@@ -62,12 +60,13 @@
             font-size: 15px;
             line-height: 17px;
             font-weight: 700;
-            box-shadow: none;
+
 
             &:first-letter {
                 font-weight: 900;
                 font-size: 50px;
                 color: @mainColor;
+                font-style: italic;
             }
 
             &:before {
@@ -93,13 +92,13 @@
                 z-index: -2;
                 box-shadow: 4px 4px 24px 0 #000000a6;
             }
+
         }
 
     }
 
     .responsive(@tablet, { .text-description {
         p.block-background {
-            box-shadow: 85px 0 2px @mainColor, 0 0 0 @mainColor;
             line-height: 35px;
             font-size: 25px;
             padding: 35px;

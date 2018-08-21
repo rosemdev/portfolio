@@ -3,33 +3,45 @@
         <div class="main-container">
             <rosem-photo-gallery :cols="5" :imageWarehouse="photos"></rosem-photo-gallery>
             <div class="main-content">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam dignissimos, eos laboriosam
-                    obcaecati perspiciatis placeat provident quam reprehenderit voluptatum! Atque commodi distinctio
-                    dolores
-                    eos et odit officiis quasi sint?</p>
-                <div class="main-content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam dignissimos, eos
-                        laboriosam
-                        obcaecati perspiciatis placeat provident quam reprehenderit voluptatum! Atque commodi distinctio
-                        dolores
-                        eos et odit officiis quasi sint?</p>
+                <div class="quote">
+                    <blockquote>When words become unclear, I shall focus with photographs. When images become
+                        inadequate, I shall
+                        be content with silence.
+                    </blockquote>
                 </div>
             </div>
         </div>
-        <div class="full-width">
+        <div class="grey-background full-width">
             <div class="content">
-                <rosemtext-description :textBackground="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam
-                    dignissimos, eo laboriosam obcaecatit?
-                </rosemtext-description>
-                <rosemtext-description :blockBackground="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam
-                    dignissimos, eo laboriosam obcaecatit?
-                </rosemtext-description>
-
-
-
-
+                <div class="photo-and-description top">
+                    <rosemtext-description :blockBackground="true">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Aliquid aperiam
+                        dignissimos, eo laboriosam obcaecatit?
+                    </rosemtext-description>
+                    <rosem-photo><img src="../assets/images/photos/loft-room-2.jpg"></rosem-photo>
+                </div>
+                <div class="photo-and-description bottom">
+                    <rosem-photo><img src="../assets/images/photos/loft-room-2.jpg"></rosem-photo>
+                    <rosemtext-description :text-align="'right'">Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Aliquid aperiam
+                        dignissimos, eo laboriosam obcaecatit? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        A amet animi asperiores, at atque consequuntur cumque doloremque eligendi.
+                    </rosemtext-description>
+                </div>
+                <div class="history-line">
+                    <rosem-history-line></rosem-history-line>
+                </div>
             </div>
-
+        </div>
+        <div class="main-container">
+            <div class="main-content">
+                <div class="quote">
+                    <blockquote>When words become unclear, I shall focus with photographs. When images become
+                        inadequate, I shall
+                        be content with silence.
+                    </blockquote>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -37,6 +49,8 @@
     import {photos} from "../data/photos";
     import RosemPhotoGallery from "../partials/photoGallery";
     import RosemtextDescription from "../components/DescriptionText";
+    import RosemHistoryLine from "../components/HistoryLine";
+    import RosemPhoto from "../components/Photo";
 
     export default {
         data() {
@@ -46,7 +60,9 @@
         },
         components: {
             RosemPhotoGallery,
-            RosemtextDescription
+            RosemtextDescription,
+            RosemHistoryLine,
+            RosemPhoto
         },
     }
 </script>
@@ -54,36 +70,107 @@
     @import "../assets/styles/design";
     @import "../assets/styles/main";
 
-    .full-width {
-        background-color: #d5809a;
-        display: flex;
-        justify-content: space-around;
+    .gallery {
+        .main-content {
+            .quote {
+                blockquote {
+                    font-size: 25px;
+                    text-align: right;
+                    quotes: "\201C""\201D""\2018""\2019";
 
-        .content {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-around;
+                    &:before {
+                        color: tomato;
+                        content: open-quote;
+                        font-size: 4em;
+                        line-height: 0.1em;
+                        margin-right: 0.25em;
+                        vertical-align: -0.4em;
+                    }
+                }
+            }
+        }
 
-            .text-description {
-                margin: 25px;
+        .full-width {
+            .content {
+                .photo-and-description {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-around;
+                    margin: 45px;
+
+                    .text-description {
+                        width: 300px;
+                    }
+
+                    .photo {
+                        img {
+                            width: 400px;
+                        }
+                    }
+
+                }
+
             }
 
-            .photo {
-                margin-top: 15px;
-                background-color: @mainColor;
-                height: 700px;
-                img {
-                    width: 600px;
-                    box-shadow: 8px 21px 14px -1px black;
-                    margin-top: 35px;
-                    margin-left: 45px;
-                    object-fit: cover;
-                }
+            .history-line {
+                width: 36px;
+                margin-left: 100%;
             }
 
         }
-
     }
 
+    .responsive(@tablet, { .gallery {
+        .main-content {
+            .quote {
+                blockquote {
+                    font-size: 55px;
+                }
+            }
+        }
+
+        .full-width {
+            .content {
+                .photo-and-description {
+                    flex-direction: column;
+
+                    .text-description {
+                        width: 600px;
+                    }
+
+                    &.top {
+                        margin-bottom: 100px;
+                    }
+
+                    .photo {
+                        img {
+                            max-width: 900px;
+                            width: 1000%;
+                        }
+                    }
+
+                }
+
+            }
+
+            .history-line {
+                width: 36px;
+                margin-left: 100%;
+            }
+
+        }
+    } });
+
+    .responsive(@desktop, { .gallery {
+        .full-width {
+            .content {
+                .photo-and-description {
+                    flex-direction: row;
+
+                }
+
+            }
+        }
+    } });
 </style>

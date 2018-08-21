@@ -9,12 +9,6 @@
 <script>
 
     export default {
-        data() {
-            return {}
-        },
-
-        components: {},
-
         computed: {
             getYear() {
                 return new Date().getFullYear();
@@ -29,7 +23,7 @@
 
     .history {
         margin-bottom: 20px;
-        align-self: flex-start;
+        display: inline;
 
         span {
             display: block;
