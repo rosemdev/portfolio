@@ -17,10 +17,19 @@
             </div>
         </div>
         <div class="full-width">
-            <rosemtext-description>
-                <p slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam
-                    dignissimos, eo laboriosam obcaecatit?</p>
-            </rosemtext-description>
+            <div class="content">
+                <rosemtext-description :textBackground="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam
+                    dignissimos, eo laboriosam obcaecatit?
+                </rosemtext-description>
+                <rosemtext-description :blockBackground="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid aperiam
+                    dignissimos, eo laboriosam obcaecatit?
+                </rosemtext-description>
+
+
+
+
+            </div>
+
         </div>
     </div>
 </template>
@@ -47,7 +56,33 @@
 
     .full-width {
         background-color: #d5809a;
-        padding: 50px;
+        display: flex;
+        justify-content: space-around;
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-around;
+
+            .text-description {
+                margin: 25px;
+            }
+
+            .photo {
+                margin-top: 15px;
+                background-color: @mainColor;
+                height: 700px;
+                img {
+                    width: 600px;
+                    box-shadow: 8px 21px 14px -1px black;
+                    margin-top: 35px;
+                    margin-left: 45px;
+                    object-fit: cover;
+                }
+            }
+
+        }
 
     }
 

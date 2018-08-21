@@ -226,14 +226,6 @@
 
         & header {
             max-width: 100%;
-
-            & .burger-icon {
-                & span {
-                    background-color: @mainColor;
-                    transition: .3s;
-
-                }
-            }
         }
 
         & nav {

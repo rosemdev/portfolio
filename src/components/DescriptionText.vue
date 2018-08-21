@@ -1,10 +1,34 @@
 <template>
     <div class="text-description">
-        <p>
-            <slot name="description"></slot>
+        <p :class="[blockBackground ? 'block-background' : 'text-background']"
+           :style="{textAlign: textAlign}">
+            <span><slot></slot></span>
         </p>
     </div>
 </template>
+<script>
+    export default {
+        data() {
+            return {}
+        },
+
+        props: {
+            textBackground: {
+                type: Boolean,
+                default: true,
+            },
+            blockBackground: {
+                type: Boolean,
+                default: false,
+            },
+
+            textAlign: {
+                type: String,
+                default: 'left'
+            }
+        }
+    }
+</script>
 <style lang="less" scoped>
     @import "../assets/styles/design";
     @import "../assets/styles/mixins";
@@ -13,53 +37,88 @@
         max-width: 600px;
         width: 100%;
         color: white;
-        padding: 25px;
-        position: relative;
-        z-index: 1;
 
-        :after {
-            background-color: @mainColor;
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: -9px;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
-        p {
-            text-align: left;
-            font-size: 15px;
-            box-shadow: 8px 21px 14px -1px black;
-
-            &::first-letter {
-                color: white;
-                padding: 0 15px;
-                background-color: @theme1-main;
-                font-weight: 900;
-                font-size: 3.5em;
-                margin-left: 25px;
+        p.text-background {
+            span {
+                background-color: @mainColor;
+                padding: 15px;
+                box-shadow: 10px 0 0 @mainColor, -10px 0 0 @mainColor;
+                line-height: 50px;
+                font-style: italic;
             }
 
+            &:first-letter {
+                font-weight: 800;
+                font-size: 50px;
+                margin-right: 5px;
+                color: @theme1-main;
+            }
         }
+
+        p.block-background {
+            padding: 10px;
+            position: relative;
+            z-index: 2;
+            font-size: 15px;
+            line-height: 17px;
+            font-weight: 700;
+            box-shadow: none;
+
+            &:first-letter {
+                font-weight: 900;
+                font-size: 50px;
+                color: @mainColor;
+            }
+
+            &:before {
+                background-color: @theme1-main;
+                content: '';
+                position: absolute;
+                width: 60%;
+                height: 150%;
+                left: -15px;
+                top: -25px;
+                z-index: -1;
+                box-shadow: 4px 4px 24px 0 #000000a6;
+            }
+
+            &:after {
+                background-color: @mainColor;
+                content: '';
+                position: absolute;
+                width: 40%;
+                height: 125%;
+                right: 15px;
+                top: -1px;
+                z-index: -2;
+                box-shadow: 4px 4px 24px 0 #000000a6;
+            }
+        }
+
     }
 
-    .responsive(@tablet, {
-        .text-description {
+    .responsive(@tablet, { .text-description {
+        p.block-background {
+            box-shadow: 85px 0 2px @mainColor, 0 0 0 @mainColor;
+            line-height: 35px;
+            font-size: 25px;
+            padding: 35px;
 
-            :after {
-                top: -8px;
-                left: -74px;
+            &:before {
+                left: 24px;
+                top: -25px;
+                z-index: -1;
+                box-shadow: 4px 4px 24px 0 #000000a6;
             }
-            p {
-                font-size: 1.5em;
 
-                &::first-letter {
-                    margin-left: 75px;
-                }
+            &:after {
+                right: -2px;
+                top: -1px;
+                z-index: -2;
+                box-shadow: 4px 4px 24px 0 #000000a6;
             }
         }
-    });
+    } });
+
 
 </style>
