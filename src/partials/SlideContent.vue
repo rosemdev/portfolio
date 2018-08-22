@@ -7,10 +7,11 @@
                 <img :src="slide.imageSource"/>
             </div>
             <div class="slide-description">
-                <p>{{ slide.type}}</p>
-                <h2>{{ slide.name}}</h2>
-                <h3>{{ slide.text}}</h3>
-                <rosem-button><span slot="button">more details</span></rosem-button>
+            <rosem-description-block :subtitle="slide.type"
+                                     :title="slide.name">
+                <template slot="description">{{ slide.text}}</template>
+                <rosem-button slot="additional-info"><span slot="button">more details</span></rosem-button>
+            </rosem-description-block>
                 <div class="site-link">
                     <a :href="slide.siteLink" target="_blank">
                         <small>visit</small>
@@ -24,6 +25,7 @@
 
 <script>
     import RosemButton from "../ui-components/Button"
+    import RosemDescriptionBlock from "../components/DescriptionBlock"
 
     export default {
 
@@ -36,7 +38,7 @@
 
         components: {
             RosemButton,
-            'rosem-button': RosemButton
+            RosemDescriptionBlock
         }
     }
 </script>
@@ -60,30 +62,15 @@
 
         & .slide-description {
             width: calc(100% - 50px);
-            margin: 25px 0;
-            text-align: right;
-            color: @mainColor;
 
-            p {
-                font-size: 15px;
-                font-weight: 300;
-                margin-bottom: -20px;
+            .description-block {
+                text-align: right;
+                padding: 0;
+                .button {
+                    margin: auto;
+                }
             }
 
-            h2 {
-                font-weight: 800;
-                font-size: 35px;
-            }
-
-            h3 {
-                font-weight: 400;
-                font-size: 15px;
-                margin: 25px 0;
-            }
-
-            .button {
-                margin: auto;
-            }
 
             & .site-link {
                 & a {

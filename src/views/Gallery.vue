@@ -14,19 +14,19 @@
         <div class="grey-background full-width">
             <div class="content">
                 <div class="photo-and-description top">
-                    <rosemtext-description :blockBackground="true">Lorem ipsum dolor sit amet, consectetur adipisicing
+                    <rosem-quote :blockBackground="true">Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Aliquid aperiam
                         dignissimos, eo laboriosam obcaecatit?
-                    </rosemtext-description>
+                    </rosem-quote>
                     <rosem-photo><img src="../assets/images/photos/loft-room-2.jpg"></rosem-photo>
                 </div>
                 <div class="photo-and-description bottom">
                     <rosem-photo><img src="../assets/images/photos/loft-room-2.jpg"></rosem-photo>
-                    <rosemtext-description :text-align="'right'">Lorem ipsum dolor sit amet, consectetur adipisicing
+                    <rosem-quote :text-align="'right'">Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Aliquid aperiam
                         dignissimos, eo laboriosam obcaecatit? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                         A amet animi asperiores, at atque consequuntur cumque doloremque eligendi.
-                    </rosemtext-description>
+                    </rosem-quote>
                 </div>
                 <div class="history-line">
                     <rosem-history-line></rosem-history-line>
@@ -41,6 +41,7 @@
                         be content with silence.
                     </blockquote>
                 </div>
+                <rosem-text-and-photo></rosem-text-and-photo>
             </div>
         </div>
     </div>
@@ -48,9 +49,10 @@
 <script>
     import {photos} from "../data/photos";
     import RosemPhotoGallery from "../partials/photoGallery";
-    import RosemtextDescription from "../components/DescriptionText";
+    import RosemQuote from "../components/Quote";
     import RosemHistoryLine from "../components/HistoryLine";
     import RosemPhoto from "../components/Photo";
+    import RosemTextAndPhoto from "../components/TextAndPhoto";
 
     export default {
         data() {
@@ -60,9 +62,10 @@
         },
         components: {
             RosemPhotoGallery,
-            RosemtextDescription,
+            RosemQuote,
             RosemHistoryLine,
-            RosemPhoto
+            RosemPhoto,
+            RosemTextAndPhoto,
         },
     }
 </script>

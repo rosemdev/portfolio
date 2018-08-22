@@ -52,11 +52,13 @@
         <div class="grey-background">
             <div class="about-me main-content">
                 <div class="about">
-                    <p>About me</p>
-                    <h2>Romanna Semenyshyn</h2>
-                    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure iusto quibusdam
-                        temporibus voluptatem voluptatibus?</h3>
-                    <rosem-button><span slot="button">see projects</span></rosem-button>
+                    <rosem-description-block subtitle="About me"
+                                             title="Romanna Semenyshyn">
+                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure
+                            iusto quibusdam temporibus voluptatem voluptatibus?
+                        </template>
+                            <rosem-button slot="additional-info"><span slot="button">see projects</span></rosem-button>
+                    </rosem-description-block>
                     <div class="social">
                         <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
                     </div>
@@ -91,6 +93,7 @@
     import {aboutMyself, cards, descriptions, socialIconsLinks, socialLinks} from "../data/data"
     import RosemHeader from "../partials/Header"
     import RosemButton from "../ui-components/Button"
+    import RosemDescriptionBlock from "../components/DescriptionBlock"
     import RosemHistoryLine from "../components/HistoryLine"
     import RosemSocialBlock from "../components/SocialBlock"
     import RosemCard from "../components/Card"
@@ -115,6 +118,7 @@
             RosemSlideDescription,
             RosemHeader,
             RosemButton,
+            RosemDescriptionBlock,
             RosemHistoryLine,
             RosemSocialBlock,
             RosemCard,
@@ -283,32 +287,9 @@
             padding: 0;
 
             & .about {
-                text-align: left;
                 width: calc(100% - 50px);
-                margin: 25px 0;
                 padding: 15px 25px;
-                color: @mainColor;
 
-                p {
-                    font-size: 15px;
-                    font-weight: 300;
-                    margin-bottom: -20px;
-                }
-
-                h2 {
-                    font-weight: 800;
-                    font-size: 35px;
-                }
-
-                h3 {
-                    font-weight: 400;
-                    font-size: 15px;
-                    margin: 25px 0;
-                }
-
-                .button {
-                    margin: auto;
-                }
 
                 & .social {
                     position: relative;
