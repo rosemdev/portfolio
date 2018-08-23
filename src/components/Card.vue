@@ -8,16 +8,10 @@
 </template>
 
 <script>
-    import RosemButton from "../ui-components/Button"
-
     export default {
         data() {
             return {}
         },
-
-        components: {
-            'rosem-button': RosemButton
-        }
     }
 </script>
 <style lang="less" scoped>

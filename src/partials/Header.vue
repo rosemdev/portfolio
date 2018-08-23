@@ -167,7 +167,7 @@
             align-items: center;
             top: 0;
             right: 0;
-            z-index: 5;
+            z-index: 15;
             height: 100vh;
             box-shadow: 0 1px 23px 5px #0000001a;
 

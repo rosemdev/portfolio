@@ -13,12 +13,18 @@
     @import "../assets/styles/mixins";
 
     .photo {
+        overflow: hidden;
+        box-shadow: 4px 4px 60px 0 #464343e6;
+
         img {
             transition: .3s ease-in-out;
-            box-shadow: 4px 4px 50px 1px #464343e6;
+            object-fit: cover;
+            display: block;
 
             &:hover {
                 transform: scale(1.1);
+
+
             }
         }
     }

@@ -75,6 +75,8 @@
             margin-top: -8rem;
             border-radius: 10px;
             padding: 60px;
+            position: relative;
+            z-index: 5;
 
             & .footer-links {
                 ul {
