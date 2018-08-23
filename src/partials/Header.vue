@@ -11,13 +11,16 @@
         <transition name="fade" mode="out-in">
             <nav v-show="showNav">
                 <ul>
-                    <li v-for="item in menuItems"
-                        :key="item.url"
-                        :class="{ active: isActive }"
-
-                    >
-                        <router-link :to="{path: item.url}">{{ item.text }}</router-link>
-                    </li>
+                        <router-link
+                                tag="li"
+                                v-for="item in menuItems"
+                                :key="item.url"
+                                active-class="active"
+                                :to="{path: item.url}"
+                                exact
+                        >
+                            {{ item.text }}
+                        </router-link>
                 </ul>
             </nav>
         </transition>
@@ -40,7 +43,6 @@
                     {text: 'Contact', url: '/contact'},
                 ],
                 showNav: false,
-                isActive: false,
                 isTopElement: false,
                 topElementHeight: ''
 
@@ -167,7 +169,7 @@
             align-items: center;
             top: 0;
             right: 0;
-            z-index: 15;
+            z-index: 8;
             height: 100vh;
             box-shadow: 0 1px 23px 5px #0000001a;
 

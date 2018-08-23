@@ -22,7 +22,7 @@
                     >
                 </rosem-description-block>
             </div>
-            <div class="margin carousel-block">
+            <div class="margin grey-background carousel-block">
                 <div class="description">
                     <rosem-quote>Lorem ipsum dolor sit amet, consectetur adipisicing
                         elit. Aliquid aperiam
@@ -223,7 +223,7 @@
                     font-size: 4em;
                     line-height: 0.1em;
                     margin-right: 0.25em;
-                    vertical-align: -0.5em;
+                    vertical-align: -0.7em;
                 }
             }
         }
