@@ -31,20 +31,40 @@
                     </rosem-quote>
                 </div>
                 <div class="carousel">
-                    <carousel :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 3]]">
+                    <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 3]]">
                         <slide v-for="image in photos" :key="image.imageSource">
                             <img :src="image.imageSource" style="width: 100%; height: 500px; object-fit:cover;">
                         </slide>
                     </carousel>
                 </div>
             </div>
-            <div class=""></div>
+            <div class="margin gallery-complect">
+                <rosem-photo><img src="../assets/images/photos/ef908e5a83305dcaaf5106e1e4269997.jpg"></rosem-photo>
+                <rosem-description-block subtitle="lorem" title="Questions">
+                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
+                        atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
+                        soluta totam vitae, voluptates.
+                    </template>
+                    <rosem-button slot="additional-info"><span slot="button">see details</span></rosem-button>
+                </rosem-description-block>
+                <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
+                    <slide v-for="image in photos" :key="image.imageSource">
+                        <img :src="image.imageSource" style="width: 100%; height: 200px; object-fit:cover;">
+                    </slide>
+                </carousel>
+            </div>
+            <div class="margin main-content last-quote">
+                <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
+                    captured forever…
+                </blockquote>
+            </div>
         </div>
     </div>
 </template>
 <script>
     import {photos} from "../data/photos";
     import RosemPhotoGallery from "../partials/photoGallery";
+    import RosemButton from "../ui-components/Button";
     import RosemQuote from "../components/Quote";
     import RosemHistoryLine from "../components/HistoryLine";
     import RosemPhoto from "../components/Photo";
@@ -66,7 +86,8 @@
             RosemDescriptionBlock,
             RosemCard,
             Carousel,
-            Slide
+            Slide,
+            RosemButton
         },
     }
 </script>
@@ -132,7 +153,7 @@
             align-items: center;
             justify-content: space-between;
             flex-direction: column-reverse;
-            margin: 100px 0;
+            margin: 100px 15px;
 
             .carousel {
                 flex-basis: 75%;
@@ -140,12 +161,70 @@
             }
 
             .description {
-                max-width: 500px;
                 margin-left: 12px;
-                margin-right: -50px;
                 font-size: 15px;
                 position: relative;
                 z-index: 5;
+
+                p {
+                    text-align: center;
+                }
+            }
+        }
+
+        .gallery-complect {
+            display: flex;
+            align-items: center;
+            justify-content: start;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+            margin: 100px 0;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 75%;
+                height: 100%;
+                z-index: -1;
+                left: 0;
+                background-color: #262a2e75;
+                padding: 60px;
+
+            }
+
+            .photo {
+                img {
+                    max-width: 500px;
+                    width: 100%;
+                }
+            }
+
+            .description-block {
+                flex-basis: 25%;
+                color: white;
+
+                .button {
+                    background: @mainColor !important;
+                }
+            }
+        }
+
+        .last-quote {
+            blockquote {
+                font-size: 25px;
+                text-align: left;
+                margin: 200px 0;
+                quotes: "\201C""\201D""\2018""\2019";
+
+                &:after {
+                    color: tomato;
+                    content: close-quote;
+                    font-size: 4em;
+                    line-height: 0.1em;
+                    margin-right: 0.25em;
+                    vertical-align: -0.5em;
+                }
             }
         }
     }
@@ -169,6 +248,18 @@
                 line-height: 2.8;
             }
         }
+
+        .gallery-complect {
+            .description-block {
+                width: 600px;
+            }
+        }
+
+        .last-quote {
+            blockquote {
+                font-size: 55px;
+            }
+        }
     } });
 
     .responsive(@desktop, { .gallery {
@@ -181,6 +272,22 @@
         .carousel-block {
             flex-direction: row;
             margin: 200px 0;
+
+            .description {
+                margin-right: -50px;
+                width: 500px;
+                p {
+                    text-align: right;
+                }
+            }
+        }
+
+        .gallery-complect {
+            flex-direction: row;
+
+            .VueCarousel {
+                width: 70%;
+            }
         }
 
     } });
