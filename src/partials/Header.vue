@@ -19,7 +19,7 @@
                                 :to="{path: item.url}"
                                 exact
                         >
-                            {{ item.text }}
+                            <a>{{ item.text }}</a>
                         </router-link>
                 </ul>
             </nav>
@@ -193,6 +193,7 @@
                     transition: all 0.3s ease-in-out;
                     position: relative;
                     margin-right: -42px;
+                    cursor: pointer;
 
                     &:hover, &.active {
                         &:after {
@@ -224,7 +225,7 @@
         position: fixed;
         height: 60px;
         max-width: 100%;
-        box-shadow: -2px 9px 20px 4px #00000054;
+        box-shadow: -2px 1px 76px -2px #0000001a; //TODO
 
         & header {
             max-width: 100%;

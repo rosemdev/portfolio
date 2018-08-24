@@ -1,11 +1,14 @@
 import OneColumnLayout from "./layouts/OneColumnLayout"
-// import TwoColumnsLayout from "./layouts/TwoColumnsLayout"
+import TwoColumnsLayout from "./layouts/TwoColumnsLayout"
 import Homepage from './views/Homepage'
 import Gallery from './views/Gallery'
 import HelloWorld from './views/HelloWorld'
 import Gradient from "./components/Gradient"
 import GradientHomepage from "./partials/GradientHomepage"
 import GradientGallery from "./partials/GradientGallery"
+import Skills from "./views/Skills"
+import Aside from "./partials/Aside"
+
 
 export const routes = [
     {
@@ -31,6 +34,16 @@ export const routes = [
     {
         path: '/skills',
         components: {
+            aside: Aside,
+            default: Skills,
+        },
+        meta: {
+            layout: TwoColumnsLayout,
+        },
+    },
+    {
+        path: '/contact',
+        components: {
             underHeader: Gradient,
             default: HelloWorld,
         },
@@ -38,4 +51,5 @@ export const routes = [
             layout: OneColumnLayout,
         },
     },
+
 ];
