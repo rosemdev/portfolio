@@ -1,14 +1,24 @@
 <template>
     <div class="history">
-        <span class="year">2017</span>
+        <p>{{ beginYear }}</p>
         <span class="line"></span>
-        <span class="year">{{ getYear }}</span>
+        <p>{{ endYear || getYear }}</p>
     </div>
 </template>
 
 <script>
 
     export default {
+        props: {
+            beginYear: {
+                type: Number,
+                required:true
+            },
+
+            endYear: {
+                type: Number,
+            }
+        },
         computed: {
             getYear() {
                 return new Date().getFullYear();
@@ -22,24 +32,25 @@
     @import "../assets/styles/globalVariables";
 
     .history {
-        margin-bottom: 20px;
-        display: inline;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-self: baseline;
 
-        span {
-            display: block;
-        }
-
-        & .year {
+        & p {
             transform: rotate(90deg);
             font-size: 12px;
             font-weight: 300;
+
         }
 
         .line {
-            border-right: 2px solid @mainColor;
+            width: 2px;
+            background-color: @mainColor;
             height: 75px;
             margin: 15px;
         }
+
     }
 
 </style>

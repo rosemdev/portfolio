@@ -9,7 +9,7 @@
                     <rosem-button><span slot="button">get it</span></rosem-button>
                 </div>
                 <div class="bottom-contact-panel">
-                    <rosem-history-line></rosem-history-line>
+                    <rosem-history-line begin-year="2017"></rosem-history-line>
                     <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
                 </div>
             </div>
