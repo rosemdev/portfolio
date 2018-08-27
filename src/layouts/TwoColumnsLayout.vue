@@ -3,7 +3,7 @@
         <aside>
             <router-view name="aside"></router-view>
         </aside>
-        <div class="main-content content">
+        <div class="content">
             <router-view></router-view>
         </div>
     </div>
@@ -29,11 +29,12 @@
         & aside {
             padding: 15px 25px;
             width: 30%;
-            background-color: #efe9e8;
+
         }
 
         & .content {
-            margin: 0;
+            width: 100%;
         }
+
     }
 </style>

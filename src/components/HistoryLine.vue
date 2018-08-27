@@ -1,8 +1,10 @@
 <template>
     <div class="history">
-        <p>{{ beginYear }}</p>
-        <span class="line"></span>
-        <p>{{ endYear || getYear }}</p>
+        <p><slot name="beginData"></slot></p>
+        <p><span class="year">{{ beginYear }}</span></p>
+        <p class="line"></p>
+        <p><span class="year">{{ endYear || getYear }}</span></p>
+        <p><slot name="endData"></slot></p>
     </div>
 </template>
 
@@ -12,7 +14,6 @@
         props: {
             beginYear: {
                 type: Number,
-                required:true
             },
 
             endYear: {
@@ -36,19 +37,27 @@
         display: flex;
         flex-direction: column;
         align-self: baseline;
+        width: 100px;
 
         & p {
-            transform: rotate(90deg);
+            align-self: flex-start;
             font-size: 12px;
             font-weight: 300;
 
         }
+        .year {
+            display: block;
+            margin: 10px;
+            transform: rotate(90deg);
+
+        }
+
 
         .line {
             width: 2px;
             background-color: @mainColor;
             height: 75px;
-            margin: 15px;
+            margin: 0 23px;
         }
 
     }
