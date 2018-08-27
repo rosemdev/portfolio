@@ -51,17 +51,15 @@
         </div>
         <div class="grey-background">
             <div class="about-me main-content">
-                <div class="about">
-                    <rosem-description-block subtitle="About me"
-                                             title="Romanna Semenyshyn">
-                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure
-                            iusto quibusdam temporibus voluptatem voluptatibus?
-                        </template>
-                            <rosem-button slot="additional-info"><span slot="button">see projects</span></rosem-button>
-                    </rosem-description-block>
-                    <div class="social">
-                        <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
-                    </div>
+                <rosem-description-block subtitle="About me"
+                                         title="Romanna Semenyshyn">
+                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure
+                        iusto quibusdam temporibus voluptatem voluptatibus?
+                    </template>
+                    <rosem-button slot="additional-info"><span slot="button">see projects</span></rosem-button>
+                </rosem-description-block>
+                <div class="social">
+                    <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
                 </div>
                 <div class="photo-carousel">
                     <carousel :per-page="1"
@@ -286,59 +284,55 @@
             justify-content: space-between;
             padding: 0;
 
-            & .about {
-                width: calc(100% - 50px);
-                padding: 15px 25px;
+            & .social {
+                position: relative;
+                align-self: center;
 
+                ul {
+                    margin-bottom: 40px;
+                    li {
+                        &:before {
+                            left: -15px;
+                            bottom: 17px;
+                        }
 
-                & .social {
-                    position: relative;
-
-                    ul {
-                        margin-top: 40px;
-                        li {
-                            &:before {
-                                left: -15px;
-                                bottom: 17px;
-                            }
-
-                            & a {
-                                & img {
-                                    width: 39px;
-                                }
+                        & a {
+                            & img {
+                                width: 39px;
                             }
                         }
                     }
                 }
             }
+        }
 
-            & .photo-carousel {
-                position: relative;
+        & .photo-carousel {
+            position: relative;
+            width: 100%;
+            margin: 0 25px;
+
+            & .VueCarousel-wrapper {
+                height: 600px;
+            }
+
+            .VueCarousel-navigation {
+                position: absolute;
+                left: 50%;
+                margin-top: 25px;
+            }
+
+            img {
                 width: 100%;
-                margin: 0 25px;
-
-                & .VueCarousel-wrapper {
-                    height: 600px;
-                }
-
-                .VueCarousel-navigation {
-                    position: absolute;
-                    left: 50%;
-                    margin-top: 25px;
-                }
-
-                img {
-                    width: 100%;
-                    height: 600px;
-                    object-fit: cover;
-                }
+                height: 600px;
+                object-fit: cover;
             }
         }
-
-        .contact-form {
-            height: 25rem;
-        }
     }
+
+    .contact-form {
+        height: 25rem;
+    }
+
 
     .responsive(@tablet, { & .gradient-screen {
         height: 900px;
@@ -424,15 +418,18 @@
 
           .about-me {
               flex-direction: row;
+              & .social {
+                  align-self: flex-end;
+                  ul {
+                      margin-bottom: 0;
+                      li {
+                          &::before {
+                            bottom: 9px;
+                          }
 
-              & .about {
-                  & .social {
-                      ul {
-                          li {
-                              & a {
-                                  & img {
-                                      width: 27px;
-                                  }
+                          & a {
+                              & img {
+                                  width: 27px;
                               }
                           }
                       }
