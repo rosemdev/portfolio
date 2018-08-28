@@ -16,8 +16,22 @@
         </div>
     </div>
 </template>
+<script>
+
+    export default {
+        data() {
+            return {}
+        },
+    }
+</script>
 <style lang="less" scoped>
     @import "../assets/styles/design";
+
+    #map {
+        height: 300px;
+        width: 100%;
+
+    }
 
     .resume-aside {
         display: flex;
@@ -52,5 +66,13 @@
                 font-size: 18px;
             }
         }
+    }
+
+    .resume-aside.sticky {
+        position: fixed;
+        width: 20%;
+        bottom: 26px;
+        top: 140px;
+
     }
 </style>

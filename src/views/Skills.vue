@@ -21,7 +21,7 @@
         </div>
         <div class="resume">
             <div class="life-cycle">
-                <rosem-history-line begin-year="2016">
+                <rosem-history-line :begin-year="2016">
                     <template slot="beginData">Sep. 29</template>
                     <template slot="endData">Present</template>
                 </rosem-history-line>
@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="life-cycle">
-                <rosem-history-line begin-year="2016" end-year="2018">
+                <rosem-history-line :begin-year="2016" :end-year="2018">
                     <template slot="beginData">Sep. 01</template>
                     <template slot="endData">Jen 25</template>
                 </rosem-history-line>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="life-cycle">
-                <rosem-history-line begin-year="2012" end-year="2016">
+                <rosem-history-line :begin-year="2012" :end-year="2016">
                     <template slot="beginData">Sep. 01</template>
                     <template slot="endData">Jun. 25</template>
                 </rosem-history-line>
@@ -97,7 +97,7 @@
             RosemDescriptionBlock,
             RosemSocialBlock,
             RosemHistoryLine,
-            RosemButton
+            RosemButton,
         },
 
         methods: {}
