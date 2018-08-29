@@ -2,12 +2,11 @@
     <div class="main-container not-found-page">
         <div class="image">
             <img id="tree" src="../assets/images/icons/three-pines.svg" alt="">
-         <img id="garlands" src="../assets/images/icons/garlands.svg" alt="">
-         <img src="../assets/images/icons/cable.svg" alt="">
+            <img id="garlands" src="../assets/images/icons/garlands.svg" alt="">
         </div>
         <div class="text">
             <p class="not-found">404 page</p>
-            <p>Seems you're lost...</p>
+            <p>Looks like you're lost...</p>
         </div>
     </div>
 </template>
@@ -20,14 +19,19 @@
 </script>
 <style lang="less"  scoped>
 
+    @import "../assets/styles/design";
+    @import "../assets/styles/mixins";
+
     .not-found-page {
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
+
         .image {
             position: relative;
             display: inline;
-            align-self: flex-start;
+            align-self: center;
 
             img#tree {
                 width: 236px;
@@ -53,15 +57,33 @@
         .text {
             color: #333;
             p {
-                font-size: 75px;
+                font-size: 30px;
+
                 &.not-found {
-                    font-size: 100px;
+                    font-size: 50px;
                     font-weight: 700;
                 }
             }
         }
-
     }
 
+    .responsive(@desktop, {
+        .not-found-page {
+            flex-direction: row;
 
+            .image {
+                align-self: flex-start;
+            }
+
+            .text {
+                p {
+                    font-size: 75px;
+
+                    &.not-found {
+                        font-size: 100px;
+                    }
+                }
+            }
+        }
+    });
 </style>
