@@ -8,12 +8,21 @@
             <p class="not-found">404 page</p>
             <p>Looks like you're lost...</p>
         </div>
+        <div class="controls">
+            <rosem-button></rosem-button>
+        </div>
     </div>
 </template>
 <script>
+    import RosemButton from "../ui-components/Button"
+
     export default {
         data() {
             return {}
+        },
+
+        components: {
+            RosemButton
         }
     }
 </script>

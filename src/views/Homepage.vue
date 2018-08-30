@@ -6,7 +6,7 @@
                     <h2>Rosem</h2>
                     <h3>Ps... Want a website? You are here</h3>
                     <router-view></router-view>
-                    <rosem-button><span slot="button">get it</span></rosem-button>
+                    <rosem-button><span>get it</span></rosem-button>
                 </div>
                 <div class="bottom-contact-panel">
                     <rosem-history-line begin-year="2017"></rosem-history-line>
@@ -44,7 +44,7 @@
                         <p><span class="stage">{{ card.stage }}</span>
                             <span class="stage-name">{{ card.name }}</span></p>
                         <p class="stage-description">{{ card.description }}</p>
-                        <rosem-button><span slot="button">more</span></rosem-button>
+                        <rosem-button><span>more</span></rosem-button>
                     </div>
                 </rosem-card>
             </div>
@@ -56,7 +56,7 @@
                     <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure
                         iusto quibusdam temporibus voluptatem voluptatibus?
                     </template>
-                    <rosem-button slot="additional-info"><span slot="button">see projects</span></rosem-button>
+                    <rosem-button slot="additional-info"><span>see projects</span></rosem-button>
                 </rosem-description-block>
                 <div class="social">
                     <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>

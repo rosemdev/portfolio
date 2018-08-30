@@ -2,7 +2,7 @@ import OneColumnLayout from "./layouts/OneColumnLayout"
 import TwoColumnsLayout from "./layouts/TwoColumnsLayout"
 import Homepage from './views/Homepage'
 import Gallery from './views/Gallery'
-import Page404 from './views/404'
+import NotFoundPage from './views/404'
 import GradientHomepage from "./partials/GradientHomepage"
 import GradientGallery from "./partials/GradientGallery"
 import Skills from "./views/Skills"
@@ -42,10 +42,22 @@ export const routes = [
     },
     {
         path: '/contact',
-        component: Page404,
+        component: NotFoundPage,
         meta: {
             layout: OneColumnLayout,
         },
+    },
+
+    {
+        path: '/404',
+        component: NotFoundPage,
+        meta: {
+            layout: OneColumnLayout,
+        },
+    },
+    {
+        path: '*',
+        redirect: '/404'
     },
 
 ];

@@ -11,7 +11,7 @@
                 <div slot="additional-info">
                     <span class="number">phone: <a href="tel:+380957277490">+38(095) 72 77 490</a></span>
                     <div>
-                        <rosem-button><span slot="button">
+                        <rosem-button><span>
                             <a href="mailto:romasemenyshyn@gmail.com">email me </a></span>
                         </rosem-button>
                     </div>
