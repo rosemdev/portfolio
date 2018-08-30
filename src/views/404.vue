@@ -1,15 +1,20 @@
 <template>
-    <div class="main-container not-found-page">
-        <div class="image">
-            <img id="tree" src="../assets/images/icons/three-pines.svg" alt="">
-            <img id="garlands" src="../assets/images/icons/garlands.svg" alt="">
-        </div>
-        <div class="text">
-            <p class="not-found">404 page</p>
-            <p>Looks like you're lost...</p>
+    <div class="main-container">
+        <div class="not-found-page">
+            <div class="image">
+                <img id="tree" src="../assets/images/icons/three-pines.svg" alt="">
+                <img id="garlands" src="../assets/images/icons/garlands.svg" alt="">
+            </div>
+            <div class="text">
+                <p class="not-found">404 page</p>
+                <p>Looks like you're lost...</p>
+            </div>
         </div>
         <div class="controls">
-            <rosem-button></rosem-button>
+            <rosem-button><router-link to="/" tag="span">back home</router-link></rosem-button>
+            <p>
+                <rosem-button class="dark"><span @click="$router.go(-1)">go back</span></rosem-button>
+            </p>
         </div>
     </div>
 </template>
@@ -23,7 +28,7 @@
 
         components: {
             RosemButton
-        }
+        },
     }
 </script>
 <style lang="less"  scoped>
@@ -36,6 +41,7 @@
         align-items: center;
         justify-content: center;
         flex-direction: column;
+        cursor: pointer;
 
         .image {
             position: relative;
@@ -53,18 +59,17 @@
                 bottom: 55px;
                 filter: grayscale(100%);
                 transition: .3s ease-in-out;
-                cursor: pointer;
             }
+        }
 
-            &:hover {
-                img#garlands {
-                    filter:none;
-                }
+        &:hover {
+            img#garlands {
+                filter:none;
             }
         }
 
         .text {
-            color: #333;
+            color: @mainColor;
             p {
                 font-size: 30px;
 
@@ -73,6 +78,13 @@
                     font-weight: 700;
                 }
             }
+        }
+    }
+
+    .controls {
+        margin-bottom: 45px;
+        .button {
+            margin: 5px;
         }
     }
 

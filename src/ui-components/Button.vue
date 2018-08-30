@@ -1,6 +1,6 @@
 <template>
         <a class="button">
-            <slot></slot>
+            <span><slot></slot></span>
         </a>
 </template>
 <script>
@@ -27,6 +27,20 @@
 
         &:hover {
             box-shadow: -7px 0 4vw -0.7vw rgba(0, 0, 0, .2);
+        }
+
+        &.simple {
+            background: transparent;
+            border: 1px solid @mainColor;
+            padding: 5px 20px;
+
+            span {
+                color: @mainColor;
+            }
+        }
+
+        &.dark {
+            background: @mainColor;
         }
 
     }

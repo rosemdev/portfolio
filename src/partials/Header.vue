@@ -11,16 +11,16 @@
         <transition name="fade" mode="out-in">
             <nav v-show="showNav">
                 <ul>
-                        <router-link
-                                tag="li"
-                                v-for="item in menuItems"
-                                :key="item.url"
-                                active-class="active"
-                                :to="{path: item.url}"
-                                exact
-                        >
-                            <a>{{ item.text }}</a>
-                        </router-link>
+                    <router-link
+                            tag="li"
+                            v-for="item in menuItems"
+                            :key="item.url"
+                            active-class="active"
+                            :to="{path: item.url}"
+                            exact
+                    >
+                        <a>{{ item.text }}</a>
+                    </router-link>
                 </ul>
             </nav>
         </transition>
@@ -44,8 +44,7 @@
                 ],
                 showNav: false,
                 isTopElement: false,
-                topElementHeight: ''
-
+                topElementHeight: '',
             }
         },
 
@@ -105,14 +104,14 @@
                     && !this.$el.querySelector('.burger-icon').contains(event.target)) {
                     this.showNav = false;
                 }
-            }
+            },
         },
 
         created() {
             this.$nextTick(() => {
                 window.addEventListener('scroll', this.stickHeader);
-                document.addEventListener('click', this.closeMenu)
-            })
+                document.addEventListener('click', this.closeMenu);
+            });
 
         },
 
@@ -172,6 +171,7 @@
             z-index: 8;
             height: 100vh;
             box-shadow: 0 1px 23px 5px #0000001a;
+            background-color: white;
 
             &:before {
                 content: '';
@@ -179,10 +179,9 @@
                 top: 0;
                 right: 0;
                 width: 100%;
-                height: 150vh;
+                height: 120vh;
                 background-color: white;
                 border-right: 2px solid @mainColor;
-
             }
 
             ul {
@@ -190,7 +189,7 @@
                     text-align: right;
                     font-size: 2rem;
                     padding: 15px 4rem 15px 0;
-                    transition: all 0.3s ease-in-out;
+                    transition: all .3s ease-in-out;
                     position: relative;
                     margin-right: -42px;
                     cursor: pointer;
@@ -208,7 +207,6 @@
 
                         & a {
                             color: black;
-                            margin-right: 1px;
                         }
                     }
 

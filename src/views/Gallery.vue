@@ -45,7 +45,7 @@
                         atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
                         soluta totam vitae, voluptates.
                     </template>
-                    <rosem-button slot="additional-info"><span>see details</span></rosem-button>
+                    <rosem-button class="dark" slot="additional-info"><span>see details</span></rosem-button>
                 </rosem-description-block>
                 <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
                     <slide v-for="image in photos" :key="image.imageSource">
@@ -202,11 +202,6 @@
 
             .description-block {
                 flex-basis: 25%;
-                color: white;
-
-                .button {
-                    background: @mainColor !important;
-                }
             }
         }
 
