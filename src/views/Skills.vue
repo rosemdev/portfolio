@@ -25,54 +25,63 @@
                     <template slot="beginData">Sep. 29</template>
                     <template slot="endData">Present</template>
                 </rosem-history-line>
-                <div class="info">
-                    <p><small>work</small></p>
-                    <p class="place">smile</p>
-                    <p class="position">QA Engineer</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dolorum id placeat quidem. Eos,
-                        illo.</p>
-                    <ul>
-                        <li>test</li>
-                        <li>test</li>
-                        <li>test</li>
-                    </ul>
-                </div>
+                <rosem-description-block subtitle="work" title="smile">
+                    <template slot="description">
+                        <span class="position">QA Engineer</span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor
+                            sit amet,
+                            consectetur adipisicing elit. Aliquid beatae consectetur.</p>
+                    </template>
+                    <div slot="additional-info">
+                        <ul>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                        </ul>
+                    </div>
+                </rosem-description-block>
             </div>
             <div class="life-cycle">
                 <rosem-history-line :begin-year="2016" :end-year="2018">
                     <template slot="beginData">Sep. 01</template>
                     <template slot="endData">Jen 25</template>
                 </rosem-history-line>
-                <div class="info">
-                    <p><small>Education</small></p>
-                    <p class="place">Ternopil National Economic Universe</p>
-                    <p class="position">Project Management, Master degree</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dolorum id placeat quidem. Eos,
-                        illo.</p>
-                    <ul>
-                        <li>test</li>
-                        <li>test</li>
-                        <li>test</li>
-                    </ul>
-                </div>
+                <rosem-description-block subtitle="education" title="Ternopil National Economic University">
+                    <template slot="description">
+                        <span class="position">Master degree</span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor
+                            sit amet,
+                            consectetur adipisicing elit. Aliquid beatae consectetur.</p>
+                    </template>
+                    <div slot="additional-info">
+                        <ul>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                        </ul>
+                    </div>
+                </rosem-description-block>
             </div>
             <div class="life-cycle">
                 <rosem-history-line :begin-year="2012" :end-year="2016">
                     <template slot="beginData">Sep. 01</template>
                     <template slot="endData">Jun. 25</template>
                 </rosem-history-line>
-                <div class="info">
-                    <p><small>Education</small></p>
-                    <p class="place">Ternopil National Economic Universe</p>
-                    <p class="position">Computer Science, Bachelor degree</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi dolorum id placeat quidem. Eos,
-                        illo.</p>
-                    <ul>
-                        <li>test</li>
-                        <li>test</li>
-                        <li>test</li>
-                    </ul>
-                </div>
+                <rosem-description-block subtitle="education" title="Ternopil National Economic University">
+                    <template slot="description">
+                        <span class="position">Bachelor degree</span>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor
+                            sit amet,
+                            consectetur adipisicing elit. Aliquid beatae consectetur.</p>
+                    </template>
+                    <div slot="additional-info">
+                        <ul>
+                            <li>test</li>
+                            <li>test</li>
+                            <li>test</li>
+                        </ul>
+                    </div>
+                </rosem-description-block>
             </div>
         </div>
 
@@ -129,20 +138,15 @@
             justify-content: flex-start;
             color: @mainColor;
 
-            .info {
-               text-align: left;
-
-                p.place {
-                    font-weight: 700;
-                    font-size: 25px;
-                    text-align: left;
+            & /deep/ .description-block {
+                h2 {
                     text-transform: uppercase;
+                    font-size: 30px;
                 }
 
                 .position {
-                    font-size: 20px;
+                    font-size: 25px;
                     font-weight: 500;
-                    text-transform: none;
                 }
 
                 ul {

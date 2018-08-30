@@ -1,6 +1,6 @@
 <template>
     <div class="description-block">
-        <p>{{ subtitle }}</p>
+        <p class="subtitle">{{ subtitle }}</p>
         <h2>{{ title }}</h2>
         <h3><slot name="description"></slot></h3>
         <slot name="additional-info"></slot>
@@ -39,10 +39,10 @@
         padding: 15px 25px;
         color: @mainColor;
 
-        p {
+        p.subtitle {
             font-size: 15px;
             font-weight: 300;
-            margin-bottom: -20px;
+            margin-bottom: -25px;
         }
 
         h2 {
