@@ -42,12 +42,12 @@
         p.subtitle {
             font-size: 15px;
             font-weight: 300;
-            margin-bottom: -25px;
+            margin-bottom: -20px;
         }
 
         h2 {
             font-weight: 800;
-            font-size: 35px;
+            font-size: 28px;
         }
 
         h3 {
@@ -57,4 +57,12 @@
         }
 
     }
+
+    .responsive(@tablet, {
+        & .description-block {
+            h2 {
+                font-size: 35px;
+            }
+        }
+    });
 </style>

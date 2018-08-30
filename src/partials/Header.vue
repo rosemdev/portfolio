@@ -198,7 +198,7 @@
                         &:after {
                             content: '';
                             position: absolute;
-                            right: 0;
+                            right: 44px;
                             top: 0;
                             background-color: black;
                             width: 6px;
@@ -240,6 +240,12 @@
             ul {
                 li {
                     font-size: 4rem;
+
+                    &:hover, &.active {
+                        &:after {
+                            right: 0;
+                        }
+                    }
                 }
             }
         }

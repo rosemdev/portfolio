@@ -84,7 +84,6 @@
                 </rosem-description-block>
             </div>
         </div>
-
     </div>
 </template>
 <script>
@@ -141,7 +140,13 @@
             & /deep/ .description-block {
                 h2 {
                     text-transform: uppercase;
-                    font-size: 30px;
+                    font-size: 25px;
+
+                    .responsive(@tablet, {
+                        h2 {
+                            font-size: 30px;
+                        }
+                    })
                 }
 
                 .position {
