@@ -29,10 +29,6 @@
         justify-content: flex-start;
         flex-direction: column;
 
-        .mobile-sidebar {
-            margin-top: 20px;
-        }
-
         & aside {
             padding: 15px 25px;
             width: 100%;

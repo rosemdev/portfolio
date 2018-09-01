@@ -13,25 +13,25 @@
             <p class="heading">Skills</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consectetur, consequatur delectus
                 impedit ipsam iure neque optio placeat quasi sequi tempora tempore ullam unde, vel?</p>
+            <rosem-progress-bar :progress="78">rosem</rosem-progress-bar>
         </div>
     </div>
 </template>
 <script>
+    import RosemProgressBar from "../components/ProgressBar"
 
     export default {
         data() {
             return {}
         },
+
+        components: {
+            RosemProgressBar
+        }
     }
 </script>
 <style lang="less" scoped>
     @import "../assets/styles/design";
-
-    #map {
-        height: 300px;
-        width: 100%;
-
-    }
 
     .resume-aside {
         display: flex;
