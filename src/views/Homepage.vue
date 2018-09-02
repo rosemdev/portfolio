@@ -80,8 +80,49 @@
             </div>
         </div>
         <div class="white-background">
-            <div class="contact-form main-content">
-
+            <div class="main-content get-in-touch">
+                <p class="contact">Get in touch...</p>
+                <div class="contact-form">
+                    <rosem-form>
+                        <div class="user-identification">
+                            <rosem-input
+                                    type="text"
+                                    maxlength="10"
+                                    placeholder="your name" required="true">
+                                Name
+                            </rosem-input>
+                            <rosem-input
+                                    type="text"
+                                    minLength="2"
+                                    required="true"
+                                    placeholder="your last name"
+                            >
+                                Last Name
+                            </rosem-input>
+                        </div>
+                        <div class="user-social">
+                            <rosem-input
+                                    type="text"
+                                    required="false"
+                                    placeholder="your telephone"
+                            >Telephone
+                            </rosem-input>
+                            <rosem-input
+                                    type="email"
+                                    required="true"
+                                    placeholder="your email"
+                            >Email
+                            </rosem-input>
+                        </div>
+                        <div class="message">
+                            <textarea
+                                    required
+                                    placeholder="leave your message"
+                            >
+                            </textarea>
+                        </div>
+                    </rosem-form>
+                </div>
             </div>
         </div>
     </div>
@@ -98,6 +139,9 @@
     import {Carousel, Slide} from "vue-carousel"
     import RosemSlideDescription from "../partials/SlideContent"
     import RosemFooter from "../partials/Footer"
+    import RosemForm from "../ui-components/Form"
+    import RosemInput from "../ui-components/Input"
+    import RosemPhoto from "../partials/PhotoGallery"
 
 
     export default {
@@ -120,9 +164,12 @@
             RosemHistoryLine,
             RosemSocialBlock,
             RosemCard,
+            RosemForm,
+            RosemInput,
             RosemFooter,
             Carousel,
-            Slide
+            Slide,
+            RosemPhoto
         },
 
         methods: {}
@@ -329,10 +376,37 @@
         }
     }
 
-    .contact-form {
-        height: 25rem;
-    }
+    .get-in-touch {
+        .contact {
+            text-align: left;
+            font-size: 45px;
+            color: @mainColor;
+            font-weight: 600;
+        }
 
+        .contact-form {
+            display: flex;
+
+            .user-identification, .user-social {
+                display: flex;
+
+            }
+
+            .message {
+                padding: 10px;
+                margin: 10px 0;
+
+                textarea { //TODO
+                    border: 1px solid @mainColor;
+                    width: 100%;
+                    height: 75px;
+                    padding: 10px;
+                    resize: none;
+                }
+            }
+
+        }
+    }
 
     .responsive(@tablet, { & .gradient-screen {
         height: 900px;
@@ -425,7 +499,7 @@
                       margin-bottom: 0;
                       li {
                           &::before {
-                            bottom: 9px;
+                              bottom: 9px;
                           }
 
                           & a {

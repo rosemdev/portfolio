@@ -63,7 +63,7 @@
 </template>
 <script>
     import {photos} from "../data/photos";
-    import RosemPhotoGallery from "../partials/photoGallery";
+    import RosemPhotoGallery from "../partials/PhotoGallery";
     import RosemButton from "../ui-components/Button";
     import RosemQuote from "../components/Quote";
     import RosemHistoryLine from "../components/HistoryLine";

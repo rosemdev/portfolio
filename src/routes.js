@@ -7,6 +7,7 @@ import GradientHomepage from "./partials/GradientHomepage"
 import GradientGallery from "./partials/GradientGallery"
 import Skills from "./views/Skills"
 import Aside from "./partials/Aside"
+import ContactForm from "./partials/ContactForm"
 
 
 export const routes = [
@@ -42,7 +43,7 @@ export const routes = [
     },
     {
         path: '/contact',
-        component: NotFoundPage,
+        component: ContactForm,
         meta: {
             layout: OneColumnLayout,
         },
