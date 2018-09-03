@@ -1,9 +1,15 @@
 <template>
-    <textarea :style="{width: width+'px', height: height+'px'}"></textarea>
+    <textarea :style="{width: width+'px', height: height+'px'}"
+              ref="input"
+              @blur="checkValidity($event.target)"
+    ></textarea>
 </template>
 <script>
+    import InputBase from "../ui-components/InputBase"
+
     export default {
-        inject: ['fields'],
+
+        extends: InputBase,
 
         data() {
             return {}
@@ -18,10 +24,6 @@
                 type: Number,
 
             }
-        },
-
-        mounted() {
-            // this.fields.push(this);
         },
 
     }
