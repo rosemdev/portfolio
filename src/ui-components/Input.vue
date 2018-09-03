@@ -68,7 +68,6 @@
 
         mounted() {
             this.fields.push(this);
-            console.log(this.$attrs.required);
         },
     }
 </script>

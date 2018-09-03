@@ -118,12 +118,13 @@
                             </rosem-input>
                         </div>
                         <div class="message">
-                            <textarea
-                                    required="true"
-                                    placeholder="leave your message"
+                            <rosem-textarea
+                                    required
+                                    :height="75"
+                                    placeholder="leave your message..."
                                     name="message"
-                            >
-                            </textarea>
+                            >Message
+                            </rosem-textarea>
                         </div>
                     </rosem-form>
                 </div>
@@ -145,6 +146,7 @@
     import RosemFooter from "../partials/Footer"
     import RosemForm from "../ui-components/Form"
     import RosemInput from "../ui-components/Input"
+    import RosemTextarea from "../ui-components/Textarea"
 
     export default {
         data() {
@@ -168,6 +170,7 @@
             RosemCard,
             RosemForm,
             RosemInput,
+            RosemTextarea,
             RosemFooter,
             Carousel,
             Slide,
@@ -395,15 +398,6 @@
 
             .message {
                 padding: 10px;
-                margin: 10px 0;
-
-                textarea { //TODO
-                    border: 1px solid @mainColor;
-                    width: 100%;
-                    height: 75px;
-                    padding: 10px;
-                    resize: none;
-                }
             }
 
         }
