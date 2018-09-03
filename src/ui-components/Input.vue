@@ -131,6 +131,12 @@
 
         }
 
+        @-moz-document url-prefix() {
+            label {
+                height: 57px !important;
+            }
+        }
+
         .error-line {
             &:after {
                 content: '';

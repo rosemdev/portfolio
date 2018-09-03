@@ -88,7 +88,8 @@
                             <rosem-input
                                     type="text"
                                     maxlength="10"
-                                    placeholder="your name" required="true">
+                                    placeholder="your name" required="true"
+                                    name="name">
                                 Name
                             </rosem-input>
                             <rosem-input
@@ -96,6 +97,7 @@
                                     minLength="2"
                                     required="true"
                                     placeholder="your last name"
+                                    name="last-name"
                             >
                                 Last Name
                             </rosem-input>
@@ -104,12 +106,14 @@
                             <rosem-input
                                     type="text"
                                     placeholder="your telephone"
-                            >Telephone
+                                    name="phone"
+                            >Phone Number
                             </rosem-input>
                             <rosem-input
                                     type="email"
                                     required="true"
                                     placeholder="your email"
+                                    name="email"
                             >Email
                             </rosem-input>
                         </div>
@@ -117,6 +121,7 @@
                             <textarea
                                     required="true"
                                     placeholder="leave your message"
+                                    name="message"
                             >
                             </textarea>
                         </div>
