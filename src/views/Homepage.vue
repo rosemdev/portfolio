@@ -103,7 +103,6 @@
                         <div class="user-social">
                             <rosem-input
                                     type="text"
-                                    required="false"
                                     placeholder="your telephone"
                             >Telephone
                             </rosem-input>
@@ -116,7 +115,7 @@
                         </div>
                         <div class="message">
                             <textarea
-                                    required
+                                    required="true"
                                     placeholder="leave your message"
                             >
                             </textarea>
