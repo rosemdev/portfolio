@@ -1,6 +1,6 @@
 <template>
     <div class="input">
-        <label :for="_uid"><span><slot></slot></span></label>
+        <label :for="_uid"><span :class="{required: required}"><slot></slot></span></label>
         <input
                 ref="input"
                 v-bind="$attrs"
@@ -34,7 +34,8 @@
 
         data() {
             return {
-                valid: true
+                valid: true,
+                required: this.$attrs.required,
             }
         },
 
@@ -64,6 +65,7 @@
 
         mounted() {
             this.fields.push(this);
+            console.log(this.$attrs.required);
         },
     }
 </script>
@@ -77,58 +79,73 @@
         align-items: start;
         justify-content: start;
 
-    }
-
-    label {
-        display: block;
-        top: 9px;
-        margin: 10px 0;
-        position: absolute;
-        left: 9px;
-        overflow: hidden;
-        width: 275px;
-        height: 50px;
-        text-align: left;
-        font-size: 15px;
-
-        &:before{
-            content: '';
+        label {
+            display: block;
+            top: 9px;
+            margin: 10px 0;
             position: absolute;
-            height: 100%;
-            background-color: @mainColor;
-            width: 1px;
-            top: 16px;
-
-        }
-
-        &:after{
-            content: '';
-            position: absolute;
-            width: 100%;
-            background-color: @mainColor;
-            height: 1px;
-            top: 6px;
-            margin-left: 5px;
-
-        }
-
-    }
-
-    input {
-        border-bottom: 1px solid @mainColor;
-        border-right: 1px solid @mainColor;
-        padding: 10px;
-        display: block;
-        margin: 25px 10px;
-        font-size: 20px;
-        width: 275px;
-        color: @mainColor;
-        background-color: inherit;
-        box-shadow: 0 0.3vw 3vw -0.7vw rgba(0, 0, 0, 0.2);
-
-        &::placeholder {
+            left: 9px;
+            overflow: hidden;
+            width: 350px;
+            height: 50px;
+            text-align: left;
             font-size: 15px;
+
+            &:before {
+                content: '';
+                position: absolute;
+                height: 100%;
+                background-color: @mainColor;
+                width: 1px;
+                top: 16px;
+
+            }
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                background-color: @mainColor;
+                height: 1px;
+                top: 6px;
+                margin-left: 5px;
+
+            }
+
+            span {
+                &.required {
+                    &:after {
+                        content: '*';
+                        color: red;
+                        position: absolute;
+                        background-color: #333;
+                        height: 1px;
+                        top: -2px;
+
+                    }
+                }
+            }
+
         }
+
+        input {
+            border-bottom: 1px solid @mainColor;
+            border-right: 1px solid @mainColor;
+            padding: 10px;
+            display: block;
+            margin: 25px 10px;
+            font-size: 20px;
+            width: 350px;
+            color: @mainColor;
+            background-color: inherit;
+            box-shadow: 0 0.3vw 3vw -0.7vw rgba(0, 0, 0, 0.2);
+
+            &::placeholder {
+                font-size: 15px;
+            }
+        }
+
     }
+
 
 </style>
