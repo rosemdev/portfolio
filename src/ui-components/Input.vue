@@ -1,18 +1,19 @@
 <template>
     <div class="input">
         <label :for="_uid"><span :class="{required: required}"><slot></slot></span></label>
-        <span :class="[{error: !valid}, 'error-line']">
-            <input
-                    ref="input"
-                    v-bind="$attrs"
-                    :id=" _uid"
-                    @blur="checkValidity($event.target)"
-                    @invalid.prevent="valid = false"
-            />
-        </span>
-        <p v-if="!valid" class="error error-message">
-            <span>{{$refs.input.validationMessage}}</span>
-        </p>
+        <input
+                ref="input"
+                v-bind="$attrs"
+                :id=" _uid"
+                @blur="checkValidity($event.target)"
+                @invalid.prevent="valid = false"
+        />
+        <span :class="[{error: !valid}, 'red-line']"></span>
+        <transition name="fade" mode="out-in">
+            <span v-if="!valid" class="error error-message">
+                <span>{{$refs.input.validationMessage}}</span>
+            </span>
+        </transition>
     </div>
 </template>
 <script>
@@ -115,20 +116,33 @@
 
             }
 
-            span {
-                &.required {
-                    &:after {
-                        content: '*';
-                        color: red;
-                        position: absolute;
-                        background-color: #333;
-                        height: 1px;
-                        top: -2px;
+            &.required {
+                &:after {
+                    content: '*';
+                    color: red;
+                    position: absolute;
+                    background-color: #333;
+                    height: 1px;
+                    top: -2px;
 
-                    }
                 }
             }
+        }
 
+        input {
+            border-bottom: 1px solid @mainColor;
+            border-right: 1px solid @mainColor;
+            padding: 15px;
+            display: block;
+            margin: 25px 10px;
+            font-size: 20px;
+            width: 350px;
+            color: @mainColor;
+            box-shadow: 0 0.3vw 3vw -0.7vw rgba(0, 0, 0, 0.2);
+
+            &::placeholder {
+                font-size: 15px;
+            }
         }
 
         @-moz-document url-prefix() {
@@ -137,40 +151,24 @@
             }
         }
 
-        .error-line {
+        .red-line {
             &:after {
                 content: '';
                 position: absolute;
                 width: 0;
-                height: 2px;
-                background-color: tomato;
+                height: 1px;
+                background-color: red;
                 left: 10px;
                 bottom: 25px;
-                transition: all .3s linear;
+                transition: all .4s linear;
             }
 
-            input {
-                border-bottom: 1px solid @mainColor;
-                border-right: 1px solid @mainColor;
-                padding: 15px;
-                display: block;
-                margin: 25px 10px;
-                font-size: 20px;
-                width: 350px;
-                color: @mainColor;
-                background-color: inherit;
-                box-shadow: 0 0.3vw 3vw -0.7vw rgba(0, 0, 0, 0.2);
-
-                &::placeholder {
-                    font-size: 15px;
-                }
-            }
         }
 
         .error {
             position: relative;
 
-            &.error-line {
+            &.red-line {
                 &:after {
                     width: 350px;
                 }
@@ -181,9 +179,19 @@
                 margin-left: 9px;
                 margin-right: 9px;
                 font-size: 13px;
-                color: tomato;
+                color: red;
             }
         }
+    }
+
+    .fade-enter-active {
+        transition: all .5s ease-in;
+    }
+
+    .fade-enter, .fade-leave-to {
+        transition: all .5s ease-out;
+        transform: translateX(70px);
+        opacity: 0;
     }
 
 

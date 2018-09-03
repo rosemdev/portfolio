@@ -255,10 +255,6 @@
         transition: all .5s ease-in;
     }
 
-    .fade-leave-active {
-
-    }
-
     .fade-enter, .fade-leave-to {
         transition: all .5s ease-out;
         transform: translateX(70px);
