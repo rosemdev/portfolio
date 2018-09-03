@@ -141,8 +141,6 @@
     import RosemFooter from "../partials/Footer"
     import RosemForm from "../ui-components/Form"
     import RosemInput from "../ui-components/Input"
-    import RosemPhoto from "../partials/PhotoGallery"
-
 
     export default {
         data() {
@@ -169,7 +167,6 @@
             RosemFooter,
             Carousel,
             Slide,
-            RosemPhoto
         },
 
         methods: {}
