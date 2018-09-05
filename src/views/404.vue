@@ -11,9 +11,9 @@
             </div>
         </div>
         <div class="controls">
-            <rosem-button><router-link to="/" tag="span">back home</router-link></rosem-button>
+            <rosem-button to="/">back home</rosem-button>
             <p>
-                <rosem-button class="dark"><span @click="$router.go(-1)">go back</span></rosem-button>
+                <rosem-button @click.native="$router.go(-1)" class="dark">go back</rosem-button>
             </p>
         </div>
     </div>
