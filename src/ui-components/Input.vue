@@ -49,7 +49,7 @@
             position: absolute;
             left: 9px;
             overflow: hidden;
-            width: 350px;
+            width: 250px;
             height: 60px;
             text-align: left;
             font-size: 15px;
@@ -95,7 +95,7 @@
             display: block;
             margin: 25px 10px;
             font-size: 20px;
-            width: 350px;
+            width: 250px;
             color: @mainColor;
             box-shadow: 0 0.3vw 3vw -0.7vw rgba(0, 0, 0, 0.2);
 
@@ -143,6 +143,7 @@
         }
     }
 
+
     .fade-enter-active {
         transition: all .5s ease-in;
     }
@@ -152,6 +153,18 @@
         transform: translateX(70px);
         opacity: 0;
     }
+
+    .responsive(@tablet, { .input {
+
+        label {
+            width: 350px;
+        }
+
+        input {
+            width: 350px;
+        }
+
+    } });
 
 
 </style>

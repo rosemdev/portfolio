@@ -3,7 +3,7 @@
         <div class="sidebar">
             <img src="../assets/images/photos/image.jpg" alt="">
         </div>
-        <div class="form">
+        <div class="main-content form">
             <p>Let's get down to the business</p>
             <rosem-contact-form></rosem-contact-form>
             <div class="social-contact">
@@ -44,13 +44,17 @@
         display: flex;
         align-items: start;
         justify-content: space-between;
+        flex-direction: column;
         padding-bottom: 9rem;
         padding-top: 3rem;
 
         .sidebar {
-            width: 300px;
+            width: 100%;
             height: 700px;
             overflow: hidden;
+            position: absolute;
+            opacity: 0.3;
+            filter: blur(2px);
 
             img {
                 object-fit: cover;
@@ -64,11 +68,78 @@
                 color: @mainColor;
                 text-align: left;
                 font-weight: 500;
+
+                & /deep/ form {
+                    .button {
+                        text-align: center  ;
+                    }
+                }
+            }
+
+            .social-contact {
+                margin-top: 50px;
+
+                & /deep/.social {
+                    img {
+                        width: 45px;
+                    }
+                }
             }
         }
 
         .history {
             align-self: center;
+            transform: rotate(-45deg);
         }
     }
+
+    .responsive(@tablet, { .contact-page {
+        flex-direction: row;
+
+        .sidebar {
+            position: static;
+            filter: none;
+            opacity: 1;
+            width: 300px;
+        }
+
+        .form {
+            & /deep/form {
+                .user-identification, .user-social {
+                    flex-direction: column;
+
+                }
+            }
+
+            .social-contact {
+                margin-top: 50px;
+
+                & /deep/.social {
+                    img {
+                        width: 25px;
+                    }
+                }
+            }
+
+
+        }
+
+        .history {
+            transform: none;
+        }
+
+    } });
+
+    .responsive(@desktop, { .contact-page {
+
+        .form {
+            & /deep/form {
+                .user-identification, .user-social {
+                    flex-direction: row;
+
+                }
+            }
+
+        }
+    } });
 </style>

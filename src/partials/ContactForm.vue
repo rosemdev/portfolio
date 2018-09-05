@@ -80,6 +80,9 @@
 
         .user-identification, .user-social {
             display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
 
         }
 
@@ -88,5 +91,13 @@
         }
 
     }
+
+    .responsive(@tablet, {
+        .contact-form {
+            .user-identification, .user-social {
+                flex-direction: row;
+            }
+        }
+    });
 
 </style>
