@@ -1,7 +1,7 @@
 <template>
     <form @submit="onSubmit" novalidate>
         <slot></slot>
-        <rosem-button type="submit">sent</rosem-button>
+        <rosem-button type="submit">{{ buttonName }}</rosem-button>
     </form>
 </template>
 <script>
@@ -11,6 +11,13 @@
         provide() {
             return {
                 fields: this.fields
+            }
+        },
+
+        props: {
+            buttonName: {
+                type: String,
+                default: 'sent'
             }
         },
 
@@ -49,6 +56,10 @@
 
     form {
         text-align: left;
+
+        .button {
+            margin-left: 10px;
+        }
     }
 
 

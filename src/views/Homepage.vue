@@ -81,53 +81,8 @@
         </div>
         <div class="white-background">
             <div class="main-content get-in-touch">
-                <p class="contact">Get in touch...</p>
-                <div class="contact-form">
-                    <rosem-form>
-                        <div class="user-identification">
-                            <rosem-input
-                                    type="text"
-                                    maxlength="10"
-                                    placeholder="your name" required="true"
-                                    name="name">
-                                Name
-                            </rosem-input>
-                            <rosem-input
-                                    type="text"
-                                    minLength="2"
-                                    required="true"
-                                    placeholder="your last name"
-                                    name="last-name"
-                            >
-                                Last Name
-                            </rosem-input>
-                        </div>
-                        <div class="user-social">
-                            <rosem-input
-                                    type="text"
-                                    placeholder="your telephone"
-                                    name="phone"
-                            >Phone Number
-                            </rosem-input>
-                            <rosem-input
-                                    type="email"
-                                    required="true"
-                                    placeholder="your email"
-                                    name="email"
-                            >Email
-                            </rosem-input>
-                        </div>
-                        <div class="message">
-                            <rosem-textarea
-                                    required
-                                    :height="75"
-                                    placeholder="leave your message..."
-                                    name="message"
-                            >Message
-                            </rosem-textarea>
-                        </div>
-                    </rosem-form>
-                </div>
+                <p>Get in touch...</p>
+                <rosem-contact-form/>
             </div>
         </div>
     </div>
@@ -146,6 +101,7 @@
     import RosemFooter from "../partials/Footer"
     import RosemForm from "../ui-components/Form"
     import RosemInput from "../ui-components/Input"
+    import RosemContactForm from "../partials/ContactForm"
     import RosemTextarea from "../ui-components/Textarea"
 
     export default {
@@ -170,6 +126,7 @@
             RosemCard,
             RosemForm,
             RosemInput,
+            RosemContactForm,
             RosemTextarea,
             RosemFooter,
             Carousel,
@@ -381,25 +338,11 @@
     }
 
     .get-in-touch {
-        .contact {
+        p {
             text-align: left;
             font-size: 45px;
             color: @mainColor;
             font-weight: 600;
-        }
-
-        .contact-form {
-            display: flex;
-
-            .user-identification, .user-social {
-                display: flex;
-
-            }
-
-            .message {
-                padding: 10px;
-            }
-
         }
     }
 
