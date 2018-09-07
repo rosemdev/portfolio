@@ -57,6 +57,7 @@
                 <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
                     captured forever…
                 </blockquote>
+                <rosem-insta-feed></rosem-insta-feed>
             </div>
         </div>
     </div>
@@ -70,6 +71,7 @@
     import RosemPhoto from "../components/Photo";
     import RosemDescriptionBlock from "../components/DescriptionBlock";
     import RosemCard from "../components/Card";
+    import RosemInstaFeed from "../partials/InstaFeed";
     import {Carousel, Slide} from "vue-carousel"
 
     export default {
@@ -87,6 +89,7 @@
             RosemCard,
             Carousel,
             Slide,
+            RosemInstaFeed,
             RosemButton
         },
     }

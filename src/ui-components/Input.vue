@@ -129,7 +129,7 @@
 
             &.red-line {
                 &:after {
-                    width: 350px;
+                    width: 250px;
                 }
             }
 
@@ -157,11 +157,19 @@
     .responsive(@tablet, { .input {
 
         label {
-            width: 350px;
+            width: 340px;
         }
 
         input {
-            width: 350px;
+            width: 340px;
+        }
+
+        .error {
+            &.red-line {
+                &:after {
+                    width: 340px;
+                }
+            }
         }
 
     } });

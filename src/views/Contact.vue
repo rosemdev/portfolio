@@ -24,7 +24,8 @@
     export default {
         data() {
             return {
-                socialIconsLinks
+                socialIconsLinks,
+
             }
         },
 
@@ -32,8 +33,7 @@
             RosemContactForm,
             RosemHistoryLine,
             RosemSocialBlock
-        }
-
+        },
     }
 </script>
 <style lang="less" scoped>
@@ -45,6 +45,7 @@
         align-items: start;
         justify-content: space-between;
         flex-direction: column;
+        flex-wrap: wrap;
         padding-bottom: 9rem;
         padding-top: 3rem;
 
@@ -71,7 +72,7 @@
 
                 & /deep/ form {
                     .button {
-                        text-align: center  ;
+                        text-align: center;
                     }
                 }
             }
@@ -79,7 +80,7 @@
             .social-contact {
                 margin-top: 50px;
 
-                & /deep/.social {
+                & /deep/ .social {
                     img {
                         width: 45px;
                     }
@@ -104,7 +105,7 @@
         }
 
         .form {
-            & /deep/form {
+            & /deep/ form {
                 .user-identification, .user-social {
                     flex-direction: column;
 
@@ -114,13 +115,12 @@
             .social-contact {
                 margin-top: 50px;
 
-                & /deep/.social {
+                & /deep/ .social {
                     img {
-                        width: 25px;
+                        width: 27px;
                     }
                 }
             }
-
 
         }
 
@@ -133,7 +133,7 @@
     .responsive(@desktop, { .contact-page {
 
         .form {
-            & /deep/form {
+            & /deep/ form {
                 .user-identification, .user-social {
                     flex-direction: row;
 
