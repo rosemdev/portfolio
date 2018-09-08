@@ -2,14 +2,14 @@
     <div class="instafeed">
         <carousel :perPageCustom="[[320, 1], [768, 3]]">
             <slide
-                    v-for="photo in instagram.carouselImages.length"
+                    v-for="(photo, index) in instagram.imageSrc.length"
                     :key="photo.imageSrc"
-                    >
+            >
                 <rosem-insta-photo
-                        :post-link="instagram.postLink[photo-1]"
-                        :image-src="instagram.carouselImages    [photo-1]"
-                        :likes="instagram.likes[photo-1]"
-                        :location="instagram.location[photo-1]"
+                        :post-link="instagram.postLink[index]"
+                        :image-src="instagram.imageSrc[index]"
+                        :likes="instagram.likes[index]"
+                        :location="instagram.location[index]"
                 ></rosem-insta-photo>
             </slide>
         </carousel>
@@ -44,11 +44,14 @@
         },
         methods: {
             getPhotos() {
-                let request = new XMLHttpRequest();
+                let request = new XMLHttpRequest(),
+                    responseData,
+                    url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=",
+                    accessToken = "8440872427.1677ed0.51740d5b84624cbab3d90e2f8e224b66";
 
-                request.open('GET', 'https://api.instagram.com/v1/users/self/media/recent/?access_token=8440872427.1677ed0.51740d5b84624cbab3d90e2f8e224b66');
+                request.open('GET', url + accessToken);
                 request.onload = () => {
-                    let responseData = JSON.parse(request.responseText);
+                    responseData = JSON.parse(request.responseText);
                     console.log(responseData);
                     this.extractInfo(responseData.data);
                 };
@@ -64,14 +67,16 @@
                     this.instagram.postLink.push(item.link);
                     this.instagram.location.push(item.location.name);
 
-                    item.carousel_media.forEach(carouselItem => {
-                        this.instagram.carouselImages.push(carouselItem.images.standard_resolution.url);
+                    if (item.carousel_media.length) {
+                        item.carousel_media.forEach(carouselItem => {
+                            this.instagram.carouselImages.push(carouselItem.images.standard_resolution.url);
 
-                    });
+                        });
+                    }
+
                 });
-                
-                console.log(this.instagram.carouselImages);
-            }
+
+            },
         }
     }
 </script>

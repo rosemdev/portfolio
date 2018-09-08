@@ -8,7 +8,13 @@
                 <img :src="imageSrc">
             </a>
             <div class="photo-info">
-                <p class="location">{{ location }}</p>
+                <a
+                        :href="showMap(location)"
+                        class="location"
+                        @click="$emit('location-clicked')"
+                        target="_blank"
+                >{{ location }}
+                </a>
                 <p class="likes">
                     <img src="../assets/images/icons/heart.svg" alt="">
                     <span>{{ likes }}</span>
@@ -43,6 +49,19 @@
         components: {
             RosemPhoto,
         },
+
+        methods: {
+
+            showMap(locationStr) {
+                let googleMap = "https://www.google.com/maps/search/?api=1&query=";
+                locationStr = this.location.replace(/[, ]+/g, "+").toLowerCase();
+                return googleMap + locationStr;
+            }
+        },
+
+        mounted() {
+            // console.log(this.location);
+        }
     }
 </script>
 <style lang="less" scoped>
@@ -58,6 +77,8 @@
                 position: absolute;
                 right: 15px;
                 top: 15px;
+                z-index: 2;
+
                 img {
                     width: 20px;
                 }
@@ -66,7 +87,7 @@
             a {
                 img {
                     width: 100%;
-                    height: 500px;
+                    height: 400px;
                 }
 
             }
@@ -86,9 +107,19 @@
                 opacity: 0;
                 transition: opacity .5s ease-in-out;
 
+                .location {
+                    cursor: pointer;
+                    color: white;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
                 .likes {
                     display: flex;
                     align-items: center;
+
                     img {
                         width: 15px;
                         margin: 10px;
