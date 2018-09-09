@@ -14,17 +14,16 @@
 
     .photo {
         overflow: hidden;
+        position: relative;
         box-shadow: 4px 4px 60px 0 #464343e6;
 
         img {
             transition: .3s ease-in-out;
             object-fit: cover;
             display: block;
-
+            
             &:hover {
                 transform: scale(1.1);
-
-
             }
         }
     }

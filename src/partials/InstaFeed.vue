@@ -33,7 +33,7 @@
             }
         },
 
-        mounted() {
+        created() {
             this.getPhotos();
         },
 

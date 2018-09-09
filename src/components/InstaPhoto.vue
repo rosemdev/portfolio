@@ -103,7 +103,6 @@
                 justify-content: space-around;
                 padding: 10px;
                 font-weight: 400;
-                text-transform: uppercase;
                 opacity: 0;
                 transition: opacity .5s ease-in-out;
 

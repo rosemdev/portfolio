@@ -1,7 +1,9 @@
 <template>
     <div class="padding-aside resume-aside">
         <div class="avatar">
-            <img src="../assets/images/me/rosem2.jpg">
+            <a href="https://www.linkedin.com/in/romanna-semenyshyn/" target="_blank">
+                <img src="../assets/images/me/rosem2.jpg">
+            </a>
         </div>
         <div class="address">
             <img src="../assets/images/icons/placeholder-filled-point.png" alt="">
@@ -15,10 +17,18 @@
                 impedit ipsam iure neque optio placeat quasi sequi tempora tempore ullam unde, vel?</p>
             <rosem-progress-bar :progress="78" :max="200">rosem</rosem-progress-bar>
         </div>
+        <div class="get-resume">
+            <rosem-button
+                    href="../data/CV_Romanna_Semenyshyn.docx.odt"
+                    download="Romanna_Semenyshyn_resume"
+                    class="light"
+            >get resume</rosem-button>
+        </div>
     </div>
 </template>
 <script>
     import RosemProgressBar from "../components/ProgressBar"
+    import RosemButton from "../ui-components/Button"
 
     export default {
         data() {
@@ -26,7 +36,8 @@
         },
 
         components: {
-            RosemProgressBar
+            RosemProgressBar,
+            RosemButton
         }
     }
 </script>

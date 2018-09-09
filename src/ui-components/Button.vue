@@ -58,15 +58,16 @@
         &.simple {
             background: transparent;
             border: 1px solid @mainColor;
-            padding: 5px 20px;
-
-            span {
-                color: @mainColor;
-            }
+            color: @mainColor;
         }
 
         &.dark {
             background: @mainColor;
+        }
+
+        &.light {
+            background: white;
+            color: @mainColor;
         }
 
     }

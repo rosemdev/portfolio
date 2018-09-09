@@ -72,9 +72,9 @@
             justify-content: space-between;
             align-items: center;
             color: white;
-            margin-top: -8rem;
+            margin-top: -6rem;
             border-radius: 10px;
-            padding: 60px;
+            padding: 25px 60px;
             position: relative;
             z-index: 5;
 

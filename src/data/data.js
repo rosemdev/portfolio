@@ -8,7 +8,7 @@ import facebookSocialImage from '../assets/images/icons/facebook-app-logo.svg'
 export let socialLinks = [
     {
         name: 'Linkedin',
-        link: 'https://www.linkedin.com/in/romanna-semenyshyn-565322135/',
+        link: 'https://www.linkedin.com/in/romanna-semenyshyn/',
         isIcon: false,
 
     },
@@ -22,7 +22,7 @@ export let socialLinks = [
 
     {
         name: 'Facebook',
-        link: 'https://www.facebook.com/profile.php?id=100003626938421',
+        link: 'https://www.facebook.com/miss.annamor',
         isIcon: false,
 
     }
@@ -30,7 +30,7 @@ export let socialLinks = [
 
 export let socialIconsLinks = [
     {
-        link: 'https://www.linkedin.com/in/romanna-semenyshyn-565322135/',
+        link: 'https://www.linkedin.com/in/romanna-semenyshyn/',
         isIcon: true,
         src: linkedinSocialImage
 
@@ -45,7 +45,7 @@ export let socialIconsLinks = [
     },
 
     {
-        link: 'https://www.facebook.com/profile.php?id=100003626938421',
+        link: 'https://www.facebook.com/miss.annamor',
         isIcon: true,
         src: facebookSocialImage
 
