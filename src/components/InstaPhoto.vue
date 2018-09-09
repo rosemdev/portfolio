@@ -1,9 +1,6 @@
 <template>
     <div class="insta-photo">
         <rosem-photo>
-            <span class="insta-icon">
-                <img src="../assets/images/icons/instagram.svg" alt="">
-            </span>
             <a :href="postLink" target="_blank">
                 <img :src="imageSrc">
             </a>
@@ -58,10 +55,6 @@
                 return googleMap + locationStr;
             }
         },
-
-        mounted() {
-            // console.log(this.location);
-        }
     }
 </script>
 <style lang="less" scoped>
@@ -72,16 +65,19 @@
         color: white;
         .photo {
             position: relative;
+            box-shadow: none;
 
-            .insta-icon {
+            &:before {
+                content: '';
+                display: block;
+                width: 20px;
+                height: 20px;
                 position: absolute;
                 right: 15px;
                 top: 15px;
                 z-index: 2;
+                background: url("../assets/images/icons/instagram.svg") ;
 
-                img {
-                    width: 20px;
-                }
             }
 
             a {

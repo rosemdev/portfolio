@@ -52,7 +52,7 @@
                 request.open('GET', url + accessToken);
                 request.onload = () => {
                     responseData = JSON.parse(request.responseText);
-                    console.log(responseData);
+                    // console.log(responseData);
                     this.extractInfo(responseData.data);
                 };
 
@@ -80,8 +80,3 @@
         }
     }
 </script>
-<style lang="less" scoped>
-    @import "../assets/styles/design";
-    @import "../assets/styles/mixins";
-
-</style>
