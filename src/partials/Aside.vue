@@ -22,7 +22,8 @@
                     href="../data/CV_Romanna_Semenyshyn.docx.odt"
                     download="Romanna_Semenyshyn_resume"
                     class="light"
-            >get resume</rosem-button>
+            >get resume
+            </rosem-button>
         </div>
     </div>
 </template>
@@ -32,13 +33,47 @@
 
     export default {
         data() {
-            return {}
+            return {
+                isTouch: false
+            }
         },
 
         components: {
             RosemProgressBar,
-            RosemButton
+            RosemButton,
+        },
+
+        methods: {
+            fixSidebar() {
+                let footer = document.querySelector("footer");
+
+                this.$el.classList.add("sticky");
+
+                if (footer.getBoundingClientRect().top - 200 < window.pageYOffset ) {
+                    this.isTouch = true;
+                    this.$el.style.top = - 350 + 'px';
+
+                } else {
+                    this.$el.style.top = '';
+                    this.isTouch = false;
+
+                }
+            },
+        },
+
+        created() {
+            this.$nextTick(() => {
+                this.fixSidebar();
+                window.addEventListener('scroll', this.fixSidebar);
+            });
+
+        },
+
+        destroyed() {
+            // window.removeEventListener('scroll', this.fixSidebar);
         }
+
+
     }
 </script>
 <style lang="less" scoped>
@@ -82,8 +117,5 @@
     .resume-aside.sticky {
         position: fixed;
         width: 20%;
-        bottom: 26px;
-        top: 140px;
-
     }
 </style>

@@ -77,7 +77,6 @@
                 top: 15px;
                 z-index: 2;
                 background: url("../assets/images/icons/instagram.svg") ;
-
             }
 
             a {
@@ -85,7 +84,6 @@
                     width: 100%;
                     height: 400px;
                 }
-
             }
 
             .photo-info {
@@ -118,7 +116,6 @@
                     img {
                         width: 15px;
                         margin: 10px;
-
                     }
                 }
             }
@@ -130,7 +127,5 @@
                 opacity: 1;
             }
         }
-
     }
-
 </style>
