@@ -46,18 +46,29 @@
         methods: {
             fixSidebar() {
                 let footer = document.querySelector("footer");
+                let scrollHeight = Math.max(
+                    document.body.scrollHeight, document.documentElement.scrollHeight,
+                    document.body.offsetHeight, document.documentElement.offsetHeight,
+                    document.body.clientHeight, document.documentElement.clientHeight
+                );
 
                 this.$el.classList.add("sticky");
+                
+                console.log(window.pageYOffset + this.$el.getBoundingClientRect().top);
+                console.log(footer.getBoundingClientRect().height, "футер height"); //TODO
 
-                if (footer.getBoundingClientRect().top - 200 < window.pageYOffset ) {
-                    this.isTouch = true;
-                    this.$el.style.top = - 350 + 'px';
+                if(window.pageYOffset + this.$el.offsetHeight + 200 > scrollHeight - footer.getBoundingClientRect().height) {
+                    this.$el.style.position = "absolute";
+                    this.$el.style.marginTop = (scrollHeight - footer.getBoundingClientRect().height - this.$el.getBoundingClientRect().height -200)  + 'px';
 
                 } else {
-                    this.$el.style.top = '';
-                    this.isTouch = false;
-
+                    this.$el.style.position = "";
+                    this.$el.style.marginTop = '';
                 }
+
+
+
+
             },
         },
 
@@ -118,4 +129,5 @@
         position: fixed;
         width: 20%;
     }
+
 </style>
