@@ -10,6 +10,7 @@
                         class="location"
                         @click="$emit('location-clicked')"
                         target="_blank"
+                        v-if="location"
                 >{{ location }}
                 </a>
                 <p class="likes">

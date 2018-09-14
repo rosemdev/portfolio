@@ -52,7 +52,7 @@
                 request.open('GET', url + accessToken);
                 request.onload = () => {
                     responseData = JSON.parse(request.responseText);
-                    // console.log(responseData);
+                    console.log(responseData);
                     this.extractInfo(responseData.data);
                 };
 
@@ -65,9 +65,14 @@
                     this.instagram.imageSrc.push(item.images.standard_resolution.url);
                     this.instagram.likes.push(item.likes.count);
                     this.instagram.postLink.push(item.link);
-                    this.instagram.location.push(item.location.name);
 
-                    if (item.carousel_media.length) {
+                    if(item.location !== null) {
+                        this.instagram.location.push(item.location.name);
+                    } else {
+                        this.instagram.location.push('')
+                    }
+
+                    if (item.hasOwnProperty('carousel_media')) {
                         item.carousel_media.forEach(carouselItem => {
                             this.instagram.carouselImages.push(carouselItem.images.standard_resolution.url);
 
