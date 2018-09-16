@@ -40,7 +40,7 @@
     }
 
 
-    .responsive(@tablet, { .layout-2-cols {
+    .responsive(@desktop, { .layout-2-cols {
         flex-direction: row;
 
         & aside {

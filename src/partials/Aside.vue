@@ -34,7 +34,8 @@
     export default {
         data() {
             return {
-                isTouch: false
+                isTouch: false,
+
             }
         },
 
@@ -45,43 +46,45 @@
 
         methods: {
             fixSidebar() {
-                let footer = document.querySelector("footer");
-                let scrollHeight = Math.max(
-                    document.body.scrollHeight, document.documentElement.scrollHeight,
-                    document.body.offsetHeight, document.documentElement.offsetHeight,
-                    document.body.clientHeight, document.documentElement.clientHeight
-                );
+                if (this.isDesktop()) {
 
-                this.$el.classList.add("sticky");
-                
-                console.log(window.pageYOffset + this.$el.getBoundingClientRect().top);
-                console.log(footer.getBoundingClientRect().height, "футер height"); //TODO
 
-                if(window.pageYOffset + this.$el.offsetHeight + 200 > scrollHeight - footer.getBoundingClientRect().height) {
-                    this.$el.style.position = "absolute";
-                    this.$el.style.marginTop = (scrollHeight - footer.getBoundingClientRect().height - this.$el.getBoundingClientRect().height -200)  + 'px';
+                    let pageHeight = Math.max(
+                        document.body.scrollHeight, document.documentElement.scrollHeight,
+                        document.body.offsetHeight, document.documentElement.offsetHeight,
+                        document.body.clientHeight, document.documentElement.clientHeight
+                    );
+                    let footer = document.querySelector("footer"),
+                        distance = 250,
+                        footerHeight = footer.getBoundingClientRect().height,
+                        sidebarHeight = this.$el.getBoundingClientRect().height;
 
-                } else {
-                    this.$el.style.position = "";
-                    this.$el.style.marginTop = '';
+                    if (window.pageYOffset + this.$el.offsetHeight + distance > pageHeight - footerHeight) {
+                        this.$el.style.position = "absolute";
+                        this.$el.style.marginTop = (pageHeight - footerHeight - sidebarHeight - distance) + 'px';
+
+                    } else {
+                        this.$el.style.position = "";
+                        this.$el.style.marginTop = '';
+                    }
                 }
 
-
-
-
             },
+
+            isDesktop() {
+                return window.matchMedia("(min-width: 769px)").matches;
+            }
         },
 
         created() {
             this.$nextTick(() => {
-                this.fixSidebar();
-                window.addEventListener('scroll', this.fixSidebar);
+                window.addEventListener('scroll', this.fixSidebar.bind(this));
             });
 
         },
 
         destroyed() {
-            // window.removeEventListener('scroll', this.fixSidebar);
+            window.removeEventListener('scroll', this.fixSidebar.bind(this));
         }
 
 
@@ -97,6 +100,10 @@
         justify-content: space-between;
         background-color: @gray;
         color: white;
+        position: static;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
 
         .heading {
             font-size: 25px;
@@ -125,9 +132,9 @@
         }
     }
 
-    .resume-aside.sticky {
+    .responsive(@desktop, { .resume-aside {
         position: fixed;
         width: 20%;
-    }
+    } });
 
 </style>
