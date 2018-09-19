@@ -59,6 +59,7 @@
                 </blockquote>
                 <rosem-insta-feed></rosem-insta-feed>
             </div>
+            <test></test>
         </div>
     </div>
 </template>
@@ -72,7 +73,8 @@
     import RosemDescriptionBlock from "../components/DescriptionBlock";
     import RosemCard from "../components/Card";
     import RosemInstaFeed from "../partials/InstaFeed";
-    import {Carousel, Slide} from "vue-carousel"
+    import {Carousel, Slide} from "vue-carousel";
+    import test from "../components/test";
 
     export default {
         data() {
@@ -90,7 +92,8 @@
             Carousel,
             Slide,
             RosemInstaFeed,
-            RosemButton
+            RosemButton,
+            test
         },
     }
 </script>
