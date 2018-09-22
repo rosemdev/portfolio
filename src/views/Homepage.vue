@@ -237,34 +237,6 @@
                     margin-top: 3rem;
                     width: 185px;
                 }
-
-                &:hover, &:hover + .card-overlay {
-                    opacity: 1;
-                    box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
-                    transform: rotateX(0deg) translateX(0) scale(1);
-
-                    .button {
-                        opacity: 1;
-                        transition: all .5s ease-in-out;
-                    }
-                }
-            }
-        }
-
-        .card + .card-overlay {
-            &::after {
-                content: '';
-                height: 100%;
-                width: 100%;
-                overflow: hidden;
-                position: absolute;
-                background-size: cover;
-                z-index: -1;
-                opacity: 0.2;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                top: 0;
             }
         }
 
