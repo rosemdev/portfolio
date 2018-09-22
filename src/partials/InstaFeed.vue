@@ -52,7 +52,6 @@
                 request.open('GET', url + accessToken);
                 request.onload = () => {
                     responseData = JSON.parse(request.responseText);
-                    console.log(responseData);
                     this.extractInfo(responseData.data);
                 };
 

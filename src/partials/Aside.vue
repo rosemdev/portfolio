@@ -19,7 +19,7 @@
         </div>
         <div class="get-resume">
             <rosem-button
-                    href="../data/CV_Romanna_Semenyshyn.docx.odt"
+                    href="../../data/CV_Romanna_Semenyshyn.docx.odt"
                     download="Romanna_Semenyshyn_resume"
                     class="light"
             >get resume

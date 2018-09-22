@@ -4,6 +4,7 @@ import App from './App.vue'
 import {routes} from "./routes"
 import PrismicVue from 'prismic-vue'
 import linkResolver from '../link-resolver'
+import resolveViews from "./utils/resolveViews"
 
 
 Vue.use(PrismicVue, {
@@ -14,7 +15,7 @@ Vue.use(PrismicVue, {
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    routes,
+    routes: resolveViews(routes, componentName => import(`./${componentName}`)),
     mode: 'history',
 });
 

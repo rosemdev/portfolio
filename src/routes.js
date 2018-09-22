@@ -1,59 +1,47 @@
-import OneColumnLayout from "./layouts/OneColumnLayout"
-import TwoColumnsLayout from "./layouts/TwoColumnsLayout"
-import Homepage from './views/Homepage'
-import Gallery from './views/Gallery'
-import NotFoundPage from './views/404'
-import GradientHomepage from "./partials/GradientHomepage"
-import GradientGallery from "./partials/GradientGallery"
-import Skills from "./views/Skills"
-import Aside from "./partials/Aside"
-import Contact from "./views/Contact"
-
-
 export const routes = [
     {
         path: '/',
         components: {
-            underHeader: GradientHomepage,
-            default: Homepage,
+            underHeader: "partials/GradientHomepage",
+            default: "views/Homepage",
         },
         meta: {
-            layout: OneColumnLayout,
+            layout: "layouts/OneColumnLayout",
         },
     },
     {
         path: '/gallery',
         components: {
-            underHeader: GradientGallery,
-            default: Gallery,
+            underHeader: "partials/GradientGallery",
+            default: "views/Gallery",
         },
         meta: {
-            layout: OneColumnLayout,
+            layout: "layouts/OneColumnLayout",
         }
     },
     {
         path: '/skills',
         components: {
-            aside: Aside,
-            default: Skills,
+            aside: "partials/Aside",
+            default: "views/Skills",
         },
         meta: {
-            layout: TwoColumnsLayout,
+            layout: "layouts/TwoColumnsLayout",
         },
     },
     {
         path: '/contact',
-        component: Contact,
+        component: "views/Contact",
         meta: {
-            layout: OneColumnLayout,
+            layout: "layouts/OneColumnLayout",
         },
     },
 
     {
         path: '/404',
-        component: NotFoundPage,
+        component: "views/NotFoundPage",
         meta: {
-            layout: OneColumnLayout,
+            layout: "layouts/OneColumnLayout",
         },
     },
     {
