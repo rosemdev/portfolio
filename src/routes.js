@@ -10,33 +10,14 @@ export const routes = [
         },
     },
     {
-        path: '/gallery',
+        path: '/blog',
         components: {
-            underHeader: "partials/GradientGallery",
-            default: "views/Gallery",
+            default: "views/ArticlesListPage",
         },
         meta: {
             layout: "layouts/OneColumnLayout",
         }
     },
-    // {
-    //     path: '/skills',
-    //     components: {
-    //         aside: "partials/Aside",
-    //         default: "views/Skills",
-    //     },
-    //     meta: {
-    //         layout: "layouts/TwoColumnsLayout",
-    //     },
-    // },
-    // {
-    //     path: '/contact',
-    //     component: "views/Contact",
-    //     meta: {
-    //         layout: "layouts/OneColumnLayout",
-    //     },
-    // },
-
     {
         path: '/404',
         component: "views/404",

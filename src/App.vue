@@ -53,15 +53,6 @@
                         components[component.name[0].text] = views[component.path[0].text]
                     });
 
-                    console.log({
-                        name: data.name[0].text,
-                        path: data.path[0].text,
-                        components,
-                        meta: {
-                            layout: views[data.layout_path[0].text]
-                        }
-                    });
-
                     return {
                         name: data.name[0].text,
                         path: data.path[0].text,
@@ -71,6 +62,8 @@
                         }
                     };
                 }));
+
+                this.$root.$emit('routesInit');
             });
         },
 

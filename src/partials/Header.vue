@@ -33,6 +33,7 @@
     import RosemBurgerMenu from "../ui-components/BurgerMenu";
 
     export default {
+        name: "Header",
         data() {
             return {
                 isStuck: false,
@@ -110,16 +111,18 @@
             },
 
             getMenuItems() {
-                this.$prismic.client.query(
-                    this.$prismic.Predicates.at('document.type', 'menuitem'),
-                ).then(response => {
-                    this.menuItems = response.results.map(({data}) => {
-                        return {
-                            label: data.label[0].text,
-                            routeName: data.route_name[0].text
-                        }
-                    })
-                })
+                this.$root.$on('routesInit',() => {
+                    this.$prismic.client.query(
+                        this.$prismic.Predicates.at('document.type', 'menuitem'),
+                    ).then(response => {
+                        this.menuItems = response.results.map(({data}) => {
+                            return {
+                                label: data.label[0].text,
+                                routeName: data.route_name[0].text
+                            }
+                        })
+                    });
+                });
             },
         },
 
