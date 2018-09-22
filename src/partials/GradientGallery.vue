@@ -14,6 +14,8 @@
     import RosemTheme from "../components/Theme"
 
     export default {
+        name: "GradientGallery",
+
         components: {
             RosemGradient,
             RosemTheme,

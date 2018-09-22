@@ -32,6 +32,8 @@
     import RosemButton from "../ui-components/Button"
 
     export default {
+        name: "Aside",
+
         data() {
             return {
                 isTouch: false,

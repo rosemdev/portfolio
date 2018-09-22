@@ -22,6 +22,8 @@
     import {socialIconsLinks} from "../data/data"
 
     export default {
+        name: "Contact",
+
         data() {
             return {
                 socialIconsLinks,

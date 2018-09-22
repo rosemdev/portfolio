@@ -16,6 +16,7 @@
     import RosemTheme from "../components/Theme"
 
     export default {
+        name: "GradienHomepage",
         components: {
             RosemGradient,
             RosemTheme

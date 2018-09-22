@@ -105,6 +105,7 @@
     import RosemTextarea from "../ui-components/Textarea"
 
     export default {
+        name: "Homepage",
         data() {
             return {
                 socialLinks: socialLinks,

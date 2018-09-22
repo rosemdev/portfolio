@@ -100,6 +100,8 @@
 
 
     export default {
+        name: "Skills",
+
         data() {
             return {
                 socialLinks,

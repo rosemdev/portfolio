@@ -13,13 +13,13 @@
                 <ul>
                     <router-link
                             tag="li"
-                            v-for="item in menuItems"
-                            :key="item.url"
+                            v-for="(item) in menuItems"
+                            :key="item.routeName"
                             active-class="active"
-                            :to="{path: item.url}"
+                            :to="{name: item.routeName}"
                             exact
                     >
-                        <a>{{ item.text }}</a>
+                        <a>{{ item.label}}</a>
                     </router-link>
                 </ul>
             </nav>
@@ -36,12 +36,7 @@
         data() {
             return {
                 isStuck: false,
-                menuItems: [
-                    {text: 'Home', url: '/'},
-                    {text: 'Gallery', url: '/gallery'},
-                    {text: 'Skills', url: '/skills'},
-                    {text: 'Contact', url: '/contact'},
-                ],
+                menuItems: [],
                 showNav: false,
                 topElementHeight: '',
             }
@@ -113,6 +108,19 @@
                     this.showNav = false;
                 }
             },
+
+            getMenuItems() {
+                this.$prismic.client.query(
+                    this.$prismic.Predicates.at('document.type', 'menuitem'),
+                ).then(response => {
+                    this.menuItems = response.results.map(({data}) => {
+                        return {
+                            label: data.label[0].text,
+                            routeName: data.route_name[0].text
+                        }
+                    })
+                })
+            },
         },
 
         created() {
@@ -121,6 +129,10 @@
                 document.addEventListener('click', this.closeMenu);
             });
 
+        },
+
+        beforeMount() {
+            this.getMenuItems();
         },
 
         mounted() {
