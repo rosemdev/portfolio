@@ -27,6 +27,7 @@
         "partials/GradientHomepage": () => import("./partials/GradientHomepage"),
         "views/Gallery": () => import("./views/Gallery"),
         "partials/GradientGallery": () => import("./partials/GradientGallery"),
+        "views/ArticlesListPage": () => import("./views/ArticlesListPage"),
     };
 
     export default {

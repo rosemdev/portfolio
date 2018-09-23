@@ -10,15 +10,6 @@ export const routes = [
         },
     },
     {
-        path: '/blog',
-        components: {
-            default: "views/ArticlesListPage",
-        },
-        meta: {
-            layout: "layouts/OneColumnLayout",
-        }
-    },
-    {
         path: '/404',
         component: "views/404",
         meta: {

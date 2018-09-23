@@ -198,61 +198,37 @@
             margin: auto;
 
             & .card {
-                display: flex;
-                flex-direction: column;
-                position: relative;
-
                 .button {
                     opacity: 1;
                     margin: auto;
-                }
-
-                & .stage-container {
-                    color: white;
-                    transition: all .5s ease-in-out;
-                    margin: auto;
-                    .stage {
-                        font-size: 5em;
-                        margin-right: 3px;
-                        font-weight: 500;
-                        border-bottom: 3px solid white;
-                    }
-
-                    .stage-name {
-                        font-weight: 600;
-                    }
-                }
-
-                .responsive(@tablet, { & .stage-container {
-                    color: @mainColor;
-
-                    & .stage {
-                        border-bottom-color: @mainColor;
-                    }
-                } });
-
-                & .button {
                     background: #fafafa;
                     color: @mainColor;
                     margin-top: 3rem;
                     width: 185px;
                 }
+
+                &:hover, &:hover + .card-overlay {
+                    .button {
+                        opacity: 1;
+                        transition: all .5s ease-in-out;
+                    }
+                }
             }
         }
 
-        div:nth-child(1) > div.card + .card-overlay {
+        /deep/ div:nth-child(1) > div.card + .card-overlay {
             &::after {
                 background: url("../assets/images/prototype.jpg") no-repeat center;
             }
         }
 
-        div:nth-child(2) > div.card + .card-overlay {
+        /deep/ div:nth-child(2) > div.card + .card-overlay {
             &::after {
                 background: url("../assets/images/development.png") no-repeat center;
             }
         }
 
-        div:nth-child(3) > div.card + .card-overlay {
+        /deep/ div:nth-child(3) > div.card + .card-overlay {
             &::after {
                 background: url("../assets/images/overview.png") no-repeat center;
             }
@@ -350,21 +326,8 @@
 
           & .stages {
               & .card {
-
                   & .button {
                       opacity: 0;
-                  }
-
-                  &:hover {
-                      & .stage-container {
-                          color: white;
-                          transform: translateY(-5rem);
-
-                          & .stage {
-                              border-bottom-color: white;
-                          }
-
-                      }
                   }
               }
           }
@@ -397,9 +360,6 @@
 
           & .stages {
               flex-direction: row;
-              & .card {
-                  border-right: 1px solid #615f5f1a;
-              }
           }
 
           .about-me {
