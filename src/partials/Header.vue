@@ -14,12 +14,12 @@
                     <router-link
                             tag="li"
                             v-for="(item) in menuItems"
-                            :key="item.routeName"
+                            :key="item.url"
                             active-class="active"
-                            :to="{name: item.routeName}"
+                            :to="{path: item.url}"
                             exact
                     >
-                        <a>{{ item.label}}</a>
+                        <a>{{ item.text}}</a>
                     </router-link>
                 </ul>
             </nav>
@@ -37,9 +37,15 @@
         data() {
             return {
                 isStuck: false,
-                menuItems: [],
                 showNav: false,
                 topElementHeight: '',
+                menuItems: [
+                    {text: 'Home', url: '/'},
+                    {text: 'Gallery', url: '/gallery'},
+                    {text: 'Skills', url: '/skills'},
+                    {text: 'Blog', url: '/blog'},
+                    {text: 'Contact', url: '/contact'},
+                ],
             }
         },
 
@@ -85,6 +91,7 @@
                     }
                 }
             },
+
             elTransitionEnd() {
                 this.isStuck = false;
                 this.$el.style.top = '';
@@ -108,22 +115,7 @@
                     && !this.$el.querySelector('.burger-icon').contains(event.target)) {
                     this.showNav = false;
                 }
-            },
-
-            getMenuItems() {
-                this.$root.$on('routesInit',() => {
-                    this.$prismic.client.query(
-                        this.$prismic.Predicates.at('document.type', 'menuitem'),
-                    ).then(response => {
-                        this.menuItems = response.results.map(({data}) => {
-                            return {
-                                label: data.label[0].text,
-                                routeName: data.route_name[0].text
-                            }
-                        })
-                    });
-                });
-            },
+            }
         },
 
         created() {
@@ -132,10 +124,6 @@
                 document.addEventListener('click', this.closeMenu);
             });
 
-        },
-
-        beforeMount() {
-            this.getMenuItems();
         },
 
         mounted() {

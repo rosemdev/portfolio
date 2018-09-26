@@ -7,7 +7,9 @@
                     <p><span class="stage">{{ index+1 }}</span>
                         <span class="stage-name">{{ card.title }}</span></p>
                     <p class="stage-description">{{ card.description }}</p>
-                    <prismic-image :field="card.background"/>
+                    <div class="article-background">
+                        <prismic-image :field="card.background"/>
+                    </div>
                     <rosem-button class="light">more</rosem-button>
                 </div>
             </rosem-card>
@@ -37,6 +39,7 @@
                 ).then(response => {
                     console.log(response);
                     this.cards = response.results.map(({data}) => {
+                        console.log(data.background.url);
                         return {
                             title: data.title[0].text,
                             description: data.description[0].text,
@@ -69,10 +72,12 @@
             justify-content: space-between;
         }
 
-        .card {
+        /deep/.card {
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 500px;
+            padding: 0;
 
             .stage-container {
                 display: flex;
@@ -81,12 +86,14 @@
                 justify-content: space-between;
                 margin: 15px;
                 height: inherit;
+                background-size: cover;
+
                 img {
                     width: 125%;
                 }
 
                 .button {
-                    margin-top: 90px;
+                    margin-top: 70px;
                     transition: .3s ease-in-out;
                     opacity: 0;
                 }

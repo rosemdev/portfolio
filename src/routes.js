@@ -10,6 +10,44 @@ export const routes = [
         },
     },
     {
+        path: '/gallery',
+        components: {
+            underHeader: "partials/GradientGallery",
+            default: "views/Gallery",
+        },
+        meta: {
+            layout: "layouts/OneColumnLayout",
+        },
+    },
+    {
+        path: '/contact',
+        components: {
+            default: "views/Contact",
+        },
+        meta: {
+            layout: "layouts/OneColumnLayout",
+        },
+    },
+    {
+        path: '/skills',
+        components: {
+            aside: "partials/Aside",
+            default: "views/Skills",
+        },
+        meta: {
+            layout: "layouts/TwoColumnsLayout",
+        },
+    },
+    {
+        path: '/blog',
+        components: {
+            default: "views/ArticlesListPage",
+        },
+        meta: {
+            layout: "layouts/OneColumnLayout",
+        },
+    },
+    {
         path: '/404',
         component: "views/404",
         meta: {

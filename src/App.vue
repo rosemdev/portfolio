@@ -17,19 +17,6 @@
     import RosemHeader from "./partials/Header"
     import RosemFooter from "./partials/Footer"
 
-    const views = {
-        "layouts/OneColumnLayout": () => import("./layouts/OneColumnLayout"),
-        "layouts/TwoColumnsLayout": () => import("./layouts/TwoColumnsLayout"),
-        "partials/Aside": () => import("./partials/Aside"),
-        "views/Skills": () => import("./views/Skills"),
-        "views/Contact": () => import("./views/Contact"),
-        "views/Homepage": () => import("./views/Homepage"),
-        "partials/GradientHomepage": () => import("./partials/GradientHomepage"),
-        "views/Gallery": () => import("./views/Gallery"),
-        "partials/GradientGallery": () => import("./partials/GradientGallery"),
-        "views/ArticlesListPage": () => import("./views/ArticlesListPage"),
-    };
-
     export default {
         components: {
             RosemHeader,
@@ -44,30 +31,6 @@
 
         methods: {},
 
-        beforeCreate() {
-            this.$prismic.client.query(
-                this.$prismic.Predicates.at('document.type', 'route'),
-            ).then((response) => {
-                this.$router.addRoutes(response.results.map(({ data }) => {
-                    let components = {};
-                    data.components.forEach(component => {
-                        components[component.name[0].text] = views[component.path[0].text]
-                    });
-
-                    return {
-                        name: data.name[0].text,
-                        path: data.path[0].text,
-                        components,
-                        meta: {
-                            layout: views[data.layout_path[0].text]
-                        }
-                    };
-                }));
-
-                this.$root.$emit('routesInit');
-            });
-        },
-
         created() {
             this.$root.$on('change-theme', (theme) => {
                 console.log(this.$refs);
@@ -77,7 +40,7 @@
             });
 
             this.theme = localStorage.getItem('theme') || this.theme;
-        }
+        },
     }
 </script>
 
