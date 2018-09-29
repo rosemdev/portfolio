@@ -1,34 +1,51 @@
 <template>
     <div class="main-container">
-        <p>rosem article</p>
-
+        <rosem-loader v-if="loading"></rosem-loader>
         <prismic-rich-text
                 :field="articleContent"
         />
     </div>
 </template>
 <script>
+    import RosemLoader from "../components/Loader"
+
     export default {
         data() {
             return {
-                articleContent: ''
+                articleContent: '',
+                loading: false,
             }
         },
 
-        components: {},
-        methods: {
-            getCurrentArticle() {
+        watch: {
+            '$route' (to) {
+                if(to.params.article) {
+                    this.getCurrentArticle(to.params.article);
+                }
+            }
+        },
+        
+        mounted() {
+          console.log('LOADED!');
+        },
 
-                this.$prismic.client.getByUID('article', this.$route.params.article).then((response) => {
-                    console.log(response.data.content);
+        components: {
+            RosemLoader
+        },
+        methods: {
+            getCurrentArticle(slug) {
+                this.loading = true;
+
+                this.$prismic.client.getByUID('article', slug).then((response) => {
+                    // console.log(response.data.content);
+                    this.loading = false;
                     this.articleContent = response.data.content;
                 });
             }
         },
 
         created() {
-            this.getCurrentArticle();
-            console.log(this.articleContent);
+            this.getCurrentArticle(this.$route.params.article);
         }
     }
 </script>

@@ -14,7 +14,7 @@
                     <rosem-button
                             class="light"
                             :to="{name:'article', params: {article: card.slug}}"
-                    >more {{ card.slug }}
+                    >more
                     </rosem-button>
                 </div>
             </rosem-card>
@@ -34,7 +34,6 @@
                 loading: false,
             }
         },
-
         components: {
             RosemCard,
             RosemButton,
@@ -58,8 +57,6 @@
                             background: data.background,
                         }
                     });
-                    console.log(this.cards);
-
                 });
             },
         },
