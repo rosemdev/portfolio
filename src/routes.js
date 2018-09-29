@@ -48,6 +48,16 @@ export const routes = [
         },
     },
     {
+        path: '/blog/:article',
+        name: 'article',
+        components: {
+            default: "views/Article",
+        },
+        meta: {
+            layout: "layouts/OneColumnLayout",
+        },
+    },
+    {
         path: '/404',
         component: "views/404",
         meta: {

@@ -3,13 +3,15 @@ import VueRouter from 'vue-router'
 import App from './App.vue'
 import {routes} from "./routes"
 import PrismicVue from 'prismic-vue'
-import linkResolver from '../link-resolver'
-import resolveViews from "./utils/resolveViews"
+import linkResolver from './utils/link-resolver'
+import htmlSerializer from './utils/html-serializer'
+import resolveViews from './utils/resolveViews'
 
 
 Vue.use(PrismicVue, {
     endpoint: window.prismic.endpoint,
-    linkResolver
+    linkResolver: linkResolver,
+    htmlSerializer: htmlSerializer
 });
 
 Vue.use(VueRouter);

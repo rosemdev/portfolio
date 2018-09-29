@@ -1,5 +1,6 @@
 <template>
     <div class="blog main-container">
+        <rosem-loader v-if="loading"></rosem-loader>
         <div class="list main-content">
             <rosem-card v-for="(card, index) in cards"
                         :key="index">
@@ -10,7 +11,11 @@
                     <div class="article-background">
                         <prismic-image :field="card.background"/>
                     </div>
-                    <rosem-button class="light">more</rosem-button>
+                    <rosem-button
+                            class="light"
+                            :to="{name:'article', params: {article: card.slug}}"
+                    >more {{ card.slug }}
+                    </rosem-button>
                 </div>
             </rosem-card>
         </div>
@@ -19,34 +24,42 @@
 <script>
     import RosemCard from "../components/Card"
     import RosemButton from "../ui-components/Button"
+    import RosemLoader from "../components/Loader"
 
     export default {
+
         data() {
             return {
-                cards: []
+                cards: [],
+                loading: false,
             }
         },
 
         components: {
             RosemCard,
-            RosemButton
+            RosemButton,
+            RosemLoader
         },
 
         methods: {
             getArticles() {
-                this.$prismic.client.query(
-                    this.$prismic.Predicates.at('document.type', 'blogcard'),
+                this.loading = true;
+
+                return this.$prismic.client.query(
+                    this.$prismic.Predicates.at('document.type', 'article'),
                 ).then(response => {
+                    this.loading = false;
                     console.log(response);
-                    this.cards = response.results.map(({data}) => {
-                        console.log(data.background.url);
+                    this.cards = response.results.map(({uid, data}) => {
                         return {
+                            slug: uid,
                             title: data.title[0].text,
                             description: data.description[0].text,
-                            background: data.background
-
+                            background: data.background,
                         }
-                    })
+                    });
+                    console.log(this.cards);
+
                 });
             },
         },
@@ -72,11 +85,10 @@
             justify-content: space-between;
         }
 
-        /deep/.card {
+        /deep/ .card {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 500px;
             padding: 0;
 
             .stage-container {
@@ -90,6 +102,8 @@
 
                 img {
                     width: 125%;
+                    filter: blur(3px);
+                    transition: .3s ease-in-out;
                 }
 
                 .button {
@@ -103,11 +117,12 @@
                 .stage-container {
                     transform: translateY(-3rem);
 
+                    img {
+                        filter: none;
+                    }
+
                     .button {
                         opacity: 1;
-                    }
-                    .card-overlay::after {
-
                     }
                 }
             }
