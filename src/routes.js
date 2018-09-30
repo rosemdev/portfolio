@@ -58,6 +58,7 @@ export const routes = [
         },
     },
     {
+        name: 'NotFound',
         path: '/404',
         component: "views/404",
         meta: {

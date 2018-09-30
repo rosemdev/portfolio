@@ -7,7 +7,6 @@
                     consectetur adipisicing elit. Aliquid beatae consectetur dolore doloremque exercitationem facilis
                     iure iusto mollitia natus omnis.
                 </template>
-
                 <div slot="additional-info">
                     <span class="number">phone: <a href="tel:+380957277490">+38(095) 72 77 490</a></span>
                     <div>

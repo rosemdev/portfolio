@@ -99,7 +99,7 @@
 
                 img {
                     width: 125%;
-                    filter: blur(3px);
+                    filter: blur(1px);
                     transition: .3s ease-in-out;
                 }
 
