@@ -11,9 +11,9 @@
         height: 100px;
         overflow: hidden;
         border-radius: 50%;
-        margin: 25px 0;
+        margin: 5px 15px;
 
-        img {
+        & /deep/ img {
             width: 100%;
             object-fit: cover;
         }

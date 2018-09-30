@@ -3,7 +3,9 @@
         <div class="main-content" v-if="noErrors">
             <div class="article-intro">
                 <div class="author-info">
-                    <prismic-image :field="author.avatar"/>
+                    <rosem-avatar>
+                        <prismic-image :field="author.avatar"/>
+                    </rosem-avatar>
                     <rosem-description-block
                             subtitle="author"
                             :title="author.name">
@@ -16,8 +18,8 @@
                     <div class="publication-date">
                         <p>{{ getDate(articleContent.publicationDate)}}</p>
                     </div>
-                    <div class="article-tags">
-                        <p v-for="tag in articleContent.tags" :key="tag">{{ tag }}</p>
+                    <div class="article-tags" v-if="articleContent.tags.length > 0">
+                        <rosem-tag v-for="tag in articleContent.tags" :key="tag" :tag="tag"></rosem-tag>
                     </div>
                 </div>
             </div>
@@ -36,6 +38,7 @@
     import RosemLoader from "../components/Loader"
     import RosemDescriptionBlock from "../components/DescriptionBlock"
     import RosemAvatar from "../components/Avatar"
+    import RosemTag from "../components/Tag"
 
     export default {
         data() {
@@ -50,7 +53,8 @@
         components: {
             RosemLoader,
             RosemDescriptionBlock,
-            RosemAvatar
+            RosemAvatar,
+            RosemTag
         },
         methods: {
             getCurrentArticle(slug) {
@@ -117,30 +121,67 @@
                 }
             })
         },
+
+        created() {
+            this.getCurrentArticle(this.$route.params.article);
+        }
     }
 </script>
+<style lang="less">
+    @import "../assets/styles/article";
+</style>
+
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
     @import "../assets/styles/mixins";
 
     .article-page {
+        color: @mainColor;
+        text-align: justify;
+        font-size: 20px;
+
         .article-intro {
             display: flex;
-            align-items: flex-start;
+            align-items: center;
             justify-content: space-between;
             flex-direction: column;
+            padding: 10px 15px;
+
+            .author-info {
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .article-intro {
+                display: flex;
+                align-items: flex-end;
+                flex-direction: column;
+
+                .publication-date {
+                    font-weight: 500;
+                    font-size: 20px;
+                }
+            }
         }
 
         .article-content {
-            max-width: 800px;
+            max-width: 900px;
             width: 100%;
             margin: auto;
+            overflow: hidden;
+
         }
     }
 
     .responsive(@tablet, { .article-page {
         .article-intro {
             flex-direction: row;
+
+            & .author-info {
+                align-items: center;
+                flex-direction: row;
+            }
         }
     } });
 

@@ -3,7 +3,7 @@ import linkResolver from './link-resolver';
 
 const Elements = prismicDOM.RichText.Elements;
 
-export default function (type, element, content) {
+export default function (type, element, content, children) {
     // Generate links to Prismic Documents as <router-link> components
     if (type === Elements.hyperlink) {
         let result = '';
@@ -35,6 +35,25 @@ export default function (type, element, content) {
         const wrapperClassList = [element.label || '', 'block-img'];
         result = `<p class="${wrapperClassList.join(' ')}">${result}</p>`;
         return result;
+    }
+
+    if (type === Elements.embed) {
+        return (`
+        <div data-oembed="${element.oembed.embed_url}"
+          data-oembed-type="${element.oembed.type}"
+          data-oembed-provider="${element.oembed.provider_name}"
+          class="prismic-video"
+        >
+          ${element.oembed.html}
+        </div>
+      `);
+    }
+
+    if (type === Elements.preformatted) {
+
+        return `<pre>
+                    <code>${children.join('')}</code>
+                </pre>`;
     }
 
     // Return null to stick with the default behavior for everything else
