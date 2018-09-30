@@ -1,10 +1,10 @@
 <template>
     <div class="padding-aside resume-aside">
-        <div class="avatar">
+        <rosem-avatar>
             <a href="https://www.linkedin.com/in/romanna-semenyshyn/" target="_blank">
                 <img src="../assets/images/me/rosem2.jpg">
             </a>
-        </div>
+        </rosem-avatar>
         <div class="address">
             <img src="../assets/images/icons/placeholder-filled-point.png" alt="">
             <p class="heading">Address</p>
@@ -30,6 +30,8 @@
 <script>
     import RosemProgressBar from "../components/ProgressBar"
     import RosemButton from "../ui-components/Button"
+    import RosemAvatar from "../components/Avatar"
+
 
     export default {
         name: "Aside",
@@ -44,6 +46,7 @@
         components: {
             RosemProgressBar,
             RosemButton,
+            RosemAvatar
         },
 
         methods: {
@@ -111,19 +114,6 @@
             font-size: 25px;
             text-transform: uppercase;
             font-weight: 700;
-        }
-
-        .avatar {
-            width: 100px;
-            height: 100px;
-            overflow: hidden;
-            border-radius: 50%;
-            margin: 25px 0;
-
-            img {
-                width: 100%;
-                object-fit: cover;
-            }
         }
 
         .address {
