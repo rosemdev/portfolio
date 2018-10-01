@@ -15,11 +15,13 @@
                     </rosem-description-block>
                 </div>
                 <div class="article-intro">
-                    <div class="publication-date">
-                        <p>{{ getDate(articleContent.publicationDate)}}</p>
-                    </div>
                     <div class="article-tags" v-if="articleContent.tags.length > 0">
                         <rosem-tag v-for="tag in articleContent.tags" :key="tag" :tag="tag"></rosem-tag>
+                    </div>
+                    <div class="publication-date">
+                        <rosem-history :begin-year="getDate(articleContent.publicationDate).year">
+                            <template slot="beginData">{{ getDate(articleContent.publicationDate).date}}</template>
+                        </rosem-history>
                     </div>
                 </div>
             </div>
@@ -39,6 +41,7 @@
     import RosemDescriptionBlock from "../components/DescriptionBlock"
     import RosemAvatar from "../components/Avatar"
     import RosemTag from "../components/Tag"
+    import RosemHistory from "../components/HistoryLine"
 
     export default {
         data() {
@@ -54,7 +57,8 @@
             RosemLoader,
             RosemDescriptionBlock,
             RosemAvatar,
-            RosemTag
+            RosemTag,
+            RosemHistory
         },
         methods: {
             getCurrentArticle(slug) {
@@ -109,7 +113,10 @@
                 let dateFormat = new Date(date).toString(),
                     dayAndMounth = dateFormat.substring(4, 10),
                     year = dateFormat.substring(11, 15);
-                return `${dayAndMounth}, ${year}`
+                return {
+                    date: dayAndMounth,
+                    year: year
+                }
 
             }
         },
@@ -151,16 +158,27 @@
                 display: flex;
                 align-items: flex-start;
                 flex-direction: column;
+
+                .avatar {
+                    flex-shrink: 0;
+                }
             }
 
             .article-intro {
                 display: flex;
-                align-items: flex-end;
-                flex-direction: column;
+                align-items: center;
+                flex-basis: 40%;
 
                 .publication-date {
                     font-weight: 500;
                     font-size: 20px;
+                }
+
+                .article-tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: flex-end;
+                    justify-content: flex-end;
                 }
             }
         }
