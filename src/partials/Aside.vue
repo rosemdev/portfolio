@@ -32,7 +32,6 @@
     import RosemButton from "../ui-components/Button"
     import RosemAvatar from "../components/Avatar"
 
-
     export default {
         name: "Aside",
 

@@ -15,7 +15,7 @@
                     </rosem-description-block>
                 </div>
                 <div class="article-intro">
-                    <div class="article-tags" v-if="articleContent.tags.length > 0">
+                    <div class="article-tags" v-if="articleContent.tags!== undefined">
                         <rosem-tag v-for="tag in articleContent.tags" :key="tag" :tag="tag"></rosem-tag>
                     </div>
                     <div class="publication-date">
@@ -42,6 +42,7 @@
     import RosemAvatar from "../components/Avatar"
     import RosemTag from "../components/Tag"
     import RosemHistory from "../components/HistoryLine"
+    import Prism from 'prismjs';
 
     export default {
         data() {
@@ -110,12 +111,12 @@
             },
 
             getDate(date) {
-                let dateFormat = new Date(date).toString(),
-                    dayAndMounth = dateFormat.substring(4, 10),
-                    year = dateFormat.substring(11, 15);
+                let locale = "en-us",
+                    readDateFormat = new Date(date);
+
                 return {
-                    date: dayAndMounth,
-                    year: year
+                    date: readDateFormat.getDate() + ' ' + readDateFormat.toLocaleString(locale, {month: "short"}),
+                    year: readDateFormat.getFullYear()
                 }
 
             }
@@ -124,13 +125,15 @@
         beforeRouteEnter(to, from, next) {
             next(vm => {
                 if (to.params.article) {
-                    vm.getCurrentArticle(to.params.article);
+                    vm.getCurrentArticle(to.params.article).then(function () {
+                        Prism.highlightAll();
+                    });
                 }
             })
         },
 
         created() {
-            this.getCurrentArticle(this.$route.params.article);
+
         }
     }
 </script>
@@ -144,8 +147,8 @@
 
     .article-page {
         color: @mainColor;
-        text-align: justify;
-        font-size: 20px;
+        text-align: left;
+        font-size: 18px;
 
         .article-intro {
             display: flex;
@@ -159,6 +162,10 @@
                 align-items: flex-start;
                 flex-direction: column;
 
+                .description-block {
+                    margin: 0;
+                }
+
                 .avatar {
                     flex-shrink: 0;
                 }
@@ -168,10 +175,19 @@
                 display: flex;
                 align-items: center;
                 flex-basis: 40%;
+                justify-content: flex-end;
 
                 .publication-date {
                     font-weight: 500;
                     font-size: 20px;
+                    transform: rotate(-90deg);
+                    align-self: center;
+                    margin-top: -100px;
+
+                    & /deep/ .history {
+                        width: auto;
+
+                    }
                 }
 
                 .article-tags {
@@ -195,10 +211,27 @@
     .responsive(@tablet, { .article-page {
         .article-intro {
             flex-direction: row;
+            text-align: justify;
+            font-size: 20px;
 
             & .author-info {
                 align-items: center;
                 flex-direction: row;
+            }
+
+            & .article-intro {
+
+                .publication-date {
+                    font-weight: 500;
+                    font-size: 20px;
+                    transform: none;
+                    align-self: center;
+                    margin-top: 0;
+                }
+
+                .article-tags {
+
+                }
             }
         }
     } });

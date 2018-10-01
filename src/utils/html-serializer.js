@@ -52,7 +52,7 @@ export default function (type, element, content, children) {
     if (type === Elements.preformatted) {
 
         return `<pre>
-                    <code>${children.join('')}</code>
+                    <code class="language-javascript">${children.join('').replace(/<br\s*?\/?>/g, '\n')}</code>
                 </pre>`;
     }
 
