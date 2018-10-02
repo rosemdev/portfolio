@@ -48,24 +48,27 @@
             RosemAvatar
         },
 
+        computed: {
+            getPageHeight () {
+                return Math.max(
+                    document.body.scrollHeight, document.documentElement.scrollHeight,
+                    document.body.offsetHeight, document.documentElement.offsetHeight,
+                    document.body.clientHeight, document.documentElement.clientHeight
+                );
+            }
+        },
+
         methods: {
             fixSidebar() {
                 if (this.isDesktop()) {
 
-
-                    let pageHeight = Math.max(
-                        document.body.scrollHeight, document.documentElement.scrollHeight,
-                        document.body.offsetHeight, document.documentElement.offsetHeight,
-                        document.body.clientHeight, document.documentElement.clientHeight
-                    );
-                    let footer = document.querySelector("footer"),
-                        distance = 250,
-                        footerHeight = footer.getBoundingClientRect().height,
+                    let distance = 250,
+                        footerHeight = this.$refs.footer.getBoundingClientRect().height,
                         sidebarHeight = this.$el.getBoundingClientRect().height;
 
-                    if (window.pageYOffset + this.$el.offsetHeight + distance > pageHeight - footerHeight) {
+                    if (window.pageYOffset + this.$el.offsetHeight + distance > this.getPageHeight - footerHeight) {
                         this.$el.style.position = "absolute";
-                        this.$el.style.marginTop = (pageHeight - footerHeight - sidebarHeight - distance) + 'px';
+                        this.$el.style.marginTop = (this.getPageHeight - footerHeight - sidebarHeight - distance) + 'px';
 
                     } else {
                         this.$el.style.position = "";

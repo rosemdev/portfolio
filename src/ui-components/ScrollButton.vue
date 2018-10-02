@@ -1,6 +1,6 @@
 <template>
     <div class="scroll-block"
-         @click="Scroll"
+         @click="scroll"
     >
         <span></span>
         <span></span>
@@ -16,7 +16,7 @@
         },
 
         methods: {
-            Scroll() {
+            scroll() {
                 window.scrollTo({
                     top: 100,
                     left: 0,

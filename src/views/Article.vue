@@ -31,7 +31,7 @@
                 />
             </div>
         </div>
-        <div class="scroll-button">
+        <div class="scroll-button" ref="scrollButton">
             <rosem-scroll-button></rosem-scroll-button>
         </div>
 
@@ -54,6 +54,16 @@
                 author: {},
                 loading: false,
                 noErrors: true,
+            }
+        },
+
+        computed: {
+            getPageHeight() {
+                return Math.max(
+                    document.body.scrollHeight, document.documentElement.scrollHeight,
+                    document.body.offsetHeight, document.documentElement.offsetHeight,
+                    document.body.clientHeight, document.documentElement.clientHeight
+                );
             }
         },
 
@@ -123,6 +133,18 @@
                     year: readDateFormat.getFullYear()
                 }
 
+            },
+
+            scrollTop() {
+
+                let footerHeight = this.$refs.footer.getBoundingClientRect().height;
+
+                if (window.pageYOffset > this.getPageHeight / 2 - footerHeight) {
+                    this.$refs.scrollButton.style.opacity = 1;
+                } else {
+                    this.$refs.scrollButton.style.opacity = 0;
+
+                }
             }
         },
 
@@ -131,6 +153,9 @@
                 if (to.params.article) {
                     vm.getCurrentArticle(to.params.article).then(function () {
                         Prism.highlightAll();
+                        vm.$nextTick(() => {
+                            window.addEventListener('scroll', vm.scrollTop);
+                        });
                     });
                 }
             })
@@ -152,14 +177,13 @@
     .article-page {
         color: @mainColor;
         text-align: left;
-        font-size: 18px;
+        font-size: 17px;
 
         .article-description {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-direction: column;
-            padding: 10px 15px;
 
             .author-info {
                 display: flex;
@@ -168,10 +192,16 @@
 
                 .description-block {
                     margin: 0;
+                    padding: 10px 15px;
+
+                    h1 {
+                        font-size: 20px;
+                    }
                 }
 
                 .avatar {
                     flex-shrink: 0;
+                    margin: 0;
                 }
             }
 
@@ -185,8 +215,8 @@
                     font-weight: 500;
                     font-size: 20px;
                     align-self: flex-end;
-                    margin-top: -180px;
-                    margin-right: -38px;
+                    margin-top: -255px;
+                    margin-right: -70px;
 
                     & /deep/ .history {
                         width: auto;
@@ -216,18 +246,23 @@
     }
 
     .responsive(@tablet, { .article-page {
+        font-size: 19px;
+
         .article-description {
             flex-direction: row;
             text-align: justify;
-            font-size: 20px;
-            flex-basis: 40%;
 
             & .author-info {
                 align-items: center;
                 flex-direction: row;
+
+                .avatar {
+                    margin: 0 5px;
+                }
             }
 
             & .article-intro {
+                flex-basis: 60%;
                 .publication-date {
                     font-weight: 500;
                     font-size: 20px;
@@ -249,35 +284,40 @@
         }
     } });
 
-    .responsive(@desktop, {
-        .article-page {
-            .scroll-button {
-                display: block;
-                & /deep/ .scroll-block {
-                    position: fixed;
-                    top: 50%;
-                    right: 250px;
+    .responsive(@desktop, { .article-page {
+        .article-description {
+            .article-intro {
+                flex-basis: 40%;
+            }
+        }
+        .scroll-button {
+            display: block;
+            opacity: 0;
+            transition: opacity .5s ease-in-out;
+            & /deep/ .scroll-block {
+                position: fixed;
+                top: 50%;
+                right: 250px;
 
-                    &:before {
-                        border-color: @theme-default-main;
-                        left: 25px;
-                        transition: background-color .3s ease-in-out;
+                &:before {
+                    border-color: @mainColor;
+                    left: 25px;
+                    transition: background-color .3s ease-in-out;
+                }
+
+                &:hover {
+                    & span {
+                        box-shadow: 0 1px 26px 2px #0000003b;
                     }
 
-                    &:hover {
-                        & span {
-                            box-shadow: 0 1px 26px 2px #0000003b;
-                        }
-
-                        &:before {
-                            border-color: white;
-                            left: 25px;
-                        }
+                    &:before {
+                        border-color: white;
+                        left: 25px;
                     }
                 }
             }
         }
-    });
+    } });
 
 
 </style>

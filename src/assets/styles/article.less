@@ -1,9 +1,14 @@
+@import "./globalVariables";
 
 .article-content {
   font-weight: 400;
 
   & p, ol {
     line-height: 32px;
+  }
+
+  & ol {
+    padding-inline-start: 25px;
   }
 
   &  h1 {
@@ -16,7 +21,7 @@
   }
 
   & a {
-    color: #0e4b54;
+    color: @theme-default-main;
     font-weight: bold;
   }
 

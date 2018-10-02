@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer ref="footer">
         <div class="main-content footer">
             <div class="footer-links">
                 <ul>
