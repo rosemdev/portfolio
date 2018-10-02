@@ -45,7 +45,8 @@
     import RosemTag from "../components/Tag"
     import RosemHistory from "../components/HistoryLine"
     import RosemScrollButton from "../ui-components/ScrollButton"
-    import Prism from 'prismjs';
+    import Prism from "prismjs";
+    import Debounce from "../utils/debounce";
 
     export default {
         data() {
@@ -136,6 +137,7 @@
 
                 if (window.pageYOffset > pageHeight / 2 - footerHeight) {
                     this.$refs.scrollButton.style.opacity = 1;
+                    console.log('loaded');
                 } else {
                     this.$refs.scrollButton.style.opacity = 0;
 
@@ -149,7 +151,10 @@
                     vm.getCurrentArticle(to.params.article).then(function () {
                         Prism.highlightAll();
                         vm.$nextTick(() => {
-                            window.addEventListener('scroll', vm.scrollTop);
+                            window.addEventListener('scroll', Debounce(function() {
+                                    vm.scrollTop();
+                                }, 10
+                            ));
                         });
                     });
                 }
