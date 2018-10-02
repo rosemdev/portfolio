@@ -1,7 +1,7 @@
 <template>
     <div class="main-container article-page">
         <div class="main-content" v-if="noErrors">
-            <div class="article-intro">
+            <div class="article-description">
                 <div class="author-info">
                     <rosem-avatar>
                         <prismic-image :field="author.avatar"/>
@@ -30,7 +30,9 @@
                         :field="articleContent.content"
                 />
             </div>
-
+        </div>
+        <div class="scroll-button">
+            <rosem-scroll-button></rosem-scroll-button>
         </div>
 
         <rosem-loader v-if="loading"></rosem-loader>
@@ -42,6 +44,7 @@
     import RosemAvatar from "../components/Avatar"
     import RosemTag from "../components/Tag"
     import RosemHistory from "../components/HistoryLine"
+    import RosemScrollButton from "../ui-components/ScrollButton"
     import Prism from 'prismjs';
 
     export default {
@@ -59,7 +62,8 @@
             RosemDescriptionBlock,
             RosemAvatar,
             RosemTag,
-            RosemHistory
+            RosemHistory,
+            RosemScrollButton
         },
         methods: {
             getCurrentArticle(slug) {
@@ -67,7 +71,7 @@
 
                 return this.$prismic.client.getByUID('article', slug)
                     .then((response) => {
-                        console.log(response.tags);
+                        console.log(response);
                         this.loading = false;
 
                         this.articleContent = {
@@ -150,7 +154,7 @@
         text-align: left;
         font-size: 18px;
 
-        .article-intro {
+        .article-description {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -174,27 +178,26 @@
             .article-intro {
                 display: flex;
                 align-items: center;
-                flex-basis: 40%;
+                flex-basis: 100%;
                 justify-content: flex-end;
 
                 .publication-date {
                     font-weight: 500;
                     font-size: 20px;
-                    transform: rotate(-90deg);
-                    align-self: center;
-                    margin-top: -100px;
+                    align-self: flex-end;
+                    margin-top: -180px;
+                    margin-right: -38px;
 
                     & /deep/ .history {
                         width: auto;
-
                     }
                 }
 
                 .article-tags {
                     display: flex;
                     flex-wrap: wrap;
-                    align-items: flex-end;
-                    justify-content: flex-end;
+                    align-items: flex-start;
+                    justify-content: flex-start;
                 }
             }
         }
@@ -206,13 +209,18 @@
             overflow: hidden;
 
         }
+
+        .scroll-button {
+            display: none;
+        }
     }
 
     .responsive(@tablet, { .article-page {
-        .article-intro {
+        .article-description {
             flex-direction: row;
             text-align: justify;
             font-size: 20px;
+            flex-basis: 40%;
 
             & .author-info {
                 align-items: center;
@@ -220,21 +228,56 @@
             }
 
             & .article-intro {
-
                 .publication-date {
                     font-weight: 500;
                     font-size: 20px;
                     transform: none;
                     align-self: center;
                     margin-top: 0;
+                    margin-right: 0;
                 }
 
                 .article-tags {
-
+                    align-items: flex-end;
+                    justify-content: flex-end;
                 }
             }
         }
+
+        .article-content {
+            text-align: justify;
+        }
     } });
+
+    .responsive(@desktop, {
+        .article-page {
+            .scroll-button {
+                display: block;
+                & /deep/ .scroll-block {
+                    position: fixed;
+                    top: 50%;
+                    right: 250px;
+
+                    &:before {
+                        border-color: @theme-default-main;
+                        left: 25px;
+                        transition: background-color .3s ease-in-out;
+                    }
+
+                    &:hover {
+                        & span {
+                            box-shadow: 0 1px 26px 2px #0000003b;
+                        }
+
+                        &:before {
+                            border-color: white;
+                            left: 25px;
+                        }
+                    }
+                }
+            }
+        }
+    });
 
 
 </style>

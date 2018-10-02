@@ -24,12 +24,9 @@
         color: white;
         margin: 5px;
         display: inline;
-
-        & span {
-            background-color: #615f5ff2;
-            padding: 8px;
-            border-radius: 5px;
-            font-size: 13px;
-        }
+        background-color: #615f5ff2;
+        padding: 8px;
+        border-radius: 5px;
+        font-size: 13px;
     }
 </style>
