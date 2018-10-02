@@ -57,16 +57,6 @@
             }
         },
 
-        computed: {
-            getPageHeight() {
-                return Math.max(
-                    document.body.scrollHeight, document.documentElement.scrollHeight,
-                    document.body.offsetHeight, document.documentElement.offsetHeight,
-                    document.body.clientHeight, document.documentElement.clientHeight
-                );
-            }
-        },
-
         components: {
             RosemLoader,
             RosemDescriptionBlock,
@@ -137,9 +127,14 @@
 
             scrollTop() {
 
-                let footerHeight = this.$refs.footer.getBoundingClientRect().height;
+                let footerHeight = document.querySelector('footer').getBoundingClientRect().height,
+                    pageHeight = Math.max(
+                        document.body.scrollHeight, document.documentElement.scrollHeight,
+                        document.body.offsetHeight, document.documentElement.offsetHeight,
+                        document.body.clientHeight, document.documentElement.clientHeight
+                    );
 
-                if (window.pageYOffset > this.getPageHeight / 2 - footerHeight) {
+                if (window.pageYOffset > pageHeight / 2 - footerHeight) {
                     this.$refs.scrollButton.style.opacity = 1;
                 } else {
                     this.$refs.scrollButton.style.opacity = 0;
@@ -293,7 +288,8 @@
         .scroll-button {
             display: block;
             opacity: 0;
-            transition: opacity .5s ease-in-out;
+            transition: opacity .3s ease-in-out;
+
             & /deep/ .scroll-block {
                 position: fixed;
                 top: 50%;
