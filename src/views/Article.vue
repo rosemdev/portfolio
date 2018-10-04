@@ -135,9 +135,10 @@
                         document.body.clientHeight, document.documentElement.clientHeight
                     );
 
-                if (window.pageYOffset > pageHeight / 2 - footerHeight) {
-                    console.log('loaded');
+                if (window.pageYOffset > pageHeight / 2.5 - footerHeight
+                    && window.pageYOffset + window.innerHeight < pageHeight - footerHeight) {
                     this.$refs.scrollButton.style.opacity = 1;
+
                 } else {
                     this.$refs.scrollButton.style.opacity = 0;
 
