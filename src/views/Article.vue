@@ -45,6 +45,7 @@
     import RosemTag from "../components/Tag"
     import RosemHistory from "../components/HistoryLine"
     import RosemScrollButton from "../ui-components/ScrollButton"
+    import Debounce from "../utils/debounce"
     import Prism from "prismjs";
 
 
@@ -126,24 +127,24 @@
 
             },
 
-            scrollTop() {
+            scrollTop: Debounce (function () {
+                    let footerHeight = document.querySelector('footer').getBoundingClientRect().height,
+                        pageHeight = Math.max(
+                            document.body.scrollHeight, document.documentElement.scrollHeight,
+                            document.body.offsetHeight, document.documentElement.offsetHeight,
+                            document.body.clientHeight, document.documentElement.clientHeight
+                        );
 
-                let footerHeight = document.querySelector('footer').getBoundingClientRect().height,
-                    pageHeight = Math.max(
-                        document.body.scrollHeight, document.documentElement.scrollHeight,
-                        document.body.offsetHeight, document.documentElement.offsetHeight,
-                        document.body.clientHeight, document.documentElement.clientHeight
-                    );
+                    if (window.pageYOffset > pageHeight / 2.5 - footerHeight
+                        && window.pageYOffset + window.innerHeight < pageHeight - footerHeight) {
+                        console.log('loaded');
+                        this.$refs.scrollButton.style.opacity = 1;
 
-                if (window.pageYOffset > pageHeight / 2.5 - footerHeight
-                    && window.pageYOffset + window.innerHeight < pageHeight - footerHeight) {
-                    this.$refs.scrollButton.style.opacity = 1;
+                    } else {
+                        this.$refs.scrollButton.style.opacity = 0;
 
-                } else {
-                    this.$refs.scrollButton.style.opacity = 0;
-
-                }
-            }
+                    }
+                }, 10)
         },
 
         beforeRouteEnter(to, from, next) {
