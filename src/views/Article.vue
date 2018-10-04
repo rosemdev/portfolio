@@ -46,7 +46,7 @@
     import RosemHistory from "../components/HistoryLine"
     import RosemScrollButton from "../ui-components/ScrollButton"
     import Prism from "prismjs";
-    import Debounce from "../utils/debounce";
+
 
     export default {
         data() {
@@ -136,8 +136,8 @@
                     );
 
                 if (window.pageYOffset > pageHeight / 2 - footerHeight) {
-                    this.$refs.scrollButton.style.opacity = 1;
                     console.log('loaded');
+                    this.$refs.scrollButton.style.opacity = 1;
                 } else {
                     this.$refs.scrollButton.style.opacity = 0;
 
@@ -151,18 +151,15 @@
                     vm.getCurrentArticle(to.params.article).then(function () {
                         Prism.highlightAll();
                         vm.$nextTick(() => {
-                            window.addEventListener('scroll', Debounce(function() {
-                                    vm.scrollTop();
-                                }, 10
-                            ));
+                            document.addEventListener('scroll', vm.scrollTop);
                         });
                     });
                 }
             })
         },
 
-        created() {
-
+        destroyed() {
+            document.removeEventListener('scroll', this.scrollTop);
         }
     }
 </script>
@@ -293,13 +290,23 @@
         .scroll-button {
             display: block;
             opacity: 0;
-            transition: opacity .3s ease-in-out;
+            transition: opacity .5s ease-in-out;
+            position: fixed;
+            bottom: 10%;
+            right: 250px;
+            cursor: pointer;
+
+            &:before {
+                content: '';
+                position: absolute;
+                box-shadow: 0 0 0 3px #333;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
 
             & /deep/ .scroll-block {
-                position: fixed;
-                top: 50%;
-                right: 250px;
-
                 &:before {
                     border-color: @mainColor;
                     left: 25px;
@@ -309,12 +316,19 @@
                 &:hover {
                     & span {
                         box-shadow: 0 1px 26px 2px #0000003b;
+                        background-color: @mainColor;
                     }
 
                     &:before {
                         border-color: white;
                         left: 25px;
                     }
+                }
+            }
+
+            &:hover {
+                &:before {
+                    /*box-shadow: 0 0 0 3px transparent;*/
                 }
             }
         }

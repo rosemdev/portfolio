@@ -34,7 +34,6 @@
         cursor: pointer;
         width: 50px;
         height: 50px;
-        margin-top: 40px;
         transition: background-color .3s;
 
         span {
@@ -47,7 +46,6 @@
             background-color: white;
             display: block;
             height: 56px;
-            /*transition: all .5s ease-in-out;*/
             transform-origin: 28px;
             opacity: 0;
         }
@@ -117,7 +115,6 @@
     @keyframes span1 {
         from {
             transform: rotate(90deg) translate(26px, 26px);
-            /*transform: rotate(0) translate(26px, -26px);*/
             opacity: 0;
         }
 

@@ -80,13 +80,13 @@
 
         created() {
             this.$nextTick(() => {
-                window.addEventListener('scroll', this.fixSidebar.bind(this));
+                document.addEventListener('scroll', this.fixSidebar.bind(this));
             });
 
         },
 
         destroyed() {
-            window.removeEventListener('scroll', this.fixSidebar.bind(this));
+            document.removeEventListener('scroll', this.fixSidebar.bind(this));
         }
 
 
