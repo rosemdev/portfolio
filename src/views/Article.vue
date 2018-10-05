@@ -46,6 +46,7 @@
     import RosemHistory from "../components/HistoryLine"
     import RosemScrollButton from "../ui-components/ScrollButton"
     import Debounce from "../utils/debounce"
+    import Transition from "../utils/transition"
     import Prism from "prismjs";
 
 
@@ -135,13 +136,17 @@
                             document.body.clientHeight, document.documentElement.clientHeight
                         );
 
+                    let transitionoedEl = new Transition(this.$refs.scrollButton, 'showScroll');
+
+
                     if (window.pageYOffset > pageHeight / 2.5 - footerHeight
                         && window.pageYOffset + window.innerHeight < pageHeight - footerHeight) {
                         console.log('loaded');
-                        this.$refs.scrollButton.style.opacity = 1;
+
+                        transitionoedEl.addClass();
 
                     } else {
-                        this.$refs.scrollButton.style.opacity = 0;
+                        transitionoedEl.removeClass();
 
                     }
                 }, 10)
@@ -289,6 +294,11 @@
                 flex-basis: 40%;
             }
         }
+
+        .scroll-button.showScroll {
+            opacity: 1;
+        }
+
         .scroll-button {
             display: block;
             opacity: 0;
