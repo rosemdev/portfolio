@@ -32,6 +32,9 @@
                 />
             </div>
         </div>
+        <div class="related-articles">
+
+        </div>
         <div class="scroll-button" ref="scrollButton">
             <rosem-scroll-button></rosem-scroll-button>
         </div>

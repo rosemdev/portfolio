@@ -41,6 +41,7 @@ export const routes = [
     {
         path: '/blog',
         components: {
+            underHeader: "partials/GradientBlog",
             default: "views/ArticlesListPage",
         },
         meta: {
@@ -51,6 +52,7 @@ export const routes = [
         path: '/blog/:article',
         name: 'article',
         components: {
+            underHeader: "partials/GradientGallery",
             default: "views/Article",
         },
         meta: {
