@@ -10,6 +10,7 @@
     import RosemBlogCards from "../partials/BlogCards"
     import RosemLoader from "../components/Loader"
 
+
     export default {
 
         data() {
@@ -22,11 +23,6 @@
             RosemBlogCards,
             RosemLoader
         },
-
-        methods: {
-
-        },
-
 
     }
 </script>

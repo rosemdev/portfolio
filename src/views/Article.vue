@@ -2,33 +2,9 @@
     <div class="main-container article-page">
         <rosem-loader v-if="loading" class="fixed"></rosem-loader>
         <div class="main-content" v-show="!loading">
-            <div class="article-description">
-                <div class="author-info">
-                    <rosem-avatar>
-                        <prismic-image :field="author.avatar"/>
-                    </rosem-avatar>
-                    <rosem-description-block
-                            subtitle="author"
-                            :title="author.name">
-                        <template slot="description">
-                            {{ author.description }}
-                        </template>
-                    </rosem-description-block>
-                </div>
-                <div class="article-intro">
-                    <div class="article-tags" v-if="articleContent.tags!== undefined">
-                        <rosem-tag v-for="tag in articleContent.tags" :key="tag" :tag="tag"></rosem-tag>
-                    </div>
-                    <div class="publication-date">
-                        <rosem-history :begin-year="getDate(articleContent.publicationDate).year">
-                            <template slot="beginData">{{ getDate(articleContent.publicationDate).date}}</template>
-                        </rosem-history>
-                    </div>
-                </div>
-            </div>
             <div class="article-content">
                 <prismic-rich-text
-                        :field="articleContent.content"
+                        :field="article.content"
                 />
             </div>
         </div>
@@ -49,12 +25,13 @@
     import RosemScrollButton from "../ui-components/ScrollButton"
     import Debounce from "../utils/debounce"
     import Prism from "prismjs";
+    import {mapState} from "vuex"
+    import store from '@store'
 
     export default {
+
         data() {
             return {
-                articleContent: {},
-                author: {},
                 loading: false,
                 isOpen: false
             }
@@ -68,64 +45,13 @@
             RosemHistory,
             RosemScrollButton
         },
+        computed: {
+            ...mapState([
+                'article',
+                'author'
+            ]),
+        },
         methods: {
-            getCurrentArticle(slug) {
-                this.loading = true;
-
-                return this.$prismic.client.getByUID('article', slug)
-                    .then((response) => {
-                        console.log(response);
-                        this.loading = false;
-
-                        this.articleContent = {
-                            authorId: response.data.article_author.id,
-                            prologue: response.data.prologue[0].text,
-                            content: response.data.content,
-                            publicationDate: response.first_publication_date,
-                            tags: response.tags,
-                            slug: response.uid
-                        };
-                    })
-
-                    .then(() => {
-                        return this.$prismic.client.getByID(this.articleContent.authorId)
-                            .then((response) => {
-                                console.log(response);
-                                this.loading = false;
-                                this.author = {
-                                    name: response.data.name[0].text,
-                                    description: response.data.about[0].text,
-                                    avatar: response.data.avatar,
-                                    links: response.data.links.map(link => {
-                                        return link.url
-                                    })
-                                }
-                            })
-
-                            .catch(() => {
-                                this.loading = true;
-                                console.log('author not found');
-
-                            });
-                    })
-
-                    .catch(() => {
-                        this.loading = true;
-                        this.$router.push({name: 'NotFound'});
-                    });
-            },
-
-            getDate(date) {
-                let locale = "en-us",
-                    readDateFormat = new Date(date);
-
-                return {
-                    date: readDateFormat.getDate() + ' ' + readDateFormat.toLocaleString(locale, {month: "short"}),
-                    year: readDateFormat.getFullYear()
-                }
-
-            },
-
             scrollTop: Debounce(function () {
                 let footerHeight = document.querySelector('footer').getBoundingClientRect().height,
                     pageHeight = Math.max(
@@ -148,16 +74,23 @@
         },
 
         beforeRouteEnter(to, from, next) {
-            next(vm => {
-                if (to.params.article) {
-                    vm.getCurrentArticle(to.params.article).then(function () {
+            store.dispatch('getArticle', to.params.article).then(function () {
+                next(vm => {
+                    vm.$nextTick(() => {
                         Prism.highlightAll();
-                        vm.$nextTick(() => {
-                            document.addEventListener('scroll', vm.scrollTop);
-                        });
-                    });
-                }
-            })
+                    })
+                })
+            }).catch(() => {
+                next(vm => {
+                    vm.$router.push({name: 'NotFound'});
+                })
+            });
+        },
+
+        created() {
+            this.$nextTick(() => {
+                document.addEventListener('scroll', this.scrollTop);
+            });
         },
 
         destroyed() {
@@ -179,59 +112,6 @@
         font-size: 17px;
         min-height: 100vh;
 
-        .article-description {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-direction: column;
-
-            .author-info {
-                display: flex;
-                align-items: flex-start;
-                flex-direction: column;
-
-                .description-block {
-                    margin: 0;
-                    padding: 10px 15px;
-
-                    h1 {
-                        font-size: 20px;
-                    }
-                }
-
-                .avatar {
-                    flex-shrink: 0;
-                    margin: 0;
-                }
-            }
-
-            .article-intro {
-                display: flex;
-                align-items: center;
-                flex-basis: 100%;
-                justify-content: flex-end;
-
-                .publication-date {
-                    font-weight: 500;
-                    font-size: 20px;
-                    align-self: flex-end;
-                    margin-top: -255px;
-                    margin-right: -70px;
-
-                    & /deep/ .history {
-                        width: auto;
-                    }
-                }
-
-                .article-tags {
-                    display: flex;
-                    flex-wrap: wrap;
-                    align-items: flex-start;
-                    justify-content: flex-start;
-                }
-            }
-        }
-
         .article-content {
             max-width: 900px;
             width: 100%;
@@ -247,37 +127,6 @@
 
     .responsive(@tablet, { .article-page {
         font-size: 19px;
-
-        .article-description {
-            flex-direction: row;
-            text-align: justify;
-
-            & .author-info {
-                align-items: center;
-                flex-direction: row;
-
-                .avatar {
-                    margin: 0 5px;
-                }
-            }
-
-            & .article-intro {
-                flex-basis: 60%;
-                .publication-date {
-                    font-weight: 500;
-                    font-size: 20px;
-                    transform: none;
-                    align-self: center;
-                    margin-top: 0;
-                    margin-right: 0;
-                }
-
-                .article-tags {
-                    align-items: flex-end;
-                    justify-content: flex-end;
-                }
-            }
-        }
 
         .article-content {
             text-align: justify;
