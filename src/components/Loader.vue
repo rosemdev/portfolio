@@ -1,9 +1,12 @@
 <template>
-    <div class="lds-ellipsis">
+    <div class="loader">
+        <p>please wait! ...coming soon</p>
+    <div class="loader-dots">
         <div :style="{backgroundColor: color}"></div>
         <div :style="{backgroundColor: color}"></div>
         <div :style="{backgroundColor: color}"></div>
         <div :style="{backgroundColor: color}"></div>
+    </div>
     </div>
 </template>
 <script>
@@ -16,17 +19,23 @@
             color: {
                 type: String,
                 default: '#333'
-            }
+            },
         }
     }
 </script>
 <style lang="less" scoped>
-    .lds-ellipsis {
-        display: inline-block;
-        position: relative;
-        width: 64px;
-        height: 64px;
+    .loader {
+        text-align: center;
 
+        p {
+            margin-bottom: -35px;
+        }
+        .loader-dots {
+            display: inline-block;
+            position: relative;
+            width: 64px;
+            height: 64px;
+        }
         & div {
             position: absolute;
             top: 27px;
@@ -55,6 +64,13 @@
                 animation: lds-ellipsis3 0.6s infinite;
             }
         }
+    }
+
+    .loader.fixed {
+        position: fixed;
+        left: 50%;
+        top:50%;
+        transform: translateX(-50%);
     }
 
     @keyframes lds-ellipsis1 {

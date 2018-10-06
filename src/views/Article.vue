@@ -1,6 +1,7 @@
 <template>
     <div class="main-container article-page">
-        <div class="main-content" v-if="noErrors">
+        <rosem-loader v-if="loading" class="fixed"></rosem-loader>
+        <div class="main-content" v-show="!loading">
             <div class="article-description">
                 <div class="author-info">
                     <rosem-avatar>
@@ -34,8 +35,6 @@
         <div class="scroll-button" ref="scrollButton">
             <rosem-scroll-button></rosem-scroll-button>
         </div>
-
-        <rosem-loader v-if="loading"></rosem-loader>
     </div>
 </template>
 <script>
@@ -46,9 +45,7 @@
     import RosemHistory from "../components/HistoryLine"
     import RosemScrollButton from "../ui-components/ScrollButton"
     import Debounce from "../utils/debounce"
-    import Transition from "../utils/transition"
     import Prism from "prismjs";
-
 
     export default {
         data() {
@@ -56,7 +53,7 @@
                 articleContent: {},
                 author: {},
                 loading: false,
-                noErrors: true,
+                isOpen: false
             }
         },
 
@@ -104,7 +101,6 @@
 
                             .catch(() => {
                                 this.loading = true;
-                                this.noErrors = false;
                                 console.log('author not found');
 
                             });
@@ -112,7 +108,6 @@
 
                     .catch(() => {
                         this.loading = true;
-                        this.noErrors = false;
                         this.$router.push({name: 'NotFound'});
                     });
             },
@@ -128,28 +123,25 @@
 
             },
 
-            scrollTop: Debounce (function () {
-                    let footerHeight = document.querySelector('footer').getBoundingClientRect().height,
-                        pageHeight = Math.max(
-                            document.body.scrollHeight, document.documentElement.scrollHeight,
-                            document.body.offsetHeight, document.documentElement.offsetHeight,
-                            document.body.clientHeight, document.documentElement.clientHeight
-                        );
-
-                    let transitionoedEl = new Transition(this.$refs.scrollButton, 'showScroll');
+            scrollTop: Debounce(function () {
+                let footerHeight = document.querySelector('footer').getBoundingClientRect().height,
+                    pageHeight = Math.max(
+                        document.body.scrollHeight, document.documentElement.scrollHeight,
+                        document.body.offsetHeight, document.documentElement.offsetHeight,
+                        document.body.clientHeight, document.documentElement.clientHeight
+                    );
 
 
-                    if (window.pageYOffset > pageHeight / 2.5 - footerHeight
-                        && window.pageYOffset + window.innerHeight < pageHeight - footerHeight) {
-                        console.log('loaded');
+                if (window.pageYOffset > pageHeight / 2.5 - footerHeight
+                    && window.pageYOffset + window.innerHeight < pageHeight - footerHeight) {
+                    console.log('loaded');
 
-                        transitionoedEl.addClass();
+                    this.$refs.scrollButton.classList.add('showScrollButton');
 
-                    } else {
-                        transitionoedEl.removeClass();
-
-                    }
-                }, 10)
+                } else {
+                    this.$refs.scrollButton.classList.remove('showScrollButton');
+                }
+            }, 10)
         },
 
         beforeRouteEnter(to, from, next) {
@@ -182,6 +174,7 @@
         color: @mainColor;
         text-align: left;
         font-size: 17px;
+        min-height: 100vh;
 
         .article-description {
             display: flex;
@@ -295,14 +288,16 @@
             }
         }
 
-        .scroll-button.showScroll {
+        .scroll-button.showScrollButton {
             opacity: 1;
+            pointer-events: auto;
         }
 
         .scroll-button {
             display: block;
             opacity: 0;
-            transition: opacity .5s ease-in-out;
+            pointer-events: none;
+            transition: opacity .3s ease-in-out;
             position: fixed;
             bottom: 10%;
             right: 250px;
