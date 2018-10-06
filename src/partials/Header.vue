@@ -227,9 +227,16 @@
         height: 60px;
         max-width: 100%;
         box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
+        background-color: @mainColor;
 
         & header {
             max-width: 100%;
+        }
+
+        & .burger-icon {
+            span {
+                background-color: white;
+            }
         }
 
         & nav {

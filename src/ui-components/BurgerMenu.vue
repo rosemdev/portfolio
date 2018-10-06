@@ -24,7 +24,8 @@
 
     & .burger-icon {
         cursor: pointer;
-        margin: 5px;
+        margin: 15px 5px;
+        transition: background-color .3s ease-in-out;
 
         & span {
             background-color: @mainColor;
