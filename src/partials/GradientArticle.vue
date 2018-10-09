@@ -12,6 +12,7 @@
                         {{ author.description }}
                     </template>
                 </rosem-description-block>
+                <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
             </div>
             <div class="article-title">
                 <h1>{{ article.title }}</h1>
@@ -38,17 +39,26 @@
     import RosemHistory from "../components/HistoryLine"
     import {mapState} from "vuex"
     import store from '@store'
+    import {socialLinks} from "../data/data"
+    import RosemSocialBlock from "../components/SocialBlock"
 
 
     export default {
         name: "GradientArticle",
+
+        data() {
+            return {
+                socialLinks
+            }
+        },
 
         components: {
             RosemGradient,
             RosemDescriptionBlock,
             RosemAvatar,
             RosemTag,
-            RosemHistory
+            RosemHistory,
+            RosemSocialBlock
         },
 
         computed: {
@@ -99,13 +109,7 @@
             display: flex;
             align-items: flex-start;
             flex-direction: column;
-            flex-basis: 25%;
-
-            .description-block {
-                margin: 0;
-                padding: 10px 15px;
-                color: white;
-            }
+            width: 25%;
 
             .avatar {
                 flex-shrink: 0;
@@ -113,11 +117,35 @@
                 width: 150px;
                 height: 150px;
             }
+
+            .description-block {
+                margin: 0;
+                padding: 10px 15px;
+                color: white;
+            }
+
+            & /deep/ .social {
+                ul {
+                    li {
+                        &:before {
+                            background-color: white;
+                        }
+                        a {
+                            color: white;
+
+                        }
+
+                    }
+
+                }
+            }
+
         }
 
         .article-title {
             margin: 0 2.2rem;
             color: white;
+            width: 50%;
 
             & h1 {
                 font-weight: 900;
@@ -138,7 +166,7 @@
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            flex-basis: 25%;
+            width: 25%;
 
             .publication-date {
                 font-weight: 500;

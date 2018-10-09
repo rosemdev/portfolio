@@ -9,19 +9,43 @@
 <script>
     import RosemBlogCards from "../partials/BlogCards"
     import RosemLoader from "../components/Loader"
+    import {mapGetters, mapState} from "vuex"
+    import store from '@store'
 
 
     export default {
 
         data() {
             return {
-                cards: [],
+                // cards: [],
                 loading: false,
             }
         },
         components: {
             RosemBlogCards,
             RosemLoader
+        },
+
+        computed: {
+            ...mapState([
+                'cards',
+            ]),
+
+            ...mapGetters([
+                'sortedCards',
+            ])
+        },
+
+        beforeRouteEnter(to, from, next) {
+            console.log('called');
+            store.dispatch('getBlogCards').then(function () {
+                store.getters.sortedCards;
+                next()
+            }).catch(() => {
+                next(vm => {
+                    vm.$router.push({name: 'NotFound'});
+                })
+            });
         },
 
     }

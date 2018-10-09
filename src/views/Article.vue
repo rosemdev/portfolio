@@ -110,7 +110,6 @@
         color: @mainColor;
         text-align: left;
         font-size: 17px;
-        min-height: 100vh;
 
         .article-content {
             max-width: 900px;

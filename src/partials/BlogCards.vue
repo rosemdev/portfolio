@@ -21,13 +21,12 @@
 <script>
     import RosemCard from "../components/Card"
     import RosemButton from "../ui-components/Button"
-
+    import {mapState} from "vuex"
 
     export default {
 
         data() {
             return {
-                cards: [],
                 loading: false,
             }
         },
@@ -36,36 +35,19 @@
             RosemButton,
         },
 
-        methods: {
-            getArticles() {
-                this.loading = true;
-
-                return this.$prismic.client.query(
-                    this.$prismic.Predicates.at('document.type', 'article'),
-                ).then(response => {
-                    this.loading = false;
-                    console.log(response);
-                    this.cards = response.results.map(({uid, data}) => {
-                        return {
-                            slug: uid,
-                            title: data.title[0].text,
-                            description: data.description[0].text,
-                            background: data.background,
-                        }
-                    });
-                });
-            },
+        computed: {
+            ...mapState([
+                'cards',
+            ]),
         },
+
+        methods: {},
 
         filters: {
             truncating(text) {
                 return text.toString().substring(0, 130) + '...';
             }
         },
-
-        created() {
-            this.getArticles();
-        }
     }
 </script>
 <style lang="less" scoped>

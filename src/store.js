@@ -9,10 +9,14 @@ export default new Vuex.Store({
         title: "title from vuex",
         article: {},
         author: {},
+        cards: [],
         loading: false
     },
 
     mutations: {
+        setBlogCards(state, cards) {
+            state.cards = cards;
+        },
         setArticle(state, article) {
             state.article = article;
         },
@@ -22,6 +26,28 @@ export default new Vuex.Store({
     },
 
     actions: {
+        getBlogCards({commit, state}) {
+            state.loading = true;
+            console.log('loading');
+
+            return Vue.prototype.$prismic.client.query(
+                Vue.prototype.$prismic.Predicates.at('document.type', 'article'),
+            ).then(response => {
+                state.loading = false;
+                console.log(response);
+                const cards = response.results.map(({uid, data, first_publication_date}) => {
+                    return {
+                        slug: uid,
+                        title: data.title[0].text,
+                        description: data.description[0].text,
+                        publicationDate: first_publication_date,
+                        background: data.background,
+                    }
+                });
+                commit('setBlogCards', cards);
+            })
+        },
+
         getArticle({commit, state}, slug) {
             state.loading = true;
 
@@ -59,6 +85,17 @@ export default new Vuex.Store({
                     throw error
 
                 });
+        }
+    },
+
+    getters: {
+        sortedCards: (state) => {
+           console.log(state.cards, 'sorted');
+
+            for (let card of state.cards) {
+                
+                console.log(card);
+            }
         }
     }
 });
