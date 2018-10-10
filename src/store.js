@@ -90,12 +90,10 @@ export default new Vuex.Store({
 
     getters: {
         sortedCards: (state) => {
-           console.log(state.cards, 'sorted');
+            return state.cards.sort(function (a, b) {
+                return new Date(b.publicationDate) - new Date(a.publicationDate);
+            });
 
-            for (let card of state.cards) {
-                
-                console.log(card);
-            }
         }
     }
 });
