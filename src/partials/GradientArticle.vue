@@ -12,7 +12,7 @@
                         {{ author.description }}
                     </template>
                 </rosem-description-block>
-                <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
+                <rosem-social-block v-if="author.links.length > 0" :socialLinks="author.links"></rosem-social-block>
             </div>
             <div class="article-title">
                 <h1>{{ article.title }}</h1>
@@ -172,6 +172,10 @@
                 font-weight: 500;
                 font-size: 20px;
                 color: white;
+
+                .history {
+                    width: auto;
+                }
             }
 
             .article-tags {

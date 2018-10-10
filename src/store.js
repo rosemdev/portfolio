@@ -6,7 +6,6 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-        title: "title from vuex",
         article: {},
         author: {},
         cards: [],
@@ -28,7 +27,6 @@ export default new Vuex.Store({
     actions: {
         getBlogCards({commit, state}) {
             state.loading = true;
-            console.log('loading');
 
             return Vue.prototype.$prismic.client.query(
                 Vue.prototype.$prismic.Predicates.at('document.type', 'article'),
@@ -69,16 +67,18 @@ export default new Vuex.Store({
                 }).then((article) => {
                     return Vue.prototype.$prismic.client.getByID(article.authorId)
                         .then((response) => {
-                            console.log(response);
                             commit('setAuthor', {
                                 name: response.data.name[0].text,
                                 description: response.data.about[0].text,
                                 avatar: response.data.avatar,
                                 links: response.data.links.map(link => {
-                                    return link.url
+                                    return {
+                                        name: link.title[0].text,
+                                        link: link.link.url
+                                    }
                                 })
                             });
-                            // state.loading = false;
+                            state.loading = false;
                         })
                 }).catch((error) => {
                     state.loading = false;
