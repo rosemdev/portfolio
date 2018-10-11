@@ -41,6 +41,7 @@
     import store from '@store'
     import {socialLinks} from "../data/data"
     import RosemSocialBlock from "../components/SocialBlock"
+    import getDate from "../utils/getDate"
 
 
     export default {
@@ -69,16 +70,7 @@
         },
 
         methods: {
-            getDate(date) {
-                let locale = "en-us",
-                    readDateFormat = new Date(date);
-
-                return {
-                    date: readDateFormat.getDate() + ' ' + readDateFormat.toLocaleString(locale, {month: "short"}),
-                    year: readDateFormat.getFullYear()
-                }
-
-            },
+            getDate
         },
 
         beforeRouteEnter(to, from, next) {

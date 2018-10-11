@@ -89,26 +89,32 @@ export default new Vuex.Store({
                             });
                             state.loading = false;
                         })
-                }).then(
-                    Vue.prototype.$prismic.client.query(
-                        Vue.prototype.$prismic.Predicates.in('my.article.uid', state.article.relatedArticles),
+                }).then(function () {
+                        if (state.article.relatedArticles !== undefined) {
+                            Vue.prototype.$prismic.client.query(
+                                Vue.prototype.$prismic.Predicates.in('my.article.uid', state.article.relatedArticles),
+                            ).then((response) => {
+                                console.log(response);
+                                const related = response.results.slice(0, 3).map(({data, uid, first_publication_date}) => {
 
-                    ).then((response) => {
-                        console.log(response);
-                        const related = response.results.map(({data, uid, first_publication_date}) => {
-                            return {
-                                authorId: data.article_author.id,
-                                publicationDate: first_publication_date,
-                                title: data.title[0].text,
-                                background: data.background,
-                                slug: uid,
-                            }
 
-                        });
+                                    return {
+                                        authorId: data.article_author.id,
+                                        publicationDate: first_publication_date,
+                                        title: data.title[0].text,
+                                        background: data.background,
+                                        slug: uid,
+                                    }
 
-                        commit('setRelatedArticles', related);
+                                });
 
-                    })
+                                commit('setRelatedArticles', related);
+
+                            })
+
+                        }
+
+                    }
                 ).catch((error) => {
                     state.loading = false;
                     throw error

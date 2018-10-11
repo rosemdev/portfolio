@@ -8,20 +8,25 @@
                 />
             </div>
         </div>
-        <div class="related-articles">
+        <div class="padding also-like-block">
+            <div class="block-title">
+                <p>You may also like</p>
+            </div>
+            <div class="related-articles">
                 <router-link v-for="(relArticle, index) in related"
                              :key="index"
                              :to="{name:'article', params: {article: relArticle.slug}}">
-            <rosem-card>
-                    <div class="related-background">
-                        <prismic-image :field="relArticle.background"/>
-                    </div>
-                    <p class="article-title">{{ relArticle.title }}</p>
-                <div class="related-article-info">
-                    <p class="rel-publication-date">{{ relArticle.publicationDate }}</p>
-                </div>
-            </rosem-card>
+                    <rosem-card>
+                        <div class="related-background">
+                            <prismic-image :field="relArticle.background"/>
+                        </div>
+                        <p class="article-title">{{ relArticle.title }}</p>
+                        <div class="related-article-info">
+                            <p class="rel-publication-date">{{ getDate(relArticle.publicationDate).date }}</p>
+                        </div>
+                    </rosem-card>
                 </router-link>
+            </div>
         </div>
         <div class="scroll-button" ref="scrollButton">
             <rosem-scroll-button></rosem-scroll-button>
@@ -37,7 +42,7 @@
     import Prism from "prismjs";
     import {mapState} from "vuex"
     import store from '@store'
-    // import getDate from "../utils/getDate"
+    import getDate from "../utils/getDate"
 
 
     export default {
@@ -81,6 +86,8 @@
                     this.$refs.scrollButton.classList.remove('showScrollButton');
                 }
             }, 10),
+
+            getDate,
 
         },
 
@@ -130,34 +137,45 @@
 
         }
 
-        .related-articles {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
+        .also-like-block {
+            background-color: @lightGray;
 
-            & /deep/ .card {
-                min-height: 300px;
-                color: @mainColor;
+            .block-title {
+                text-align: center;
+                font-size: 45px;
+                font-weight: 600;
+            }
 
-                .related-background {
-                    height: 125px;
-                    overflow: hidden;
-                    margin: 0 -2rem;
-                    img {
-                        width: 100%;
-                        object-fit: cover;
+            .related-articles {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+
+                & /deep/ .card {
+                    min-height: 300px;
+                    color: @mainColor;
+                    background-color: white;
+
+                    .related-background {
+                        height: 125px;
+                        overflow: hidden;
+                        margin: -1rem -2rem 1rem;
+                        img {
+                            width: 100%;
+                            object-fit: cover;
+                        }
                     }
-                }
 
-                .article-title {
-                    font-weight: 600;
-                    text-align: center;
-                }
+                    .article-title {
+                        font-weight: 600;
+                        text-align: left;
+                    }
 
-                &:hover + .card-overlay {
-                    opacity: 0;
-                }
+                    &:hover + .card-overlay {
+                        opacity: 0;
+                    }
 
+                }
             }
         }
 
