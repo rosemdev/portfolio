@@ -61,7 +61,6 @@
         },
 
         beforeRouteEnter(to, from, next) {
-            console.log('called');
             store.dispatch('getBlogCards').then(function () {
                 store.getters.sortedCards;
                 next()
@@ -73,7 +72,7 @@
         },
 
         created() {
-            console.log(this.sortedCards);
+
         }
 
     }

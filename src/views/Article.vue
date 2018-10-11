@@ -9,46 +9,57 @@
             </div>
         </div>
         <div class="related-articles">
-
+                <router-link v-for="(relArticle, index) in related"
+                             :key="index"
+                             :to="{name:'article', params: {article: relArticle.slug}}">
+            <rosem-card>
+                    <div class="related-background">
+                        <prismic-image :field="relArticle.background"/>
+                    </div>
+                    <p class="article-title">{{ relArticle.title }}</p>
+                <div class="related-article-info">
+                    <p class="rel-publication-date">{{ relArticle.publicationDate }}</p>
+                </div>
+            </rosem-card>
+                </router-link>
         </div>
         <div class="scroll-button" ref="scrollButton">
             <rosem-scroll-button></rosem-scroll-button>
+
         </div>
     </div>
 </template>
 <script>
     import RosemLoader from "../components/Loader"
-    import RosemDescriptionBlock from "../components/DescriptionBlock"
-    import RosemAvatar from "../components/Avatar"
-    import RosemTag from "../components/Tag"
-    import RosemHistory from "../components/HistoryLine"
+    import RosemCard from "../components/Card"
     import RosemScrollButton from "../ui-components/ScrollButton"
     import Debounce from "../utils/debounce"
     import Prism from "prismjs";
     import {mapState} from "vuex"
     import store from '@store'
+    // import getDate from "../utils/getDate"
+
 
     export default {
 
         data() {
             return {
                 loading: false,
-                isOpen: false
+                isOpen: false,
             }
         },
 
         components: {
             RosemLoader,
-            RosemDescriptionBlock,
-            RosemAvatar,
-            RosemTag,
-            RosemHistory,
-            RosemScrollButton
+            RosemScrollButton,
+            RosemCard
         },
         computed: {
             ...mapState([
                 'article',
-                'author'
+                'author',
+                'cards',
+                'related'
             ]),
         },
         methods: {
@@ -63,14 +74,14 @@
 
                 if (window.pageYOffset > pageHeight / 2.5 - footerHeight
                     && window.pageYOffset + window.innerHeight < pageHeight - footerHeight) {
-                    console.log('loaded');
 
                     this.$refs.scrollButton.classList.add('showScrollButton');
 
                 } else {
                     this.$refs.scrollButton.classList.remove('showScrollButton');
                 }
-            }, 10)
+            }, 10),
+
         },
 
         beforeRouteEnter(to, from, next) {
@@ -117,6 +128,37 @@
             margin: auto;
             overflow: hidden;
 
+        }
+
+        .related-articles {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+
+            & /deep/ .card {
+                min-height: 300px;
+                color: @mainColor;
+
+                .related-background {
+                    height: 125px;
+                    overflow: hidden;
+                    margin: 0 -2rem;
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                .article-title {
+                    font-weight: 600;
+                    text-align: center;
+                }
+
+                &:hover + .card-overlay {
+                    opacity: 0;
+                }
+
+            }
         }
 
         .scroll-button {

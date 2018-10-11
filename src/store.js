@@ -9,6 +9,7 @@ export default new Vuex.Store({
         article: {},
         author: {},
         cards: [],
+        related: [],
         loading: false
     },
 
@@ -18,6 +19,10 @@ export default new Vuex.Store({
         },
         setArticle(state, article) {
             state.article = article;
+        },
+
+        setRelatedArticles(state, related) {
+            state.related = related;
         },
         setAuthor(state, author) {
             state.author = author
@@ -29,7 +34,7 @@ export default new Vuex.Store({
             state.loading = true;
 
             return Vue.prototype.$prismic.client.query(
-                Vue.prototype.$prismic.Predicates.at('document.type', 'article'),
+                Vue.prototype.$prismic.Predicates.at('document.type', 'article')
             ).then(response => {
                 state.loading = false;
                 console.log(response);
@@ -39,7 +44,7 @@ export default new Vuex.Store({
                         title: data.title[0].text,
                         description: data.description[0].text,
                         publicationDate: first_publication_date,
-                        background: data.background,
+                        background: data.background
                     }
                 });
                 commit('setBlogCards', cards);
@@ -59,7 +64,11 @@ export default new Vuex.Store({
                         publicationDate: response.first_publication_date,
                         tags: response.tags,
                         slug: response.uid,
-                        title: response.data.title[0].text
+                        title: response.data.title[0].text,
+                        background: response.data.background,
+                        relatedArticles: response.data.related_articles.map(article => {
+                            return article.link.uid;
+                        })
                     };
                     commit('setArticle', article);
 
@@ -80,7 +89,27 @@ export default new Vuex.Store({
                             });
                             state.loading = false;
                         })
-                }).catch((error) => {
+                }).then(
+                    Vue.prototype.$prismic.client.query(
+                        Vue.prototype.$prismic.Predicates.in('my.article.uid', state.article.relatedArticles),
+
+                    ).then((response) => {
+                        console.log(response);
+                        const related = response.results.map(({data, uid, first_publication_date}) => {
+                            return {
+                                authorId: data.article_author.id,
+                                publicationDate: first_publication_date,
+                                title: data.title[0].text,
+                                background: data.background,
+                                slug: uid,
+                            }
+
+                        });
+
+                        commit('setRelatedArticles', related);
+
+                    })
+                ).catch((error) => {
                     state.loading = false;
                     throw error
 
@@ -94,6 +123,6 @@ export default new Vuex.Store({
                 return new Date(b.publicationDate) - new Date(a.publicationDate);
             });
 
-        }
+        },
     }
 });
