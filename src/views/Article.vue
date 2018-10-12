@@ -23,6 +23,10 @@
                         <p class="article-title">{{ relArticle.title }}</p>
                         <div class="related-article-info">
                             <p class="rel-publication-date">{{ getDate(relArticle.publicationDate).date }}</p>
+                            <div class="related-authors">
+                                <prismic-image :field="relatedAuthorsData[index].authorAvatar"/>
+                                <p>{{relatedAuthorsData[index].authorName}}</p>
+                            </div>
                         </div>
                     </rosem-card>
                 </router-link>
@@ -64,7 +68,8 @@
                 'article',
                 'author',
                 'cards',
-                'related'
+                'related',
+                'relatedAuthorsData'
             ]),
         },
         methods: {
@@ -109,6 +114,8 @@
             this.$nextTick(() => {
                 document.addEventListener('scroll', this.scrollTop);
             });
+            
+            console.log(this.relatedAuthorsData);
         },
 
         destroyed() {
