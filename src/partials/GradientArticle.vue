@@ -38,7 +38,6 @@
     import RosemTag from "../components/Tag"
     import RosemHistory from "../components/HistoryLine"
     import {mapState} from "vuex"
-    import store from '@store'
     import {socialLinks} from "../data/data"
     import RosemSocialBlock from "../components/SocialBlock"
     import getDate from "../utils/getDate"
@@ -72,18 +71,6 @@
         methods: {
             getDate
         },
-
-        beforeRouteEnter(to, from, next) {
-            store.dispatch('getArticle', to.params.article).then(function () {
-                next()
-            }).catch(() => {
-                next(vm => {
-                    vm.$router.push({name: 'NotFound'});
-                })
-            });
-        },
-
-
     }
 
 </script>

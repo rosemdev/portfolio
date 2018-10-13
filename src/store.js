@@ -10,7 +10,6 @@ export default new Vuex.Store({
         author: {},
         cards: [],
         relatedArticles: [],
-        relatedAuthorsData: [],
         loading: false
     },
 
@@ -28,10 +27,6 @@ export default new Vuex.Store({
         setAuthor(state, author) {
             state.author = author
         },
-
-        setRelatedAuthorsData(state, authors) {
-            state.relatedAuthorsData = authors
-        }
     },
 
     actions: {
@@ -61,7 +56,7 @@ export default new Vuex.Store({
 
             return Vue.prototype.$prismic.client.getByUID('article', slug)
                 .then((response) => {
-                    console.log(response);
+                    console.log('article newQuery response', response);
                     const article = {
                         authorId: response.data.article_author.id,
                         prologue: response.data.prologue[0].text,
@@ -79,6 +74,7 @@ export default new Vuex.Store({
                         })
                     };
                     commit('setArticle', article);
+                    console.log('article newQuery', article);
 
                     return article
                 }).then((article) => {
@@ -99,64 +95,29 @@ export default new Vuex.Store({
                         })
                 }).then(() => {
                         if (state.article.relatedArticles.length > 0) {
-                            return Vue.prototype.$prismic.client.query(
+                            Vue.prototype.$prismic.client.query(
                                 Vue.prototype.$prismic.Predicates.in('my.article.uid', state.article.relatedArticles),
+                                {fetchLinks: ['author.name', 'author.avatar']}
                             ).then((response) => {
-                                console.log(response);
-                                const related = response.results.slice(0, 3).map(({data, uid, first_publication_date}) => {
+                                const relatedArticlesData = response.results.slice(0, 3).map(({data, uid, first_publication_date}) => {
 
                                     return {
-                                        authorId: data.article_author.id,
                                         publicationDate: first_publication_date,
                                         title: data.title[0].text,
                                         background: data.background,
                                         slug: uid,
+                                        authorName: data.article_author.data.name[0].text,
+                                        authorAvatar: data.article_author.data.avatar
                                     }
 
                                 });
+                                commit('setRelatedArticles', relatedArticlesData);
 
-                                commit('setRelatedArticles', related);
-                                return related;
+                                console.log(relatedArticlesData);
                             });
                         }
                     }
-                )
-                .then(related => {
-                    if (related !== undefined) {
-                        let relAuthorData = [],
-                            idsArr = related.map(article => {
-                                if (article.authorId !== undefined) {
-                                    return article.authorId
-                                }
-                            });
-
-                        return Vue.prototype.$prismic.client.query(
-                            Vue.prototype.$prismic.Predicates.any('document.id', idsArr),
-                        ).then((response) => {
-                            const relatedAuthors = response.results.map((item) => {
-                                return {
-                                    id: item.id,
-                                    name: item.data.name[0].text,
-                                    avatar: item.data.avatar,
-
-                                }
-                            });
-                            related.forEach((article) => {
-                                for (let i = 0; i < relatedAuthors.length; i++) {
-                                    if (article.authorId === relatedAuthors[i].id) {
-                                        relAuthorData.push({
-                                            authorName: relatedAuthors[i].name,
-                                            authorAvatar: relatedAuthors[i].avatar
-                                        });
-                                    }
-                                }
-
-                            });
-                            commit('setRelatedAuthorsData', relAuthorData);
-                        });
-                    }
-                })
-                .catch((error) => {
+                ).catch((error) => {
                     state.loading = false;
                     console.error(error);
                     throw error

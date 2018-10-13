@@ -27,10 +27,10 @@
                             </router-link>
                             <div class="related-authors">
                                 <rosem-avatar>
-                                    <prismic-image :field="relatedAuthorsData[index].authorAvatar"/>
+                                    <prismic-image :field="relArticle.authorAvatar"/>
                                 </rosem-avatar>
                                 <div class="author-data">
-                                    <p>{{relatedAuthorsData[index].authorName}}</p>
+                                    <p>{{relArticle.authorName}}</p>
                                     <p class="rel-publication-date">{{ getDate(relArticle.publicationDate).date }}</p>
                                 </div>
                             </div>
@@ -57,6 +57,21 @@
     import RosemAvatar from "../components/Avatar"
 
 
+    function fetchArticleMiddleware(to, from, next) {
+        store.dispatch('getArticle', to.params.article).then(function () {
+            next(vm => {
+                vm.$nextTick(() => {
+                    Prism.highlightAll();
+                })
+            })
+        }).catch(() => {
+            next(vm => {
+                vm.$router.push({name: 'NotFound'});
+            })
+        });
+    }
+
+
     export default {
 
         data() {
@@ -78,21 +93,7 @@
                 'author',
                 'cards',
                 'relatedArticles',
-                'relatedAuthorsData'
             ]),
-        },
-
-        watch: {
-            '$route': {
-                immediate: true,
-                handler: function (to) {
-                    store.dispatch('getArticle', to.params.article).then(() => {
-                        this.$nextTick(function () {
-                            Prism.highlightAll();
-                        })
-                    });
-                }
-            }
         },
 
         methods: {
@@ -119,26 +120,13 @@
 
         },
 
-        beforeRouteEnter(to, from, next) {
-            store.dispatch('getArticle', to.params.article).then(function () {
-                next(vm => {
-                    vm.$nextTick(() => {
-                        Prism.highlightAll();
-                    })
-                })
-            }).catch(() => {
-                next(vm => {
-                    vm.$router.push({name: 'NotFound'});
-                })
-            });
-        },
+        beforeRouteEnter: fetchArticleMiddleware,
+        beforeRouteUpdate: fetchArticleMiddleware,
 
         created() {
             this.$nextTick(() => {
                 document.addEventListener('scroll', this.scrollTop);
             });
-
-            console.log(this.relatedAuthorsData);
         },
 
         destroyed() {
@@ -174,6 +162,20 @@
                 text-align: center;
                 font-size: 45px;
                 font-weight: 600;
+                position: relative;
+                color: white;
+
+                &:before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: @mainColor;
+                    padding-bottom: 10rem;
+                    padding-top: 1rem;
+                    width: 100%;
+                    height: 100%;
+                }
             }
 
             .related-articles {
@@ -185,6 +187,7 @@
                     min-height: 300px;
                     color: @mainColor;
                     background-color: white;
+                    transition: transform .5s ease-in-out;
 
                     .related-background {
                         height: 125px;
@@ -227,6 +230,10 @@
 
                     &:hover + .card-overlay {
                         opacity: 0;
+                    }
+
+                    &:hover {
+                        transform: translateY(-5px);
                     }
 
                 }
