@@ -8,24 +8,31 @@
                 />
             </div>
         </div>
-        <div class="padding also-like-block">
+        <div class="padding also-like-block" v-if="relatedArticles.length > 0 ">
             <div class="block-title">
                 <p>You may also like</p>
             </div>
             <div class="related-articles">
-                <router-link v-for="(relArticle, index) in related"
+                <router-link v-for="(relArticle, index) in relatedArticles"
                              :key="index"
                              :to="{name:'article', params: {article: relArticle.slug}}">
                     <rosem-card>
                         <div class="related-background">
                             <prismic-image :field="relArticle.background"/>
                         </div>
-                        <p class="article-title">{{ relArticle.title }}</p>
                         <div class="related-article-info">
-                            <p class="rel-publication-date">{{ getDate(relArticle.publicationDate).date }}</p>
+                            <router-link
+                                    :to="{name:'article', params: {article: relArticle.slug}}"><p
+                                    class="article-title">{{ relArticle.title | truncating(100) }}</p>
+                            </router-link>
                             <div class="related-authors">
-                                <prismic-image :field="relatedAuthorsData[index].authorAvatar"/>
-                                <p>{{relatedAuthorsData[index].authorName}}</p>
+                                <rosem-avatar>
+                                    <prismic-image :field="relatedAuthorsData[index].authorAvatar"/>
+                                </rosem-avatar>
+                                <div class="author-data">
+                                    <p>{{relatedAuthorsData[index].authorName}}</p>
+                                    <p class="rel-publication-date">{{ getDate(relArticle.publicationDate).date }}</p>
+                                </div>
                             </div>
                         </div>
                     </rosem-card>
@@ -47,6 +54,7 @@
     import {mapState} from "vuex"
     import store from '@store'
     import getDate from "../utils/getDate"
+    import RosemAvatar from "../components/Avatar"
 
 
     export default {
@@ -61,17 +69,32 @@
         components: {
             RosemLoader,
             RosemScrollButton,
-            RosemCard
+            RosemCard,
+            RosemAvatar
         },
         computed: {
             ...mapState([
                 'article',
                 'author',
                 'cards',
-                'related',
+                'relatedArticles',
                 'relatedAuthorsData'
             ]),
         },
+
+        watch: {
+            '$route': {
+                immediate: true,
+                handler: function (to) {
+                    store.dispatch('getArticle', to.params.article).then(() => {
+                        this.$nextTick(function () {
+                            Prism.highlightAll();
+                        })
+                    });
+                }
+            }
+        },
+
         methods: {
             scrollTop: Debounce(function () {
                 let footerHeight = document.querySelector('footer').getBoundingClientRect().height,
@@ -114,7 +137,7 @@
             this.$nextTick(() => {
                 document.addEventListener('scroll', this.scrollTop);
             });
-            
+
             console.log(this.relatedAuthorsData);
         },
 
@@ -155,7 +178,7 @@
 
             .related-articles {
                 display: flex;
-                align-items: flex-start;
+                align-items: center;
                 justify-content: center;
 
                 & /deep/ .card {
@@ -173,9 +196,33 @@
                         }
                     }
 
-                    .article-title {
-                        font-weight: 600;
-                        text-align: left;
+                    .related-article-info {
+                        .article-title {
+                            font-weight: 600;
+                            text-align: left;
+                            color: @mainColor;
+                        }
+
+                        .related-authors {
+                            display: flex;
+                            align-items: flex-start;
+                            justify-content: flex-start;
+                            font-size: 13px;
+
+                            .avatar {
+                                flex-shrink: 0;
+                                width: 50px;
+                                height: 50px;
+                                margin-left: 0;
+                            }
+
+                            .rel-publication-date {
+                                font-size: 12px;
+                                margin: -10px 0;
+                                color: inherit;
+                            }
+                        }
+
                     }
 
                     &:hover + .card-overlay {

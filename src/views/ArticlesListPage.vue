@@ -8,7 +8,7 @@
                     <div class="stage-container">
                         <p><span class="stage">{{ index+1 }}</span>
                             <span class="stage-name">{{ card.title }}</span></p>
-                        <p class="stage-description">{{ card.description | truncating }}</p>
+                        <p class="stage-description">{{ card.description | truncating(130) }}</p>
                         <div class="article-background">
                             <prismic-image :field="card.background"/>
                         </div>
@@ -52,12 +52,6 @@
             ...mapGetters([
                 'sortedCards',
             ])
-        },
-
-        filters: {
-            truncating(text) {
-                return text.toString().substring(0, 130) + '...';
-            }
         },
 
         beforeRouteEnter(to, from, next) {

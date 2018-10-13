@@ -7,6 +7,7 @@ import PrismicVue from 'prismic-vue'
 import linkResolver from './utils/link-resolver'
 import htmlSerializer from './utils/html-serializer'
 import resolveViews from './utils/resolveViews'
+import truncatingFilter from './utils/truncatingFilter'
 
 
 Vue.use(PrismicVue, {
@@ -21,6 +22,8 @@ const router = new VueRouter({
     routes: resolveViews(routes, componentName => import(`./${componentName}`)),
     mode: 'history',
 });
+
+Vue.filter('truncating', truncatingFilter);
 
 
 Vue.config.productionTip = false;
