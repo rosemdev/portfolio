@@ -27,16 +27,20 @@ export default new Vuex.Store({
         setAuthor(state, author) {
             state.author = author
         },
+
+        isLoading(state, isLoading) {
+            state.loading = isLoading;
+        }
     },
 
     actions: {
-        getBlogCards({commit, state}) {
-            state.loading = true;
+        getBlogCards({commit}) {
+            commit('isLoading', true);
 
             return Vue.prototype.$prismic.client.query(
                 Vue.prototype.$prismic.Predicates.at('document.type', 'article')
             ).then(response => {
-                state.loading = false;
+                commit('isLoading', false);
                 console.log(response);
                 const cards = response.results.map(({uid, data, first_publication_date}) => {
                     return {
@@ -52,10 +56,11 @@ export default new Vuex.Store({
         },
 
         getArticle({commit, state}, slug) {
-            state.loading = true;
+            commit('isLoading', true);
 
             return Vue.prototype.$prismic.client.getByUID('article', slug)
                 .then((response) => {
+                    commit('isLoading', false);
                     console.log('article newQuery response', response);
                     const article = {
                         authorId: response.data.article_author.id,
@@ -80,6 +85,7 @@ export default new Vuex.Store({
 
                     return article
                 }).then((article) => {
+                    commit('isLoading', true);
                     return Vue.prototype.$prismic.client.getByID(article.authorId)
                         .then((response) => {
                             commit('setAuthor', {
@@ -93,14 +99,16 @@ export default new Vuex.Store({
                                     }
                                 })
                             });
-                            state.loading = false;
+                            commit('isLoading', false);
                         })
                 }).then(() => {
+                    commit('isLoading', true);
                         if (state.article.relatedArticlesIds.length > 0) {
                              return Vue.prototype.$prismic.client.query(
                                 Vue.prototype.$prismic.Predicates.in('my.article.uid', state.article.relatedArticlesIds),
                                 {fetchLinks: ['author.name', 'author.avatar']}
                             ).then((response) => {
+                                 commit('isLoading', false);
                                 const relatedArticlesData = response.results.slice(0, 3).map(({data, uid, first_publication_date}) => {
 
                                     return {
@@ -117,11 +125,12 @@ export default new Vuex.Store({
 
                             });
                         } else {
+                            commit('isLoading', false);
                             commit('setRelatedArticles', []);
                         }
                     }
                 ).catch((error) => {
-                    state.loading = false;
+                    commit('isLoading', false);
                     console.error(error);
                     throw error
 

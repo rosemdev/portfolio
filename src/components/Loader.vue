@@ -1,12 +1,12 @@
 <template>
-    <div class="loader">
+    <div class="loader" v-if="isLoading" :class="{loaded: isLoading}">
         <p>please wait! ...coming soon</p>
-    <div class="loader-dots">
-        <div :style="{backgroundColor: color}"></div>
-        <div :style="{backgroundColor: color}"></div>
-        <div :style="{backgroundColor: color}"></div>
-        <div :style="{backgroundColor: color}"></div>
-    </div>
+        <div class="loader-dots">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
     </div>
 </template>
 <script>
@@ -16,19 +16,25 @@
         },
 
         props: {
-            color: {
-                type: String,
-                default: '#333'
-            },
+            isLoading: {
+                type: Boolean,
+                default: false
+            }
         }
     }
 </script>
 <style lang="less" scoped>
+    @import "../assets/styles/globalVariables";
+    @import "../assets/styles/mixins";
+
     .loader {
         text-align: center;
+        opacity: 1;
+        transition: opacity 3s ease-in-out;
 
         p {
             margin-bottom: -35px;
+            color: @mainColor;
         }
         .loader-dots {
             display: inline-block;
@@ -43,6 +49,7 @@
             height: 11px;
             border-radius: 50%;
             animation-timing-function: cubic-bezier(0, 1, 1, 0);
+            background-color: @mainColor;
 
             &:nth-child(1) {
                 left: 6px;
@@ -66,10 +73,14 @@
         }
     }
 
+    .loader.loaded {
+        opacity: 0;
+    }
+
     .loader.fixed {
         position: fixed;
         left: 50%;
-        top:50%;
+        top: 50%;
         transform: translateX(-50%);
     }
 

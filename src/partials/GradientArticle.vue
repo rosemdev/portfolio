@@ -1,5 +1,6 @@
 <template>
     <rosem-gradient :is-rand-gradient="true" :height="600">
+        <rosem-loader :isLoading="loading" class="fixed"></rosem-loader>
         <div class="main-container-limit gradient-article" slot="gradientContent">
             <div class="author-info">
                 <rosem-avatar>
@@ -12,14 +13,16 @@
                         {{ author.description }}
                     </template>
                 </rosem-description-block>
-                <rosem-social-block v-if="author.links.length > 0" :socialLinks="author.links"></rosem-social-block>
+                <rosem-social-block
+                        v-if="author.links !== undefined && author.links.length > 0"
+                        :socialLinks="author.links"></rosem-social-block>
             </div>
             <div class="article-title">
                 <h1>{{ article.title }}</h1>
                 <p>{{ article.prologue }}</p>
             </div>
             <div class="article-intro">
-                <div class="article-tags" v-if="article.tags!== undefined">
+                <div class="article-tags" v-if="article.tags!== undefined && article.tags.length > 0">
                     <rosem-tag v-for="tag in article.tags" :key="tag" :tag="tag"></rosem-tag>
                 </div>
                 <div class="publication-date">
@@ -38,18 +41,16 @@
     import RosemTag from "../components/Tag"
     import RosemHistory from "../components/HistoryLine"
     import {mapState} from "vuex"
-    import {socialLinks} from "../data/data"
     import RosemSocialBlock from "../components/SocialBlock"
     import getDate from "../utils/getDate"
+    import RosemLoader from "../components/Loader"
 
 
     export default {
         name: "GradientArticle",
 
         data() {
-            return {
-                socialLinks
-            }
+            return {}
         },
 
         components: {
@@ -58,19 +59,22 @@
             RosemAvatar,
             RosemTag,
             RosemHistory,
-            RosemSocialBlock
+            RosemSocialBlock,
+            RosemLoader
         },
 
         computed: {
             ...mapState([
                 'article',
-                'author'
+                'author',
+                'loading'
             ]),
         },
 
         methods: {
             getDate
         },
+
     }
 
 </script>
@@ -83,6 +87,7 @@
         align-items: center;
         justify-content: space-between;
         padding-top: 6rem;
+        min-height: 500px;
 
         .author-info {
             display: flex;

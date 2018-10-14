@@ -1,6 +1,6 @@
 <template>
     <div class="main-container article-page">
-        <rosem-loader v-if="loading" class="fixed"></rosem-loader>
+        <rosem-loader :isLoading="loading" class="fixed"></rosem-loader>
         <div class="main-content" v-show="!loading">
             <div class="article-content">
                 <prismic-rich-text
@@ -60,10 +60,7 @@
     export default {
 
         data() {
-            return {
-                loading: false,
-                isOpen: false,
-            }
+            return {}
         },
 
         components: {
@@ -78,6 +75,7 @@
                 'author',
                 'cards',
                 'relatedArticles',
+                'loading'
             ]),
         },
 
@@ -121,6 +119,7 @@
                 })
             });
         },
+
         beforeRouteUpdate(to, from, next) {
             store.dispatch('getArticle', to.params.article).then(() => {
                 this.refresh();
@@ -155,6 +154,7 @@
         color: @mainColor;
         text-align: left;
         font-size: 17px;
+        min-height: 100vh;
 
         .article-content {
             max-width: 900px;
@@ -179,7 +179,6 @@
                 justify-content: center;
                 margin-bottom: 30px;
 
-
                 & /deep/ .card {
                     min-height: 300px;
                     color: @mainColor;
@@ -194,19 +193,6 @@
                         img {
                             width: 100%;
                             object-fit: cover;
-                        }
-
-                        &:after { //TODO
-                            width: 100%;
-                            transition: transform 0.4s, opacity 0.4s;
-                            transform: translate3d(-100%, 0, 0);
-                            background: #3c80cf linear-gradient(to left, #5b9fef 0%, #3072be 100%);
-                            position: absolute;
-                            bottom: -6px;
-                            left: 0;
-                            height: 6px;
-                            content: "";
-                            opacity: 0;
                         }
                     }
 
