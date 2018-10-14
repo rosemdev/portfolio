@@ -30,6 +30,18 @@
                         <template slot="beginData">{{ getDate(article.publicationDate).date}}</template>
                     </rosem-history>
                 </div>
+                <div class="social-sharing">
+                    <social-sharing
+                            title="The Progressive JavaScript Framework"
+                            description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
+                            quote="Vue is a progressive framework for building user interfaces."
+                            hashtags="vuejs,javascript,framework"
+                            inline-template>
+                        <network network="facebook">
+                           Facebook
+                        </network>
+                    </social-sharing>
+                </div>
             </div>
         </div>
     </rosem-gradient>

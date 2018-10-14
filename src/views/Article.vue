@@ -1,7 +1,7 @@
 <template>
     <div class="main-container article-page">
         <rosem-loader :isLoading="loading" class="fixed"></rosem-loader>
-        <div class="main-content" v-show="!loading">
+        <div class="main-content">
             <div class="article-content">
                 <prismic-rich-text
                         :field="article.content"

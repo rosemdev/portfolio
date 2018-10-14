@@ -57,7 +57,6 @@ export default new Vuex.Store({
 
         getArticle({commit, state}, slug) {
             commit('isLoading', true);
-
             return Vue.prototype.$prismic.client.getByUID('article', slug)
                 .then((response) => {
                     commit('isLoading', false);
@@ -77,7 +76,7 @@ export default new Vuex.Store({
                         }).map((article) => {
                             return article.link.uid
                         })
-                        
+
                     };
                         console.log(article.relatedArticlesIds);
                     commit('setArticle', article);

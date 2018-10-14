@@ -8,6 +8,7 @@ import linkResolver from './utils/link-resolver'
 import htmlSerializer from './utils/html-serializer'
 import resolveViews from './utils/resolveViews'
 import truncatingFilter from './utils/truncatingFilter'
+import SocialSharing from 'vue-social-sharing'
 
 
 Vue.use(PrismicVue, {
@@ -17,6 +18,7 @@ Vue.use(PrismicVue, {
 });
 
 Vue.use(VueRouter);
+Vue.use(SocialSharing);
 
 const router = new VueRouter({
     routes: resolveViews(routes, componentName => import(`./${componentName}`)),
