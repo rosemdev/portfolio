@@ -23,7 +23,7 @@
                         <div class="related-article-info">
                             <router-link
                                     :to="{name:'article', params: {article: relArticle.slug}}"><p
-                                    class="article-title">{{ relArticle.title | truncating(100) }}</p>
+                                    class="article-title">{{ relArticle.title | truncating(80) }}</p>
                             </router-link>
                             <div class="related-authors">
                                 <rosem-avatar>
@@ -55,21 +55,6 @@
     import store from '@store'
     import getDate from "../utils/getDate"
     import RosemAvatar from "../components/Avatar"
-
-
-    function fetchArticleMiddleware(to, from, next) {
-        store.dispatch('getArticle', to.params.article).then(function () {
-            next(vm => {
-                vm.$nextTick(() => {
-                    Prism.highlightAll();
-                })
-            })
-        }).catch(() => {
-            next(vm => {
-                vm.$router.push({name: 'NotFound'});
-            })
-        });
-    }
 
 
     export default {
@@ -105,7 +90,6 @@
                         document.body.clientHeight, document.documentElement.clientHeight
                     );
 
-
                 if (window.pageYOffset > pageHeight / 2.5 - footerHeight
                     && window.pageYOffset + window.innerHeight < pageHeight - footerHeight) {
 
@@ -116,12 +100,37 @@
                 }
             }, 10),
 
+            refresh() {
+                this.$nextTick(() => {
+                    Prism.highlightAll();
+                });
+            },
+
             getDate,
 
         },
 
-        beforeRouteEnter: fetchArticleMiddleware,
-        beforeRouteUpdate: fetchArticleMiddleware,
+        beforeRouteEnter(to, from, next) {
+            store.dispatch('getArticle', to.params.article).then(function () {
+                next(vm => {
+                    vm.refresh();
+                })
+            }).catch(() => {
+                next(vm => {
+                    vm.$router.push({name: 'NotFound'});
+                })
+            });
+        },
+        beforeRouteUpdate(to, from, next) {
+            store.dispatch('getArticle', to.params.article).then(() => {
+                this.refresh();
+                next()
+            }).catch(() => {
+                next(vm => {
+                    vm.$router.push({name: 'NotFound'});
+                })
+            });
+        },
 
         created() {
             this.$nextTick(() => {
@@ -162,26 +171,14 @@
                 text-align: center;
                 font-size: 45px;
                 font-weight: 600;
-                position: relative;
-                color: white;
-
-                &:before {
-                    content: '';
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    background-color: @mainColor;
-                    padding-bottom: 10rem;
-                    padding-top: 1rem;
-                    width: 100%;
-                    height: 100%;
-                }
             }
 
             .related-articles {
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                margin-bottom: 30px;
+
 
                 & /deep/ .card {
                     min-height: 300px;
@@ -193,9 +190,23 @@
                         height: 125px;
                         overflow: hidden;
                         margin: -1rem -2rem 1rem;
+                        position: relative;
                         img {
                             width: 100%;
                             object-fit: cover;
+                        }
+
+                        &:after { //TODO
+                            width: 100%;
+                            transition: transform 0.4s, opacity 0.4s;
+                            transform: translate3d(-100%, 0, 0);
+                            background: #3c80cf linear-gradient(to left, #5b9fef 0%, #3072be 100%);
+                            position: absolute;
+                            bottom: -6px;
+                            left: 0;
+                            height: 6px;
+                            content: "";
+                            opacity: 0;
                         }
                     }
 
@@ -204,6 +215,7 @@
                             font-weight: 600;
                             text-align: left;
                             color: @mainColor;
+                            font-size: 16px;
                         }
 
                         .related-authors {

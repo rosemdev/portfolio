@@ -66,13 +66,15 @@ export default new Vuex.Store({
                         slug: response.uid,
                         title: response.data.title[0].text,
                         background: response.data.background,
-                        relatedArticles: response.data.related_articles.filter(article => {
+                        relatedArticlesIds: response.data.related_articles.filter(article => {
                             return article.link.uid !== undefined;
 
                         }).map((article) => {
                             return article.link.uid
                         })
+                        
                     };
+                        console.log(article.relatedArticlesIds);
                     commit('setArticle', article);
                     console.log('article newQuery', article);
 
@@ -94,9 +96,9 @@ export default new Vuex.Store({
                             state.loading = false;
                         })
                 }).then(() => {
-                        if (state.article.relatedArticles.length > 0) {
-                            Vue.prototype.$prismic.client.query(
-                                Vue.prototype.$prismic.Predicates.in('my.article.uid', state.article.relatedArticles),
+                        if (state.article.relatedArticlesIds.length > 0) {
+                             return Vue.prototype.$prismic.client.query(
+                                Vue.prototype.$prismic.Predicates.in('my.article.uid', state.article.relatedArticlesIds),
                                 {fetchLinks: ['author.name', 'author.avatar']}
                             ).then((response) => {
                                 const relatedArticlesData = response.results.slice(0, 3).map(({data, uid, first_publication_date}) => {
@@ -113,8 +115,9 @@ export default new Vuex.Store({
                                 });
                                 commit('setRelatedArticles', relatedArticlesData);
 
-                                console.log(relatedArticlesData);
                             });
+                        } else {
+                            commit('setRelatedArticles', []);
                         }
                     }
                 ).catch((error) => {
