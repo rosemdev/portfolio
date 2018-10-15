@@ -5,15 +5,29 @@
                 :key="link.link"
                 :class="{mobileView: isMobileView}">
                 <a :href="link.link" v-if="link.isIcon" target="_blank">
-                    <img :src="link.src"/>
+                    <img :src="link.src" v-if="link.src"/>
+                    <slot
+                            name="socialWithIcon"
+                            :link="link"
+                    >
+
+                    </slot>
                 </a>
-                <a :href="link.link" target="_blank" v-else>{{ link.name }}</a>
+                <a :href="link.link" target="_blank" v-else>{{ link.name }}
+                    <slot
+                            name="social"
+                            :link="link">
+
+                    </slot>
+                </a>
             </li>
         </ul>
     </div>
 </template>
 <script>
     export default {
+        name: 'socialBlock',
+
         data() {
             return {
                 isMobileView: false
@@ -47,7 +61,6 @@
                 z-index: 1;
                 padding: 0 8px;
 
-
                 &:before {
                     content: '';
                     display: inline-block;
@@ -58,7 +71,6 @@
                     left: -12px;
                     bottom: 7px;
                 }
-
 
                 &:after {
                     content: "";
@@ -111,7 +123,6 @@
                 margin: 30px;
                 border: none;
                 box-shadow: none;
-
 
                 &:hover {
                     &:after {

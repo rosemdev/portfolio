@@ -21,26 +21,39 @@
                 <h1>{{ article.title }}</h1>
                 <p>{{ article.prologue }}</p>
             </div>
-            <div class="article-intro">
-                <div class="article-tags" v-if="article.tags!== undefined && article.tags.length > 0">
-                    <rosem-tag v-for="tag in article.tags" :key="tag" :tag="tag"></rosem-tag>
-                </div>
-                <div class="publication-date">
-                    <rosem-history :begin-year="getDate(article.publicationDate).year">
-                        <template slot="beginData">{{ getDate(article.publicationDate).date}}</template>
-                    </rosem-history>
+            <div class="article-details">
+                <div class="article-intro">
+                    <div class="article-tags" v-if="article.tags!== undefined && article.tags.length > 0">
+                        <rosem-tag v-for="tag in article.tags" :key="tag" :tag="tag"></rosem-tag>
+                    </div>
+                    <div class="publication-date">
+                        <rosem-history :begin-year="getDate(article.publicationDate).year">
+                            <template slot="beginData">{{ getDate(article.publicationDate).date}}</template>
+                        </rosem-history>
+                    </div>
                 </div>
                 <div class="social-sharing">
-                    <social-sharing
-                            title="The Progressive JavaScript Framework"
-                            description="Intuitive, Fast and Composable MVVM for building interactive interfaces."
-                            quote="Vue is a progressive framework for building user interfaces."
-                            hashtags="vuejs,javascript,framework"
-                            inline-template>
-                        <network network="facebook">
-                           Facebook
-                        </network>
-                    </social-sharing>
+                    <div class="share-text">
+                        <p>Share with friends</p>
+                    </div>
+                    <div class="share">
+
+                        <social-sharing v-for="network in socialShareNetworks"
+                                        :key="network.network"
+                                        url="https://vuejs.org/"
+                                        :title="article.title"
+                                        :description="article.prologue"
+                                        :quote="article.prologue"
+                                        inline-template>
+                            <div class="network">
+                                <network :network="network.network">
+                                    <svg class="linkedin">
+                                        <use :xlink:href="network.icon"></use>
+                                    </svg>
+                                </network>
+                            </div>
+                        </social-sharing>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,13 +69,15 @@
     import RosemSocialBlock from "../components/SocialBlock"
     import getDate from "../utils/getDate"
     import RosemLoader from "../components/Loader"
-
+    import {socialShareNetworks} from "../data/data"
 
     export default {
         name: "GradientArticle",
 
         data() {
-            return {}
+            return {
+                socialShareNetworks,
+            }
         },
 
         components: {
@@ -158,27 +173,85 @@
             }
         }
 
-        .article-intro {
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
+        .article-details {
             width: 25%;
+            .article-intro {
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
 
-            .publication-date {
-                font-weight: 500;
-                font-size: 20px;
-                color: white;
+                .publication-date {
+                    font-weight: 500;
+                    font-size: 20px;
+                    color: white;
 
-                .history {
-                    width: auto;
+                    .history {
+                        width: auto;
+                    }
+                }
+
+                .article-tags {
+                    display: flex;
+                    flex-wrap: wrap;
+                    align-items: flex-start;
+                    justify-content: flex-end;
                 }
             }
 
-            .article-tags {
+            .social-sharing {
+                color: white;
+                text-align: right;
                 display: flex;
-                flex-wrap: wrap;
-                align-items: flex-start;
-                justify-content: flex-end;
+                align-items: flex-end;
+                flex-direction: column;
+
+                .share-text {
+                    margin-right: 30px;
+                }
+
+                .share {
+                    display: flex;
+
+                    /deep/ .network {
+                        margin: 30px;
+                        padding: 0 8px;
+                        cursor: pointer;
+                        z-index: 1;
+                        position: relative;
+
+
+                        &:before {
+                            content: '';
+                            display: inline-block;
+                            width: 15px;
+                            height: 2px;
+                            position: absolute;
+                            background-color: white;
+                            left: -12px;
+                            bottom: 14px;
+                            transition: background-color .3s ease-in-out;
+                        }
+
+                        svg {
+                            fill: white;
+                            width: 25px;
+                            height: 25px;
+                            transition: fill .3s ease-in-out;
+
+
+                        }
+                        :hover {
+                            &::before {
+                                background-color: #3e3e3ef2;
+                            }
+                            svg {
+                                fill: #3e3e3ef2;
+
+                            }
+                        }
+                    }
+                }
+
             }
         }
     }

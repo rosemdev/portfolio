@@ -4,6 +4,7 @@ import ToDoList from "../assets/images/myWorks/todoList.png";
 import linkedinSocialImage from '../assets/images/icons/linkedin-logo.svg'
 import githubSocialImage from '../assets/images/icons/github-sign.svg'
 import facebookSocialImage from '../assets/images/icons/facebook-app-logo.svg'
+import socials from '../assets/images/icons/socials.svg'
 
 export let socialLinks = [
     {
@@ -48,6 +49,29 @@ export let socialIconsLinks = [
         link: 'https://www.facebook.com/miss.annamor',
         isIcon: true,
         src: facebookSocialImage
+
+    }
+];
+
+export let socialShareNetworks = [
+    {
+        network: 'linkedin',
+        isIcon: true,
+        icon: `${socials}#linkedin`
+
+    },
+
+    {
+        network: 'googleplus',
+        isIcon: true,
+        icon: `${socials}#googleplus`
+
+    },
+
+    {
+        network: 'facebook',
+        isIcon: true,
+        icon: `${socials}#facebook`
 
     }
 ];
