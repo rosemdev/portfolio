@@ -7,6 +7,30 @@
                         :field="article.content"
                 />
             </div>
+            <p class="published">Published: {{ getDate(article.publicationDate).date }},
+                {{ getDate(article.publicationDate).year }}</p>
+        </div>
+        <div class="article-details">
+            <p>
+                Interesting? Send to friend.
+            </p>
+            <div class="share">
+                <social-sharing v-for="network in socialShareNetworks"
+                                :key="network.network"
+                                url="https://vuejs.org/"
+                                :title="article.title"
+                                :description="article.prologue"
+                                :quote="article.prologue"
+                                inline-template>
+                    <div class="network">
+                        <network :network="network.network">
+                            <svg class="linkedin">
+                                <use :xlink:href="network.icon"></use>
+                            </svg>
+                        </network>
+                    </div>
+                </social-sharing>
+            </div>
         </div>
         <div class="padding also-like-block" v-if="relatedArticles.length > 0 ">
             <div class="block-title">
@@ -55,12 +79,17 @@
     import store from '@store'
     import getDate from "../utils/getDate"
     import RosemAvatar from "../components/Avatar"
+    import {socialShareNetworks} from "../data/data"
 
 
     export default {
 
+        name: "Article",
+
         data() {
-            return {}
+            return {
+                socialShareNetworks
+            }
         },
 
         components: {
@@ -145,7 +174,9 @@
 <style lang="less">
     @import "../assets/styles/article";
 </style>
-
+<style lang="less">
+    @import "../assets/styles/socialSharing";
+</style>
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
     @import "../assets/styles/mixins";
@@ -161,6 +192,35 @@
             width: 100%;
             margin: auto;
             overflow: hidden;
+
+        }
+
+        .published {
+            text-align: center;
+        }
+
+        .article-details {
+            position: relative;
+            padding: 5px 50px;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            p {
+                color: white;
+            }
+
+            &:before {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                background-color: @mainColor;
+                z-index: -1;
+            }
 
         }
 
@@ -269,6 +329,7 @@
             pointer-events: none;
             transition: opacity .3s ease-in-out;
             position: fixed;
+            z-index: 5;
             bottom: 10%;
             right: 250px;
             cursor: pointer;

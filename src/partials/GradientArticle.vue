@@ -34,10 +34,9 @@
                 </div>
                 <div class="social-sharing">
                     <div class="share-text">
-                        <p>Share with friends</p>
+                        <p>Share this content with friends</p>
                     </div>
                     <div class="share">
-
                         <social-sharing v-for="network in socialShareNetworks"
                                         :key="network.network"
                                         url="https://vuejs.org/"
@@ -105,6 +104,9 @@
     }
 
 </script>
+<style lang="less">
+    @import "../assets/styles/socialSharing";
+</style>
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
     @import "../assets/styles/mixins";
@@ -208,50 +210,6 @@
                 .share-text {
                     margin-right: 30px;
                 }
-
-                .share {
-                    display: flex;
-
-                    /deep/ .network {
-                        margin: 30px;
-                        padding: 0 8px;
-                        cursor: pointer;
-                        z-index: 1;
-                        position: relative;
-
-
-                        &:before {
-                            content: '';
-                            display: inline-block;
-                            width: 15px;
-                            height: 2px;
-                            position: absolute;
-                            background-color: white;
-                            left: -12px;
-                            bottom: 14px;
-                            transition: background-color .3s ease-in-out;
-                        }
-
-                        svg {
-                            fill: white;
-                            width: 25px;
-                            height: 25px;
-                            transition: fill .3s ease-in-out;
-
-
-                        }
-                        :hover {
-                            &::before {
-                                background-color: #3e3e3ef2;
-                            }
-                            svg {
-                                fill: #3e3e3ef2;
-
-                            }
-                        }
-                    }
-                }
-
             }
         }
     }
