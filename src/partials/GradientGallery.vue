@@ -1,5 +1,5 @@
 <template>
-    <rosem-gradient :is-rand-gradient="true" :height="500">
+    <rosem-gradient :is-rand-gradient="true">
         <div class="intro" slot="gradientContent">
             <h1>Gallery</h1>
             <p>it's a place for a moments you don't want to disappear after 24 hours. Your personal album illustration a
@@ -22,6 +22,10 @@
 <style lang="less" scoped>
     @import "../assets/styles/design";
     @import "../assets/styles/main";
+
+    .gradient-screen {
+        height: 500px;
+    }
 
     .intro {
         margin: 0 2.2rem;

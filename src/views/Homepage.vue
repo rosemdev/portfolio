@@ -20,11 +20,9 @@
                     <carousel :per-page="1"
                               :mouse-drag="true"
                               :navigationEnabled="true"
-                              navigationNextLabel="next work"
-                              navigationPrevLabel="prev work"
                               paginationColor="#5c59599e"
                               :loop="true"
-                              :autoplay="false"
+                              :autoplay="true"
                               easing="ease-in-out"
                               :speed="500"
                     >
@@ -68,7 +66,7 @@
                               :paginationEnabled="false"
                               paginationColor="#5c59599e"
                               :loop="true"
-                              :autoplay="false"
+                              :autoplay="true"
                               easing="ease-in-out"
                               :speed="500">
                         <slide><img src="../assets/images/me/rosem2.jpg"/></slide>
@@ -137,7 +135,7 @@
         methods: {}
     }
 </script>
-<style lang="less">
+<style lang="less" scoped>
     @import "../assets/styles/reset";
     @import "../assets/styles/design";
     @import "../assets/styles/main";
@@ -172,23 +170,6 @@
 
         }
 
-        & .done-works {
-            & .carousel {
-                & .VueCarousel-navigation {
-                    position: absolute;
-                    right: 0;
-                    margin-right: 9rem;
-                    bottom: 4rem;
-                    white-space: nowrap;
-
-                    & button {
-                        color: @mainColor;
-
-                    }
-                }
-            }
-
-        }
 
         & .stages {
             display: flex;
@@ -295,45 +276,32 @@
         }
     }
 
-    .responsive(@tablet, { & .gradient-screen {
-        height: 900px;
-    } & .main-container {
-          & .bottom-contact-panel {
-              align-items: flex-end;
-              justify-content: space-between;
-              flex-direction: row;
-              & .social {
-                  ul {
-                      justify-content: flex-end;
+    .responsive(@tablet, { & .main-container {
+        & .bottom-contact-panel {
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-direction: row;
+            & .social {
+                ul {
+                    justify-content: flex-end;
 
-                      li {
-                          font-size: 15px;
-                      }
-                  }
-              }
-          }
+                    li {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
 
-          & .done-works {
-              & .carousel {
+        & .stages {
+            & .card {
+                & .button {
+                    opacity: 0;
+                }
+            }
+        }
+    } });
 
-                  & .VueCarousel-navigation {
-                      margin-right: 50%;
-                      top: 15rem;
-                  }
-              }
-
-          }
-
-          & .stages {
-              & .card {
-                  & .button {
-                      opacity: 0;
-                  }
-              }
-          }
-      } });
-
-    .responsive(@desktop, { & .gradient-screen {
+    .responsive(@desktop, { & /deep/ .gradient-screen {
         height: 1100px;
     } & .main-container {
           & .order {
@@ -343,17 +311,6 @@
 
               h3 {
                   font-size: 2rem;
-              }
-
-          }
-
-          & .done-works {
-              & .carousel {
-
-                  & .VueCarousel-navigation {
-                      margin-right: 10%;
-                      top: 22rem;
-                  }
               }
 
           }

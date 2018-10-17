@@ -28,6 +28,10 @@
 <style lang="less" scoped>
     @import "../assets/styles/design";
 
+    .gradient-screen {
+        height: 850px;
+    }
+
     .intro {
         margin: 0 2.2rem;
         color: white;
@@ -58,22 +62,26 @@
 
     }
 
-    .responsive(@tablet, { .intro {
-        max-width: 1200px;
-        width: 100%;
-        margin: auto;
-        padding-top: 19rem;
+    .responsive(@tablet, { .gradient-screen {
+        height: 900px;
+    } .intro {
+          max-width: 1200px;
+          width: 100%;
+          margin: auto;
+          padding-top: 19rem;
 
-    } });
+      } });
 
-    .responsive(@desktop, { .intro {
-        h1 {
-            font-size: 2rem;
-        }
+    .responsive(@desktop, { .gradient-screen {
+        height: 1110px;
+    } .intro {
+          h1 {
+              font-size: 2rem;
+          }
 
-        h2 {
-            font-size: 2.7rem;
-        }
-    } });
+          h2 {
+              font-size: 2.7rem;
+          }
+      } });
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div class="gradient-screen" :style="{height: this.height+'px'}">
+    <div class="gradient-screen">
         <div class="gradient" :style="isRandGradient ? {background: this.GenerateRandomGradient()} : ''">
             <slot name="gradientContent"></slot>
             <slot name="mainPage"></slot>
@@ -16,10 +16,6 @@
                 type: Boolean,
                 default: false,
             },
-
-            height: {
-                type: Number,
-            }
         },
 
         components: {
