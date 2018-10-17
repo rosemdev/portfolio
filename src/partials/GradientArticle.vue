@@ -1,5 +1,5 @@
 <template>
-    <rosem-gradient :is-rand-gradient="true" :height="600">
+    <rosem-gradient :is-rand-gradient="true">
         <rosem-loader :isLoading="loading" class="fixed"></rosem-loader>
         <div class="main-container-limit gradient-article" slot="gradientContent">
             <div class="author-info">
@@ -18,7 +18,7 @@
                         :socialLinks="author.links"></rosem-social-block>
             </div>
             <div class="article-title">
-                <h1>{{ article.title }}</h1>
+                <h2>{{ article.title }}</h2>
                 <p>{{ article.prologue }}</p>
             </div>
             <div class="article-details">
@@ -115,26 +115,31 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding-top: 6rem;
-        min-height: 500px;
+        flex-direction: column;
+        padding: 10px 15px;
 
         .author-info {
             display: flex;
-            align-items: flex-start;
-            flex-direction: column;
-            width: 25%;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
 
             .avatar {
                 flex-shrink: 0;
-                margin: 0;
-                width: 150px;
-                height: 150px;
+                width: 75px;
+                height: 75px;
             }
 
             .description-block {
                 margin: 0;
                 padding: 10px 15px;
                 color: white;
+                order: 2;
+
+                /deep/ h2 {
+                    font-size: 22px;
+                }
+
             }
 
             & /deep/ .social {
@@ -158,11 +163,11 @@
         .article-title {
             margin: 0 2.2rem;
             color: white;
-            width: 50%;
+            width: 100%;
 
-            & h1 {
+            & h2 {
                 font-weight: 900;
-                font-size: 3em;
+                font-size: 1.5em;
                 text-transform: uppercase;
             }
 
@@ -176,11 +181,13 @@
         }
 
         .article-details {
-            width: 25%;
+            width: 100%;
+            margin-top: 40px;
+
             .article-intro {
                 display: flex;
                 align-items: center;
-                justify-content: flex-end;
+                justify-content: center;
 
                 .publication-date {
                     font-weight: 500;
@@ -188,7 +195,7 @@
                     color: white;
 
                     .history {
-                        width: auto;
+                        display: none;
                     }
                 }
 
@@ -197,6 +204,7 @@
                     flex-wrap: wrap;
                     align-items: flex-start;
                     justify-content: flex-end;
+                    margin: 10px 0;
                 }
             }
 
@@ -204,14 +212,73 @@
                 color: white;
                 text-align: right;
                 display: flex;
-                align-items: flex-end;
+                align-items: center;
                 flex-direction: column;
+            }
+        }
+    }
+
+    .responsive(@tablet, {
+    .gradient-screen {
+        height: 600px;
+    }
+
+        .gradient-article {
+        padding: 6rem 0 0 0;
+        flex-direction: row;
+        height: auto;
+
+        .author-info {
+            width: 25%;
+            align-items: flex-start;
+            flex-direction: column;
+            flex-wrap: nowrap;
+
+            .avatar {
+                width: 150px;
+                height: 150px;
+                margin: 0;
+
+            }
+
+            .description-block {
+                order: 0;
+            }
+        }
+
+        .article-title {
+            width: 50%;
+
+
+            h2 {
+                font-size: 3em;
+            }
+        }
+
+        .article-details {
+            width: 25%;
+            margin-top: 0;
+
+            .article-intro {
+                justify-content: flex-end;
+
+                .publication-date {
+                    .history {
+                        display: block;
+                        width: auto;
+                    }
+                }
+
+            }
+
+            .social-sharing {
+                align-items: flex-end;
 
                 .share-text {
                     margin-right: 30px;
                 }
             }
         }
-    }
+    } });
 
 </style>

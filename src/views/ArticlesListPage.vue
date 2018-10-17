@@ -111,6 +111,10 @@
                     color: @mainColor;
                 }
 
+                .stage-description {
+                    font-size: 13px;
+                }
+
                 .stage {
                     display: none;
                 }
@@ -153,6 +157,10 @@
 
                 .stage {
                     display: inline-block;
+                }
+
+                .stage-description {
+                    font-size: 15px;
                 }
 
 
