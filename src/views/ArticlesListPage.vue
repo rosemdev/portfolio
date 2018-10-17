@@ -6,7 +6,7 @@
                 <rosem-card v-for="(card, index) in sortedCards"
                             :key="index">
                     <div class="stage-container">
-                        <p><span class="stage">{{ index+1 }}</span>
+                        <p class="card-header"><span class="stage">{{ index+1 }}</span>
                             <span class="stage-name">{{ card.title }}</span></p>
                         <p class="stage-description">{{ card.description | truncating(130) }}</p>
                         <div class="article-background">
@@ -79,35 +79,86 @@
     .blog-cards {
         display: flex;
         align-items: flex-start;
-        justify-content: space-between;
+        justify-content: center;
         flex-wrap: wrap;
 
         /deep/ .card {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             padding: 0;
-            height: 700px;
+            height: 370px;
             overflow-y: hidden;
             word-wrap: break-word;
+            margin: 0;
+            width: 100%;
+            max-width: 300px;
+            background-color: @lightGray;
 
             .stage-container {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: space-between;
-                margin: 15px;
-                padding: 25px 0;
                 height: inherit;
-                background-size: cover;
+                margin: 0 auto;
+                padding-bottom: 20px;
+
+
+                .card-header, .stage-description {
+                    padding: 0 15px;
+                    transition: color .3s ease-in-out;
+                    color: @mainColor;
+                }
+
+                .stage {
+                    display: none;
+                }
 
                 .article-background {
+                    height: 125px;
                     overflow: hidden;
-                    margin-right: -15px;
+                    order: -1;
+
                     img {
                         max-width: 100%;
                         width: 325px;
+                        object-fit: cover;
                     }
+                }
+            }
+
+            &:hover {
+                .stage-container {
+                    transform: translateY(-1.5rem);
+                }
+            }
+
+        }
+
+        /deep/ .card-overlay {
+            opacity: 0;
+        }
+    }
+
+    .responsive(@tablet, { .blog-cards {
+        /deep/ .card {
+            height: 600px;
+            margin: 0 25px;
+            background-color: transparent;
+
+            .stage-container {
+                margin: 15px;
+                padding: 25px 0;
+
+                .stage {
+                    display: inline-block;
+                }
+
+
+                .article-background {
+                    margin-right:-15px;
+                    order: 0;
                 }
 
                 .button {
@@ -121,8 +172,8 @@
                 .stage-container {
                     transform: translateY(-3rem);
 
-                    img {
-                        filter: none;
+                    .card-header, .stage-description {
+                        color: white;
                     }
 
                     .button {
@@ -132,7 +183,6 @@
             }
 
         }
-
         /deep/ div > div.card + .card-overlay {
             &::after {
                 background: url("../assets/images/free-of-code-style.jpg") no-repeat center;
@@ -140,6 +190,11 @@
                 background-size: cover;
             }
         }
-    }
+
+    } });
+
+    .responsive(@desktop, { .blog-cards {
+
+    } });
 
 </style>
