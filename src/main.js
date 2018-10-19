@@ -9,6 +9,7 @@ import htmlSerializer from './utils/html-serializer'
 import resolveViews from './utils/resolveViews'
 import truncatingFilter from './utils/truncatingFilter'
 import SocialSharing from 'vue-social-sharing'
+import VueAnalytics from 'vue-analytics'
 
 
 Vue.use(PrismicVue, {
@@ -23,6 +24,21 @@ Vue.use(SocialSharing);
 const router = new VueRouter({
     routes: resolveViews(routes, componentName => import(`./${componentName}`)),
     mode: 'history',
+});
+
+Vue.use(VueAnalytics, {
+    id: 'UA-127776624-1',
+    router,
+
+    debug: {
+        enabled: true
+    },
+
+    autoTracking: {
+        exception: true,
+        page: true,
+        pageviewOnLoad: true,
+    }
 });
 
 Vue.filter('truncating', truncatingFilter);

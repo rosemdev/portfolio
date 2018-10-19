@@ -1,6 +1,7 @@
 export const routes = [
     {
         path: '/',
+        name: 'homepage',
         components: {
             underHeader: "partials/GradientHomepage",
             default: "views/Homepage",
@@ -11,6 +12,7 @@ export const routes = [
     },
     {
         path: '/gallery',
+        name: 'gallery',
         components: {
             underHeader: "partials/GradientGallery",
             default: "views/Gallery",
@@ -21,6 +23,7 @@ export const routes = [
     },
     {
         path: '/contact',
+        name: 'contact',
         components: {
             default: "views/Contact",
         },
@@ -30,6 +33,7 @@ export const routes = [
     },
     {
         path: '/skills',
+        name: 'skills',
         components: {
             aside: "partials/Aside",
             default: "views/Skills",
@@ -40,6 +44,7 @@ export const routes = [
     },
     {
         path: '/blog',
+        name: 'blog',
         components: {
             underHeader: "partials/GradientBlog",
             default: "views/ArticlesListPage",
@@ -60,8 +65,8 @@ export const routes = [
         },
     },
     {
-        name: 'NotFound',
         path: '/404',
+        name: 'NotFound',
         component: "views/404",
         meta: {
             layout: "layouts/OneColumnLayout",
