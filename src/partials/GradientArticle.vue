@@ -112,7 +112,13 @@
     @import "../assets/styles/mixins";
 
     .gradient-screen {
-        /*height: auto;*/
+        height: auto;
+        /deep/ .gradient {
+            height: inherit;
+            padding: 15px 0;
+            border-radius: 0;
+        }
+
     }
 
     .gradient-article {
@@ -222,27 +228,24 @@
         }
     }
 
-    .responsive(@tablet, {
-
-        .gradient-screen {
-            height: 600px;
+    .responsive(@tablet, { .gradient-screen {
+        height: auto;
+        /deep/ .gradient {
+            height: inherit;
+            border-radius: 0;
         }
 
-
-    .gradient-article {
-          padding: 6rem 0 0 0;
-          flex-direction: row;
-          height: auto;
-
+    } .gradient-article {
           .author-info {
-              width: 25%;
+              width: 50%;
               align-items: flex-start;
               flex-direction: column;
               flex-wrap: nowrap;
+              align-self: flex-start;
 
               .avatar {
-                  width: 150px;
-                  height: 150px;
+                  width: 100px;
+                  height: 100px;
                   margin: 0;
 
               }
@@ -253,7 +256,8 @@
           }
 
           .article-title {
-              width: 50%;
+              width: 100%;
+              order: -1;
 
               h2 {
                   font-size: 3em;
@@ -261,8 +265,9 @@
           }
 
           .article-details {
-              width: 25%;
-              margin-top: 0;
+              width: 50%;
+              margin-top: -21rem;
+              align-self: flex-end;
 
               .article-intro {
                   justify-content: flex-end;
@@ -285,5 +290,42 @@
               }
           }
       } });
+
+    .responsive(@desktop, {
+
+        .gradient-screen {
+            height: 600px;
+            /deep/ .gradient {
+                height: 2000px;
+                padding: 15px 0;
+                border-bottom-left-radius: 45%;
+                border-bottom-right-radius: 45%;
+            }
+
+        }
+        .gradient-article {
+        padding: 6rem 0;
+        flex-direction: row;
+
+        .author-info {
+            width: 25%;
+
+            .avatar {
+                width: 150px;
+                height: 150px;
+
+            }
+        }
+
+        .article-title {
+            width: 50%;
+            order: 0;
+        }
+
+        .article-details {
+            width: 25%;
+            margin-top: 0;
+        }
+    } });
 
 </style>
