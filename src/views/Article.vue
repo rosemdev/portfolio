@@ -206,6 +206,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
 
             p {
                 color: white;
@@ -316,6 +317,7 @@
             text-align: justify;
         }
 
+
         .also-like-block {
             .related-articles {
                 flex-wrap: wrap;
@@ -333,6 +335,10 @@
             .article-intro {
                 flex-basis: 40%;
             }
+        }
+
+        .article-details {
+            flex-direction: row;
         }
 
         .scroll-button.showScrollButton {
