@@ -46,7 +46,7 @@
                                         inline-template>
                             <div class="network">
                                 <network :network="network.network">
-                                    <svg class="linkedin">
+                                    <svg>
                                         <use :xlink:href="network.icon"></use>
                                     </svg>
                                 </network>

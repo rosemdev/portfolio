@@ -24,6 +24,9 @@ Vue.use(SocialSharing);
 const router = new VueRouter({
     routes: resolveViews(routes, componentName => import(`./${componentName}`)),
     mode: 'history',
+    scrollBehavior () {
+        return { x: 0, y: 0 }
+    }
 });
 
 Vue.use(VueAnalytics, {
