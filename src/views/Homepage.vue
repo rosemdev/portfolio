@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container">
+    <div class="main-container homepage">
         <div class="greeting white-background">
             <div class="main-content">
                 <div class="order">
@@ -141,7 +141,7 @@
     @import "../assets/styles/main";
     @import "../assets/styles/themes";
 
-    & .main-container {
+    & .homepage {
         & .order {
             padding: 15px 25px;
             color: @mainColor;
@@ -276,7 +276,7 @@
         }
     }
 
-    .responsive(@tablet, { & .main-container {
+    .responsive(@tablet, { & .homepage {
         & .bottom-contact-panel {
             align-items: flex-end;
             justify-content: space-between;

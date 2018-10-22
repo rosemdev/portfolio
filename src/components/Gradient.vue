@@ -63,13 +63,13 @@
     }
 
     .responsive(@tablet, { .gradient {
-        height: 900px;
+        height: 1300px;
         border-bottom-left-radius: 45%;
         border-bottom-right-radius: 45%;
     } });
 
     .responsive(@desktop, { .gradient {
-        height: 1800px;
+        height: 2000px;
 
     } });
 

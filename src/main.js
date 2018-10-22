@@ -31,7 +31,7 @@ Vue.use(VueAnalytics, {
     router,
 
     debug: {
-        enabled: true
+        // enabled: true
     },
 
     autoTracking: {

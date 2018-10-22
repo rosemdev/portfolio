@@ -111,6 +111,10 @@
     @import "../assets/styles/globalVariables";
     @import "../assets/styles/mixins";
 
+    .gradient-screen {
+        /*height: auto;*/
+    }
+
     .gradient-article {
         display: flex;
         align-items: center;
@@ -219,66 +223,67 @@
     }
 
     .responsive(@tablet, {
-    .gradient-screen {
-        height: 600px;
-    }
 
-        .gradient-article {
-        padding: 6rem 0 0 0;
-        flex-direction: row;
-        height: auto;
-
-        .author-info {
-            width: 25%;
-            align-items: flex-start;
-            flex-direction: column;
-            flex-wrap: nowrap;
-
-            .avatar {
-                width: 150px;
-                height: 150px;
-                margin: 0;
-
-            }
-
-            .description-block {
-                order: 0;
-            }
+        .gradient-screen {
+            height: 600px;
         }
 
-        .article-title {
-            width: 50%;
 
+    .gradient-article {
+          padding: 6rem 0 0 0;
+          flex-direction: row;
+          height: auto;
 
-            h2 {
-                font-size: 3em;
-            }
-        }
+          .author-info {
+              width: 25%;
+              align-items: flex-start;
+              flex-direction: column;
+              flex-wrap: nowrap;
 
-        .article-details {
-            width: 25%;
-            margin-top: 0;
+              .avatar {
+                  width: 150px;
+                  height: 150px;
+                  margin: 0;
 
-            .article-intro {
-                justify-content: flex-end;
+              }
 
-                .publication-date {
-                    .history {
-                        display: block;
-                        width: auto;
-                    }
-                }
+              .description-block {
+                  order: 0;
+              }
+          }
 
-            }
+          .article-title {
+              width: 50%;
 
-            .social-sharing {
-                align-items: flex-end;
+              h2 {
+                  font-size: 3em;
+              }
+          }
 
-                .share-text {
-                    margin-right: 30px;
-                }
-            }
-        }
-    } });
+          .article-details {
+              width: 25%;
+              margin-top: 0;
+
+              .article-intro {
+                  justify-content: flex-end;
+
+                  .publication-date {
+                      .history {
+                          display: block;
+                          width: auto;
+                      }
+                  }
+
+              }
+
+              .social-sharing {
+                  align-items: flex-end;
+
+                  .share-text {
+                      margin-right: 30px;
+                  }
+              }
+          }
+      } });
 
 </style>

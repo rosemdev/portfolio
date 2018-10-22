@@ -237,10 +237,12 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                flex-direction: column;
                 margin-bottom: 30px;
 
                 & /deep/ .card {
                     min-height: 300px;
+                    width: auto;
                     color: @mainColor;
                     background-color: white;
                     transition: transform .5s ease-in-out;
@@ -295,6 +297,10 @@
                     }
 
                 }
+
+                /deep/.card-overlay {
+                    opacity: 0;
+                }
             }
         }
 
@@ -308,6 +314,17 @@
 
         .article-content {
             text-align: justify;
+        }
+
+        .also-like-block {
+            .related-articles {
+                flex-wrap: wrap;
+                flex-direction: row;
+
+                /deep/ .card {
+                    width: 320px;
+                }
+            }
         }
     } });
 
