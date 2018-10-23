@@ -92,7 +92,6 @@
             word-wrap: break-word;
             margin: 0;
             width: 100%;
-            max-width: 300px;
             background-color: @lightGray;
 
             .stage-container {
@@ -109,6 +108,9 @@
                     padding: 0 15px;
                     transition: color .3s ease-in-out;
                     color: @mainColor;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 }
 
                 .stage-description {
@@ -120,13 +122,13 @@
                 }
 
                 .article-background {
-                    height: 125px;
+                    height: 200px;
+                    width: 100%;
                     overflow: hidden;
                     order: -1;
 
                     img {
                         max-width: 100%;
-                        width: 325px;
                         object-fit: cover;
                     }
                 }
@@ -148,6 +150,7 @@
     .responsive(@tablet, { .blog-cards {
         /deep/ .card {
             height: 600px;
+            max-width: 300px;
             margin: 0 25px;
             background-color: transparent;
 
@@ -165,8 +168,9 @@
 
 
                 .article-background {
-                    margin-right:-15px;
+                    margin-right:-29px;
                     order: 0;
+                    height: 125px;
                 }
 
                 .button {

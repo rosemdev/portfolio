@@ -11,10 +11,21 @@
   }
 
   & ol {
-    padding-inline-start: 25px;
+    li {
+      list-style: decimal-leading-zero;
+
+    }
   }
 
-  &  h1 {
+  & ul {
+      padding-inline-start: 40px;
+    li {
+      list-style: disc;
+
+    }
+  }
+
+  & h1 {
     text-align: center;
     font-weight: 700;
   }
@@ -57,7 +68,5 @@
   }
 }
 
-.responsive(@tablet, {
-  .article-content {
-  }
-});
+.responsive(@tablet, { .article-content {
+} });

@@ -39,7 +39,6 @@
                     <div class="share">
                         <social-sharing v-for="network in socialShareNetworks"
                                         :key="network.network"
-                                        url="https://vuejs.org/"
                                         :title="article.title"
                                         :description="article.prologue"
                                         :quote="article.prologue"

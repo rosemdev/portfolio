@@ -65,7 +65,6 @@
         </div>
         <div class="scroll-button" ref="scrollButton">
             <rosem-scroll-button></rosem-scroll-button>
-
         </div>
     </div>
 </template>
@@ -354,7 +353,7 @@
             position: fixed;
             z-index: 5;
             bottom: 10%;
-            right: 250px;
+            right: 30px;
             cursor: pointer;
 
             &:before {
