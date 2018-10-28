@@ -49,11 +49,18 @@ export default function (type, element, content, children) {
       `);
     }
 
-    if (type === Elements.preformatted) {
-
-        return `<pre>
-                    <code class="language-javascript">${children.join('').replace(/<br\s*?\/?>/g, '\n')}</code>
+    if (type === Elements.label) {
+        const label = element.data.label ? ` class="${element.data.label}"` : '';
+        if (element.data.label.includes('language')) {
+            return `<pre>
+                    <code ${label}>${children.join('').replace(/<br\s*?\/?>/g, '\n')}</code>
                 </pre>`;
+
+        } else {
+            return `<div ${label}>${children.join('')}</div>`;
+        }
+
+
     }
 
     // Return null to stick with the default behavior for everything else

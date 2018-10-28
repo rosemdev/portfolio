@@ -22,7 +22,7 @@
                               :navigationEnabled="true"
                               paginationColor="#5c59599e"
                               :loop="true"
-                              :autoplay="true"
+                              :autoplay="false"
                               easing="ease-in-out"
                               :speed="500"
                     >
@@ -66,7 +66,7 @@
                               :paginationEnabled="false"
                               paginationColor="#5c59599e"
                               :loop="true"
-                              :autoplay="true"
+                              :autoplay="false"
                               easing="ease-in-out"
                               :speed="500">
                         <slide><img src="../assets/images/me/rosem2.jpg"/></slide>
