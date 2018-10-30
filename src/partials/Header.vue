@@ -164,7 +164,7 @@
         }
 
         & nav {
-            padding-left: 45px;
+            padding: 45px;
             position: absolute;
             display: flex;
             justify-content: center;
@@ -191,7 +191,7 @@
                 li {
                     text-align: right;
                     font-size: 2rem;
-                    padding: 15px 4rem 15px 0;
+                    padding: 15px 2rem 15px 0;
                     transition: all .3s ease-in-out;
                     position: relative;
                     margin-right: -42px;
@@ -201,7 +201,7 @@
                         &:after {
                             content: '';
                             position: absolute;
-                            right: 44px;
+                            right: -1px;
                             top: 0;
                             background-color: black;
                             width: 6px;
@@ -244,7 +244,7 @@
         }
     }
 
-    .responsive(@desktop, { .header {
+    .responsive(@tablet, { .header {
         & nav {
             width: 410px;
             ul {
