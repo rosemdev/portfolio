@@ -250,6 +250,8 @@
             ul {
                 li {
                     font-size: 4rem;
+                    padding-right: 4rem;
+                    margin-right: -87px;
 
                     &:hover, &.active {
                         &:after {
