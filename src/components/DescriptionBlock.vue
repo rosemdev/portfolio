@@ -19,11 +19,9 @@
 
             subtitle: {
                 type: String,
-                default: 'subtitle',
             },
             title: {
                 type: String,
-                default: 'title',
             },
 
         },

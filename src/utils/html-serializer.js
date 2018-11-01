@@ -56,6 +56,9 @@ export default function (type, element, content, children) {
                     <code ${label}>${children.join('').replace(/<br\s*?\/?>/g, '\n')}</code>
                 </pre>`;
 
+        } else if (element.data.label === 'code') {
+            return `<code ${label}>${children.join('')}</code>`
+
         } else {
             return `<div ${label}>${children.join('')}</div>`;
         }

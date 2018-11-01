@@ -8,7 +8,9 @@
                     <div class="stage-container">
                         <p class="card-header"><span class="stage">{{ index+1 }}</span>
                             <span class="stage-name">{{ card.title }}</span></p>
-                        <p class="stage-description">{{ card.description | truncating(130) }}</p>
+                        <p class="stage-description" v-if="card.description !== null">
+                            {{ card.description | truncating(130) }}
+                        </p>
                         <div class="article-background">
                             <prismic-image :field="card.background"/>
                         </div>
@@ -103,7 +105,6 @@
                 margin: 0 auto;
                 padding-bottom: 20px;
 
-
                 .card-header, .stage-description {
                     padding: 0 15px;
                     transition: color .3s ease-in-out;
@@ -166,9 +167,8 @@
                     font-size: 15px;
                 }
 
-
                 .article-background {
-                    margin-right:-29px;
+                    margin-right: -29px;
                     order: 0;
                     height: 125px;
                 }

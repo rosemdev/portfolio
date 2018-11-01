@@ -49,7 +49,7 @@
                                     :to="{name:'article', params: {article: relArticle.slug}}"><p
                                     class="article-title">{{ relArticle.title | truncating(80) }}</p>
                             </router-link>
-                            <div class="related-authors">
+                            <div class="related-authors" v-if="relArticle.authorName !== null">
                                 <rosem-avatar>
                                     <prismic-image :field="relArticle.authorAvatar"/>
                                 </rosem-avatar>

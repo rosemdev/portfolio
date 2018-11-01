@@ -41,17 +41,19 @@ export default new Vuex.Store({
                 Vue.prototype.$prismic.Predicates.at('document.type', 'article')
             ).then(response => {
                 commit('isLoading', false);
+                debugger;
                 console.log(response);
                 const cards = response.results.map(({uid, data, first_publication_date}) => {
                     return {
                         slug: uid,
                         title: data.title[0].text,
-                        description: data.description[0].text,
+                        description: data.description[0].text || null,
                         publicationDate: first_publication_date,
                         background: data.background
                     }
                 });
                 commit('setBlogCards', cards);
+                console.log('setBlogCards', cards);
             })
         },
 
@@ -62,11 +64,11 @@ export default new Vuex.Store({
                     commit('isLoading', false);
                     console.log('article newQuery response', response);
                     const article = {
-                        authorId: response.data.article_author.id,
-                        prologue: response.data.prologue[0].text,
-                        content: response.data.content,
+                        authorId: response.data.article_author.id || null,
+                        prologue: response.data.prologue.length > 0 ? response.data.prologue[0].text : null,
+                        content: response.data.content || null,
                         publicationDate: response.first_publication_date,
-                        tags: response.tags,
+                        tags: response.tags || null,
                         slug: response.uid,
                         title: response.data.title[0].text,
                         background: response.data.background,
@@ -78,36 +80,38 @@ export default new Vuex.Store({
                         })
 
                     };
-                        console.log(article.relatedArticlesIds);
+                    console.log(article.relatedArticlesIds);
                     commit('setArticle', article);
                     console.log('article newQuery', article);
 
                     return article
                 }).then((article) => {
                     commit('isLoading', true);
-                    return Vue.prototype.$prismic.client.getByID(article.authorId)
-                        .then((response) => {
-                            commit('setAuthor', {
-                                name: response.data.name[0].text,
-                                description: response.data.about[0].text,
-                                avatar: response.data.avatar,
-                                links: response.data.links.map(link => {
-                                    return {
-                                        name: link.title[0].text,
-                                        link: link.link.url
-                                    }
-                                })
-                            });
-                            commit('isLoading', false);
-                        })
+                    if (article.authorId !== null) {
+                        return Vue.prototype.$prismic.client.getByID(article.authorId)
+                            .then((response) => {
+                                commit('setAuthor', {
+                                    name: response.data.name[0].text,
+                                    description: response.data.about[0].text,
+                                    avatar: response.data.avatar,
+                                    links: response.data.links.map(link => {
+                                        return {
+                                            name: link.title[0].text,
+                                            link: link.link.url
+                                        }
+                                    })
+                                });
+                                commit('isLoading', false);
+                            })
+                    }
                 }).then(() => {
-                    commit('isLoading', true);
+                        commit('isLoading', true);
                         if (state.article.relatedArticlesIds.length > 0) {
-                             return Vue.prototype.$prismic.client.query(
+                            return Vue.prototype.$prismic.client.query(
                                 Vue.prototype.$prismic.Predicates.in('my.article.uid', state.article.relatedArticlesIds),
                                 {fetchLinks: ['author.name', 'author.avatar']}
                             ).then((response) => {
-                                 commit('isLoading', false);
+                                commit('isLoading', false);
                                 const relatedArticlesData = response.results.slice(0, 3).map(({data, uid, first_publication_date}) => {
 
                                     return {
@@ -115,8 +119,8 @@ export default new Vuex.Store({
                                         title: data.title[0].text,
                                         background: data.background,
                                         slug: uid,
-                                        authorName: data.article_author.data.name[0].text,
-                                        authorAvatar: data.article_author.data.avatar
+                                        authorName: data.article_author.data.name[0].text || null,
+                                        authorAvatar: data.article_author.data.avatar || null
                                     }
 
                                 });

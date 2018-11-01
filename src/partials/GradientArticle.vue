@@ -6,7 +6,7 @@
                 <rosem-avatar>
                     <prismic-image :field="author.avatar"/>
                 </rosem-avatar>
-                <rosem-description-block
+                <rosem-description-block v-if="author.name"
                         subtitle="author"
                         :title="author.name">
                     <template slot="description">
@@ -19,7 +19,7 @@
             </div>
             <div class="article-title">
                 <h2>{{ article.title }}</h2>
-                <p>{{ article.prologue }}</p>
+                <p v-if="article.prologue !== null">{{ article.prologue }}</p>
             </div>
             <div class="article-details">
                 <div class="article-intro">
