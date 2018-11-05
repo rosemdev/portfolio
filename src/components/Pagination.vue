@@ -1,11 +1,11 @@
 <template>
     <div class="pagination">
         <div class="prev"
-             @click="changePage(prevPage)">Prev
+             @click="prevPage">Prev
         </div>
         <!--<div class="pages"></div>-->
         <div class="next"
-             @click="changePage(nextPage)">Next
+             @click="nextPage">Next
         </div>
     </div>
 </template>
@@ -20,24 +20,28 @@
             currentPage: {
                 type: Number,
                 default: 1,
+            },
+
+            totalItems: {
+                type: Number
+            },
+
+            totalPages: {
+                type: Number
             }
         },
 
         computed: {
-            nextPage() {
-                console.log(this.currentPage);
-                return this.currentPage + 1
-            },
 
-            prevPage() {
-                return this.currentPage - 1;
-            }
+
         },
 
         methods: {
-            changePage(page) {
-                console.log(page);
-                this.$emit('page-changed', page)
+            prevPage() {
+                this.$emit('update:currentPage', this.currentPage <= 1 ? this.totalPages : this.currentPage - 1);
+            },
+            nextPage() {
+                this.$emit('update:currentPage', this.currentPage >= this.totalPages ? 1 : this.currentPage + 1);
             }
         }
     }
@@ -45,7 +49,6 @@
 <style lang="less" scoped>
     @import "../assets/styles/design";
     @import "../assets/styles/main";
-
 
     .next, .prev {
         border: 2px solid tomato;

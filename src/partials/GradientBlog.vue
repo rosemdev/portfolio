@@ -4,15 +4,17 @@
             <h1>Blog</h1>
             <p>it's a place for a moments you don't want to disappear after 24 hours. Your personal album illustration a
                 year life. One photo a day.</p>
-            <rosem-pagination :current-page="currentPage"
-                              @page-changed="fetchCards"></rosem-pagination>
+            <rosem-pagination :current-page.sync="currentPage"
+                              :total-pages = "totalPages"
+                              :total-items="totalCards"
+            ></rosem-pagination>
         </div>
     </rosem-gradient>
 </template>
 <script>
     import RosemGradient from "../components/Gradient"
     import RosemPagination from "../components/Pagination"
-    import {mapGetters} from "vuex"
+    import {mapGetters, mapState} from "vuex"
     import store from '@store'
 
 
@@ -30,7 +32,20 @@
             RosemGradient,
             RosemPagination
         },
+
+        watch: {
+            currentPage(currentPage) {
+                this.fetchCards(currentPage);
+            }
+        },
+
         computed: {
+            ...mapState([
+                'cards',
+                'totalPages',
+                'totalCards'
+            ]),
+
             ...mapGetters([
                 'sortedCards',
             ]),

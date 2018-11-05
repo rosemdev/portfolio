@@ -11,6 +11,8 @@ export default new Vuex.Store({
         cards: [],
         relatedArticles: [],
         loading: false,
+        totalPages: "",
+        totalCards: ""
     },
 
     mutations: {
@@ -30,19 +32,28 @@ export default new Vuex.Store({
 
         isLoading(state, isLoading) {
             state.loading = isLoading;
+        },
+
+        totalCards(state, totalCards) {
+            state.totalCards = totalCards;
+        },
+        totalPages(state, totalPages) {
+            state.totalPages = totalPages;
         }
     },
 
     actions: {
-        getBlogCards({commit}, {perPage, currentPage}) {
+        getBlogCards({commit,state}, {perPage, currentPage}) {
             commit('isLoading', true);
-            console.log(perPage, currentPage, "now");
-
             return Vue.prototype.$prismic.client.query(
                 Vue.prototype.$prismic.Predicates.at('document.type', 'article'),
-                { pageSize : perPage, page : currentPage }
+                {pageSize: perPage, page: currentPage}
             ).then(response => {
+
                 commit('isLoading', false);
+                commit('totalCards', response.total_results_size);
+                commit('totalPages', response.total_pages);
+
                 console.log(response);
                 const cards = response.results.map(({uid, data, first_publication_date}) => {
                     return {
@@ -50,10 +61,13 @@ export default new Vuex.Store({
                         title: data.title[0].text,
                         description: data.description[0].text || null,
                         publicationDate: first_publication_date,
-                        background: data.background
+                        background: data.background,
                     }
                 });
-                commit('setBlogCards', cards,perPage, currentPage );
+
+                console.log('currentPage', currentPage, "totalPages ", state.totalPages, 'new');
+                    commit('setBlogCards', cards);
+
                 console.log('setBlogCards', cards);
             })
         },
