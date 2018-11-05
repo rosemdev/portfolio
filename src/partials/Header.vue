@@ -173,6 +173,7 @@
             right: 0;
             z-index: 8;
             height: 100vh;
+            width: 320px;
             box-shadow: 0 1px 23px 5px #0000001a;
             background-color: white;
 

@@ -10,7 +10,7 @@ export default new Vuex.Store({
         author: {},
         cards: [],
         relatedArticles: [],
-        loading: false
+        loading: false,
     },
 
     mutations: {
@@ -34,14 +34,15 @@ export default new Vuex.Store({
     },
 
     actions: {
-        getBlogCards({commit}) {
+        getBlogCards({commit}, {perPage, currentPage}) {
             commit('isLoading', true);
+            console.log(perPage, currentPage, "now");
 
             return Vue.prototype.$prismic.client.query(
-                Vue.prototype.$prismic.Predicates.at('document.type', 'article')
+                Vue.prototype.$prismic.Predicates.at('document.type', 'article'),
+                { pageSize : perPage, page : currentPage }
             ).then(response => {
                 commit('isLoading', false);
-                debugger;
                 console.log(response);
                 const cards = response.results.map(({uid, data, first_publication_date}) => {
                     return {
@@ -52,7 +53,7 @@ export default new Vuex.Store({
                         background: data.background
                     }
                 });
-                commit('setBlogCards', cards);
+                commit('setBlogCards', cards,perPage, currentPage );
                 console.log('setBlogCards', cards);
             })
         },

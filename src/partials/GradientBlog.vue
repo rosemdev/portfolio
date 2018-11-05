@@ -4,17 +4,48 @@
             <h1>Blog</h1>
             <p>it's a place for a moments you don't want to disappear after 24 hours. Your personal album illustration a
                 year life. One photo a day.</p>
+            <rosem-pagination :current-page="currentPage"
+                              @page-changed="fetchCards"></rosem-pagination>
         </div>
     </rosem-gradient>
 </template>
 <script>
     import RosemGradient from "../components/Gradient"
+    import RosemPagination from "../components/Pagination"
+    import {mapGetters} from "vuex"
+    import store from '@store'
+
 
     export default {
         name: "GradientBlog",
+        data() {
+            return {
+                currentPage: 1,
+                perPage: 3,
+
+            }
+        },
 
         components: {
             RosemGradient,
+            RosemPagination
+        },
+        computed: {
+            ...mapGetters([
+                'sortedCards',
+            ]),
+        },
+
+        methods: {
+            fetchCards(page) {
+                store.dispatch('getBlogCards', {
+                    perPage: this.perPage,
+                    currentPage: page
+                }).then(() =>  {
+                    this.currentPage = page;
+                    store.getters.sortedCards;
+                })
+            }
         },
     }
 

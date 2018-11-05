@@ -43,7 +43,7 @@
         components: {
             RosemLoader,
             RosemCard,
-            RosemButton
+            RosemButton,
         },
 
         computed: {
@@ -57,7 +57,10 @@
         },
 
         beforeRouteEnter(to, from, next) {
-            store.dispatch('getBlogCards').then(function () {
+            store.dispatch('getBlogCards', {
+                perPage: 3,
+                currentPage: 1
+            }).then(function () {
                 store.getters.sortedCards;
                 next()
             }).catch(() => {
@@ -66,10 +69,6 @@
                 })
             });
         },
-
-        created() {
-
-        }
 
     }
 </script>
