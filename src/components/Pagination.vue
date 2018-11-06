@@ -3,7 +3,13 @@
         <div class="prev"
              @click="prevPage">Prev
         </div>
-        <!--<div class="pages"></div>-->
+        <div class="pages">
+            <div class="page-item"
+                 v-for="page in range(totalPages, siblingRange)"
+                 :key="page"
+                 @click="showPage(page)">{{page}}
+            </div>
+        </div>
         <div class="next"
              @click="nextPage">Next
         </div>
@@ -20,29 +26,56 @@
             currentPage: {
                 type: Number,
                 default: 1,
+                required: true
+
             },
 
             totalItems: {
-                type: Number
+                type: Number,
+                required: true
             },
 
             totalPages: {
-                type: Number
+                type: Number,
+                required: true
+            },
+
+            siblingRange: {
+                type: Number,
+                default: 1,
             }
-        },
-
-        computed: {
-
-
         },
 
         methods: {
             prevPage() {
-                this.$emit('update:currentPage', this.currentPage <= 1 ? this.totalPages : this.currentPage - 1);
+                let currPage = this.currentPage <= 1 ? this.totalPages : this.currentPage - 1
+                this.$emit('update:currentPage', currPage);
+                this.$router.push({path: this.$route.path, query: {page: currPage}});
             },
             nextPage() {
-                this.$emit('update:currentPage', this.currentPage >= this.totalPages ? 1 : this.currentPage + 1);
+                let currPage = this.currentPage >= this.totalPages ? 1 : this.currentPage + 1;
+                this.$emit('update:currentPage', currPage);
+                this.$router.push({path: this.$route.path, query: {page: currPage}});
+
+            },
+
+            showPage(page) {
+                this.$emit('update:currentPage', this.currentPage = page);
+                this.$router.push({path: this.$route.path, query: {page: page}});
+
+            },
+
+            range(total, step) {
+                let array = [];
+
+                for (let i = 1; i <= total; i = i + step) {
+                    array.push(i)
+                }
+                return array;
             }
+        },
+        created() {
+            console.log('range', this.range(13, 3));
         }
     }
 </script>
@@ -53,6 +86,11 @@
     .next, .prev {
         border: 2px solid tomato;
         width: 70px;
-        padding: 20px;
+        padding: 10px;
+    }
+
+    div {
+        cursor: pointer;
+        padding: 10px;
     }
 </style>
