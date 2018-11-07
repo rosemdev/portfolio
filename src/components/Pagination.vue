@@ -48,7 +48,7 @@
 
         methods: {
             prevPage() {
-                let currPage = this.currentPage <= 1 ? this.totalPages : this.currentPage - 1
+                let currPage = this.currentPage <= 1 ? this.totalPages : this.currentPage - 1;
                 this.$emit('update:currentPage', currPage);
                 this.$router.push({path: this.$route.path, query: {page: currPage}});
             },
@@ -74,9 +74,6 @@
                 return array;
             }
         },
-        created() {
-            console.log('range', this.range(13, 3));
-        }
     }
 </script>
 <style lang="less" scoped>

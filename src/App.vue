@@ -33,7 +33,6 @@
 
         created() {
             this.$root.$on('change-theme', (theme) => {
-                console.log(this.$refs);
                 this.$refs.underHeader.$el.firstChild.style.background = '';
                 this.theme = theme;
                 localStorage.setItem('theme', this.theme);

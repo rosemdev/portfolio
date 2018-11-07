@@ -32,9 +32,7 @@
     import {mapGetters, mapState} from "vuex"
     import store from '@store'
 
-    let perPage = 3,
-        currentPage = 1;
-
+    let perPage = 3;
 
     export default {
 
@@ -62,7 +60,7 @@
         beforeRouteEnter(to, from, next) {
             store.dispatch('getBlogCards', {
                 perPage: perPage,
-                currentPage: currentPage
+                currentPage: to.query.page || 1
             }).then(function () {
                 store.getters.sortedCards;
                 next()
