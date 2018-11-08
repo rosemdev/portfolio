@@ -2,9 +2,9 @@
     <rosem-gradient :is-rand-gradient="true">
         <div class="intro" slot="gradientContent">
             <h1>Blog</h1>
-            <p>it's a place for a moments you don't want to disappear after 24 hours. Your personal album illustration a
-                year life. One photo a day.</p>
-            <rosem-pagination :current-page.sync="currentPage"
+            <p>The first thing you need to decide when you build your blog is what you want to accomplish with it, and what it can do if successful.
+                Blogging is a conversation, not a code</p>
+            <rosem-pagination :current-page="currentPage"
                               :total-pages = "totalPages"
                               :total-items="totalCards"
             ></rosem-pagination>
@@ -22,7 +22,6 @@
         name: "GradientBlog",
         data() {
             return {
-                currentPage: 1,
                 perPage: 3,
 
             }
@@ -45,6 +44,9 @@
                 'totalPages',
                 'totalCards'
             ]),
+            currentPage() {
+                return Number(this.$route.query.page) || 1
+            }
         },
 
         methods: {
@@ -52,8 +54,6 @@
                 store.dispatch('getBlogCards', {
                     perPage: this.perPage,
                     currentPage: page
-                }).then(() =>  {
-                    this.currentPage = page;
                 })
             }
         },
@@ -86,6 +86,10 @@
             font-size: 1.3em;
             font-style: italic;
         }
+    }
+
+    .pagination {
+        margin-top: 65px;
     }
 
 </style>

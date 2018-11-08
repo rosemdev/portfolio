@@ -1,17 +1,17 @@
 <template>
     <div class="pagination">
-        <div class="page-item prev"
-             @click="prevPage">
-            <span>prev</span>
+        <div class="page-item prev">
+            <router-link :to="prevPage">prev</router-link>
         </div>
-            <div class="page-item"
-                 v-for="pageNumber in range(totalPages, siblingRange)"
-                 :key="pageNumber"
-                 @click="showPage(pageNumber)"><span>{{pageNumber}}</span>
-            </div>
-        <div class="page-item next"
-             @click="nextPage">
-            <span>next</span>
+        <router-link :class="['page-item', {'active-page-item': $route.query.page === undefined && pageNumber === 1}]"
+                     exact-active-class="active-page-item"
+                     v-for="pageNumber in pageNumbers"
+                     :key="pageNumber"
+                     :to="{path: $route.path, query: {page: pageNumber}}"
+        >{{ pageNumber }}
+        </router-link>
+        <div class="page-item next">
+            <router-link :to="nextPage">next</router-link>
         </div>
     </div>
 </template>
@@ -46,33 +46,36 @@
             }
         },
 
-        methods: {
-            prevPage() {
-                let currPage = this.currentPage <= 1 ? this.totalPages : this.currentPage - 1;
-                this.$emit('update:currentPage', currPage);
-                this.$router.push({path: this.$route.path, query: {page: currPage}});
-            },
-            nextPage() {
-                let currPage = this.currentPage >= this.totalPages ? 1 : this.currentPage + 1;
-                this.$emit('update:currentPage', currPage);
-                this.$router.push({path: this.$route.path, query: {page: currPage}});
-
-            },
-
-            showPage(page) {
-                this.$emit('update:currentPage', this.currentPage = page);
-                this.$router.push({path: this.$route.path, query: {page: page}});
-
-            },
-
-            range(total, step) {
+        computed: {
+            pageNumbers() {
                 let array = [];
 
-                for (let i = 1; i <= total; i = i + step) {
+                for (let i = 1; i <= this.totalPages; i += this.siblingRange) {
                     array.push(i)
                 }
+
                 return array;
-            }
+            },
+            prevPage() {
+                return {
+                    path: this.$route.path,
+                    query: {
+                        page: this.currentPage <= 1
+                            ? this.totalPages
+                            : this.currentPage - 1
+                    }
+                };
+            },
+            nextPage() {
+                return {
+                    path: this.$route.path,
+                    query: {
+                        page: this.currentPage >= this.totalPages
+                            ? 1
+                            : this.currentPage + 1
+                    }
+                };
+            },
         },
     }
 </script>
@@ -84,11 +87,19 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
+        width: 30%;
+        margin: auto;
 
         .page-item {
-            padding: 10px;
+            padding: 10px 15px;
             margin: 10px;
             cursor: pointer;
+            color: white;
+        }
+
+        .active-page-item {
+            border-radius: 10px;
+            box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
         }
 
         .prev, .next {
@@ -96,6 +107,9 @@
             background-color: @mainColor;
             border-radius: 10px;
             box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
+            a {
+                color: white;
+            }
         }
     }
 </style>
