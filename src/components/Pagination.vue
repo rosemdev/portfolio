@@ -1,17 +1,17 @@
 <template>
     <div class="pagination">
-        <div class="prev"
-             @click="prevPage">Prev
+        <div class="page-item prev"
+             @click="prevPage">
+            <span>prev</span>
         </div>
-        <div class="pages">
             <div class="page-item"
-                 v-for="page in range(totalPages, siblingRange)"
-                 :key="page"
-                 @click="showPage(page)">{{page}}
+                 v-for="pageNumber in range(totalPages, siblingRange)"
+                 :key="pageNumber"
+                 @click="showPage(pageNumber)"><span>{{pageNumber}}</span>
             </div>
-        </div>
-        <div class="next"
-             @click="nextPage">Next
+        <div class="page-item next"
+             @click="nextPage">
+            <span>next</span>
         </div>
     </div>
 </template>
@@ -80,14 +80,22 @@
     @import "../assets/styles/design";
     @import "../assets/styles/main";
 
-    .next, .prev {
-        border: 2px solid tomato;
-        width: 70px;
-        padding: 10px;
-    }
+    .pagination {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
 
-    div {
-        cursor: pointer;
-        padding: 10px;
+        .page-item {
+            padding: 10px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        .prev, .next {
+            border: 2px solid @mainColor;
+            background-color: @mainColor;
+            border-radius: 10px;
+            box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
+        }
     }
 </style>

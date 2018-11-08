@@ -69,7 +69,7 @@
     } });
 
     .responsive(@desktop, { .gradient {
-        height: 2000px;
+        height: 1800px;
 
     } });
 
