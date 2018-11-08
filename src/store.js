@@ -47,7 +47,7 @@ export default new Vuex.Store({
             commit('isLoading', true);
             return Vue.prototype.$prismic.client.query(
                 Vue.prototype.$prismic.Predicates.at('document.type', 'article'),
-                {pageSize: perPage, page: currentPage}
+                {pageSize: perPage, page: currentPage, orderings : '[document.first_publication_date desc]'},
             ).then(response => {
 
                 commit('isLoading', false);
@@ -95,7 +95,6 @@ export default new Vuex.Store({
                         })
 
                     };
-                    console.log(article.relatedArticlesIds);
                     commit('setArticle', article);
                     console.log('article newQuery', article);
 
@@ -155,13 +154,4 @@ export default new Vuex.Store({
                 });
         },
     },
-
-    getters: {
-        sortedCards: (state) => {
-            return state.cards.sort(function (a, b) {
-                return new Date(b.publicationDate) - new Date(a.publicationDate);
-            });
-
-        },
-    }
 });

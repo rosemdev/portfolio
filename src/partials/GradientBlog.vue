@@ -14,7 +14,7 @@
 <script>
     import RosemGradient from "../components/Gradient"
     import RosemPagination from "../components/Pagination"
-    import {mapGetters, mapState} from "vuex"
+    import {mapState} from "vuex"
     import store from '@store'
 
 
@@ -45,10 +45,6 @@
                 'totalPages',
                 'totalCards'
             ]),
-
-            ...mapGetters([
-                'sortedCards',
-            ]),
         },
 
         methods: {
@@ -58,7 +54,6 @@
                     currentPage: page
                 }).then(() =>  {
                     this.currentPage = page;
-                    store.getters.sortedCards;
                 })
             }
         },

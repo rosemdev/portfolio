@@ -3,7 +3,7 @@
         <rosem-loader v-if="loading"></rosem-loader>
         <div class="main-content">
             <div class="blog-cards">
-                <rosem-card v-for="(card, index) in sortedCards"
+                <rosem-card v-for="(card, index) in cards"
                             :key="index">
                     <div class="stage-container">
                         <p class="card-header"><span class="stage">{{ index+1 }}</span>
@@ -29,7 +29,7 @@
     import RosemCard from "../components/Card"
     import RosemButton from "../ui-components/Button"
     import RosemLoader from "../components/Loader"
-    import {mapGetters, mapState} from "vuex"
+    import {mapState} from "vuex"
     import store from '@store'
 
     let perPage = 3;
@@ -51,10 +51,6 @@
             ...mapState([
                 'cards',
             ]),
-
-            ...mapGetters([
-                'sortedCards',
-            ])
         },
 
         beforeRouteEnter(to, from, next) {
@@ -62,7 +58,6 @@
                 perPage: perPage,
                 currentPage: to.query.page || 1
             }).then(function () {
-                store.getters.sortedCards;
                 next()
             }).catch(() => {
                 next(vm => {
@@ -202,10 +197,6 @@
                 background-size: cover;
             }
         }
-
-    } });
-
-    .responsive(@desktop, { .blog-cards {
 
     } });
 
