@@ -46,7 +46,7 @@
 <style lang="less" scoped>
     @import "../assets/styles/design";
 
-    .social { //TODO mobile view
+    .social {
         ul {
             display: flex;
             justify-content: center;

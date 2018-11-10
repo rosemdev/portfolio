@@ -164,10 +164,10 @@
         }
 
         & nav {
-            padding: 45px;
+            padding: 15px;
             position: absolute;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
             top: 0;
             right: 0;
@@ -189,13 +189,13 @@
             }
 
             ul {
+                margin-right: -13px;
                 li {
                     text-align: right;
-                    font-size: 2rem;
-                    padding: 15px 2rem 15px 0;
+                    font-size: 3rem;
+                    padding: 15px 3rem 15px 0;
                     transition: all .3s ease-in-out;
                     position: relative;
-                    margin-right: -42px;
                     cursor: pointer;
 
                     &:hover, &.active {
@@ -216,7 +216,6 @@
 
                     a {
                         color: @mainColor;
-                        text-decoration: none;
                     }
                 }
             }
@@ -251,8 +250,6 @@
             ul {
                 li {
                     font-size: 4rem;
-                    padding-right: 4rem;
-                    margin-right: -87px;
 
                     &:hover, &.active {
                         &:after {

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="gradient" :style="isRandGradient ? {background: this.GenerateRandomGradient()} : ''"></div>
+        <div class="gradient" :style="isRandGradient ? {background: this.generateRandomGradient()} : ''"></div>
         <slot name="gradientContent"></slot>
     </div>
 </template>
@@ -23,11 +23,10 @@
         methods: {
 
             getRandomColor() {
-                let color = '#' + Math.round(Math.random() * 16777215).toString(16).padStart(6, '0');
-                return color;
+                return '#' + Math.round(Math.random() * 16777215).toString(16).padStart(6, '0');
             },
 
-            GenerateRandomGradient() {
+            generateRandomGradient() {
                 let angle = Math.round(Math.random() * 360),
                     type = Math.floor(Math.random() * 2) + 1, //return a random type of the gradient (1 - linear, 2 - radial)
                     gradient;
@@ -62,7 +61,6 @@
         border-bottom-left-radius: 45%;
         border-bottom-right-radius: 45%;
         transition: border-radius 1s ease-in-out;
-        background-image: @theme-default;
         box-shadow: 0 9px 31px 20px #0000001a;
     }
 
