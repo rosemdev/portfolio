@@ -1,6 +1,6 @@
 <template>
     <rosem-gradient :is-rand-gradient="true">
-        <div class="intro" slot="gradientContent">
+        <div class="main-content intro" slot="gradientContent">
             <h1>Blog</h1>
             <p>The first thing you need to decide when you build your blog is what you want to accomplish with it, and what it can do if successful.
                 Blogging is a conversation, not a code</p>
@@ -64,14 +64,12 @@
     @import "../assets/styles/design";
     @import "../assets/styles/main";
 
-    .gradient-screen {
-        height: 500px;
-    }
 
     .intro {
-        margin: 0 2.2rem;
         color: white;
         padding-top: 5rem;
+        padding-bottom: 5rem;
+
 
         & h1 {
             font-weight: 900;

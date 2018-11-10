@@ -1,7 +1,7 @@
 <template>
     <rosem-gradient :is-rand-gradient="true">
         <rosem-loader :isLoading="loading" class="fixed"></rosem-loader>
-        <div class="main-container-limit gradient-article" slot="gradientContent">
+        <div class="main-container-limit padding-aside gradient-article" slot="gradientContent">
             <div class="author-info">
                 <rosem-avatar>
                     <prismic-image :field="author.avatar"/>
@@ -110,22 +110,12 @@
     @import "../assets/styles/globalVariables";
     @import "../assets/styles/mixins";
 
-    .gradient-screen {
-        height: auto;
-        /deep/ .gradient {
-            height: inherit;
-            padding: 15px 0;
-            border-radius: 0;
-        }
-
-    }
 
     .gradient-article {
         display: flex;
         align-items: center;
         justify-content: space-between;
         flex-direction: column;
-        padding: 10px 15px;
 
         .author-info {
             display: flex;
@@ -227,14 +217,9 @@
         }
     }
 
-    .responsive(@tablet, { .gradient-screen {
-        height: auto;
-        /deep/ .gradient {
-            height: inherit;
-            border-radius: 0;
-        }
-
-    } .gradient-article {
+    .responsive(@tablet, {
+        .gradient-article {
+            margin: 6rem auto;
           .author-info {
               width: 50%;
               align-items: flex-start;
@@ -291,19 +276,7 @@
       } });
 
     .responsive(@desktop, {
-
-        .gradient-screen {
-            height: 600px;
-            /deep/ .gradient {
-                height: 2000px;
-                padding: 15px 0;
-                border-bottom-left-radius: 45%;
-                border-bottom-right-radius: 45%;
-            }
-
-        }
         .gradient-article {
-        padding: 6rem 0;
         flex-direction: row;
 
         .author-info {

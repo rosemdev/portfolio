@@ -23,14 +23,10 @@
     @import "../assets/styles/design";
     @import "../assets/styles/main";
 
-    .gradient-screen {
-        height: 500px;
-    }
-
     .intro {
-        margin: 0 2.2rem;
         color: white;
         padding-top: 5rem;
+        padding-bottom: 5rem;
 
         & h1 {
             font-weight: 900;

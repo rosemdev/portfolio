@@ -1,9 +1,7 @@
 <template>
-    <div class="gradient-screen">
-        <div class="gradient" :style="isRandGradient ? {background: this.GenerateRandomGradient()} : ''">
-            <slot name="gradientContent"></slot>
-            <slot name="mainPage"></slot>
-        </div>
+    <div>
+        <div class="gradient" :style="isRandGradient ? {background: this.GenerateRandomGradient()} : ''"></div>
+        <slot name="gradientContent"></slot>
     </div>
 </template>
 
@@ -48,29 +46,24 @@
 
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
     @import "../assets/styles/design";
 
     .gradient {
-        background-image: @theme-default;
+        content: "";
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
         width: 100%;
-        height: 1000px;
-        border-bottom-left-radius: 12rem;
-        border-bottom-right-radius: 12rem;
-        transition: border-radius 1s ease-in-out;
-        box-shadow: 0 9px 31px 20px #0000001a;
-
-    }
-
-    .responsive(@tablet, { .gradient {
-        height: 1300px;
+        height: 200vh;
         border-bottom-left-radius: 45%;
         border-bottom-right-radius: 45%;
-    } });
-
-    .responsive(@desktop, { .gradient {
-        height: 1800px;
-
-    } });
+        transition: border-radius 1s ease-in-out;
+        background-image: @theme-default;
+        box-shadow: 0 9px 31px 20px #0000001a;
+    }
 
 </style>

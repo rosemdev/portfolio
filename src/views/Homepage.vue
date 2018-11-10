@@ -131,8 +131,6 @@
             Carousel,
             Slide,
         },
-
-        methods: {}
     }
 </script>
 <style lang="less" scoped>
@@ -169,7 +167,6 @@
             padding: 15px 25px;
 
         }
-
 
         & .stages {
             display: flex;
@@ -301,52 +298,50 @@
         }
     } });
 
-    .responsive(@desktop, { & /deep/ .gradient-screen {
-        height: 1100px;
-    } & .main-container {
-          & .order {
-              h2 {
-                  font-size: 5rem;
-              }
+    .responsive(@desktop, { & /deep/ & .main-container {
+        & .order {
+            h2 {
+                font-size: 5rem;
+            }
 
-              h3 {
-                  font-size: 2rem;
-              }
+            h3 {
+                font-size: 2rem;
+            }
 
-          }
+        }
 
-          & .stages {
-              flex-direction: row;
-          }
+        & .stages {
+            flex-direction: row;
+        }
 
-          .about-me {
-              flex-direction: row;
-              & .social {
-                  align-self: flex-end;
-                  ul {
-                      margin-bottom: 0;
-                      li {
-                          &::before {
-                              bottom: 9px;
-                          }
+        .about-me {
+            flex-direction: row;
+            & .social {
+                align-self: flex-end;
+                ul {
+                    margin-bottom: 0;
+                    li {
+                        &::before {
+                            bottom: 9px;
+                        }
 
-                          & a {
-                              & img {
-                                  width: 27px;
-                              }
-                          }
-                      }
-                  }
-              }
+                        & a {
+                            & img {
+                                width: 27px;
+                            }
+                        }
+                    }
+                }
+            }
 
-              & .photo-carousel {
-                  .VueCarousel-navigation {
-                      position: static;
-                  }
+            & .photo-carousel {
+                .VueCarousel-navigation {
+                    position: static;
+                }
 
-              }
+            }
 
-          }
+        }
 
-      } });
+    } });
 </style>

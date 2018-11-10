@@ -1,6 +1,6 @@
 <template>
     <rosem-gradient>
-        <div class="intro" slot="gradientContent">
+        <div class="main-content intro" slot="gradientContent">
             <h1>Hello! I'm rosem</h1>
             <h2>And I like to create pretty cool websites</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dignissimos dolorem
@@ -28,14 +28,11 @@
 <style lang="less" scoped>
     @import "../assets/styles/design";
 
-    .gradient-screen {
-        height: 850px;
-    }
-
     .intro {
-        margin: 0 2.2rem;
+        padding-top: 15rem;
+        padding-bottom: 15rem;
         color: white;
-        padding-top: 5rem;
+        height: 100vh;
 
         & h1 {
             font-weight: 500;
@@ -55,26 +52,9 @@
             margin: auto;
             font-size: 1em;
         }
-
-        .theme {
-            margin-top: 25px;
-        }
-
     }
 
-    .responsive(@tablet, { .gradient-screen {
-        height: 900px;
-    } .intro {
-          max-width: 1200px;
-          width: 100%;
-          margin: auto;
-          padding-top: 19rem;
-
-      } });
-
-    .responsive(@desktop, { .gradient-screen {
-        height: 1110px;
-    } .intro {
+    .responsive(@desktop, {  .intro {
           h1 {
               font-size: 2rem;
           }
