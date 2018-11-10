@@ -1,7 +1,9 @@
 <template>
     <form @submit="onSubmit" novalidate>
         <slot></slot>
-        <rosem-button type="submit">{{ buttonName }}</rosem-button>
+        <footer>
+            <rosem-button type="submit">{{ buttonName }}</rosem-button>
+        </footer>
     </form>
 </template>
 <script>
@@ -56,6 +58,10 @@
 
     form {
         text-align: left;
+
+        footer {
+            width: 100%;
+        }
 
         .button {
             margin-left: 10px;

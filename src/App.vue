@@ -53,10 +53,13 @@
     @import "./assets/styles/main";
     @import "./assets/styles/themes";
 
-    #rosem {
+    #rosem, input, textarea {
         font-family: 'Montserrat', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+
+    #rosem {
         text-align: center;
     }
 

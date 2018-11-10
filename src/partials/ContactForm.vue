@@ -40,9 +40,9 @@
             <div class="message">
                 <rosem-textarea
                         required
-                        :height="75"
                         placeholder="leave your message..."
                         name="message"
+                        rows="3" cols="5"
                 >Message
                 </rosem-textarea>
             </div>
@@ -73,25 +73,18 @@
     @import "../assets/styles/design";
     @import "../assets/styles/mixins";
 
-
-
     .contact-form {
         display: flex;
-
         .user-identification, .user-social {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: center;
             flex-direction: column;
-
         }
-
         .message {
             padding: 10px;
         }
-
     }
-
     .responsive(@tablet, {
         .contact-form {
             .user-identification, .user-social {

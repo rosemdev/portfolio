@@ -1,5 +1,5 @@
 <template>
-    <textarea :style="{width: width+'px', height: height+'px'}"
+    <textarea
               ref="input"
               @blur="checkValidity($event.target)"
     ></textarea>

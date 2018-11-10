@@ -134,9 +134,9 @@
             }
 
             &.error-message {
+                width: 340px;
                 margin-top: -20px;
                 margin-left: 9px;
-                margin-right: 9px;
                 font-size: 13px;
                 color: red;
             }
