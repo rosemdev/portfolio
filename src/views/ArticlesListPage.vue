@@ -6,7 +6,8 @@
                 <rosem-card v-for="(card, index) in cards"
                             :key="index">
                     <div class="stage-container">
-                        <p class="card-header"><span class="stage">{{ index+1 }}</span>
+                        <p class="card-header"><span
+                                class="stage">{{pad(index + 1 + (currentPage-1) * perPage) }}</span>
                             <span class="stage-name">{{ card.title }}</span></p>
                         <p class="stage-description" v-if="card.description !== null">
                             {{ card.description | truncating(130) }}
@@ -39,6 +40,7 @@
         data() {
             return {
                 loading: false,
+                perPage: 3
             }
         },
         components: {
@@ -50,7 +52,17 @@
         computed: {
             ...mapState([
                 'cards',
+                'totalCards'
             ]),
+            currentPage() {
+                return Number(this.$route.query.page) || 1
+            }
+        },
+
+        methods: {
+            pad(number) {
+                return (number < 10) ? '0' + number.toString() : number.toString();
+            }
         },
 
         beforeRouteEnter(to, from, next) {
@@ -64,7 +76,8 @@
                     vm.$router.push({name: 'NotFound'});
                 })
             });
-        },
+        }
+        ,
 
     }
 </script>
