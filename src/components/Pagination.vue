@@ -87,12 +87,13 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        width: 30%;
+        max-width: 30%;
+        width: 100%;
         margin: auto;
 
         .page-item {
             padding: 10px 15px;
-            margin: 10px;
+            margin: 5px;
             cursor: pointer;
             color: white;
         }
@@ -112,4 +113,12 @@
             }
         }
     }
+
+    .responsive(@tablet, {
+        .pagination {
+            .page-item {
+                margin: 10px;
+            }
+        }
+    });
 </style>
