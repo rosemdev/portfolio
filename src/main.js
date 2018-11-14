@@ -49,8 +49,13 @@ Vue.filter('truncating', truncatingFilter);
 
 Vue.config.productionTip = false;
 
-new Vue({
+const root = new Vue({
     router,
     store,
     render: h => h(App)
-}).$mount('#app');
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log(root);
+    root.$mount('#app')
+});

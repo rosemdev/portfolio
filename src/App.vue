@@ -1,5 +1,5 @@
 <template>
-    <div id="rosem" :class="theme">
+    <div id="app" :class="theme">
         <keep-alive>
             <router-view name="underHeader" ref="underHeader"></router-view>
         </keep-alive>
@@ -53,13 +53,13 @@
     @import "./assets/styles/main";
     @import "./assets/styles/themes";
 
-    #rosem, input, textarea {
+    #app, input, textarea {
         font-family: 'Montserrat', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
 
-    #rosem {
+    #app {
         text-align: center;
     }
 

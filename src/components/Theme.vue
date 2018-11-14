@@ -1,6 +1,7 @@
 <template>
     <div class="theme">
         <p class="check">Check it out</p>
+        <div class="arrow"></div>
         <div class="select-theme">
             <span @click="$root.$emit('change-theme', 'theme1')">Click me</span>
             <span @click="$root.$emit('change-theme', 'theme2')">...or me</span>
@@ -11,9 +12,7 @@
 </template>
 <script>
     export default {
-        methods: {
-
-        }
+        methods: {}
     }
 </script>
 <style lang="less" scoped>
@@ -26,31 +25,57 @@
             font-size: 1.5em;
             font-weight: 100;
 
-            &.check {
-                position: relative;
-
-                &:hover::after {
-                    top: 35px;
-                }
-
-                &:after {
-                    content: "";
-                    border: solid white;
-                    border-width: 0 2px 2px 0;
-                    display: inline-block;
-                    padding: 4px;
-                    transform: rotate(45deg);
-                    position: absolute;
-                    left: 50%;
-                    right: 50%;
-                    top: 30px;
-                }
-            }
-
             &.reset {
                 font-size: 1.2rem;
                 cursor: pointer;
             }
+        }
+
+
+        .arrow {
+            width: 13px;
+            height: 13px;
+            transform: rotate(135deg);
+            margin: auto;
+            cursor: pointer;
+
+            &::before {
+                content: '';
+                width: 100%;
+                height: 100%;
+                border-width: 1.2px 1.2px 0 0;
+                border-style: solid;
+                border-color: #fafafa;
+                transition: .2s ease;
+                display: block;
+                transform-origin: 100% 0;
+            }
+
+            &:after {
+                content: '';
+                float: left;
+                position: relative;
+                top: -100%;
+                width: 100%;
+                height: 100%;
+                border-width: 0 1.2px 0 0;
+                border-style: solid;
+                border-color: #fafafa;
+                transform-origin: 100% 0;
+                transition: .2s ease;
+            }
+
+            &:hover::after {
+                transform: rotate(45deg);
+                border-color: white;
+                height: 120%;
+            }
+
+            &:hover::before {
+                transform: scale(.8);
+
+            }
+
         }
 
         & .select-theme {
