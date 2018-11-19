@@ -44,6 +44,7 @@
                 'totalPages',
                 'totalCards'
             ]),
+
             currentPage() {
                 return Number(this.$route.query.page) || 1
             }

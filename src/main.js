@@ -56,6 +56,5 @@ const root = new Vue({
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    console.log(root);
     root.$mount('#app')
 });

@@ -4,7 +4,7 @@
             <li v-for="link in socialLinks"
                 :key="link.link"
                 :class="{mobileView: isMobileView}">
-                <a :href="link.link" v-if="link.isIcon" target="_blank">
+                <a :href="link.link" v-if="link.isIcon" target="_blank" rel="noopener">
                     <img :src="link.src" v-if="link.src"/>
                     <slot
                             name="socialWithIcon"
@@ -13,7 +13,7 @@
 
                     </slot>
                 </a>
-                <a :href="link.link" target="_blank" v-else>{{ link.name }}
+                <a :href="link.link" target="_blank" rel="noopener" v-else>{{ link.name }}
                     <slot
                             name="social"
                             :link="link">

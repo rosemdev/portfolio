@@ -39,15 +39,15 @@ export default new Vuex.Store({
         },
         totalPages(state, totalPages) {
             state.totalPages = totalPages;
-        }
+        },
     },
 
     actions: {
-        getBlogCards({commit,state}, {perPage, currentPage}) {
+        getBlogCards({commit, state}, {perPage, currentPage}) {
             commit('isLoading', true);
             return Vue.prototype.$prismic.client.query(
                 Vue.prototype.$prismic.Predicates.at('document.type', 'article'),
-                {pageSize: perPage, page: currentPage, orderings : '[document.first_publication_date desc]'},
+                {pageSize: perPage, page: currentPage, orderings: '[document.first_publication_date desc]'},
             ).then(response => {
 
                 commit('isLoading', false);
@@ -66,9 +66,7 @@ export default new Vuex.Store({
                 });
 
                 console.log('currentPage', currentPage, "totalPages ", state.totalPages, 'new');
-                    commit('setBlogCards', cards);
-
-                console.log('setBlogCards', cards);
+                commit('setBlogCards', cards);
             })
         },
 

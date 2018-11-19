@@ -3,6 +3,7 @@ const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const PuppeteerRenderer = PrerenderSPAPlugin.PuppeteerRenderer;
 
 
+
 module.exports = {
     configureWebpack: {
         resolve: {
