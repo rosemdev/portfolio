@@ -37,7 +37,7 @@
         padding: 15px 25px;
         color: @mainColor;
 
-        p.subtitle {
+        .subtitle {
             font-size: 15px;
             font-weight: 300;
             margin-bottom: -20px;

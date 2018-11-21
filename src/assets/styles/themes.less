@@ -2,7 +2,7 @@
 
 .theme-default {
 
-  & /deep/ .gradient {
+  & .gradient {
     background: @theme-default;
 
   }
@@ -39,7 +39,7 @@
   }
 
   .share {
-    & /deep/ .network {
+    & .network {
       svg {
         &:hover {
           fill: @theme-default-main;
@@ -63,12 +63,12 @@
 
   p.text-background {
     &:first-letter {
-      color: @theme-default-main !important;
+      color: @theme-default-main;
     }
   }
 
   p.block-background {
-    box-shadow: 59px 0 0 @theme-default-main, 0 0 0 @theme-default-main !important;
+    box-shadow: 59px 0 0 @theme-default-main, 0 0 0 @theme-default-main;
     &:after {
       background-color: @theme-default-main;
     }
@@ -81,7 +81,7 @@
 }
 
 .theme1 {
-  & /deep/ .gradient {
+  & .gradient {
     background: @theme1;
   }
 
@@ -117,7 +117,7 @@
   }
 
   .share {
-    & /deep/ .network {
+    & .network {
       svg {
         &:hover {
           fill: @theme1-main;
@@ -139,14 +139,14 @@
     }
   }
 
-  p.text-background {
+  .text-background {
     &:first-letter {
-      color: @theme1-main !important;
+      color: @theme1-main;
     }
   }
 
-  p.block-background {
-    box-shadow: 59px 0 0 @theme1-main, 0 0 0 @theme1-main !important;
+  .block-background {
+    box-shadow: 59px 0 0 @theme1-main, 0 0 0 @theme1-main;
     &:after {
       background-color: @theme1-main;
     }
@@ -158,7 +158,7 @@
 }
 
 .theme2 {
-  & /deep/ .gradient {
+  & .gradient {
     background: @theme2;
   }
 
@@ -194,7 +194,7 @@
   }
 
   .share {
-    & /deep/ .network {
+    & .network {
       svg {
         &:hover {
           fill: @theme2-main;
@@ -216,16 +216,16 @@
     }
   }
 
-  p.text-background {
+  .text-background {
     &:first-letter {
-      color: @theme2-main !important;
+      color: @theme2-main;
     }
   }
 
-  p.block-background {
+  .block-background {
     box-shadow: 59px 0 0 @theme2-main, 0 0 0 @theme2-main;
     &:after {
-      background-color: @theme2-main !important;
+      background-color: @theme2-main;
     }
 
     &:before {
@@ -235,7 +235,7 @@
 }
 
 .theme3 {
-  & /deep/ .gradient {
+  & .gradient {
     background: @theme3;
   }
 
@@ -271,7 +271,7 @@
   }
 
   .share {
-    & /deep/ .network {
+    & .network {
       svg {
         &:hover {
           fill: @theme3-main;
@@ -293,13 +293,13 @@
     }
   }
 
-  p.text-background {
+  .text-background {
     &:first-letter {
       color: @theme3-main !important;
     }
   }
 
-  p.block-background {
+  .block-background {
     box-shadow: 59px 0 0 @theme3-main, 0 0 0 @theme3-main !important;
     &:after {
       background-color: @theme3-main;
