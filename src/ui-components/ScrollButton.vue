@@ -53,12 +53,13 @@
         &:before {
 
             content: "";
-            border: solid white;
-            border-width: 0 2px 2px 0;
+            border-right: 2px solid white;
+            border-bottom: 2px solid white;
             display: inline-block;
             padding: 4px;
             transform: rotate(225deg) translate(-11px, -16px);
             position: absolute;
+            left: 50%;
             transition: .5s;
             border-radius: 2px;
 

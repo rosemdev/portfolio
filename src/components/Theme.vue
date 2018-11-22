@@ -43,9 +43,8 @@
                 content: '';
                 width: 100%;
                 height: 100%;
-                border-width: 1.2px 1.2px 0 0;
-                border-style: solid;
-                border-color: #fafafa;
+                border-top: 1.2px solid #fafafa;
+                border-right: 1.2px solid #fafafa;
                 transition: .2s ease;
                 display: block;
                 transform-origin: 100% 0;
@@ -58,9 +57,7 @@
                 top: -100%;
                 width: 100%;
                 height: 100%;
-                border-width: 0 1.2px 0 0;
-                border-style: solid;
-                border-color: #fafafa;
+                border-right: 1.2px solid #fafafa;
                 transform-origin: 100% 0;
                 transition: .2s ease;
             }

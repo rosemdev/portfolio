@@ -57,7 +57,7 @@
         left: 0;
         right: 0;
         width: 100%;
-        height: 200vh;
+        height: 1800px;
         border-bottom-left-radius: 45%;
         border-bottom-right-radius: 45%;
         transition: border-radius 1s ease-in-out;

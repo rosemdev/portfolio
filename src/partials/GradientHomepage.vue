@@ -32,7 +32,6 @@
         padding-top: 15rem;
         padding-bottom: 15rem;
         color: white;
-        height: 100vh;
 
         & h1 {
             font-weight: 500;

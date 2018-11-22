@@ -113,6 +113,11 @@
                 margin: 0 auto;
                 padding-bottom: 20px;
 
+                .card-header {
+                    word-wrap: break-word;
+                    width: 250px;
+                }
+
                 .card-header, .stage-description {
                     padding: 0 15px;
                     transition: color .3s ease-in-out;
