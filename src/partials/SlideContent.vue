@@ -13,7 +13,7 @@
                 <rosem-button slot="additional-info">more details</rosem-button>
             </rosem-description-block>
                 <div class="site-link">
-                    <a :href="slide.siteLink" target="_blank">
+                    <a :href="slide.siteLink" target="_blank" rel="noopener">
                         <small>visit</small>
                         <img src="../assets/images/icons/earth.svg"/>
                     </a>

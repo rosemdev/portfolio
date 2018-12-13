@@ -19,7 +19,7 @@
                             :to="{path: item.url}"
                             exact
                     >
-                        <a>{{ item.text}}</a>
+                        <a tabindex="0">{{ item.text}}</a>
                     </router-link>
                 </ul>
             </nav>

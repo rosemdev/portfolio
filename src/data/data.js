@@ -83,7 +83,7 @@ export let descriptions = [
         name: 'ToDo List',
         imageSource: ToDoList,
         moreLink: '',
-        siteLink: 'https://romsem.github.io/travelAgency/',
+        siteLink: 'https://romsem.github.io/To-do-List/',
         text: 'landing page about Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dignissimos dolorem eest facere laudantium magnam maiores',
     },
 

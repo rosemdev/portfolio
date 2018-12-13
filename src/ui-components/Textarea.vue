@@ -1,8 +1,11 @@
 <template>
-    <textarea
-              ref="input"
-              @blur="checkValidity($event.target)"
-    ></textarea>
+    <label>
+            <textarea
+                    ref="input"
+                    @blur="checkValidity($event.target)"
+                    v-bind="$attrs"
+            ></textarea>
+    </label>
 </template>
 <script>
     import InputBase from "../ui-components/InputBase"
@@ -10,6 +13,7 @@
     export default {
 
         extends: InputBase,
+        inheritAttrs: false,
 
         data() {
             return {}
