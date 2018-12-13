@@ -30,17 +30,20 @@
         z-index: 1;
         width: 250px;
         min-height: 300px;
+        height: 300px;
         padding: 1rem 2rem;
         margin: 0 25px;
         overflow: hidden;
         transition: box-shadow .5s ease-in-out;
         display: flex;
         flex-direction: column;
+        justify-content: center;
 
         & .stage-container {
             color: white;
             transition: all .5s ease-in-out;
-            margin: auto;
+            margin: 0 auto;
+
             .stage {
                 font-size: 5em;
                 margin-right: 3px;
