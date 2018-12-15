@@ -100,7 +100,8 @@
     import RosemForm from "../ui-components/Form"
     import RosemInput from "../ui-components/Input"
     import RosemContactForm from "../partials/ContactForm"
-    import RosemTextarea from "../ui-components/Textarea"
+    import formLeavePreventing from "../utils/formLeavePreventing"
+
 
     export default {
         name: "Homepage",
@@ -126,11 +127,18 @@
             RosemForm,
             RosemInput,
             RosemContactForm,
-            RosemTextarea,
             RosemFooter,
             Carousel,
             Slide,
         },
+
+        beforeRouteLeave (to, from, next) {
+            let closeResult = formLeavePreventing('.contact-form');
+            if (closeResult) {
+                next();
+            }
+
+        }
     }
 </script>
 <style lang="less" scoped>

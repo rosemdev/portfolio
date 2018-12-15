@@ -19,6 +19,7 @@
     import RosemContactForm from "../partials/ContactForm"
     import RosemHistoryLine from "../components/HistoryLine"
     import RosemSocialBlock from "../components/SocialBlock"
+    import formLeavePreventing from "../utils/formLeavePreventing"
     import {socialIconsLinks} from "../data/data"
 
     export default {
@@ -36,6 +37,14 @@
             RosemHistoryLine,
             RosemSocialBlock
         },
+
+        beforeRouteLeave (to, from, next) {
+            let closeResult = formLeavePreventing('.contact-form');
+            if (closeResult) {
+                next();
+            }
+
+        }
     }
 </script>
 <style lang="less" scoped>
