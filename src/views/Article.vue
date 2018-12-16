@@ -170,12 +170,9 @@
         }
     }
 </script>
-<style lang="less">
-    @import "../assets/styles/article";
-</style>
-<style lang="less">
-    @import "../assets/styles/socialSharing";
-</style>
+<style lang="less" src="../assets/styles/article.less"></style>
+<style lang="less" src="../assets/styles/socialSharing.less"></style>../assets/styles/article
+
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
     @import "../assets/styles/mixins";
@@ -252,6 +249,7 @@
                         overflow: hidden;
                         margin: -1rem -2rem 1rem;
                         position: relative;
+
                         img {
                             width: 100%;
                             object-fit: cover;
@@ -298,7 +296,7 @@
 
                 }
 
-                /deep/.card-overlay {
+                /deep/ .card-overlay {
                     opacity: 0;
                 }
             }

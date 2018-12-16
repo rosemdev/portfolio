@@ -103,9 +103,7 @@
     }
 
 </script>
-<style lang="less">
-    @import "../assets/styles/socialSharing";
-</style>
+<style lang="less" src="../assets/styles/socialSharing.less"></style>
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
     @import "../assets/styles/mixins";
