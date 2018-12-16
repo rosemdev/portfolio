@@ -1,10 +1,12 @@
+import parse from 'date-fns/parse'
+import format from 'date-fns/format'
+
 export  default function  getDate(date) {
-    let locale = "en-us",
-        readDateFormat = new Date(date);
+    const formattedDate = parse(date);
 
     return {
-        date: readDateFormat.getDate() + ' ' + readDateFormat.toLocaleString(locale, {month: "short"}),
-        year: readDateFormat.getFullYear()
+        date: format(formattedDate, 'MMM DD'),
+        year: formattedDate.getFullYear()
     }
 
 }
