@@ -131,11 +131,13 @@
             &:after {
                 content: '';
                 position: absolute;
+                display: block;
                 width: 60%;
                 height: 100%;
                 z-index: -1;
                 right: 0;
-                background-color: #d5809a78;
+                top: -60px;
+                background-color: #d5809a;
                 padding: 60px;
 
             }
@@ -192,9 +194,10 @@
                 height: 100%;
                 z-index: -1;
                 left: 0;
-                background-color: #262a2e75;
+                top: -60px;
+                background-color: #262a2e;
                 padding: 60px;
-
+                display: block;
             }
 
             .photo {
@@ -206,6 +209,7 @@
 
             .description-block {
                 flex-basis: 25%;
+                color: white;
             }
         }
 

@@ -234,6 +234,7 @@
 
               .description-block {
                   order: 0;
+                  width: 100%;
               }
           }
 

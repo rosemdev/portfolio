@@ -24,8 +24,7 @@
         color: white;
         margin: 5px;
         display: inline;
-        /*background-color: #615f5ff2;*/
-        background-color: #3e3e3ef2;
+        background-color: #3e3e3e;
         padding: 8px;
         border-radius: 5px;
         font-size: 13px;
