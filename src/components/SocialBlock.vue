@@ -6,6 +6,7 @@
                 :class="{mobileView: isMobileView}">
                 <a :href="link.link" v-if="link.isIcon" target="_blank" rel="noopener">
                     <img :src="link.src" v-if="link.src"/>
+                    <span class="link-name">{{link.name }}</span>
                     <slot
                             name="socialWithIcon"
                             :link="link"
@@ -103,6 +104,10 @@
                     img {
                         width: 25px;
                         margin: -5px;
+                    }
+
+                    .link-name {
+                        display: none;;
                     }
                 }
             }

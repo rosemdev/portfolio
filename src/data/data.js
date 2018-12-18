@@ -31,6 +31,7 @@ export let socialLinks = [
 
 export let socialIconsLinks = [
     {
+        name: 'Linkedin',
         link: 'https://www.linkedin.com/in/romanna-semenyshyn/',
         isIcon: true,
         src: linkedinSocialImage
@@ -38,6 +39,7 @@ export let socialIconsLinks = [
     },
 
     {
+        name: 'Github',
         link: 'https://github.com/RomSem/',
         isIcon: true,
         src: githubSocialImage
@@ -46,6 +48,7 @@ export let socialIconsLinks = [
     },
 
     {
+        name: 'Facebook',
         link: 'https://www.facebook.com/miss.annamor',
         isIcon: true,
         src: facebookSocialImage
