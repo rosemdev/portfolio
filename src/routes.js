@@ -72,9 +72,9 @@ export const routes = [
             layout: "layouts/OneColumnLayout",
         },
     },
-    {
-        path: '*',
-        redirect: '/404'
-    },
+    // {
+    //     path: '*',
+    //     redirect: '/404'
+    // },
 
 ];
