@@ -85,6 +85,8 @@
             padding: 10px;
             max-width: 720px;
             width: 100%;
+            position: relative;
+            z-index: 5;
         }
     }
     .responsive(@tablet, {
