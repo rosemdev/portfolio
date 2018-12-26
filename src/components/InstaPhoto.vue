@@ -14,7 +14,7 @@
                 >{{ location }}
                 </a>
                 <p class="likes">
-                    <img src="../assets/images/icons/heart.svg" alt="">
+                    <img src="../assets/images/icons/heart.svg" alt="likes">
                     <span>{{ likes }}</span>
                 </p>
             </div>
@@ -91,7 +91,7 @@
                 position: absolute;
                 bottom: 0;
                 height: 20%;
-                background-color: #000000c4;
+                background-color: rgba(0, 0, 0, 0.7);
                 width: 100%;
                 display: flex;
                 align-items: center;
