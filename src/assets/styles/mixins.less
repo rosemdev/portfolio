@@ -20,3 +20,17 @@
   }
 }
 
+.object-fit(@fit: fill, @position) {
+  -o-object-fit: @fit;
+  object-fit: @fit;
+  -o-object-position: @position;
+  object-position: @position;
+  font-family: 'object-fit: @{fit}; object-position: @{position}';
+}
+
+.object-fit(@fit: fill){
+  -o-object-fit: @fit;
+  object-fit: @fit;
+  font-family: 'object-fit: @{fit}';
+}
+

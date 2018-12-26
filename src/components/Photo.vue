@@ -20,6 +20,7 @@
         img {
             transition: .3s ease-in-out;
             object-fit: cover;
+            .object-fit(@fit: cover);
             display: block;
             
             &:hover {

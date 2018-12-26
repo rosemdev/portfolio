@@ -10,6 +10,7 @@ import resolveViews from './utils/resolveViews'
 import truncatingFilter from './utils/truncatingFilter'
 import SocialSharing from 'vue-social-sharing'
 import VueAnalytics from 'vue-analytics'
+import objectFitImages from 'object-fit-images';
 
 
 Vue.use(PrismicVue, {
@@ -56,5 +57,7 @@ const root = new Vue({
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    root.$mount('#app')
+    root.$mount('#app');
+    objectFitImages();
+
 });

@@ -70,7 +70,7 @@
                               easing="ease-in-out"
                               :speed="500">
                         <slide><img src="../assets/images/me/rosem2.jpg"/></slide>
-                        <slide><img src="../assets/images/me/rosem.jpg"/></slide>
+                        <slide><img class="rosem-test" src="../assets/images/me/rosem.jpg"/></slide>
                         <slide><img src="../assets/images/me/me.jpg"/></slide>
                         <slide><img src="../assets/images/me/me2.jpg"/></slide>
                     </carousel>
@@ -101,7 +101,6 @@
     import RosemInput from "../ui-components/Input"
     import RosemContactForm from "../partials/ContactForm"
     import formLeavePreventing from "../utils/formLeavePreventing"
-
 
     export default {
         name: "Homepage",
@@ -137,6 +136,14 @@
             if (closeResult) {
                 next();
             }
+
+        },
+        
+        created() {
+
+
+
+
 
         }
     }
@@ -268,6 +275,8 @@
                 width: 100%;
                 height: 600px;
                 object-fit: cover;
+                .object-fit(@fit: cover);
+
             }
         }
     }

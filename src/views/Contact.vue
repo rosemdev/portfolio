@@ -70,6 +70,7 @@
 
             img {
                 object-fit: cover;
+                .object-fit(@fit: cover);
             }
         }
 

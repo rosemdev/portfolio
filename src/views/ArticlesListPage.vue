@@ -144,6 +144,7 @@
                     img {
                         max-width: 100%;
                         object-fit: cover;
+                        .object-fit(@fit: cover);
                     }
                 }
             }

@@ -33,7 +33,7 @@
                 <div class="carousel">
                     <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 3]]">
                         <slide v-for="image in photos" :key="image.imageSource">
-                            <img :src="image.imageSource" style="width: 100%; height: 500px; object-fit:cover;">
+                            <img :src="image.imageSource" class="carousel-images " style="height: 500px;">
                         </slide>
                     </carousel>
                 </div>
@@ -49,7 +49,7 @@
                 </rosem-description-block>
                 <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
                     <slide v-for="image in photos" :key="image.imageSource">
-                        <img :src="image.imageSource" style="width: 100%; height: 200px; object-fit:cover;">
+                        <img :src="image.imageSource" class="carousel-images" style="width: 100%; height: 200px; object-fit:cover;">
                     </slide>
                 </carousel>
             </div>
@@ -98,6 +98,12 @@
 <style lang="less" scoped>
     @import "../assets/styles/design";
     @import "../assets/styles/main";
+
+    .carousel-images {
+        width: 100%;
+        object-fit:cover;
+        .object-fit(@fit: cover);
+    }
 
     .gallery {
         .gallery-quotes {
