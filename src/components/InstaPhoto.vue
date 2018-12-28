@@ -116,7 +116,9 @@
 
                     img {
                         width: 15px;
+                        height: 15px;
                         margin: 10px;
+                        background-size: 15px 15px;
                     }
                 }
             }
