@@ -28,6 +28,7 @@
             &.reset {
                 font-size: 1.2rem;
                 cursor: pointer;
+                user-select: none;
             }
         }
 
@@ -38,6 +39,7 @@
             transform: rotate(135deg);
             margin: auto;
             cursor: pointer;
+
 
             &::before {
                 content: '';
@@ -95,6 +97,7 @@
             cursor: pointer;
             box-shadow: 0 3px 20px 3px #0000004d;
             flex-shrink: 0;
+            user-select: none;
 
             &:first-child {
                 background: @theme1;
