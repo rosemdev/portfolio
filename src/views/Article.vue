@@ -80,14 +80,22 @@
     import RosemAvatar from "../components/Avatar"
     import {socialShareNetworks} from "../data/data"
 
+    // let test = 'test123 ';
+
 
     export default {
 
         name: "Article",
+        metaInfo() {
+            return {
+                title: this.article.title,
+                titleTemplate: null
+            }
+        },
 
         data() {
             return {
-                socialShareNetworks
+                socialShareNetworks,
             }
         },
 
@@ -387,7 +395,7 @@
 
             &:hover {
                 &:before {
-                    /*box-shadow: 0 0 0 3px transparent;*/
+                    box-shadow: 0 0 0 3px transparent;
                 }
             }
         }

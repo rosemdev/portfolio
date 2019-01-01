@@ -76,6 +76,12 @@
 
     export default {
         name: "Gallery",
+        metaInfo() {
+            return {
+                title: this.$options.name
+            }
+        },
+
         data() {
             return {
                 photos: photos

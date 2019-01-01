@@ -22,6 +22,13 @@
     import RosemButton from "../ui-components/Button"
 
     export default {
+        name: '404 Not found',
+        metaInfo() {
+            return {
+                title: this.$options.name
+            }
+        },
+
         data() {
             return {}
         },

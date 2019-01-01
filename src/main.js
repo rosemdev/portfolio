@@ -11,9 +11,7 @@ import truncatingFilter from './utils/truncatingFilter'
 import SocialSharing from 'vue-social-sharing'
 import VueAnalytics from 'vue-analytics'
 import objectFitImages from 'object-fit-images';
-import VueAwesomeSwiper from 'vue-awesome-swiper'
-// require styles
-import 'swiper/dist/css/swiper.css'
+import Meta from 'vue-meta'
 
 
 Vue.use(PrismicVue, {
@@ -24,7 +22,7 @@ Vue.use(PrismicVue, {
 
 Vue.use(VueRouter);
 Vue.use(SocialSharing);
-Vue.use(VueAwesomeSwiper);
+Vue.use(Meta);
 
 const router = new VueRouter({
     routes: resolveViews(routes, componentName => import(`./${componentName}`)),

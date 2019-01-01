@@ -37,6 +37,13 @@
 
     export default {
 
+        name: 'Blog',
+        metaInfo() {
+            return {
+                title: this.$options.name
+            }
+        },
+
         data() {
             return {
                 loading: false,

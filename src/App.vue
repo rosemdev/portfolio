@@ -18,6 +18,11 @@
     import RosemFooter from "./partials/Footer"
 
     export default {
+        name: 'App',
+        metaInfo: {
+            title: 'rosem portfolio',
+            titleTemplate: '%s | rosem portfolio'
+        },
         components: {
             RosemHeader,
             RosemFooter,

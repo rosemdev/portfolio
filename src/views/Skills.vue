@@ -100,6 +100,11 @@
 
     export default {
         name: "Skills",
+        metaInfo() {
+            return {
+                title: this.$options.name
+            }
+        },
 
         data() {
             return {

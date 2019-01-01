@@ -104,6 +104,12 @@
 
     export default {
         name: "Homepage",
+        metaInfo() {
+            return {
+            title: this.$options.name
+            }
+        },
+
         data() {
             return {
                 socialLinks: socialLinks,

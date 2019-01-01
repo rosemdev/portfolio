@@ -24,6 +24,11 @@
 
     export default {
         name: "Contact",
+        metaInfo() {
+            return {
+                title: this.$options.name
+            }
+        },
 
         data() {
             return {
