@@ -21,7 +21,12 @@
         name: 'App',
         metaInfo: {
             title: 'rosem portfolio',
-            titleTemplate: '%s | rosem portfolio'
+            titleTemplate: '%s | rosem portfolio',
+
+            meta: [
+                { name: 'description', content: 'Hello! This is my portfolio, please take a journey into this, and contact me in case you find something interesting for you.'
+                },
+            ],
         },
         components: {
             RosemHeader,
