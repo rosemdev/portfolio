@@ -136,6 +136,7 @@
 
                 .stage-description {
                     font-size: 13px;
+                    width: 250px;
                 }
 
                 .stage {
@@ -144,7 +145,7 @@
 
                 .article-background {
                     height: 200px;
-                    width: 100%;
+                    width: 300px;
                     overflow: hidden;
                     order: -1;
 
