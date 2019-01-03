@@ -178,7 +178,6 @@
 
             & .button {
                 margin: auto;
-                width: 185px;
             }
         }
 
@@ -196,14 +195,15 @@
             align-items: flex-start;
             margin: auto;
 
-            & .card {
+            & /deep/ .card {
+                width: 265px;
+                margin: 0;
                 .button {
                     opacity: 1;
                     margin: auto;
                     background: #fafafa;
                     color: @mainColor;
                     margin-top: 3rem;
-                    width: 185px;
                 }
 
                 &:hover, &:hover + .card-overlay {
@@ -321,6 +321,7 @@
                 & /deep/ .card {
                     width: 200px;
                     padding: 0;
+                    margin: 0 25px;
 
                     .stage {
                         font-size: 3em;
