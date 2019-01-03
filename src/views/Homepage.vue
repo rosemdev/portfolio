@@ -6,7 +6,10 @@
                     <h2>Rosem</h2>
                     <h3>Ps... Want a website? You are here</h3>
                     <router-view></router-view>
-                    <rosem-button>get it</rosem-button>
+                    <router-link
+                            :to="{path: 'contact'}">
+                        <rosem-button>get it</rosem-button>
+                    </router-link>
                 </div>
                 <div class="bottom-contact-panel">
                     <rosem-history-line :begin-year="2017"></rosem-history-line>
@@ -106,7 +109,7 @@
         name: "Homepage",
         metaInfo() {
             return {
-            title: this.$options.name
+                title: this.$options.name
             }
         },
 
@@ -137,18 +140,15 @@
             Slide,
         },
 
-        beforeRouteLeave (to, from, next) {
+        beforeRouteLeave(to, from, next) {
             let closeResult = formLeavePreventing('.contact-form');
             if (closeResult) {
                 next();
             }
 
         },
-        
+
         created() {
-
-
-
 
 
         }
@@ -193,7 +193,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
             margin: auto;
 
             & .card {
@@ -244,8 +244,9 @@
                 position: relative;
                 align-self: center;
 
-                ul {
+                /deep/ ul {
                     margin-bottom: 40px;
+
                     li {
                         &:before {
                             left: -15px;
@@ -301,6 +302,7 @@
             align-items: flex-end;
             justify-content: space-between;
             flex-direction: row;
+
             & .social {
                 ul {
                     justify-content: flex-end;
@@ -313,15 +315,33 @@
         }
 
         & .stages {
-            & .card {
-                & .button {
-                    opacity: 0;
+            flex-direction: row;
+
+            & .card-container {
+                & /deep/ .card {
+                    width: 200px;
+                    padding: 0;
+
+                    .stage {
+                        font-size: 3em;
+                    }
+
+                    & .button {
+                        opacity: 0;
+                    }
                 }
+
+                &:hover {
+                    & .button {
+                        opacity: 1;
+                    }
+                }
+
             }
         }
     } });
 
-    .responsive(@desktop, { & /deep/ & .main-container {
+    .responsive(@desktop, { & .homepage {
         & .order {
             h2 {
                 font-size: 5rem;
@@ -334,15 +354,26 @@
         }
 
         & .stages {
-            flex-direction: row;
+            & .card-container {
+                & /deep/ .card {
+                    width: 320px;
+                    padding: 1rem 2rem;
+
+                    .stage {
+                        font-size: 5em;
+                    }
+                }
+
+            }
         }
 
         .about-me {
             flex-direction: row;
+
             & .social {
                 align-self: flex-end;
-                ul {
-                    margin-bottom: 0;
+
+                /deep/ ul {
                     li {
                         &::before {
                             bottom: 9px;

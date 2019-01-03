@@ -1,8 +1,5 @@
 <template>
     <div class="main-container contact-page">
-        <div class="sidebar">
-            <img src="../assets/images/photos/image.jpg" alt="">
-        </div>
         <div class="main-content form">
             <p>Let's get down to the business</p>
             <rosem-contact-form></rosem-contact-form>
@@ -59,25 +56,11 @@
     .contact-page {
         display: flex;
         align-items: start;
-        justify-content: space-between;
+        justify-content: center;
         flex-direction: column;
         flex-wrap: wrap;
         padding-bottom: 9rem;
         padding-top: 3rem;
-
-        .sidebar {
-            width: 100%;
-            height: 700px;
-            overflow: hidden;
-            position: absolute;
-            opacity: 0.3;
-            filter: blur(2px);
-
-            img {
-                object-fit: cover;
-                .object-fit(@fit: cover);
-            }
-        }
 
         .form {
             p {

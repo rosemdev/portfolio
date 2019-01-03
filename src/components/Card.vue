@@ -30,7 +30,6 @@
         z-index: 1;
         width: 250px;
         min-height: 300px;
-        height: 300px;
         padding: 1rem 2rem;
         margin: 0 25px;
         overflow: hidden;

@@ -4,19 +4,32 @@
             <div class="footer-links">
                 <ul>
                     <li>
-                        <a>Projects</a>
+                        <router-link
+                                tag="a"
+                                :to="{path: 'gallery'}"
+                        >Gallery
+                        </router-link>
                     </li>
                     <li>
-                        <a>Development Stages</a>
+                        <router-link
+                                tag="a"
+                                :to="{path: 'skills'}"
+                        >Skills
+                        </router-link>
                     </li>
                     <li>
-                        <a>About</a>
+                        <router-link
+                                tag="a"
+                                :to="{path: 'blog'}"
+                        >Blog
+                        </router-link>
                     </li>
                     <li>
-                        <a>Skills</a>
-                    </li>
-                    <li>
-                        <a>Contact</a>
+                        <router-link
+                                tag="a"
+                                :to="{path: 'contact'}"
+                        >Contact
+                        </router-link>
                     </li>
                 </ul>
             </div>
@@ -121,11 +134,13 @@
 
             .social {
                 margin-top: 45px;
+
                 & /deep/ ul {
                     & li {
                         &:before {
                             background-color: white;
                         }
+
                         & a {
                             color: white;
                             font-size: 12px;
@@ -136,33 +151,31 @@
         }
     }
 
-    .responsive(@tablet, {
-        footer {
-            .footer {
-                & .footer-links {
-                    ul {
-                        flex-direction: row;
-                        margin-top: 0;
+    .responsive(@tablet, { footer {
+        .footer {
+            & .footer-links {
+                ul {
+                    flex-direction: row;
+                    margin-top: 0;
 
-                        li {
-                            margin-right: 25px;
-                        }
-
+                    li {
+                        margin-right: 25px;
                     }
+
                 }
             }
+        }
 
-            .social-block {
-                .logo {
-                    & /deep/ a {
-                        & sup {
-                            margin-left: -15px;
-                        }
+        .social-block {
+            .logo {
+                & /deep/ a {
+                    & sup {
+                        margin-left: -15px;
                     }
                 }
             }
         }
-         });
+    } });
 
     .responsive(@desktop, { footer .footer {
         flex-direction: row;
