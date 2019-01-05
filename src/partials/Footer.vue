@@ -1,5 +1,5 @@
 <template>
-    <footer ref="footer">
+    <footer class="main-container-limit" ref="footer">
         <div class="main-content footer">
             <div class="footer-links">
                 <ul>
@@ -77,6 +77,7 @@
 
     footer {
         background-color: @mainColor;
+        box-shadow: 0 22px 41px 20px #0000001a;
         padding: 50px 0;
 
         .footer {
@@ -85,11 +86,6 @@
             justify-content: space-between;
             align-items: center;
             color: white;
-            margin-top: -6rem;
-            border-radius: 10px;
-            padding: 25px 60px;
-            position: relative;
-            z-index: 5;
 
             & .footer-links {
                 ul {

@@ -12,7 +12,6 @@
                     </router-link>
                 </div>
                 <div class="bottom-contact-panel">
-                    <rosem-history-line :begin-year="2017"></rosem-history-line>
                     <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
                 </div>
             </div>
@@ -38,7 +37,7 @@
             </div>
         </div>
         <div class="white-background">
-            <div class="stages main-content">
+            <div class="main-content stages">
                 <rosem-card v-for="(card, index) in cards"
                             :key="index">
                     <div class="stage-container">
@@ -182,17 +181,14 @@
         }
 
         & .bottom-contact-panel {
-            display: flex;
-            flex-direction: column;
-            padding: 15px 25px;
-
+            margin-right: -10px ;
         }
 
         & .stages {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin: auto;
 
             & /deep/ .card {
@@ -329,6 +325,8 @@
 
                     & .button {
                         opacity: 0;
+                        transition: opacity .5s ease-in-out;
+
                     }
                 }
 
