@@ -39,7 +39,7 @@
             </div>
             <div class="message">
                 <rosem-textarea
-                        required
+                        required="true"
                         placeholder="leave your message..."
                         name="message"
                         rows="3" cols="5"

@@ -74,18 +74,6 @@
                 margin-left: 5px;
 
             }
-
-            &.required {
-                &:after {
-                    content: '*';
-                    color: red;
-                    position: absolute;
-                    background-color: #333;
-                    height: 1px;
-                    top: -2px;
-
-                }
-            }
         }
 
         input {
@@ -109,49 +97,6 @@
                 height: 57px !important;
             }
         }
-
-        .red-line {
-            &:after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 1px;
-                background-color: red;
-                left: 10px;
-                bottom: 25px;
-                transition: all .4s linear;
-            }
-
-        }
-
-        .error {
-            position: relative;
-
-            &.red-line {
-                &:after {
-                    width: 250px;
-                }
-            }
-
-            &.error-message {
-                width: 240px;
-                margin-top: -20px;
-                margin-left: 9px;
-                font-size: 13px;
-                color: red;
-            }
-        }
-    }
-
-
-    .fade-enter-active {
-        transition: all .5s ease-in;
-    }
-
-    .fade-enter, .fade-leave-to {
-        transition: all .5s ease-out;
-        transform: translateX(70px);
-        opacity: 0;
     }
 
     .responsive(@tablet, { .input {

@@ -1,8 +1,9 @@
 <template>
-    <form @submit="onSubmit" novalidate>
+    <form @submit="onSubmit" novalidate action="https://www.enformed.io/gvupimm9" method="POST">
         <slot></slot>
         <footer>
             <rosem-button type="submit">{{ buttonName }}</rosem-button>
+            <!--name="*redirect" value="http://rosem-portfolio.netlify.com/skills"-->
         </footer>
     </form>
 </template>
