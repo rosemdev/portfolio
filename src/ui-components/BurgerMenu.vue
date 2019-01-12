@@ -24,7 +24,7 @@
 
     & .burger-icon {
         cursor: pointer;
-        margin: 15px 5px;
+        margin: 5px;
         display: flex;
         flex-direction: column;
         align-items: flex-end;
@@ -61,9 +61,8 @@
         &.cross {
             & span {
                 width: 25px;
-                margin: 5px;
                 &:first-child {
-                    transform: translateY(9px) rotate(45deg);
+                    transform: translateY(7px) rotate(45deg);
 
                 }
 
@@ -72,7 +71,7 @@
                 }
 
                 &:last-child {
-                    transform: translateY(-19px) rotate(-45deg);
+                    transform: translateY(-5px) rotate(-45deg);
                     animation: span2;
                 }
             }
