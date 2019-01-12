@@ -224,7 +224,7 @@
 
     .header.sticky {
         position: fixed;
-        height: 60px;
+        height: 50px;
         max-width: 100%;
         box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
         background-color: @mainColor;
