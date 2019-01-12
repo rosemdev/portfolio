@@ -25,17 +25,32 @@
     & .burger-icon {
         cursor: pointer;
         margin: 15px 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
         transition: background-color .3s ease-in-out;
 
         & span {
             background-color: @mainColor;
-            margin: 5px;
+            margin: 1px;
             padding: 2px;
             border-radius: 5px;
             display: block;
             height: 2px;
-            width: 25px;
-            transition: transform .3s ease-in;
+            transition: all .3s ease-in;
+
+            &:first-child {
+               width: 25px;
+
+            }
+
+            &:nth-last-of-type(2) {
+                width: 16px;
+            }
+
+            &:last-child {
+               width: 8px;
+            }
 
         }
 
@@ -45,6 +60,8 @@
 
         &.cross {
             & span {
+                width: 25px;
+                margin: 5px;
                 &:first-child {
                     transform: translateY(9px) rotate(45deg);
 
@@ -55,7 +72,7 @@
                 }
 
                 &:last-child {
-                    transform: translateY(-9px) rotate(-45deg);
+                    transform: translateY(-19px) rotate(-45deg);
                     animation: span2;
                 }
             }
