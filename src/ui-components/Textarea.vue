@@ -1,6 +1,6 @@
 <template>
-    <div class="textarea">
-        <label :for="_uid"><span :class="{required: required}"><slot></slot></span></label>
+    <div class="field">
+        <label class="mozila-fix" :for="_uid"><span :class="{required: required}"><slot></slot></span></label>
         <textarea
                 :id=" _uid"
                 ref="input"
@@ -47,28 +47,27 @@
     @import "../assets/styles/design";
     @import "../assets/styles/mixins";
 
-    .textarea {
-        position: relative;
-        display: flex;
-        align-items: start;
-        justify-content: start;
-        flex-direction: column;
+    .field {
+
+        label {
+            top: -7px;
+            width: 250px;
+            height: 107px;
+        }
+
+        @-moz-document url-prefix() {
+            label.mozila-fix {
+                height: 120px !important;
+            }
+        }
 
         textarea {
-            border: 1px solid @mainColor;
-            padding: 15px;
+            padding: 20px 15px;
             resize: none;
             width: 100%;
             margin: 10px 0;
-            font-size: 20px;
-            color: @mainColor;
-            position: relative;
-
-            &::placeholder {
-                font-size: 15px;
-            }
-
         }
+
 
         .red-line {
             &:after {
@@ -80,11 +79,10 @@
 
         .error {
             position: relative;
-            /*display: block;*/
 
             &.red-line {
                 &:after {
-                    width: 700px;
+                    width: 250px;
 
                 }
             }
@@ -95,5 +93,26 @@
             }
         }
     }
+
+    .responsive(@tablet, { .field {
+
+        label {
+            width: 700px;
+            height: 107px;
+        }
+
+        textarea {
+            width: 700px;
+        }
+
+        .error {
+            &.red-line {
+                &:after {
+                    width: 700px;
+                }
+            }
+        }
+
+    } });
 
 </style>

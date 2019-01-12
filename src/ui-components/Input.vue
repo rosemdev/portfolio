@@ -1,5 +1,5 @@
 <template>
-    <div class="input">
+    <div class="field">
         <label :for="_uid"><span :class="{required: required}"><slot></slot></span></label>
         <input
                 ref="input"
@@ -35,61 +35,13 @@
     @import "../assets/styles/design";
     @import "../assets/styles/mixins";
 
-    .input {
-        position: relative;
-        display: flex;
-        align-items: start;
-        justify-content: start;
-        flex-direction: column;
+    .field {
 
         label {
-            display: block;
             top: 9px;
-            margin: 10px 0;
-            position: absolute;
             left: 9px;
-            overflow: hidden;
             width: 250px;
             height: 60px;
-            text-align: left;
-            font-size: 15px;
-
-            &:before {
-                content: '';
-                position: absolute;
-                height: 100%;
-                background-color: @mainColor;
-                width: 1px;
-                top: 16px;
-
-            }
-
-            &:after {
-                content: '';
-                position: absolute;
-                width: 100%;
-                background-color: @mainColor;
-                height: 1px;
-                top: 6px;
-                margin-left: 5px;
-
-            }
-        }
-
-        input {
-            border-bottom: 1px solid @mainColor;
-            border-right: 1px solid @mainColor;
-            padding: 15px;
-            display: block;
-            margin: 25px 10px;
-            font-size: 20px;
-            width: 250px;
-            color: @mainColor;
-            box-shadow: 0 0.3vw 3vw -0.7vw rgba(0, 0, 0, 0.2);
-
-            &::placeholder {
-                font-size: 15px;
-            }
         }
 
         @-moz-document url-prefix() {
@@ -97,9 +49,16 @@
                 height: 57px !important;
             }
         }
+
+        input {
+            padding: 15px;
+            margin: 25px 10px;
+            width: 250px;
+        }
+
     }
 
-    .responsive(@tablet, { .input {
+    .responsive(@tablet, { .field {
 
         label {
             width: 340px;
@@ -118,6 +77,5 @@
         }
 
     } });
-
 
 </style>

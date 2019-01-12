@@ -46,52 +46,106 @@
     }
 </script>
 <style lang="less">
-    label {
-        & .required {
-            &:after {
-                content: '*';
-                color: red;
-                position: absolute;
-                background-color: #333;
-                height: 1px;
-                top: -2px;
+    @import "../assets/styles/design";
+    @import "../assets/styles/mixins";
 
-            }
-        }
-
-    }
-
-    .red-line {
-        &:after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 1px;
-            background-color: red;
-            left: 10px;
-            bottom: 25px;
-            transition: all .4s linear;
-        }
-
-    }
-
-    .error {
+    .field {
         position: relative;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+        flex-direction: column;
 
-        &.red-line {
+        label {
+            display: block;
+            text-align: left;
+            font-size: 15px;
+            position: absolute;
+            overflow: hidden;
+            margin: 10px 0;
+
+            &:before {
+                content: '';
+                position: absolute;
+                height: 100%;
+                background-color: @mainColor;
+                width: 1px;
+                top: 16px;
+
+            }
+
             &:after {
-                width: 250px;
+                content: '';
+                position: absolute;
+                width: 100%;
+                background-color: @mainColor;
+                height: 1px;
+                top: 6px;
+                margin-left: 5px;
+
+            }
+
+            & .required {
+                &:after {
+                    content: '*';
+                    color: red;
+                    position: absolute;
+                    background-color: #333;
+                    height: 1px;
+                    top: -2px;
+
+                }
+            }
+
+        }
+
+        input, textarea {
+            border-bottom: 1px solid @mainColor;
+            border-right: 1px solid @mainColor;
+            display: block;
+            font-size: 20px;
+            margin: 25px 10px;
+            color: @mainColor;
+            box-shadow: 0 0.3vw 3vw -0.7vw rgba(0, 0, 0, 0.2);
+
+            &::placeholder {
+                font-size: 15px;
             }
         }
 
-        &.error-message {
-            width: 240px;
-            margin-top: -20px;
-            margin-left: 9px;
-            font-size: 13px;
-            color: red;
+        .red-line {
+            &:after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 1px;
+                background-color: red;
+                left: 10px;
+                bottom: 25px;
+                transition: all .4s linear;
+            }
+
+        }
+
+        .error {
+            position: relative;
+
+            &.red-line {
+                &:after {
+                    width: 250px;
+                }
+            }
+
+            &.error-message {
+                width: 240px;
+                margin-top: -20px;
+                margin-left: 9px;
+                font-size: 13px;
+                color: red;
+            }
         }
     }
+
 
     .fade-enter-active {
         transition: all .5s ease-in;
@@ -99,8 +153,7 @@
 
     .fade-enter, .fade-leave-to {
         transition: all .5s ease-out;
-        /*transform: translateX(70px);*/
-        transform: rotate(180deg);
+        transform: translateX(70px);
         opacity: 0;
     }
 </style>
