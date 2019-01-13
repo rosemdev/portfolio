@@ -41,6 +41,7 @@
 
     .button {
         display: inline-block;
+        text-align: center;
         font-size: 1.2rem;
         padding: 15px 35px;
         min-width: 180px;

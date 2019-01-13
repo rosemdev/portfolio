@@ -17,7 +17,8 @@
             </div>
         </div>
         <div class="grey-background">
-            <div class="done-works main-content">
+            <div class="main-content done-works">
+                <p class="section-title-left hashtag" data-hashtag="projects">Done works</p>
                 <div class="carousel">
                     <carousel :per-page="1"
                               :mouse-drag="true"
@@ -37,51 +38,57 @@
             </div>
         </div>
         <div class="white-background">
-            <div class="main-content stages">
-                <rosem-card v-for="(card, index) in cards"
-                            :key="index">
-                    <div class="stage-container">
-                        <p><span class="stage">{{ card.stage }}</span>
-                            <span class="stage-name">{{ card.name }}</span></p>
-                        <p class="stage-description">{{ card.description }}</p>
-                        <rosem-button>more</rosem-button>
-                    </div>
-                </rosem-card>
+            <div class="main-content">
+                <p class="section-title-right hashtag-right" data-hashtag="development">Development stages</p>
+                <div class="stages">
+                    <rosem-card v-for="(card, index) in cards"
+                                :key="index">
+                        <div class="stage-container">
+                            <p><span class="stage">{{ card.stage }}</span>
+                                <span class="stage-name">{{ card.name }}</span></p>
+                            <p class="stage-description">{{ card.description }}</p>
+                            <rosem-button>more</rosem-button>
+                        </div>
+                    </rosem-card>
+                </div>
             </div>
         </div>
         <div class="grey-background">
-            <div class="about-me main-content">
-                <rosem-description-block subtitle="About me"
-                                         title="Romanna Semenyshyn">
-                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor iure
-                        iusto quibusdam temporibus voluptatem voluptatibus?
-                    </template>
-                    <rosem-button slot="additional-info">see projects</rosem-button>
-                </rosem-description-block>
-                <div class="social">
-                    <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
+            <div class="main-content about">
+                <p class="section-title-left hashtag" data-hashtag="hello">About</p>
+                <div class="about-me">
+                    <rosem-description-block subtitle="About me"
+                                             title="Romanna Semenyshyn"
+                                             class="right-text"
+                    >
+                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
+                            iure
+                            iusto quibusdam temporibus voluptatem voluptatibus?
+                        </template>
+                        <rosem-button slot="additional-info">see projects</rosem-button>
+                    </rosem-description-block>
+                    <rosem-photo class="photo-above"><img src="../assets/images/me/rosem2.jpg"/></rosem-photo>
                 </div>
-                <div class="photo-carousel">
-                    <carousel :per-page="1"
-                              :mouse-drag="true"
-                              :navigationEnabled="true"
-                              :paginationEnabled="false"
-                              paginationColor="#5c59599e"
-                              :loop="true"
-                              :autoplay="false"
-                              easing="ease-in-out"
-                              :speed="500">
-                        <slide><img src="../assets/images/me/rosem2.jpg"/></slide>
-                        <slide><img class="rosem-test" src="../assets/images/me/rosem.jpg"/></slide>
-                        <slide><img src="../assets/images/me/me.jpg"/></slide>
-                        <slide><img src="../assets/images/me/me2.jpg"/></slide>
-                    </carousel>
+                <div class="about-me">
+                    <rosem-photo class="photo-bellow"><img src="../assets/images/me/me.jpg"/></rosem-photo>
+                    <rosem-description-block subtitle="About me"
+                                             title="Romanna Semenyshyn"
+                                             class="left-text"
+                    >
+                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
+                            More photos in gallery
+                        </template>
+                        <rosem-button slot="additional-info" :to="{path: 'gallery'}">gallery</rosem-button>
+                    </rosem-description-block>
+                    <div class="social">
+                        <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="white-background">
-            <div class="main-content get-in-touch">
-                <p>Get in touch...</p>
+            <div class="main-content">
+                <p class="section-title-left get-in-touch hashtag" data-hashtag="contact">Get in touch...</p>
                 <rosem-contact-form/>
             </div>
         </div>
@@ -95,6 +102,7 @@
     import RosemDescriptionBlock from "../components/DescriptionBlock"
     import RosemHistoryLine from "../components/HistoryLine"
     import RosemSocialBlock from "../components/SocialBlock"
+    import RosemPhoto from "../components/Photo";
     import RosemCard from "../components/Card"
     import {Carousel, Slide} from "vue-carousel"
     import RosemSlideDescription from "../partials/SlideContent"
@@ -128,6 +136,7 @@
             RosemHeader,
             RosemButton,
             RosemDescriptionBlock,
+            RosemPhoto,
             RosemHistoryLine,
             RosemSocialBlock,
             RosemCard,
@@ -159,6 +168,38 @@
     @import "../assets/styles/main";
     @import "../assets/styles/themes";
 
+    .hashtag-right {
+        position: relative;
+        z-index: 1;
+
+        &:before {
+            content: "#" attr(data-hashtag);
+            position: absolute;
+            z-index: -1;
+            right: -180px;
+            top: -50px;
+            font-size: 5rem;
+            font-weight: 700;
+            color: #f5f5f5;
+        }
+    }
+
+    .hashtag {
+        position: relative;
+        z-index: 1;
+
+        &:before {
+            content: "#" attr(data-hashtag);
+            position: absolute;
+            z-index: -1;
+            left: -180px;
+            top: -50px;
+            font-size: 5rem;
+            font-weight: 700;
+            color: #f5f5f5;
+        }
+    }
+
     & .homepage {
         & .order {
             padding: 15px 25px;
@@ -181,7 +222,7 @@
         }
 
         & .bottom-contact-panel {
-            margin-right: -10px ;
+            margin-right: -10px;
         }
 
         & .stages {
@@ -194,6 +235,7 @@
             & /deep/ .card {
                 width: 265px;
                 margin: 0;
+
                 .button {
                     opacity: 1;
                     margin: auto;
@@ -229,29 +271,61 @@
             }
         }
 
-        .about-me {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 0;
+        .about {
+            .section-title-left {
+                font-size: 7rem;
+                margin-top: -5px;
+            }
 
-            & .social {
-                position: relative;
-                align-self: center;
+            .about-me {
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 0;
 
-                /deep/ ul {
-                    margin-bottom: 40px;
+                img {
+                    width: 100%;
+                    height: 600px;
+                }
 
-                    li {
-                        &:before {
-                            left: -15px;
-                            bottom: 17px;
-                        }
+                .description-block {
+                    margin: 0 40px;
+                }
 
-                        & a {
-                            & img {
-                                width: 39px;
+                .photo-above {
+                    position: relative;
+                    top: -80px;
+                    transform: rotate(2deg);
+                    box-shadow: -11px 12px 0 7px #e6e5e8;
+
+
+                }
+
+                .photo-bellow {
+                    position: relative;
+                    bottom: 300px;
+                    transform: rotate(-2deg);
+                    box-shadow: 11px 12px 0 7px #e6e5e8;
+                }
+
+                & .social {
+                    position: relative;
+                    align-self: center;
+
+                    /deep/ ul {
+                        margin-bottom: 40px;
+
+                        li {
+                            &:before {
+                                left: -15px;
+                                bottom: 17px;
+                            }
+
+                            & a {
+                                & img {
+                                    width: 39px;
+                                }
                             }
                         }
                     }
@@ -281,15 +355,6 @@
                 .object-fit(@fit: cover);
 
             }
-        }
-    }
-
-    .get-in-touch {
-        p {
-            text-align: left;
-            font-size: 45px;
-            color: @mainColor;
-            font-weight: 600;
         }
     }
 
@@ -366,35 +431,12 @@
             }
         }
 
-        .about-me {
-            flex-direction: row;
-
-            & .social {
-                align-self: flex-end;
-
-                /deep/ ul {
-                    li {
-                        &::before {
-                            bottom: 9px;
-                        }
-
-                        & a {
-                            & img {
-                                width: 27px;
-                            }
-                        }
-                    }
-                }
+        .about {
+            .about-me {
+                flex-direction: row;
             }
-
-            & .photo-carousel {
-                .VueCarousel-navigation {
-                    position: static;
-                }
-
-            }
-
         }
+
 
     } });
 </style>
