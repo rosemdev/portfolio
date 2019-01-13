@@ -89,7 +89,15 @@
         <div class="white-background">
             <div class="main-content">
                 <p class="section-title-left get-in-touch hashtag" data-hashtag="contact">Get in touch...</p>
-                <rosem-contact-form/>
+                <div class="contact">
+                    <rosem-contact-form/>
+                    <div class="contact-info">
+                        <p class="section-title-left">Or here...</p>
+                        <p><span>Email: </span><a href="mailto:romasemenyshyn@gmail.com">romasemenyshyn@gmail.com</a>
+                        </p>
+                        <p><span>Phone: </span><a href="tel:+380957277490">+38(095) 72 77 490</a></p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -215,7 +223,6 @@
     } });
 
 
-
     & .homepage {
         & .order {
             padding: 15px 25px;
@@ -239,6 +246,7 @@
 
         & .bottom-contact-panel {
             margin-right: -10px;
+            margin-top: 15px;
         }
 
         & .stages {
@@ -323,32 +331,21 @@
                     box-shadow: 11px 12px 0 7px #e6e5e8;
                 }
 
-                .responsive(@tablet, {
+                .responsive(@tablet, { img {
+                    height: 450px;
+                } });
 
-                    img {
-                        height: 450px;
-                    }
-                });
-
-                .responsive(@desktop, {
-                    .section-title-left {
-                        font-size: 7rem;
-                    }
-
-                    img {
-                        height: 600px;
-                    }
-
-                    .photo-above {
+                .responsive(@desktop, { .section-title-left {
+                    font-size: 7rem;
+                } img {
+                      height: 600px;
+                  } .photo-above {
                         top: -80px;
 
-                    }
+                    } .photo-bellow {
+                          bottom: 300px;
 
-                    .photo-bellow {
-                        bottom: 300px;
-
-                    }
-                });
+                      } });
 
                 & .social {
                     position: relative;
@@ -397,25 +394,28 @@
 
             }
         }
-    }
 
-    .responsive(@tablet, { & .homepage {
-        & .bottom-contact-panel {
-            align-items: flex-end;
+        .contact {
+            display: flex;
+            align-items: flex-start;
             justify-content: space-between;
-            flex-direction: row;
+            flex-direction: column;
 
-            & .social {
-                ul {
-                    justify-content: flex-end;
+            .contact-info {
+                text-align: left;
 
-                    li {
-                        font-size: 15px;
-                    }
+                a, span {
+                    color: @mainColor;
+                }
+
+                span {
+                    font-weight: 600;
                 }
             }
         }
+    }
 
+    .responsive(@tablet, { & .homepage {
         & .stages {
             flex-direction: row;
 
@@ -424,6 +424,12 @@
                     width: 200px;
                     padding: 0;
                     margin: 0 25px;
+
+                    &:hover {
+                        & .button {
+                            opacity: 1;
+                        }
+                    }
 
                     .stage {
                         font-size: 3em;
@@ -436,13 +442,12 @@
                     }
                 }
 
-                &:hover {
-                    & .button {
-                        opacity: 1;
-                    }
-                }
 
             }
+        }
+
+        .contact {
+            flex-direction: row;
         }
     } });
 
@@ -457,6 +462,7 @@
             }
 
         }
+
 
         & .stages {
             & .card-container {

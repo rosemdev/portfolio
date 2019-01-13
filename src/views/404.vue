@@ -6,7 +6,15 @@
                 <img id="garlands" src="../assets/images/icons/garlands.svg" alt="">
             </div>
             <div class="text">
-                <p class="not-found">404 page</p>
+                <div class="shadows">
+                    <span>4</span>
+                    <span>0</span>
+                    <span>4</span>
+                    <span>p</span>
+                    <span>a</span>
+                    <span>g</span>
+                    <span>e</span>
+                </div>
                 <p>Looks like you're lost...</p>
             </div>
         </div>
@@ -76,6 +84,21 @@
         }
 
         .text {
+            .shadows {
+                position: relative;
+                text-transform: uppercase;
+                text-shadow: -15px 5px 20px #ced0d3;
+                color: #fdfdfd;
+                font-weight: 700;
+                letter-spacing: -0.05em;
+                user-select: none;
+                font-size: 150px;
+                transition: all 0.25s ease-out;
+            }
+            .shadows:hover {
+                text-shadow: -16px 6px 15px #ced0d3;
+            }
+
             color: @mainColor;
             p {
                 font-size: 30px;
@@ -89,7 +112,7 @@
     }
 
     .controls {
-        margin-bottom: 45px;
+        padding-bottom: 45px;
         .button {
             margin: 5px;
         }
