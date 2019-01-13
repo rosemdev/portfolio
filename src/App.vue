@@ -60,7 +60,7 @@
 <style lang="less">
     @import "./assets/styles/reset";
     @import "./assets/styles/design";
-    @import "./assets/styles/main";
+    @import "./assets/styles/themes";
 
     #app, input, textarea {
         font-family: 'Montserrat', sans-serif;

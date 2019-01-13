@@ -3,7 +3,7 @@
         <div class="greeting white-background">
             <div class="main-content">
                 <div class="order">
-                    <h2>Rosem</h2>
+                    <h2 class="shadows">Rosem</h2>
                     <h3>Ps... Want a website? You are here</h3>
                     <router-view></router-view>
                     <router-link

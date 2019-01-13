@@ -2,7 +2,7 @@
     <form @submit="onSubmit" novalidate action="https://www.enformed.io/gvupimm9" method="POST">
         <slot></slot>
         <footer>
-            <rosem-button type="submit" name="*redirect" value="http://localhost:8080/">{{ buttonName }}</rosem-button>
+            <rosem-button type="submit" name="*redirect" value="http://localhost:8080/thankyou">{{ buttonName }}</rosem-button>
         </footer>
     </form>
 </template>
