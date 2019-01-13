@@ -34,7 +34,7 @@
         </div>
         <div class="padding also-like-block" v-if="relatedArticles.length > 0 ">
             <div class="block-title">
-                <p>You may also like</p>
+                <p class="section-title-center">You may also like</p>
             </div>
             <div class="related-articles">
                 <router-link v-for="(relArticle, index) in relatedArticles"
@@ -79,9 +79,6 @@
     import getDate from "../utils/getDate"
     import RosemAvatar from "../components/Avatar"
     import {socialShareNetworks} from "../data/data"
-
-    // let test = 'test123 ';
-
 
     export default {
 
@@ -231,12 +228,6 @@
 
         .also-like-block {
             background-color: @lightGray;
-
-            .block-title {
-                text-align: center;
-                font-size: 45px;
-                font-weight: 600;
-            }
 
             .related-articles {
                 display: flex;

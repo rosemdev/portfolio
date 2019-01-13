@@ -59,6 +59,52 @@ body {
   text-align: left;
 }
 
+.hashtag {
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    content: "#" attr(data-hashtag);
+    position: absolute;
+    z-index: -1;
+    left: -25px;
+    top: -50px;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #f5f5f5;
+  }
+}
+
+.hashtag-right {
+  position: relative;
+  z-index: 1;
+
+  &:before {
+    font-weight: 700;
+    color: #f5f5f5;
+    font-size: 3rem;
+    content: "#" attr(data-hashtag);
+    position: absolute;
+    z-index: -1;
+    right: -25px;
+    top: -50px;
+  }
+}
+
+.responsive(@tablet, { .hashtag, .hashtag-right {
+
+  &:before {
+    left: -50px;
+    font-size: 5rem;
+  }
+} });
+
+.responsive(@desktop, { .hashtag, .hashtag-right {
+  &:before {
+    left: -180px;
+  }
+} });
+
 .shadows {
   position: relative;
   text-transform: uppercase;
