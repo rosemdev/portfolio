@@ -168,22 +168,6 @@
     @import "../assets/styles/main";
     @import "../assets/styles/themes";
 
-    .hashtag-right {
-        position: relative;
-        z-index: 1;
-
-        &:before {
-            content: "#" attr(data-hashtag);
-            position: absolute;
-            z-index: -1;
-            right: -180px;
-            top: -50px;
-            font-size: 5rem;
-            font-weight: 700;
-            color: #f5f5f5;
-        }
-    }
-
     .hashtag {
         position: relative;
         z-index: 1;
@@ -192,13 +176,45 @@
             content: "#" attr(data-hashtag);
             position: absolute;
             z-index: -1;
-            left: -180px;
+            left: -25px;
             top: -50px;
-            font-size: 5rem;
+            font-size: 3rem;
             font-weight: 700;
             color: #f5f5f5;
         }
     }
+
+    .hashtag-right {
+        position: relative;
+        z-index: 1;
+
+        &:before {
+            font-weight: 700;
+            color: #f5f5f5;
+            font-size: 3rem;
+            content: "#" attr(data-hashtag);
+            position: absolute;
+            z-index: -1;
+            right: -25px;
+            top: -50px;
+        }
+    }
+
+    .responsive(@tablet, { .hashtag, .hashtag-right {
+
+        &:before {
+            left: -50px;
+            font-size: 5rem;
+        }
+    } });
+
+    .responsive(@desktop, { .hashtag, .hashtag-right {
+        &:before {
+            left: -180px;
+        }
+    } });
+
+
 
     & .homepage {
         & .order {
@@ -273,7 +289,7 @@
 
         .about {
             .section-title-left {
-                font-size: 7rem;
+                font-size: 5rem;
                 margin-top: -5px;
             }
 
@@ -286,7 +302,7 @@
 
                 img {
                     width: 100%;
-                    height: 600px;
+                    height: 200px;
                 }
 
                 .description-block {
@@ -295,7 +311,6 @@
 
                 .photo-above {
                     position: relative;
-                    top: -80px;
                     transform: rotate(2deg);
                     box-shadow: -11px 12px 0 7px #e6e5e8;
 
@@ -304,17 +319,43 @@
 
                 .photo-bellow {
                     position: relative;
-                    bottom: 300px;
                     transform: rotate(-2deg);
                     box-shadow: 11px 12px 0 7px #e6e5e8;
                 }
+
+                .responsive(@tablet, {
+
+                    img {
+                        height: 450px;
+                    }
+                });
+
+                .responsive(@desktop, {
+                    .section-title-left {
+                        font-size: 7rem;
+                    }
+
+                    img {
+                        height: 600px;
+                    }
+
+                    .photo-above {
+                        top: -80px;
+
+                    }
+
+                    .photo-bellow {
+                        bottom: 300px;
+
+                    }
+                });
 
                 & .social {
                     position: relative;
                     align-self: center;
 
                     /deep/ ul {
-                        margin-bottom: 40px;
+                        margin-top: 40px;
 
                         li {
                             &:before {
