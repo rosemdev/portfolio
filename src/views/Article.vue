@@ -246,11 +246,12 @@
                     .related-background {
                         height: 125px;
                         overflow: hidden;
-                        margin: -1rem -2rem 1rem;
+                        margin: -3rem -2rem 1rem;
                         position: relative;
 
                         img {
                             width: 100%;
+                            height: 100%;
                             object-fit: cover;
                             .object-fit(@fit: cover);
                         }

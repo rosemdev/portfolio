@@ -398,10 +398,6 @@
 
             }
         }
-
-        .contact {
-            flex-direction: row;
-        }
     } });
 
     .responsive(@desktop, { & .homepage {
@@ -435,6 +431,10 @@
             .about-me {
                 flex-direction: row;
             }
+        }
+
+        .contact {
+            flex-direction: row;
         }
 
 

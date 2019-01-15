@@ -144,13 +144,14 @@
                 }
 
                 .article-background {
-                    height: 200px;
+                    height: 125px;
                     width: 300px;
                     overflow: hidden;
                     order: -1;
 
                     img {
-                        max-width: 100%;
+                        width: 100%;
+                        height: 100%;
                         object-fit: cover;
                         .object-fit(@fit: cover);
                     }
