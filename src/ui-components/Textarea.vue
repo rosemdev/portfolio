@@ -52,7 +52,7 @@
         label {
             top: -7px;
             width: 250px;
-            height: 107px;
+            height: 92px;
         }
 
         @-moz-document url-prefix() {
@@ -98,7 +98,6 @@
 
         label {
             width: 700px;
-            height: 107px;
         }
 
         textarea {

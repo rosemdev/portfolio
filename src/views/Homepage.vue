@@ -356,6 +356,7 @@
 
             .contact-info {
                 text-align: left;
+                margin-left: 8px;
 
                 a, span {
                     color: @mainColor;

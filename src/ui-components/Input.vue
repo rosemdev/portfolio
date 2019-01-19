@@ -39,9 +39,9 @@
 
         label {
             top: 9px;
-            left: 9px;
+            left: 10px;
             width: 250px;
-            height: 60px;
+            height: 55px;
         }
 
         @-moz-document url-prefix() {

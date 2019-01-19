@@ -103,7 +103,7 @@
             border-bottom: 1px solid @mainColor;
             border-right: 1px solid @mainColor;
             display: block;
-            font-size: 20px;
+            font-size: 15px;
             margin: 25px 10px;
             color: @mainColor;
             box-shadow: 0 0.3vw 3vw -0.7vw rgba(0, 0, 0, 0.2);

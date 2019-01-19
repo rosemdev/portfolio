@@ -65,6 +65,7 @@
 
         .button {
             margin-left: 10px;
+            margin-top: 13px;
         }
     }
 
