@@ -42,6 +42,7 @@
                 menuItems: [
                     {text: 'Home', url: '/'},
                     {text: 'Gallery', url: '/gallery'},
+                    {text: 'Projects', url: '/projects'},
                     {text: 'Skills', url: '/skills'},
                     {text: 'Blog', url: '/blog'},
                     {text: 'Contact', url: '/contact'},

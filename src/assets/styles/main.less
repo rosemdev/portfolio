@@ -16,6 +16,7 @@ body {
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
 .padding-aside {
   padding: 15px 25px;
 }
@@ -75,6 +76,11 @@ body {
   }
 }
 
+.link {
+    color: #226460;
+    font-weight: bold;
+}
+
 .hashtag-right {
   position: relative;
   z-index: 1;
@@ -105,6 +111,16 @@ body {
   }
 } });
 
+.main-title {
+  font-size: 3rem;
+}
+
+.welcome-subtitle {
+  font-size: 1rem;
+  margin-top: -2rem;
+
+}
+
 .shadows {
   position: relative;
   text-transform: uppercase;
@@ -113,12 +129,32 @@ body {
   font-weight: 700;
   letter-spacing: -0.05em;
   user-select: none;
-  font-size: 150px;
+  font-size: 3rem;
   transition: all 0.25s ease-out;
 }
+
 .shadows:hover {
   text-shadow: -16px 6px 15px #ced0d3;
 }
+
+.responsive(@desktop, {
+
+  .main-title {
+    font-size: 5rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 2rem;
+  }
+
+  .shadows {
+    font-size: 150px;
+
+  }
+
+});
+
+
 
 
 

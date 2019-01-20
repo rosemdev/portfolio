@@ -3,8 +3,8 @@
         <div class="greeting white-background">
             <div class="main-content">
                 <div class="order">
-                    <h2 class="shadows">Rosem</h2>
-                    <h3>Ps... Want a website? You are here</h3>
+                    <h1 class="main-title shadows">Rosem</h1>
+                    <h3 class="welcome-subtitle">Ps... Want a website? You are here</h3>
                     <router-view></router-view>
                     <router-link
                             :to="{path: 'contact'}">
@@ -183,13 +183,7 @@
             margin-top: -1rem;
 
             h2 {
-                text-transform: uppercase;
-                font-size: 3rem;
                 margin-bottom: 15px;
-            }
-
-            h3 {
-                font-size: 1rem;
             }
 
             & .button {
@@ -402,18 +396,6 @@
     } });
 
     .responsive(@desktop, { & .homepage {
-        & .order {
-            h2 {
-                font-size: 5rem;
-            }
-
-            h3 {
-                font-size: 2rem;
-            }
-
-        }
-
-
         & .stages {
             & .card-container {
                 & /deep/ .card {

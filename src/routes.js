@@ -81,6 +81,14 @@ export const routes = [
         },
     },
     {
+        path: '/projects',
+        name: 'Projects',
+        component: "views/Projects",
+        meta: {
+            layout: "layouts/OneColumnLayout",
+        },
+    },
+    {
         path: '*',
         redirect: '/404'
     },

@@ -35,8 +35,12 @@
 
     .text-description {
         color: white;
+        margin-left: 24px;
+        font-size: 15px;
+        line-height: 2.8;
 
-        p.text-background {
+
+        .text-background {
             span {
                 background-color: @mainColor;
                 padding: 15px;
@@ -53,11 +57,10 @@
             }
         }
 
-        p.block-background {
+        .block-background {
             padding: 10px;
             position: relative;
             z-index: 2;
-            font-size: 15px;
             line-height: 17px;
             font-weight: 700;
 
@@ -98,9 +101,10 @@
     }
 
     .responsive(@tablet, { .text-description {
-        p.block-background {
+            font-size: 20px;
+
+        .block-background {
             line-height: 35px;
-            font-size: 25px;
             padding: 35px;
 
             &:before {
