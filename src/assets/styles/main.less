@@ -29,15 +29,8 @@ body {
 
 & .main-container {
   background-color: white;
-  box-shadow: 0 0 41px 20px #0000001a;
 }
 
-.main-container, .main-container-limit {
-  max-width: 1600px;
-  width: 100%;
-  margin: auto;
-
-}
 
 .full-width {
   padding: 50px;
@@ -60,56 +53,41 @@ body {
   text-align: left;
 }
 
-.hashtag {
-  position: relative;
-  z-index: 1;
-
-  &:before {
-    content: "#" attr(data-hashtag);
-    position: absolute;
-    z-index: -1;
-    left: -25px;
-    top: -50px;
-    font-size: 3rem;
-    font-weight: 700;
-    color: #f5f5f5;
-  }
-}
-
 .link {
-    color: #226460;
-    font-weight: bold;
+  color: #226460;
+  font-weight: bold;
 }
 
-.hashtag-right {
+.section-title {
+  font-size: 50px;
+  font-weight: 100;
+  text-transform: uppercase;
+}
+
+.hashtag, .hashtag-right {
   position: relative;
   z-index: 1;
-
-  &:before {
-    font-weight: 700;
-    color: #f5f5f5;
-    font-size: 3rem;
-    content: "#" attr(data-hashtag);
-    position: absolute;
-    z-index: -1;
-    right: -25px;
-    top: -50px;
-  }
 }
 
-.responsive(@tablet, { .hashtag, .hashtag-right {
 
-  &:before {
-    left: -50px;
-    font-size: 5rem;
-  }
-} });
+.hashtag:before, .hashtag-right:before {
+  content: "#" attr(data-hashtag);
+  position: absolute;
+  z-index: -1;
+  top: -67px;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f5f5f5;
+}
 
-.responsive(@desktop, { .hashtag, .hashtag-right {
-  &:before {
-    left: -180px;
-  }
-} });
+.hashtag:before {
+  left: -25px;
+
+}
+
+.hashtag-right:before {
+  right: -200px;
+}
 
 .main-title {
   font-size: 3rem;
@@ -121,36 +99,32 @@ body {
 
 }
 
-.shadows {
-  position: relative;
+.main-title, .welcome-subtitle {
+  font-weight: 100;
   text-transform: uppercase;
-  text-shadow: -15px 5px 20px #ced0d3;
-  color: #fdfdfd;
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  user-select: none;
-  font-size: 3rem;
-  transition: all 0.25s ease-out;
 }
 
-.shadows:hover {
-  text-shadow: -16px 6px 15px #ced0d3;
-}
 
 .responsive(@desktop, {
 
   .main-title {
-    font-size: 5rem;
-  }
+  font-size: 8rem;
 
-  .welcome-subtitle {
+} .welcome-subtitle {
     font-size: 2rem;
   }
 
-  .shadows {
-    font-size: 150px;
-
+  .hashtag:before, .hashtag-right:before {
+    font-size: 8rem;
   }
+
+  .hashtag:before {
+    left: -240px;
+  }
+
+ .hashtag-right:before {
+   right: -200px;
+}
 
 });
 

@@ -14,8 +14,8 @@
             </rosem-description-block>
                 <div class="site-link">
                     <a :href="slide.siteLink" target="_blank" rel="noopener">
-                        <small>visit</small>
                         <img src="../assets/images/icons/earth.svg"/>
+                        <small>visit</small>
                     </a>
                 </div>
             </div>
@@ -64,7 +64,7 @@
             width: calc(100% - 50px);
 
             .description-block {
-                text-align: right;
+                text-align: left;
                 padding: 0;
                 .button {
                     margin: auto;
@@ -76,12 +76,12 @@
                 & a {
                     display: flex;
                     align-items: center;
-                    justify-content: flex-end;
+                    justify-content: flex-start;
                     margin: 25px 0;
                     color: @gray;
 
                     & small {
-                        margin-right: 5px;
+                        margin-left: 5px;
                     }
 
                     & img {

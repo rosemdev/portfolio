@@ -148,8 +148,8 @@
         right: 0;
         transition: top .4s;
         background-color: white;
-        max-width: 1600px;
-        margin: auto;
+        /*max-width: 1600px;*/
+        /*margin: auto;*/
         z-index: 10;
 
         & header {

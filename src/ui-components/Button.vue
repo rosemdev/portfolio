@@ -45,15 +45,18 @@
         font-size: 1.2rem;
         padding: 15px 35px;
         min-width: 180px;
-        border-radius: 10px;
+        border-radius: 99px;
+        font-weight: 500;
+        font-family: inherit;
         color: white;
         cursor: pointer;
         white-space: nowrap;
-        box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, .2);
         background-color: @mainColor;
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease-in-out;
 
         &:hover {
-            box-shadow: -7px 0 4vw -0.7vw rgba(0, 0, 0, .2);
+            box-shadow: 0 11px 15px rgba(0, 0, 0, 0.1);
         }
 
         &.simple {

@@ -1,24 +1,9 @@
 <template>
     <div class="main-container homepage">
-        <div class="greeting white-background">
-            <div class="main-content">
-                <div class="order">
-                    <h1 class="main-title shadows">Rosem</h1>
-                    <h3 class="welcome-subtitle">Ps... Want a website? You are here</h3>
-                    <router-view></router-view>
-                    <router-link
-                            :to="{path: 'contact'}">
-                        <rosem-button>get it</rosem-button>
-                    </router-link>
-                </div>
-                <div class="bottom-contact-panel">
-                    <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
-                </div>
-            </div>
-        </div>
+
         <div class="grey-background">
             <div class="main-content done-works">
-                <p class="section-title-left hashtag" data-hashtag="projects">Done works</p>
+                <p class="section-title left-text hashtag" data-hashtag="projects">Done works</p>
                 <div class="carousel">
                     <carousel :per-page="1"
                               :mouse-drag="true"
@@ -39,7 +24,7 @@
         </div>
         <div class="white-background">
             <div class="main-content">
-                <p class="section-title-right hashtag-right" data-hashtag="development">Development stages</p>
+                <p class="section-title right-text hashtag-right" data-hashtag="development">Development stages</p>
                 <div class="stages">
                     <rosem-card v-for="(card, index) in cards"
                                 :key="index">
@@ -55,7 +40,7 @@
         </div>
         <div class="grey-background">
             <div class="main-content about">
-                <p class="section-title-left hashtag" data-hashtag="hello">About</p>
+                <p class="section-title left-text hashtag" data-hashtag="hello">About</p>
                 <div class="about-me">
                     <rosem-description-block subtitle="About me"
                                              title="Romanna Semenyshyn"
@@ -86,13 +71,29 @@
                 </div>
             </div>
         </div>
+        <div class="greeting white-background">
+            <div class="main-content">
+                <div class="order">
+                    <h1 class="main-title">Rosem</h1>
+                    <h3 class="welcome-subtitle">Want a website? You are here</h3>
+                    <router-view></router-view>
+                    <router-link
+                            :to="{path: 'contact'}">
+                        <rosem-button>I'm ready to get it</rosem-button>
+                    </router-link>
+                </div>
+                <div class="bottom-contact-panel">
+                    <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
+                </div>
+            </div>
+        </div>
         <div class="white-background">
             <div class="main-content">
-                <p class="section-title-left get-in-touch hashtag" data-hashtag="contact">Get in touch...</p>
+                <p class="section-title left-text get-in-touch hashtag" data-hashtag="contact">Get in touch...</p>
                 <div class="contact">
                     <rosem-contact-form/>
                     <div class="contact-info">
-                        <p class="section-title-left">Or here...</p>
+                        <p class="section-title left-text">Or here...</p>
                         <p><span>Email: </span><a href="mailto:romasemenyshyn@gmail.com">romasemenyshyn@gmail.com</a>
                         </p>
                         <p><span>Phone: </span><a href="tel:+380957277490">+38(095) 72 77 490</a></p>

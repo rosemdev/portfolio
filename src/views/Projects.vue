@@ -1,13 +1,9 @@
 <template>
     <div class="main-container projects">
-        <div class="main-content">
-            <h1 class="main-title shadows">Projects</h1>
-            <h3 class="welcome-subtitle">Welcome! Here my ones of the first learning projects.</h3>
-            <p class="section-title-right hashtag-right" data-hashtag="landing page">Mobile app</p>
-        </div>
         <div class="first-project">
             <div class="main-content overview">
                 <div class="mobile-app-description">
+                    <p class="section-title-left hashtag" data-hashtag="landing page">Mobile app</p>
                     <p class="short-description left-text">
                         This is not exactly the first my learning project, but it's the first
                         not ugly ;) and more beautiful than previous. As you know - learning is a hard work, especially
@@ -71,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            <div class="main-content">
+            <div class="padding-aside">
                 <p class="section-title-right hashtag-right" data-hashtag="design">Screenshots</p>
                 <div class="screenshots">
                     <div class="image-holder top">
@@ -80,11 +76,11 @@
                     <div class="image-holder">
                         <img src="../assets/images/myWorks/mobApp2.png" alt="">
                     </div>
-                    <div class="top">
+                    <div class="main-content top">
                         <p class="section-title-left hashtag-right" data-hashtag="interacting">Look and Feel</p>
                         <p class="short-description left-text">To be more attractive the landing page should have some
                             thing with a user could "touch" a long story short it's how he feel when use this site and
-                                what he will do next. I love to use a lot of hover effects, shadows (maybe you have already
+                            what he will do next. I love to use a lot of hover effects, shadows (maybe you have already
                             noticed that), animations also different
                             types of ways submitting the content means tables, accordions, carousels - all this actions
                             directed on user attention. So The "look" is defined by the following components:
@@ -140,6 +136,7 @@
     .short-description {
         line-height: 32px;
         font-size: 19px;
+        color: @mainColor
     }
 
     ol {
@@ -221,7 +218,7 @@
 
                     img {
                         width: 100%;
-                        max-width: 700px;
+                        max-width: 900px;
                         display: block;
                     }
 

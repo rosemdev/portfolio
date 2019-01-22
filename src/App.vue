@@ -61,6 +61,7 @@
     @import "./assets/styles/reset";
     @import "./assets/styles/design";
     @import "./assets/styles/themes";
+    @import "./assets/styles/main";
 
     #app, input, textarea {
         font-family: 'Montserrat', sans-serif;

@@ -83,7 +83,10 @@ export const routes = [
     {
         path: '/projects',
         name: 'Projects',
-        component: "views/Projects",
+        components: {
+            underHeader: "partials/GradientProjects",
+            default: "views/Projects",
+        },
         meta: {
             layout: "layouts/OneColumnLayout",
         },
