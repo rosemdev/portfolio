@@ -56,8 +56,8 @@
     .responsive(@desktop, {
 
         .intro {
-            padding-top: 15rem;
-            padding-bottom: 15rem;
+            padding-top: 17rem;
+            padding-bottom: 17rem;
 
           h1 {
               font-size: 2rem;

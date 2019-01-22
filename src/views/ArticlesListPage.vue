@@ -218,6 +218,7 @@
             }
 
         }
+
         /deep/ div > div.card + .card-overlay {
             &::after {
                 background: url("../assets/images/free-of-code-style.jpg") no-repeat center;
