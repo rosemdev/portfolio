@@ -87,6 +87,8 @@
                     & img {
                         width: 20px;
                         cursor: pointer;
+                        margin-left: 25px;
+
                     }
                 }
             }

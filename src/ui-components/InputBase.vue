@@ -63,32 +63,12 @@
             position: absolute;
             overflow: hidden;
             margin: 10px 0;
-
-            &:before {
-                content: '';
-                position: absolute;
-                height: 100%;
-                background-color: @mainColor;
-                width: 1px;
-                top: 16px;
-
-            }
-
-            &:after {
-                content: '';
-                position: absolute;
-                width: 100%;
-                background-color: @mainColor;
-                height: 1px;
-                top: 6px;
-                margin-left: 5px;
-
-            }
+            width: 100%;
 
             & .required {
                 &:after {
                     content: '*';
-                    color: red;
+                    color: tomato;
                     position: absolute;
                     background-color: #333;
                     height: 1px;
@@ -100,13 +80,15 @@
         }
 
         input, textarea {
-            border-bottom: 1px solid @mainColor;
-            border-right: 1px solid @mainColor;
+            border-bottom: 1px solid #bebebe;
+            border-right: 1px solid #bebebe;
+            border-radius: 99px;
+            border-top-right-radius: 0;
             display: block;
             font-size: 15px;
             margin: 25px 10px;
             color: @mainColor;
-            box-shadow: 0 0.3vw 3vw -0.7vw rgba(0, 0, 0, 0.2);
+
 
             &::placeholder {
                 font-size: 15px;
@@ -114,26 +96,22 @@
         }
 
         .red-line {
-            &:after {
-                content: '';
-                position: absolute;
-                width: 0;
-                height: 1px;
-                background-color: red;
-                left: 10px;
-                bottom: 25px;
-                transition: all .4s linear;
-            }
-
+            position: absolute;
+            width: 0;
+            height: 1px;
+            background-color: tomato;
+            left: 40px;
+            bottom: 26px;
+            transition: all .4s linear;
         }
 
         .error {
             position: relative;
+            display: block;
+            width: 100%;
 
             &.red-line {
-                &:after {
-                    width: 250px;
-                }
+                width: calc(100% - 70px);
             }
 
             &.error-message {
@@ -141,7 +119,7 @@
                 margin-top: -16px;
                 margin-left: 9px;
                 font-size: 13px;
-                color: red;
+                color: tomato;
             }
         }
     }

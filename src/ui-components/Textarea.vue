@@ -51,8 +51,6 @@
 
         label {
             top: -7px;
-            width: 250px;
-            height: 92px;
         }
 
         @-moz-document url-prefix() {
@@ -69,49 +67,18 @@
         }
 
 
-        .red-line {
-            &:after {
-                bottom: 10px;
-                left: 0;
-            }
+        .error.red-line {
+            width: calc(100% - 80px);
+            bottom: 11px;
 
         }
 
         .error {
-            position: relative;
-
-            &.red-line {
-                &:after {
-                    width: 250px;
-
-                }
-            }
-
             &.error-message {
                 margin-left: 0;
                 margin-top: -5px;
             }
         }
     }
-
-    .responsive(@tablet, { .field {
-
-        label {
-            width: 700px;
-        }
-
-        textarea {
-            width: 700px;
-        }
-
-        .error {
-            &.red-line {
-                &:after {
-                    width: 700px;
-                }
-            }
-        }
-
-    } });
 
 </style>

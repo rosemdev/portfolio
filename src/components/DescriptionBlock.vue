@@ -36,9 +36,9 @@
         margin: 25px 0;
         padding: 15px 25px;
         color: @mainColor;
+        font-size: 15px;
 
         .subtitle {
-            font-size: 15px;
             font-weight: 300;
             margin-bottom: -20px;
         }
@@ -50,8 +50,8 @@
 
         h3 {
             font-weight: 400;
-            font-size: 15px;
             margin: 25px 0;
+            font-size: 19px;
         }
 
     }
@@ -59,7 +59,7 @@
     .responsive(@tablet, {
         & .description-block {
             h2 {
-                font-size: 35px;
+                font-size: 40px;
             }
         }
     });

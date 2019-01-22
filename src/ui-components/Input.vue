@@ -38,10 +38,7 @@
     .field {
 
         label {
-            top: 9px;
             left: 10px;
-            width: 250px;
-            height: 55px;
         }
 
         @-moz-document url-prefix() {
@@ -68,13 +65,13 @@
             width: 340px;
         }
 
-        .error {
-            &.red-line {
-                &:after {
-                    width: 340px;
-                }
-            }
-        }
+        /*.error {*/
+            /*&.red-line {*/
+                /*&:after {*/
+                    /*width: 340px;*/
+                /*}*/
+            /*}*/
+        /*}*/
 
     } });
 

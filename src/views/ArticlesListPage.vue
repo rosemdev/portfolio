@@ -1,5 +1,5 @@
 <template>
-    <div class="blog main-container">
+    <div class="white-background blog">
         <rosem-loader v-if="loading"></rosem-loader>
         <div class="main-content">
             <div class="blog-cards">

@@ -1,28 +1,25 @@
 <template>
-    <div class="main-container homepage">
-
-        <div class="grey-background">
-            <div class="main-content done-works">
-                <p class="section-title left-text hashtag" data-hashtag="projects">Done works</p>
-                <div class="carousel">
-                    <carousel :per-page="1"
-                              :mouse-drag="true"
-                              :navigationEnabled="true"
-                              paginationColor="#5c59599e"
-                              :loop="true"
-                              :autoplay="false"
-                              easing="ease-in-out"
-                              :speed="500"
-                    >
-                        <slide v-for="(slide, index) in slideContents"
-                               :key="index">
-                            <rosem-slide-description :descriptions="{slide}"></rosem-slide-description>
-                        </slide>
-                    </carousel>
-                </div>
+    <div class="white-background homepage">
+        <div class="main-content done-works">
+            <p class="section-title left-text hashtag" data-hashtag="projects">Done works</p>
+            <div class="carousel">
+                <carousel :per-page="1"
+                          :mouse-drag="true"
+                          :navigationEnabled="true"
+                          paginationColor="#5c59599e"
+                          :loop="true"
+                          :autoplay="false"
+                          easing="ease-in-out"
+                          :speed="500"
+                >
+                    <slide v-for="(slide, index) in slideContents"
+                           :key="index">
+                        <rosem-slide-description :descriptions="{slide}"></rosem-slide-description>
+                    </slide>
+                </carousel>
             </div>
         </div>
-        <div class="white-background">
+        <div class="grey-background">
             <div class="main-content">
                 <p class="section-title right-text hashtag-right" data-hashtag="development">Development stages</p>
                 <div class="stages">
@@ -38,40 +35,38 @@
                 </div>
             </div>
         </div>
-        <div class="grey-background">
-            <div class="main-content about">
-                <p class="section-title left-text hashtag" data-hashtag="hello">About</p>
-                <div class="about-me">
-                    <rosem-description-block subtitle="About me"
-                                             title="Romanna Semenyshyn"
-                                             class="right-text"
-                    >
-                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
-                            iure
-                            iusto quibusdam temporibus voluptatem voluptatibus?
-                        </template>
-                        <rosem-button slot="additional-info">see projects</rosem-button>
-                    </rosem-description-block>
-                    <rosem-photo class="photo-above"><img src="../assets/images/me/rosem2.jpg"/></rosem-photo>
-                </div>
-                <div class="about-me">
-                    <rosem-photo class="photo-bellow"><img src="../assets/images/me/me.jpg"/></rosem-photo>
-                    <rosem-description-block subtitle="About me"
-                                             title="Romanna Semenyshyn"
-                                             class="left-text"
-                    >
-                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
-                            More photos in gallery
-                        </template>
-                        <rosem-button slot="additional-info" :to="{path: 'gallery'}">gallery</rosem-button>
-                    </rosem-description-block>
-                    <div class="social">
-                        <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
-                    </div>
+        <div class="main-content about">
+            <p class="section-title left-text hashtag" data-hashtag="hello">About</p>
+            <div class="about-me">
+                <rosem-description-block subtitle="About me"
+                                         title="Romanna Semenyshyn"
+                                         class="right-text"
+                >
+                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
+                        iure
+                        iusto quibusdam temporibus voluptatem voluptatibus?
+                    </template>
+                    <rosem-button slot="additional-info">see projects</rosem-button>
+                </rosem-description-block>
+                <rosem-photo class="photo-above"><img src="../assets/images/me/rosem2.jpg"/></rosem-photo>
+            </div>
+            <div class="about-me">
+                <rosem-photo class="photo-bellow"><img src="../assets/images/me/me.jpg"/></rosem-photo>
+                <rosem-description-block subtitle="About me"
+                                         title="Romanna Semenyshyn"
+                                         class="left-text"
+                >
+                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
+                        More photos in gallery
+                    </template>
+                    <rosem-button slot="additional-info" :to="{path: 'gallery'}">gallery</rosem-button>
+                </rosem-description-block>
+                <div class="social">
+                    <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
                 </div>
             </div>
         </div>
-        <div class="greeting white-background">
+        <div class="greeting">
             <div class="main-content">
                 <div class="order">
                     <h1 class="main-title">Rosem</h1>
@@ -87,9 +82,9 @@
                 </div>
             </div>
         </div>
-        <div class="white-background">
+        <div>
             <div class="main-content">
-                <p class="section-title left-text get-in-touch hashtag" data-hashtag="contact">Get in touch...</p>
+                <p class="section-title left-text hashtag" data-hashtag="contact">Get in touch...</p>
                 <div class="contact">
                     <rosem-contact-form/>
                     <div class="contact-info">
@@ -164,11 +159,6 @@
             }
 
         },
-
-        created() {
-
-
-        }
     }
 </script>
 <style lang="less" scoped>
@@ -178,19 +168,6 @@
     @import "../assets/styles/themes";
 
     & .homepage {
-        & .order {
-            padding: 15px 25px;
-            color: @mainColor;
-            margin-top: -1rem;
-
-            h2 {
-                margin-bottom: 15px;
-            }
-
-            & .button {
-                margin: auto;
-            }
-        }
 
         & .bottom-contact-panel {
             margin-right: -10px;
@@ -244,11 +221,6 @@
         }
 
         .about {
-            .section-title-left {
-                font-size: 5rem;
-                margin-top: -5px;
-            }
-
             .about-me {
                 display: flex;
                 align-items: flex-start;
@@ -283,17 +255,15 @@
                     height: 450px;
                 } });
 
-                .responsive(@desktop, { .section-title-left {
-                    font-size: 7rem;
-                } img {
-                      height: 600px;
-                  } .photo-above {
-                        top: -80px;
+                .responsive(@desktop, { img {
+                    height: 600px;
+                } .photo-above {
+                      top: -80px;
 
-                    } .photo-bellow {
-                          bottom: 300px;
+                  } .photo-bellow {
+                        bottom: 300px;
 
-                      } });
+                    } });
 
                 & .social {
                     position: relative;
@@ -340,6 +310,16 @@
                 object-fit: cover;
                 .object-fit(@fit: cover);
 
+            }
+        }
+
+        .greeting {
+            background-image: linear-gradient(45deg, #ffe0f1 25%, #e7e1fa 25%, #e7e1fa 50%, #ffe0f1 50%, #ffe0f1 75%, #e7e1fa 75%, #e7e1fa 100%);
+
+            & .order {
+                & .button {
+                    margin: auto;
+                }
             }
         }
 
