@@ -7,7 +7,7 @@
 
   }
 
-  & .section-title {
+  & .section-title, & .main-title {
     color: @theme-default-main;
   }
 
@@ -20,6 +20,19 @@
 
   & .button {
     background: @theme-default;
+  }
+
+  & .homepage {
+    .about {
+      .about-me {
+        .photo {
+          &:after {
+            background-color: rgba(28, 139, 137, 0.45);
+          }
+
+        }
+      }
+    }
   }
 
   .VueCarousel-dot {
@@ -80,7 +93,7 @@
     background: @theme1;
   }
 
-  & .section-title {
+  & .section-title, & .main-title {
     color: @theme1-main;
   }
 
@@ -92,6 +105,20 @@
 
   & .button {
     background: @theme1;
+  }
+
+  & .homepage {
+    .about {
+      .about-me {
+        .photo {
+          &:after {
+            background-color: rgb(255, 0, 117, 0.53);
+            opacity: 0.53;
+          }
+
+        }
+      }
+    }
   }
 
   .VueCarousel-dot {
@@ -150,7 +177,7 @@
     background: @theme2;
   }
 
-  & .section-title {
+  & .section-title, & .main-title {
     color: @theme2-main;
   }
 
@@ -162,6 +189,19 @@
 
   & .button {
     background: @theme2;
+  }
+
+  & .homepage {
+    .about {
+      .about-me {
+        .photo {
+          &:after {
+            background-color: rgba(75, 108, 183, 0.53);
+          }
+
+        }
+      }
+    }
   }
 
   .VueCarousel-dot {
@@ -220,7 +260,7 @@
     background: @theme3;
   }
 
-  & .section-title {
+  & .section-title, & .main-title {
     color: @theme3-main;
   }
 
@@ -232,6 +272,19 @@
 
   & .button {
     background: @theme3;
+  }
+
+  & .homepage {
+    .about {
+      .about-me {
+        .photo {
+          &:after {
+            background-color: rgba(171, 64, 116, 0.55);
+          }
+
+        }
+      }
+    }
   }
 
   .VueCarousel-dot {

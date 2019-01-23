@@ -168,7 +168,6 @@
     @import "../assets/styles/themes";
 
     & .homepage {
-
         & .bottom-contact-panel {
             margin-right: -10px;
             margin-top: 15px;
@@ -237,19 +236,24 @@
                     margin: 0 40px;
                 }
 
-                .photo-above {
+                .photo {
                     position: relative;
-                    transform: rotate(2deg);
-                    box-shadow: -11px 12px 0 7px #e6e5e8;
+                    z-index: 0;
 
-
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        display: block;
+                        left: 0;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        z-index: 2;
+                        width: 100%;
+                        height: 100%;
+                    }
                 }
 
-                .photo-bellow {
-                    position: relative;
-                    transform: rotate(-2deg);
-                    box-shadow: 11px 12px 0 7px #e6e5e8;
-                }
 
                 .responsive(@tablet, { img {
                     height: 450px;
