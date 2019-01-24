@@ -37,7 +37,7 @@
         </div>
         <div class="main-content about">
             <p class="section-title left-text hashtag" data-hashtag="hello">About</p>
-            <div class="about-me">
+            <div class="about-me block-above">
                 <rosem-description-block subtitle="About me"
                                          title="Romanna Semenyshyn"
                                          class="right-text"
@@ -50,7 +50,7 @@
                 </rosem-description-block>
                 <rosem-photo class="photo-above"><img src="../assets/images/me/rosem2.jpg"/></rosem-photo>
             </div>
-            <div class="about-me">
+            <div class="about-me block-bellow">
                 <rosem-photo class="photo-bellow"><img src="../assets/images/me/me.jpg"/></rosem-photo>
                 <rosem-description-block subtitle="About me"
                                          title="Romanna Semenyshyn"
@@ -61,9 +61,9 @@
                     </template>
                     <rosem-button slot="additional-info" :to="{path: 'gallery'}">gallery</rosem-button>
                 </rosem-description-block>
-                <div class="social">
-                    <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
-                </div>
+            </div>
+            <div class="social">
+                <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
             </div>
         </div>
         <div class="greeting">
@@ -220,25 +220,47 @@
         }
 
         .about {
+            .section-title {
+                &:before {
+                    font-size: 15rem;
+                }
+            }
             .about-me {
                 display: flex;
-                align-items: flex-start;
+                align-items: center;
                 flex-direction: column;
                 justify-content: space-between;
-                padding: 0;
+                margin-top: -140px;
 
-                img {
+                .description-block{
+                    background-color: rgba(255, 248, 251, 0.58);
                     width: 100%;
-                    height: 200px;
+                    max-width: 500px;
+                    position: relative;
+                    z-index: 2;
                 }
 
-                .description-block {
-                    margin: 0 40px;
+                &.block-above {
+                    .description-block {
+                        left: 430px;
+                    }
+                }
+
+                &.block-bellow {
+                    .description-block {
+                        right: 430px;
+                    }
                 }
 
                 .photo {
                     position: relative;
                     z-index: 0;
+                    width: 500px;
+                    height: 500px;
+
+                    img {
+                        width: 100%;
+                    }
 
                     &:after {
                         content: '';
@@ -253,39 +275,24 @@
                         height: 100%;
                     }
                 }
+            }
 
+            & .social {
+                position: relative;
+                align-self: center;
 
-                .responsive(@tablet, { img {
-                    height: 450px;
-                } });
+                /deep/ ul {
+                    margin-top: 40px;
 
-                .responsive(@desktop, { img {
-                    height: 600px;
-                } .photo-above {
-                      top: -80px;
+                    li {
+                        &:before {
+                            left: -15px;
+                            bottom: 17px;
+                        }
 
-                  } .photo-bellow {
-                        bottom: 300px;
-
-                    } });
-
-                & .social {
-                    position: relative;
-                    align-self: center;
-
-                    /deep/ ul {
-                        margin-top: 40px;
-
-                        li {
-                            &:before {
-                                left: -15px;
-                                bottom: 17px;
-                            }
-
-                            & a {
-                                & img {
-                                    width: 39px;
-                                }
+                        & a {
+                            & img {
+                                width: 39px;
                             }
                         }
                     }
