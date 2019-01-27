@@ -18,6 +18,9 @@
                     </slide>
                 </carousel>
             </div>
+            <div class="bottom-contact-panel">
+                <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
+            </div>
         </div>
         <div class="grey-background">
             <div class="main-content">
@@ -76,9 +79,6 @@
                             :to="{path: 'contact'}">
                         <rosem-button>I'm ready to get it</rosem-button>
                     </router-link>
-                </div>
-                <div class="bottom-contact-panel">
-                    <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
                 </div>
             </div>
         </div>
@@ -168,11 +168,6 @@
     @import "../assets/styles/themes";
 
     & .homepage {
-        & .bottom-contact-panel {
-            margin-right: -10px;
-            margin-top: 15px;
-        }
-
         & .stages {
             display: flex;
             flex-direction: column;
@@ -325,9 +320,11 @@
         }
 
         .greeting {
-            background-image: linear-gradient(45deg, #ffe0f1 25%, #e7e1fa 25%, #e7e1fa 50%, #ffe0f1 50%, #ffe0f1 75%, #e7e1fa 75%, #e7e1fa 100%);
-
             & .order {
+                &:last-child {
+                    padding-bottom: 80px;
+                }
+
                 & .button {
                     margin: auto;
                 }
