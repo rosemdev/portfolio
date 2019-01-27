@@ -71,34 +71,19 @@
                     background-color: @mainColor;
                     left: -12px;
                     bottom: 7px;
-                }
-
-                &:after {
-                    content: "";
-                    width: 100%;
-                    height: 100%;
-                    position: absolute;
-                    border-radius: 5px;
-                    z-index: -1;
-                    top: 0;
-                    left: 0;
-
+                    transition: all 0.3s ease-in-out;
                 }
 
                 &:hover {
-                    &:after {
-                        background-color: @theme-default-main;
-                        animation: overlay .3s ease-in-out;
-                    }
-
-                    a {
-                        color: white;
+                    &:before {
+                        width: 100%;
+                        left: 7px;
+                        bottom: -3px;
                     }
                 }
 
                 a {
                     color: @mainColor;
-                    .shadowText();
                     font-size: 11px;
 
                     img {
@@ -111,13 +96,6 @@
                     }
                 }
             }
-
-            li .mobileView {
-                border: 1px solid black;
-                box-shadow: 4px 4px 7px 0 #0000004d;
-                border-radius: 5px;
-
-            }
         }
     }
 
@@ -126,17 +104,10 @@
             justify-content: flex-end;
             li {
                 margin: 30px;
-                border: none;
-                box-shadow: none;
 
                 &:hover {
-                    &:after {
-                        content: none;
-                    }
-
                     & a {
-                        color: @mainColor;
-                        .shadowText();
+
                     }
 
                 }
@@ -152,16 +123,4 @@
         }
     } });
 
-    @keyframes overlay {
-        from {
-            transform: translateX(45px) scale(.8);
-            opacity: 0;
-        }
-
-        to {
-            transform: translateY(0) scale(1);
-            opacity: 1;
-        }
-
-    }
 </style>

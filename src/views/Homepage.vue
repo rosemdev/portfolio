@@ -215,11 +215,6 @@
         }
 
         .about {
-            .section-title {
-                &:before {
-                    font-size: 15rem;
-                }
-            }
             .about-me {
                 display: flex;
                 align-items: center;
@@ -347,6 +342,8 @@
 
                 span {
                     font-weight: 600;
+                    display: inline-block;
+                    width: 70px;
                 }
             }
         }
@@ -400,6 +397,12 @@
         }
 
         .about {
+            .section-title {
+                &:before {
+                    font-size: 3.5em;
+                }
+            }
+
             .about-me {
                 flex-direction: row;
             }

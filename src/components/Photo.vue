@@ -15,7 +15,7 @@
     .photo {
         overflow: hidden;
         position: relative;
-        box-shadow: 4px 4px 60px 0 #464343e6;
+        box-shadow: 6px 7px 20px -7px #464343e6;
 
         img {
             transition: .3s ease-in-out;
