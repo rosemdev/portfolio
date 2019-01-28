@@ -72,7 +72,6 @@
     a {
         cursor: pointer;
         color: white;
-        .shadowText();
     }
 
     footer {
@@ -97,6 +96,24 @@
 
                     li {
                         margin: 10px;
+                        position: relative;
+
+                        &:after {
+                            content: '';
+                            width: 0;
+                            height: 2px;
+                            display: block;
+                            position: absolute;
+                            left: 7px;
+                            background-color: white;
+                            transition: all 0.3s ease-in-out;
+                        }
+
+                        &:hover {
+                            &:after {
+                                width: 100%;
+                            }
+                        }
                     }
                 }
             }

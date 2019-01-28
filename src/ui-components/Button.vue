@@ -69,9 +69,9 @@
             background: @mainColor;
         }
 
-        &.light {
-            background: white;
-            color: @mainColor;
+        &.colorful {
+            border: 2px solid;
+            background: transparent;
         }
 
     }

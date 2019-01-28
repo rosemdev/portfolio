@@ -55,6 +55,7 @@
         align-items: start;
         justify-content: start;
         flex-direction: column;
+        color: @mainColor;
 
         label {
             display: block;
