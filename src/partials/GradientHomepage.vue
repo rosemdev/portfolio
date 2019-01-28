@@ -33,39 +33,36 @@
         padding-bottom: 10rem;
         color: white;
 
+        h1, h2 {
+            text-transform: uppercase;
+        }
+
         & h1 {
             font-weight: 500;
             font-size: 1.7em;
-            text-transform: uppercase;
         }
 
         & h2 {
             font-weight: 900;
             font-size: 1.5em;
-            text-transform: uppercase;
         }
 
         & p {
-            max-width: 600px;
-            width: 100%;
-            margin: auto;
             font-size: 1em;
         }
     }
 
-    .responsive(@desktop, {
+    .responsive(@desktop, { .intro {
+        padding-top: 17rem;
+        padding-bottom: 17rem;
 
-        .intro {
-            padding-top: 17rem;
-            padding-bottom: 17rem;
+        h1 {
+            font-size: 2rem;
+        }
 
-          h1 {
-              font-size: 2rem;
-          }
-
-          h2 {
-              font-size: 2.7rem;
-          }
-      } });
+        h2 {
+            font-size: 2.7rem;
+        }
+    } });
 
 </style>

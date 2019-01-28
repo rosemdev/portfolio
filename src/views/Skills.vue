@@ -1,6 +1,6 @@
 <template>
     <div class="main-content">
-        <div class="intro">
+        <div class="introduction">
             <rosem-description-block subtitle="me" title="Romanna Semenenyshyn">
                 <template slot="description">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor sit amet,
@@ -125,7 +125,7 @@
 <style lang="less" scoped>
     @import "../assets/styles/design";
 
-    .intro {
+    .introduction {
         .number {
             color: @mainColor;
             a {

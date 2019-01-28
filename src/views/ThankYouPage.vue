@@ -1,23 +1,20 @@
 <template>
-    <div class="main-container">
+    <div>
         <div class="main-content than-you">
-            <div class="shadows">
-                <span>thank you</span>
-            </div>
-            <div class="thankyou-text">
-                <p>Please wait for the answer as soon as possible!</p>
-                <p>Kind regards,</p>
-                <p>Romanna.</p>
-            </div>
             <div class="image">
                 <img src="../assets/images/icons/winning-project.svg" alt="">
             </div>
-            <div class="controls">
-                <rosem-button to="/">back home</rosem-button>
-                <p>
-                    <rosem-button to="blog" class="dark">visit blog</rosem-button>
-                </p>
+            <div>
+                <span class="section-title">thank you</span>
+                <p>Please wait for the answer as soon as possible!</p>
+                <p>Kind regards,<br>Romanna.</p>
             </div>
+        </div>
+        <div class="controls">
+            <rosem-button to="/">back home</rosem-button>
+            <p>
+                <rosem-button to="blog" class="dark">visit blog</rosem-button>
+            </p>
         </div>
     </div>
 </template>
@@ -49,12 +46,14 @@
 
     .than-you {
         display: flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: center;
         color: @mainColor;
         text-align: left;
-        font-size: 25px;
+
+        p {
+            font-size: 20px;
+        }
 
         .image {
             width: 200px;

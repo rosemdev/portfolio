@@ -20,6 +20,7 @@
     @import "../assets/styles/design";
 
     .theme {
+        margin-top: 30px;
         p {
             color: white;
             font-size: 1.5em;

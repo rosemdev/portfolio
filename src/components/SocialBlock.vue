@@ -3,7 +3,7 @@
         <ul>
             <li v-for="link in socialLinks"
                 :key="link.link"
-                :class="{mobileView: isMobileView}">
+                :class="{mobileView: isMobileView, icons: link.isIcon}">
                 <a :href="link.link" v-if="link.isIcon" target="_blank" rel="noopener">
                     <img :src="link.src" v-if="link.src"/>
                     <span class="link-name">{{link.name }}</span>
@@ -102,24 +102,25 @@
     .responsive(@tablet, { .social {
         ul {
             justify-content: flex-end;
+
             li {
                 margin: 30px;
 
-                &:hover {
-                    & a {
-
+                &.icons {
+                    &:before {
+                        left: -15px;
+                        bottom: 17px;
                     }
+                }
 
+                a {
+                    img {
+                        width: 39px;
+                        margin: -5px;
+                    }
                 }
             }
 
-            a {
-
-                img {
-                    width: 25px;
-                    margin: -5px;
-                }
-            }
         }
     } });
 

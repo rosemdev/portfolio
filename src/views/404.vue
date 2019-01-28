@@ -1,14 +1,12 @@
 <template>
-    <div class="main-container">
+    <div>
         <div class="not-found-page">
             <div class="image">
                 <img id="tree" src="../assets/images/icons/three-pines.svg" alt="">
                 <img id="garlands" src="../assets/images/icons/garlands.svg" alt="">
             </div>
-            <div class="text">
-                <div class="shadows">
-                   <span>404 page</span>
-                </div>
+            <div>
+                <span class="section-title">404 page</span>
                 <p>Looks like you're lost...</p>
             </div>
         </div>
@@ -40,7 +38,7 @@
         },
     }
 </script>
-<style lang="less"  scoped>
+<style lang="less" scoped>
 
     @import "../assets/styles/design";
     @import "../assets/styles/mixins";
@@ -51,11 +49,13 @@
         justify-content: center;
         flex-direction: column;
         cursor: pointer;
+        color: @mainColor;
 
         .image {
             position: relative;
             display: inline;
             align-self: center;
+            margin-right: 25px;
 
             img#tree {
                 width: 236px;
@@ -73,47 +73,29 @@
 
         &:hover {
             img#garlands {
-                filter:none;
+                filter: none;
             }
         }
 
-        .text {
-            color: @mainColor;
-            p {
-                font-size: 30px;
-
-                &.not-found {
-                    font-size: 50px;
-                    font-weight: 700;
-                }
-            }
+        p {
+            font-size: 20px;
         }
+
     }
 
     .controls {
-        padding-bottom: 45px;
+        padding-top: 45px;
+
         .button {
             margin: 5px;
         }
     }
 
-    .responsive(@desktop, {
-        .not-found-page {
-            flex-direction: row;
+    .responsive(@desktop, { .not-found-page {
+        flex-direction: row;
 
-            .image {
-                align-self: flex-start;
-            }
-
-            .text {
-                p {
-                    font-size: 75px;
-
-                    &.not-found {
-                        font-size: 100px;
-                    }
-                }
-            }
+        .image {
+            align-self: flex-start;
         }
-    });
+    } });
 </style>

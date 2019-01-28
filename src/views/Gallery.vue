@@ -9,7 +9,7 @@
                 </blockquote>
             </div>
         </div>
-        <div class="margin gallery-history">
+        <div class="main-content gallery-history">
             <rosem-photo><img src="../assets/images/photos/12bb14a8da987ea439288c84c9602e7a.jpg"></rosem-photo>
             <rosem-description-block subtitle="Dreams come"
                                      title="I saw in the comments">
@@ -37,7 +37,7 @@
                 </carousel>
             </div>
         </div>
-        <div class="margin gallery-complect">
+        <div class="gallery-complect">
             <rosem-photo><img src="../assets/images/photos/ef908e5a83305dcaaf5106e1e4269997.jpg"></rosem-photo>
             <rosem-description-block subtitle="lorem" title="Questions">
                 <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda

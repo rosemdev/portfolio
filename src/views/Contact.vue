@@ -79,12 +79,6 @@
 
             .social-contact {
                 margin-top: 50px;
-
-                & /deep/ .social {
-                    img {
-                        width: 45px;
-                    }
-                }
             }
         }
 
@@ -111,17 +105,6 @@
 
                 }
             }
-
-            .social-contact {
-                margin-top: 50px;
-
-                & /deep/ .social {
-                    img {
-                        width: 27px;
-                    }
-                }
-            }
-
         }
 
         .history {

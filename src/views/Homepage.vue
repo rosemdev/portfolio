@@ -74,7 +74,7 @@
         <div class="greeting">
             <div class="main-content">
                 <div class="order">
-                    <h1 class="main-title">Rosem</h1>
+                    <h2 class="main-title">Rosem</h2>
                     <h3 class="welcome-subtitle">Want a website? You are here</h3>
                     <router-view></router-view>
                     <router-link
@@ -169,8 +169,8 @@
     @import "../assets/styles/main";
     @import "../assets/styles/themes";
 
-    & .homepage {
-            background-color: white;
+    .homepage {
+        background-color: white;
 
         & .stages {
             display: flex;
@@ -231,7 +231,7 @@
                     }
                 }
 
-                .description-block{
+                .description-block {
                     background-color: rgba(255, 248, 251, 0.58);
                     width: 100%;
                     max-width: 500px;
@@ -258,28 +258,6 @@
                         z-index: 2;
                         width: 100%;
                         height: 100%;
-                    }
-                }
-            }
-
-            & .social {
-                position: relative;
-                align-self: center;
-
-                /deep/ ul {
-                    margin-top: 40px;
-
-                    li {
-                        &:before {
-                            left: -15px;
-                            bottom: 17px;
-                        }
-
-                        & a {
-                            & img {
-                                width: 39px;
-                            }
-                        }
                     }
                 }
             }
@@ -311,6 +289,13 @@
 
         .greeting {
             & .order {
+                .main-title {
+                    transition: font-weight 0.3s ease-in-out;
+                    &:hover {
+                        font-weight: 500;
+                    }
+                }
+
                 &:last-child {
                     padding-bottom: 80px;
                 }
