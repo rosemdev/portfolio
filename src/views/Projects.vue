@@ -1,9 +1,9 @@
 <template>
-    <div class="main-container projects">
+    <div class="white-background projects">
         <div class="first-project">
             <div class="main-content overview">
                 <div class="mobile-app-description">
-                    <p class="section-title-left hashtag" data-hashtag="landing page">Mobile app</p>
+                    <p class="section-title hashtag" data-hashtag="landing page">Mobile app</p>
                     <p class="short-description left-text">
                         This is not exactly the first my learning project, but it's the first
                         not ugly ;) and more beautiful than previous. As you know - learning is a hard work, especially

@@ -6,6 +6,8 @@
                 <carousel :per-page="1"
                           :mouse-drag="true"
                           :navigationEnabled="true"
+                          navigationNextLabel="&#11166;"
+                          navigationPrevLabel="&#11164;"
                           paginationColor="#5c59599e"
                           :loop="true"
                           :autoplay="false"
@@ -51,10 +53,10 @@
                     </template>
                     <rosem-button slot="additional-info">see projects</rosem-button>
                 </rosem-description-block>
-                <rosem-photo class="photo-above"><img src="../assets/images/me/rosem2.jpg"/></rosem-photo>
+                <rosem-photo><img src="../assets/images/me/rosem2.jpg"/></rosem-photo>
             </div>
             <div class="about-me block-bellow">
-                <rosem-photo class="photo-bellow"><img src="../assets/images/me/me.jpg"/></rosem-photo>
+                <rosem-photo><img src="../assets/images/me/me.jpg"/></rosem-photo>
                 <rosem-description-block subtitle="About me"
                                          title="Romanna Semenyshyn"
                                          class="left-text"
@@ -220,7 +222,12 @@
                 align-items: center;
                 flex-direction: column;
                 justify-content: space-between;
-                margin-top: -140px;
+
+                &.block-bellow {
+                    .photo {
+                        order: 1;
+                    }
+                }
 
                 .description-block{
                     background-color: rgba(255, 248, 251, 0.58);
@@ -230,23 +237,9 @@
                     z-index: 2;
                 }
 
-                &.block-above {
-                    .description-block {
-                        left: 430px;
-                    }
-                }
-
-                &.block-bellow {
-                    .description-block {
-                        right: 430px;
-                    }
-                }
-
                 .photo {
                     position: relative;
                     z-index: 0;
-                    width: 500px;
-                    height: 500px;
 
                     img {
                         width: 100%;
@@ -379,6 +372,24 @@
 
             }
         }
+
+        .about {
+            .about-me {
+                flex-direction: row;
+
+                .photo {
+                    width: auto;
+                    height: auto;
+                }
+
+                &.block-bellow {
+                    .photo {
+                        margin-top: -50px;
+                        order: 0;
+                    }
+                }
+            }
+        }
     } });
 
     .responsive(@desktop, { & .homepage {
@@ -405,6 +416,29 @@
 
             .about-me {
                 flex-direction: row;
+                margin-top: -140px;
+
+                .photo {
+                    width: 500px;
+                    height: 500px;
+
+                }
+
+                &.block-above {
+                    .description-block {
+                        left: 430px;
+                    }
+                }
+
+                &.block-bellow {
+                    .description-block {
+                        right: 430px;
+                    }
+
+                    .photo {
+                        margin-top: 0;
+                    }
+                }
             }
         }
 
