@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container layout-2-cols">
+    <div class="layout-2-cols">
             <aside>
                 <router-view name="aside"></router-view>
             </aside>

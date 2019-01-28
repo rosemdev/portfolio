@@ -1,9 +1,11 @@
 <template>
-    <div class="white-background projects">
+    <div class="projects">
         <div class="first-project">
+            <div class="main-content">
+                <p class="section-title hashtag left-text" data-hashtag="landing">Mobile app</p>
+            </div>
             <div class="main-content overview">
                 <div class="mobile-app-description">
-                    <p class="section-title hashtag" data-hashtag="landing page">Mobile app</p>
                     <p class="short-description left-text">
                         This is not exactly the first my learning project, but it's the first
                         not ugly ;) and more beautiful than previous. As you know - learning is a hard work, especially
@@ -19,7 +21,7 @@
             </div>
             <div class="grey-background">
                 <div class="main-content about">
-                    <p class="section-title-right hashtag-right" data-hashtag="about">What? When? Why?</p>
+                    <p class="section-title hashtag-right right-text" data-hashtag="about">What? When? Why?</p>
                     <p class="short-description right-text">So after long search of something interesting, I forgot
                         about
                         programing and hung out on different resources about art, creativity and mastery of people over
@@ -55,7 +57,7 @@
                     </p>
                 </div>
                 <div class="main-content color-palette">
-                    <p class="section-title-left hashtag-right" data-hashtag="colors">Color palette</p>
+                    <p class="section-title hashtag" data-hashtag="colors">Color palette</p>
                     <p class="short-description left-text">I love a bright colors so much, so this design has subdued
                         me especially in conjunction with a gradient.</p>
                     <div class="colors">
@@ -68,7 +70,7 @@
                 </div>
             </div>
             <div class="padding-aside">
-                <p class="section-title-right hashtag-right" data-hashtag="design">Screenshots</p>
+                <p class="section-title hashtag-right right-text" data-hashtag="design">Screenshots</p>
                 <div class="screenshots">
                     <div class="image-holder top">
                         <img src="../assets/images/myWorks/mobApp1.png" alt="">
@@ -77,7 +79,7 @@
                         <img src="../assets/images/myWorks/mobApp2.png" alt="">
                     </div>
                     <div class="main-content top">
-                        <p class="section-title-left hashtag-right" data-hashtag="interacting">Look and Feel</p>
+                        <p class="section-title hashtag-right left-text" data-hashtag="interacting">Look and Feel</p>
                         <p class="short-description left-text">To be more attractive the landing page should have some
                             thing with a user could "touch" a long story short it's how he feel when use this site and
                             what he will do next. I love to use a lot of hover effects, shadows (maybe you have already
@@ -144,6 +146,8 @@
     }
 
     .projects {
+        background-color: white;
+
         .first-project {
             .overview {
                 display: flex;
@@ -152,12 +156,9 @@
                 flex-direction: column;
 
                 .mobile-app-description {
-                    /*position: relative;*/
-                    /*z-index: 5;*/
                     width: 100%;
                     max-width: 400px;
                     margin: 25px;
-                    /*margin-right: -50px;*/
                 }
 
                 .mobile-app {

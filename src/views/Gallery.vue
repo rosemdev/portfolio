@@ -1,64 +1,63 @@
 <template>
     <div class="gallery">
-        <div class="main-container">
-            <rosem-photo-gallery :cols="5" :imageWarehouse="photos"></rosem-photo-gallery>
-            <div class="main-content gallery-quotes">
-                <div class="margin quote">
-                    <blockquote>When words become unclear, I shall focus with photographs. When images become
-                        inadequate, I shall
-                        be content with silence.
-                    </blockquote>
-                </div>
+        <rosem-photo-gallery :cols="5" :imageWarehouse="photos"></rosem-photo-gallery>
+        <div class="main-content gallery-quotes">
+            <div class="margin quote">
+                <blockquote>When words become unclear, I shall focus with photographs. When images become
+                    inadequate, I shall
+                    be content with silence.
+                </blockquote>
             </div>
-            <div class="margin gallery-history">
-                <rosem-photo><img src="../assets/images/photos/12bb14a8da987ea439288c84c9602e7a.jpg"></rosem-photo>
-                <rosem-description-block subtitle="Dreams come"
-                                         title="I saw in the comments">
-                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad
-                        distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum dolor sit amet,
-                        consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae veritatis
-                        voluptate.
-                    </template>
-                    >
-                </rosem-description-block>
+        </div>
+        <div class="margin gallery-history">
+            <rosem-photo><img src="../assets/images/photos/12bb14a8da987ea439288c84c9602e7a.jpg"></rosem-photo>
+            <rosem-description-block subtitle="Dreams come"
+                                     title="I saw in the comments">
+                <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad
+                    distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum dolor sit amet,
+                    consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae veritatis
+                    voluptate.
+                </template>
+                >
+            </rosem-description-block>
+        </div>
+        <div class="grey-background carousel-block">
+            <div class="description">
+                <rosem-quote>Lorem ipsum dolor sit amet, consectetur adipisicing
+                    elit. Aliquid aperiam
+                    dignissimos, eo laboriosam obcaecatit? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    A amet animi asperiores, at atque consequuntur cumque doloremque eligendi.
+                </rosem-quote>
             </div>
-            <div class="grey-background carousel-block">
-                <div class="description">
-                    <rosem-quote>Lorem ipsum dolor sit amet, consectetur adipisicing
-                        elit. Aliquid aperiam
-                        dignissimos, eo laboriosam obcaecatit? Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        A amet animi asperiores, at atque consequuntur cumque doloremque eligendi.
-                    </rosem-quote>
-                </div>
-                <div class="carousel">
-                    <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 3]]">
-                        <slide v-for="image in photos" :key="image.imageSource">
-                            <img :src="image.imageSource" class="carousel-images " style="height: 500px;">
-                        </slide>
-                    </carousel>
-                </div>
-            </div>
-            <div class="margin gallery-complect">
-                <rosem-photo><img src="../assets/images/photos/ef908e5a83305dcaaf5106e1e4269997.jpg"></rosem-photo>
-                <rosem-description-block subtitle="lorem" title="Questions">
-                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-                        atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
-                        soluta totam vitae, voluptates.
-                    </template>
-                    <rosem-button class="dark" slot="additional-info"><span>see details</span></rosem-button>
-                </rosem-description-block>
-                <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
+            <div class="carousel">
+                <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 3]]">
                     <slide v-for="image in photos" :key="image.imageSource">
-                        <img :src="image.imageSource" class="carousel-images" style="width: 100%; height: 200px; object-fit:cover;">
+                        <img :src="image.imageSource" class="carousel-images " style="height: 500px;">
                     </slide>
                 </carousel>
             </div>
-            <div class="margin main-content last-quote">
-                <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
-                    captured forever…
-                </blockquote>
-                <rosem-insta-feed></rosem-insta-feed>
-            </div>
+        </div>
+        <div class="margin gallery-complect">
+            <rosem-photo><img src="../assets/images/photos/ef908e5a83305dcaaf5106e1e4269997.jpg"></rosem-photo>
+            <rosem-description-block subtitle="lorem" title="Questions">
+                <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
+                    atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
+                    soluta totam vitae, voluptates.
+                </template>
+                <rosem-button class="dark" slot="additional-info"><span>see details</span></rosem-button>
+            </rosem-description-block>
+            <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
+                <slide v-for="image in photos" :key="image.imageSource">
+                    <img :src="image.imageSource" class="carousel-images"
+                         style="width: 100%; height: 200px; object-fit:cover;">
+                </slide>
+            </carousel>
+        </div>
+        <div class="margin main-content last-quote">
+            <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
+                captured forever…
+            </blockquote>
+            <rosem-insta-feed></rosem-insta-feed>
         </div>
     </div>
 </template>
@@ -107,11 +106,13 @@
 
     .carousel-images {
         width: 100%;
-        object-fit:cover;
+        object-fit: cover;
         .object-fit(@fit: cover);
     }
 
     .gallery {
+        background-color: white;
+
         .gallery-quotes {
             .quote {
                 blockquote {
@@ -285,6 +286,7 @@
             .description {
                 margin-right: -50px;
                 width: 500px;
+
                 p {
                     text-align: right;
                 }

@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container article-page">
+    <div class="article-page">
         <rosem-loader :isLoading="loading" class="fixed"></rosem-loader>
         <div class="main-content">
             <div class="article-content">
@@ -34,7 +34,7 @@
         </div>
         <div class="padding also-like-block" v-if="relatedArticles.length > 0 ">
             <div class="block-title">
-                <p class="section-title-center">You may also like</p>
+                <p class="section-title">You may also like</p>
             </div>
             <div class="related-articles">
                 <router-link v-for="(relArticle, index) in relatedArticles"
@@ -228,6 +228,10 @@
 
         .also-like-block {
             background-color: @lightGray;
+
+            .block-title {
+                text-align: center;
+            }
 
             .related-articles {
                 display: flex;

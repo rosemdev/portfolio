@@ -1,12 +1,9 @@
 @import "./design";
 
 body {
-  background-color: #f2f2f2;
-}
-
-.white-background {
   background-color: white;
 }
+
 
 .grey-background {
   background-color: #fafafa;
@@ -26,17 +23,31 @@ body {
   margin-bottom: 50px;
 }
 
-
-& .main-container {
-  background-color: white;
-}
-
-
 .main-content {
   max-width: 1400px;
   margin: auto;
   padding: 15px 25px;
 
+}
+
+.intro {
+  color: white;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  & h1 {
+    font-weight: 900;
+    font-size: 3em;
+    text-transform: uppercase;
+  }
+
+  & p {
+    max-width: 600px;
+    width: 100%;
+    margin: auto;
+    font-size: 1.3em;
+    font-style: italic;
+  }
 }
 
 .right-text {
@@ -45,11 +56,6 @@ body {
 
 .left-text {
   text-align: left;
-}
-
-.link {
-  color: #226460;
-  font-weight: bold;
 }
 
 .section-title {
@@ -93,54 +99,34 @@ body {
   text-transform: uppercase;
 }
 
-.responsive(@tablet, {
-
-  .main-title {
-    font-size: 8rem;
-
-  } .welcome-subtitle {
-      font-size: 2rem;
-    }
-
-  .section-title {
-    font-size: 3em;
-  }
-
-  .hashtag:before, .hashtag-right:before {
-    top: -70px;
-    font-size: 2.5em;
-  }
-
-});
-
-
-.responsive(@desktop, {
-
-  .main-title {
+.responsive(@tablet, { .main-title {
   font-size: 8rem;
 
 } .welcome-subtitle {
     font-size: 2rem;
-  }
+  } .section-title {
+      font-size: 3em;
+    } .hashtag:before, .hashtag-right:before {
+        top: -70px;
+        font-size: 2.5em;
+      } });
 
-  .section-title {
-    font-size: 3.5em;
-  }
 
-  .hashtag:before, .hashtag-right:before {
-    top: -90px;
-    font-size: 3em;
-  }
+.responsive(@desktop, { .main-title {
+  font-size: 8rem;
 
-  .hashtag:before {
-    left: -215px;
-  }
-
- .hashtag-right:before {
-   right: -215px;
-}
-
-});
+} .welcome-subtitle {
+    font-size: 2rem;
+  } .section-title {
+      font-size: 3.5em;
+    } .hashtag:before, .hashtag-right:before {
+        top: -90px;
+        font-size: 3em;
+      } .hashtag:before {
+          left: -215px;
+        } .hashtag-right:before {
+            right: -215px;
+          } });
 
 
 

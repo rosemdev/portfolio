@@ -1,5 +1,5 @@
 <template>
-    <div class="white-background homepage">
+    <div class="homepage">
         <div class="main-content done-works">
             <p class="section-title left-text hashtag" data-hashtag="projects">Done works</p>
             <div class="carousel">
@@ -170,6 +170,8 @@
     @import "../assets/styles/themes";
 
     & .homepage {
+            background-color: white;
+
         & .stages {
             display: flex;
             flex-direction: column;

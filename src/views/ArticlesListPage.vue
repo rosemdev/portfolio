@@ -1,5 +1,5 @@
 <template>
-    <div class="white-background blog">
+    <div class="blog">
         <rosem-loader v-if="loading"></rosem-loader>
         <div class="main-content">
             <div class="blog-cards">
@@ -92,6 +92,10 @@
 
     @import "../assets/styles/design";
     @import "../assets/styles/mixins";
+
+    .blog {
+        background-color: white;
+    }
 
     .blog-cards {
         display: flex;
