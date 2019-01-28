@@ -78,7 +78,6 @@
         background-color: @mainColor;
         box-shadow: 0 22px 41px 20px #0000001a;
         padding: 50px 0;
-        margin-top: 40px;
 
         .footer {
             display: flex;

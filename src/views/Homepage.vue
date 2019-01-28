@@ -87,7 +87,7 @@
         <div>
             <div class="main-content">
                 <p class="section-title left-text hashtag" data-hashtag="contact">Get in touch...</p>
-                <div class="contact">
+                <div class="margin contact">
                     <rosem-contact-form/>
                     <div class="contact-info">
                         <p class="section-title left-text">Or here...</p>
