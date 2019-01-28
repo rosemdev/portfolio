@@ -95,6 +95,21 @@
                         display: none;;
                     }
                 }
+
+                &.icons {
+                    &:before {
+                        left: -15px;
+                        bottom: 17px;
+                    }
+
+                    a {
+                        img {
+                            width: 39px;
+                            margin: -5px;
+                        }
+                    }
+                }
+
             }
         }
     }
@@ -106,19 +121,7 @@
             li {
                 margin: 30px;
 
-                &.icons {
-                    &:before {
-                        left: -15px;
-                        bottom: 17px;
-                    }
-                }
 
-                a {
-                    img {
-                        width: 39px;
-                        margin: -5px;
-                    }
-                }
             }
 
         }

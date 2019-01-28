@@ -48,6 +48,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        flex-direction: column;
         color: @mainColor;
         text-align: left;
 
@@ -65,5 +66,8 @@
         }
     }
 
+    .responsive(@desktop, { .not-found-page {
+        flex-direction: row;
 
+    } });
 </style>

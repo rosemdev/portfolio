@@ -261,6 +261,10 @@
                     }
                 }
             }
+
+            .social {
+                margin-top: 25px;
+            }
         }
 
         & .photo-carousel {
@@ -375,6 +379,10 @@
                         order: 0;
                     }
                 }
+            }
+
+            .social {
+                margin-top: 0;
             }
         }
     } });
