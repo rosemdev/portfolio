@@ -1,21 +1,26 @@
 <template>
     <div id="app" :class="theme">
-        <keep-alive>
-            <router-view name="underHeader" ref="underHeader"></router-view>
-        </keep-alive>
+        <div class="content" :class="{push: showNav}">
+            <keep-alive>
+                <router-view name="underHeader" ref="underHeader"></router-view>
+            </keep-alive>
             <rosem-header className="sticky" :offsetValue="110" v-once></rosem-header>
-                <component :is="$route.meta.layout">
-                    <keep-alive>
-                        <router-view></router-view>
-                    </keep-alive>
-                </component>
+            <component :is="$route.meta.layout">
+                <keep-alive>
+                    <router-view></router-view>
+                </keep-alive>
+            </component>
             <rosem-footer v-once></rosem-footer>
         </div>
+           <rosem-navigation></rosem-navigation>
+    </div>
 </template>
 
 <script>
     import RosemHeader from "./partials/Header"
+    import RosemNavigation from "./partials/Navigation"
     import RosemFooter from "./partials/Footer"
+    import {mapState} from "vuex";
 
     export default {
         name: 'App',
@@ -24,18 +29,28 @@
             titleTemplate: '%s | rosem portfolio',
 
             meta: [
-                { name: 'description', content: 'Hello! This is my portfolio, please take a journey into this, and contact me in case you find something interesting for you.'
+                {
+                    name: 'description',
+                    content: 'Hello! This is my portfolio, please take a journey into this, and contact me in case you find something interesting for you.'
                 },
             ],
         },
         components: {
             RosemHeader,
             RosemFooter,
+            RosemNavigation,
+        },
+
+        computed: {
+            ...mapState([
+                'showNav'
+            ]),
         },
 
         data() {
             return {
                 theme: 'theme-default',
+                isNavShown: false,
             }
         },
 
@@ -72,5 +87,15 @@
     #app {
         text-align: center;
     }
+
+    .content {
+        transition: transform .3s ease-in-out;
+        box-shadow: 0 9px 31px 20px #0000001a;
+    }
+
+    .content.push {
+        transform: translateX(-410px);
+    }
+
 
 </style>

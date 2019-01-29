@@ -59,7 +59,6 @@
         width: 100%;
         height: 1800px;
         transition: border-radius 1s ease-in-out;
-        box-shadow: 0 9px 31px 20px #0000001a;
     }
 
 </style>

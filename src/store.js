@@ -12,7 +12,8 @@ export default new Vuex.Store({
         relatedArticles: [],
         loading: false,
         totalPages: "",
-        totalCards: ""
+        totalCards: "",
+        showNav: false,
     },
 
     mutations: {
@@ -40,6 +41,10 @@ export default new Vuex.Store({
         totalPages(state, totalPages) {
             state.totalPages = totalPages;
         },
+
+        navState(state, isOpen) {
+            state.showNav = isOpen;
+        }
     },
 
     actions: {
