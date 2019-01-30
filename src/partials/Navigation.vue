@@ -62,12 +62,9 @@
 
         & nav {
             padding: 15px;
-            position: absolute;
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            top: 0;
-            right: 0;
             z-index: 8;
             height: 100vh;
             width: 320px;

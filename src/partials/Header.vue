@@ -1,6 +1,6 @@
 <template>
     <div
-            :class="['header', {[className]: isStuck}]">
+            :class="['header', {sticky: isStuck}]">
         <header>
             <rosem-logo></rosem-logo>
             <rosem-burger-menu
@@ -8,22 +8,6 @@
                     @click.native="toggleNav"
             ></rosem-burger-menu>
         </header>
-        <!--<transition name="fade" mode="out-in">-->
-            <!--<nav v-show="showNav">-->
-                <!--<ul>-->
-                    <!--<router-link-->
-                            <!--tag="li"-->
-                            <!--v-for="(item) in menuItems"-->
-                            <!--:key="item.url"-->
-                            <!--active-class="active"-->
-                            <!--:to="{path: item.url}"-->
-                            <!--exact-->
-                    <!--&gt;-->
-                        <!--<a tabindex="0">{{ item.text}}</a>-->
-                    <!--</router-link>-->
-                <!--</ul>-->
-            <!--</nav>-->
-        <!--</transition>-->
     </div>
 </template>
 
@@ -40,14 +24,6 @@
             return {
                 isStuck: false,
                 topElementHeight: '',
-                menuItems: [
-                    {text: 'Home', url: '/'},
-                    {text: 'Gallery', url: '/gallery'},
-                    {text: 'Projects', url: '/projects'},
-                    {text: 'Skills', url: '/skills'},
-                    {text: 'Blog', url: '/blog'},
-                    {text: 'Contact', url: '/contact'},
-                ],
             }
         },
 
@@ -58,10 +34,6 @@
         },
 
         props: {
-            className: {
-                type: String,
-            },
-
             offsetValue: {
                 type: Number,
             }
@@ -134,7 +106,7 @@
         created() {
             this.$nextTick(() => {
                 window.addEventListener('scroll', this.stickHeader);
-                document.addEventListener('click', this.closeMenu);
+                // document.addEventListener('click', this.closeMenu);
             });
 
         },
@@ -147,7 +119,7 @@
 
         destroyed() {
             window.removeEventListener('scroll', this.stickHeader);
-            document.removeEventListener('click', this.closeMenu)
+            // document.removeEventListener('click', this.closeMenu);
         }
     }
 </script>
@@ -189,37 +161,6 @@
                 background-color: white;
             }
         }
-
-        & nav {
-            top: 50px;
-        }
-    }
-
-    .responsive(@tablet, { .header {
-        & nav {
-            width: 410px;
-            ul {
-                li {
-                    font-size: 4rem;
-
-                    &:hover, &.active {
-                        &:after {
-                            right: 0;
-                        }
-                    }
-                }
-            }
-        }
-    } });
-
-    .fade-enter-active {
-        transition: all .5s ease-in;
-    }
-
-    .fade-enter, .fade-leave-to {
-        transition: all .5s ease-out;
-        transform: translateX(70px);
-        opacity: 0;
     }
 
 </style>
