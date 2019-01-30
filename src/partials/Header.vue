@@ -1,14 +1,11 @@
 <template>
-    <div
-            :class="['header', {sticky: isStuck}]">
-        <header>
+        <header :class="{sticky: isStuck}">
             <rosem-logo></rosem-logo>
             <rosem-burger-menu
                     :open="showNav"
                     @click.native="toggleNav"
             ></rosem-burger-menu>
         </header>
-    </div>
 </template>
 
 <script>
@@ -126,34 +123,29 @@
 <style lang="less">
     @import "../assets/styles/design";
 
-    .header {
-        position: relative;
-        left: 0;
-        right: 0;
-        transition: top .4s;
+    header {
+        display: flex;
+        transition: top .3s ease-in-out;
         background-color: white;
+        position: static;
+        top: -50px;
         z-index: 10;
-        width: 100%;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: none;
+        padding: 0 25px;
 
-        & header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            box-shadow: none;
-            margin: 0 25px;
-
-            .burger-icon {
-                z-index: 10;
-            }
+        .burger-icon {
+            z-index: 10;
         }
     }
 
-    .header.sticky {
+    header.sticky {
         position: fixed;
         height: 50px;
-        max-width: 100%;
-        box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
+        width: 100%;
         background-color: @mainColor;
+        box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
 
 
         & .burger-icon {
