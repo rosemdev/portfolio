@@ -85,7 +85,7 @@
             },
 
             isTopElement() {
-                let topElement = this.$root.$el.firstChild;
+                let topElement = this.$root.$el.querySelector('.content').firstChild;
 
                 if (topElement && topElement.nodeType === 1) {
                     this.topElementHeight = topElement.getBoundingClientRect().height;
