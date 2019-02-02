@@ -1,6 +1,6 @@
 <template>
-    <div class="navigation">
-        <transition name="fade" mode="out-in" class="navigation">
+    <div class="navigation" :class="{openMenu: showNav}">
+        <transition name="fade5" mode="out-in" class="navigation">
             <nav v-show="showNav">
                 <ul>
                     <router-link
@@ -56,9 +56,10 @@
 
     .navigation {
         position: fixed;
-        right: 0;
+        right: -410px;
         top: 0;
         bottom: 0;
+        transition: right .5s ease-in-out;
 
         & nav {
             padding: 15px;
@@ -116,6 +117,10 @@
         }
     }
 
+    .navigation.openMenu {
+        right: 1px;
+    }
+
     .responsive(@tablet, { .navigation {
         & nav {
             width: 410px;
@@ -135,13 +140,13 @@
 
 
 
-    .fade-enter-active {
-        transition: all .5s ease-in;
-    }
+    /*.fade-enter-active {*/
+        /*transition: all .5s ease-in;*/
+    /*}*/
 
-    .fade-enter, .fade-leave-to {
-        transition: all .5s ease-out;
-        transform: translateX(70px);
-        opacity: 0;
-    }
+    /*.fade-enter, .fade-leave-to {*/
+        /*transition: all .5s ease-out;*/
+        /*transform: translateX(70px);*/
+        /*opacity: 0;*/
+    /*}*/
 </style>

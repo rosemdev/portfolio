@@ -1,18 +1,18 @@
 <template>
     <div id="app" :class="theme">
-        <div class="content" :class="{push: showNav}">
-            <keep-alive>
-                <router-view name="underHeader" ref="underHeader"></router-view>
-            </keep-alive>
-            <rosem-header :offsetValue="130" v-once></rosem-header>
-            <component :is="$route.meta.layout">
+            <div class="content" :class="{push: showNav}">
                 <keep-alive>
-                    <router-view></router-view>
+                    <router-view name="underHeader" ref="underHeader"></router-view>
                 </keep-alive>
-            </component>
-            <rosem-footer v-once></rosem-footer>
-        </div>
-           <rosem-navigation></rosem-navigation>
+                <rosem-header :offsetValue="130" v-once></rosem-header>
+                <component :is="$route.meta.layout">
+                    <keep-alive>
+                        <router-view></router-view>
+                    </keep-alive>
+                </component>
+                <rosem-footer v-once></rosem-footer>
+            </div>
+        <rosem-navigation></rosem-navigation>
     </div>
 </template>
 
@@ -89,13 +89,15 @@
     }
 
     .content {
-        transition: transform .3s ease-in-out;
-        box-shadow: 0 9px 31px 20px #0000001a;
+        transition: right .5s ease-in-out;
+        position: relative;
+        right: 0;
+        /*box-shadow: 0 9px 31px 20px #0000001a;*/
     }
 
     .content.push {
-        transform: translateX(-410px);
+        /*transform: translateX(-410px);*/
+        right: 410px;
     }
-
 
 </style>
