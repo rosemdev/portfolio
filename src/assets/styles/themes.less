@@ -30,6 +30,26 @@
     }
   }
 
+  & .navigation {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
+
+    nav {
+      ul {
+        li {
+          &:hover, &.active {
+            a {
+              color: @theme-default-main;
+            }
+          }
+        }
+      }
+    }
+  }
+
   & .homepage {
     .about {
       .about-me {
@@ -225,15 +245,15 @@
     &.colorful {
       border-color: @theme2-main;
       color: @theme2-main;
-  }
+    }
   }
 
   & .homepage {
     .about {
       .about-me {
         .photo {
-            &:after {
-              background-color: rgba(68, 111, 212, 0.48);
+          &:after {
+            background-color: rgba(68, 111, 212, 0.48);
           }
 
         }

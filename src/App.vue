@@ -92,11 +92,10 @@
         transition: right .5s ease-in-out;
         position: relative;
         right: 0;
-        /*box-shadow: 0 9px 31px 20px #0000001a;*/
+        z-index: 1;
     }
 
     .content.push {
-        /*transform: translateX(-410px);*/
         right: 410px;
     }
 

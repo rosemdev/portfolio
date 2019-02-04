@@ -1,21 +1,19 @@
 <template>
-    <div class="navigation" :class="{openMenu: showNav}">
-        <transition name="fade5" mode="out-in" class="navigation">
-            <nav v-show="showNav">
-                <ul>
-                    <router-link
-                            tag="li"
-                            v-for="(item) in menuItems"
-                            :key="item.url"
-                            active-class="active"
-                            :to="{path: item.url}"
-                            exact
-                    >
-                        <a tabindex="0">{{ item.text}}</a>
-                    </router-link>
-                </ul>
-            </nav>
-        </transition>
+    <div class="navigation">
+        <nav>
+            <ul>
+                <router-link
+                        tag="li"
+                        v-for="(item) in menuItems"
+                        :key="item.url"
+                        active-class="active"
+                        :to="{path: item.url}"
+                        exact
+                >
+                    <a tabindex="0">{{ item.text}}</a>
+                </router-link>
+            </ul>
+        </nav>
     </div>
 </template>
 <script>
@@ -43,10 +41,6 @@
                 'showNav'
             ]),
         },
-
-        created() {
-
-        },
     }
 </script>
 <style lang="less" scoped>
@@ -56,35 +50,24 @@
 
     .navigation {
         position: fixed;
-        right: -410px;
         top: 0;
         bottom: 0;
-        transition: right .5s ease-in-out;
+        right: 0;
+        z-index: 0;
 
-        & nav {
+        nav {
             padding: 15px;
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            z-index: 8;
             height: 100vh;
             width: 320px;
-            box-shadow: 0 1px 23px 5px #0000001a;
-            background-color: white;
-
-            &:before {
-                content: '';
-                position: absolute;
-                top: 0;
-                right: 0;
-                width: 100%;
-                height: 120vh;
-                background-color: white;
-                border-right: 2px solid @mainColor;
-            }
+            margin-left: auto;
+            background-color: @mainColor;
 
             ul {
                 margin-right: -13px;
+
                 li {
                     text-align: right;
                     font-size: 3rem;
@@ -103,27 +86,20 @@
                             width: 6px;
                             height: 100%;
                         }
-
-                        & a {
-                            color: black;
-                        }
                     }
 
                     a {
-                        color: @mainColor;
+                        color: white;
                     }
                 }
             }
         }
     }
 
-    .navigation.openMenu {
-        right: 1px;
-    }
-
     .responsive(@tablet, { .navigation {
-        & nav {
+        nav {
             width: 410px;
+
             ul {
                 li {
                     font-size: 4rem;
@@ -138,15 +114,4 @@
         }
     } });
 
-
-
-    /*.fade-enter-active {*/
-        /*transition: all .5s ease-in;*/
-    /*}*/
-
-    /*.fade-enter, .fade-leave-to {*/
-        /*transition: all .5s ease-out;*/
-        /*transform: translateX(70px);*/
-        /*opacity: 0;*/
-    /*}*/
 </style>
