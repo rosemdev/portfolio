@@ -76,9 +76,9 @@
 
                 &:hover {
                     &:before {
-                        width: 100%;
-                        left: 7px;
-                        bottom: -3px;
+                        width: 82%;
+                        left: 17px;
+                        bottom: -4px;
                     }
                 }
 
@@ -98,8 +98,15 @@
 
                 &.icons {
                     &:before {
-                        left: -15px;
+                        width: 15px;
+                        left: -18px;
                         bottom: 17px;
+                    }
+
+                    &:hover {
+                        &:before {
+                            left: -15px;
+                        }
                     }
 
                     a {

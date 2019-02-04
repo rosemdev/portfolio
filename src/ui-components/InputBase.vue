@@ -82,14 +82,10 @@
 
         input, textarea {
             border-bottom: 1px solid #bebebe;
-            border-right: 1px solid #bebebe;
-            border-radius: 99px;
-            border-top-right-radius: 0;
             display: block;
             font-size: 15px;
             margin: 25px 10px;
             color: @mainColor;
-
 
             &::placeholder {
                 font-size: 15px;
@@ -100,9 +96,8 @@
             position: absolute;
             width: 0;
             height: 1px;
-            background-color: tomato;
-            left: 40px;
             bottom: 26px;
+            background-color: tomato;
             transition: all .4s linear;
         }
 
@@ -112,7 +107,7 @@
             width: 100%;
 
             &.red-line {
-                width: calc(100% - 70px);
+                width: 100%;
             }
 
             &.error-message {

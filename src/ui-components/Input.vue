@@ -65,14 +65,6 @@
             width: 340px;
         }
 
-        /*.error {*/
-            /*&.red-line {*/
-                /*&:after {*/
-                    /*width: 340px;*/
-                /*}*/
-            /*}*/
-        /*}*/
-
     } });
 
 </style>

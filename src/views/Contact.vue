@@ -1,5 +1,5 @@
 <template>
-    <div class="main-container contact-page">
+    <div class="contact-page">
         <div class="main-content form">
             <p>Let's get down to the business</p>
             <rosem-contact-form></rosem-contact-form>
@@ -61,6 +61,7 @@
         flex-wrap: wrap;
         padding-bottom: 9rem;
         padding-top: 3rem;
+        background-color: white;
 
         .form {
             p {

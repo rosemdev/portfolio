@@ -39,7 +39,7 @@
         </div>
         <div class="social-block">
             <rosem-logo></rosem-logo>
-            <p>Find me in: </p>
+            <p class="find-me-in">Find me in: </p>
             <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
             <div class="scroll-top">
                 <rosem-scroll-block></rosem-scroll-block>
@@ -138,10 +138,10 @@
                 }
             }
 
-            p {
+            .find-me-in {
                 color: white;
-                font-size: 25px;
-                text-transform: lowercase;
+                font-size: 20px;
+                text-transform: uppercase;
                 margin-bottom: -15px;
             }
 

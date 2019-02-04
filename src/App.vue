@@ -91,12 +91,19 @@
     .content {
         transition: right .5s ease-in-out;
         position: relative;
+        overflow: hidden;
         z-index: 1;
         right: 0;
     }
 
     .content.push {
-        right: 410px;
+        right: 295px;
     }
+
+
+    .responsive(@tablet, {  .content.push {
+            right: 410px;
+
+    } });
 
 </style>

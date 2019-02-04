@@ -187,6 +187,7 @@
         text-align: left;
         font-size: 17px;
         min-height: 100vh;
+        background-color: white;
 
         .article-content {
             max-width: 900px;
