@@ -82,7 +82,6 @@
                             position: absolute;
                             right: -1px;
                             top: 0;
-                            background-color: black;
                             width: 6px;
                             height: 100%;
                         }

@@ -31,16 +31,14 @@
   }
 
   & .navigation {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    z-index: 0;
-
     nav {
       ul {
         li {
           &:hover, &.active {
+            &:after {
+              background-color: @theme-default-main;;
+            }
+
             a {
               color: @theme-default-main;
             }
@@ -150,6 +148,24 @@
     }
   }
 
+  & .navigation {
+    nav {
+      ul {
+        li {
+          &:hover, &.active {
+            &:after {
+              background-color: @theme1-main;
+            }
+
+            a {
+              color: @theme1-main;
+            }
+          }
+        }
+      }
+    }
+  }
+
   & .homepage {
     .about {
       .about-me {
@@ -248,6 +264,24 @@
     }
   }
 
+  & .navigation {
+    nav {
+      ul {
+        li {
+          &:hover, &.active {
+            &:after {
+              background-color: @theme2-main;
+            }
+
+            a {
+              color: @theme2-main;
+            }
+          }
+        }
+      }
+    }
+  }
+
   & .homepage {
     .about {
       .about-me {
@@ -342,6 +376,24 @@
     &.colorful {
       border-color: @theme3-main;
       color: @theme3-main
+    }
+  }
+
+  & .navigation {
+    nav {
+      ul {
+        li {
+          &:hover, &.active {
+            &:after {
+              background-color: @theme3-main;
+            }
+
+            a {
+              color: @theme3-main;
+            }
+          }
+        }
+      }
     }
   }
 

@@ -91,8 +91,8 @@
     .content {
         transition: right .5s ease-in-out;
         position: relative;
-        right: 0;
         z-index: 1;
+        right: 0;
     }
 
     .content.push {
