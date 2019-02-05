@@ -42,10 +42,10 @@
             left: -2px;
             width: 1px;
             cursor: pointer;
-            padding: 2px;
+            padding: 1px;
             background-color: white;
             display: block;
-            height: 56px;
+            height: 50px;
             transform-origin: 28px;
             opacity: 0;
         }
@@ -67,8 +67,7 @@
 
         &:hover {
             & span {
-                opacity: .5;
-                box-shadow: 0 9px 31px 20px #0000001a;
+                opacity: .2;
                 animation-fill-mode: forwards;
                 animation-duration: .5s;
                 animation-timing-function: ease-in-out;
@@ -129,7 +128,7 @@
         }
 
         to {
-            transform: rotate(90deg);
+            transform: rotate(90deg) translate(6px, 1px);
             opacity: 1;
         }
     }
@@ -137,7 +136,6 @@
     @keyframes span2 {
         from {
             transform: rotate(-90deg) translate(26px, 26px);
-            /*transform: translate(26px, -26px);*/
             opacity: 0;
         }
 
@@ -152,7 +150,7 @@
         }
 
         to {
-            transform: rotate(0deg) translateX(52px);
+            transform: rotate(0deg) translate(50px, 3px);
             opacity: 1;
         }
     }
@@ -174,7 +172,7 @@
         }
 
         to {
-            transform: rotate(90deg) translateX(52px);
+            transform: rotate(90deg) translate(54px, 1px);
             opacity: 1;
         }
     }
@@ -182,7 +180,6 @@
     @keyframes span4 {
         from {
             transform: rotate(-90deg) translate(26px, -26px);
-            /*transform: rotate(0) translate(26px, 26px);*/
             opacity: 0;
         }
 
@@ -196,7 +193,7 @@
         }
 
         to {
-            transform: rotate(0deg);
+            transform: rotate(0deg) translate(2px, 3px);
             opacity: 1;
         }
     }

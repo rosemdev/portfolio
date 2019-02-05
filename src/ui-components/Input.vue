@@ -48,8 +48,7 @@
         }
 
         input {
-            padding: 15px;
-            margin: 25px 10px;
+
             width: 250px;
         }
 

@@ -60,24 +60,28 @@
         }
 
         textarea {
-            padding: 20px 15px;
             resize: none;
             width: 100%;
-            margin: 10px 0;
-        }
-
-
-        .error.red-line {
-            width: calc(100% - 80px);
-            bottom: 11px;
+            margin: 25px 0;
 
         }
+
+
+
 
         .error {
+            &.error.red-line {
+                width: 100%;
+                bottom: 26px;
+                left: 0;
+
+            }
+
             &.error-message {
                 margin-left: 0;
                 margin-top: -5px;
             }
+
         }
     }
 

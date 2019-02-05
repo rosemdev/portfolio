@@ -84,8 +84,11 @@
             border-bottom: 1px solid #bebebe;
             display: block;
             font-size: 15px;
+            padding: 15px;
             margin: 25px 10px;
             color: @mainColor;
+            position: relative;
+            overflow: hidden;
 
             &::placeholder {
                 font-size: 15px;
@@ -104,10 +107,11 @@
         .error {
             position: relative;
             display: block;
-            width: 100%;
+
 
             &.red-line {
-                width: 100%;
+                width: calc(100% - 10px);
+                left: 10px;
             }
 
             &.error-message {
