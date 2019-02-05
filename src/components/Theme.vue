@@ -1,7 +1,7 @@
 <template>
     <div class="theme">
-        <p class="check">Check it out</p>
-        <div class="arrow"></div>
+        <p class="check">Select. Click. Check it out</p>
+        <div class="arrow" ref="arrow"></div>
         <div class="select-theme">
             <span @click="$root.$emit('change-theme', 'theme1')">Click me</span>
             <span @click="$root.$emit('change-theme', 'theme2')">...or me</span>
@@ -12,7 +12,33 @@
 </template>
 <script>
     export default {
-        methods: {}
+        methods: {
+            scrollInto() {
+
+                let homepageElement = document.querySelector('.homepage');
+
+                if(homepageElement) {
+                    homepageElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                } else {
+                    throw  new Error(' There is no such class or element.');
+                }
+            }
+        },
+
+        mounted() {
+            this.$nextTick(() => {
+                this.$refs.arrow.addEventListener('click', this.scrollInto);
+
+            });
+        },
+
+        destroyed() {
+            this.$refs.arrow.removeEventListener('click', this.scrollInto);
+        }
     }
 </script>
 <style lang="less" src="../assets/styles/themes.less"></style>

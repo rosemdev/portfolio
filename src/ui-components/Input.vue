@@ -41,12 +41,6 @@
             left: 10px;
         }
 
-        @-moz-document url-prefix() {
-            label {
-                height: 57px !important;
-            }
-        }
-
         input {
 
             width: 250px;
@@ -55,11 +49,6 @@
     }
 
     .responsive(@tablet, { .field {
-
-        label {
-            width: 340px;
-        }
-
         input {
             width: 340px;
         }

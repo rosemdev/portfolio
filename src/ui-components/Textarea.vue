@@ -48,26 +48,12 @@
     @import "../assets/styles/mixins";
 
     .field {
-
-        label {
-            top: -7px;
-        }
-
-        @-moz-document url-prefix() {
-            label.mozila-fix {
-                height: 120px !important;
-            }
-        }
-
         textarea {
             resize: none;
             width: 100%;
             margin: 25px 0;
 
         }
-
-
-
 
         .error {
             &.error.red-line {
