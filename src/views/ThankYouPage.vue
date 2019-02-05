@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="main-content than-you">
+    <div class="thank-you-page">
+        <div class="main-content signature">
             <div class="image">
                 <img src="../assets/images/icons/winning-project.svg" alt="">
             </div>
@@ -10,7 +10,7 @@
                 <p>Kind regards,<br>Romanna.</p>
             </div>
         </div>
-        <div class="controls">
+        <div class="main-content controls">
             <rosem-button to="/">back home</rosem-button>
             <p>
                 <rosem-button to="blog" class="dark">visit blog</rosem-button>
@@ -44,30 +44,38 @@
     @import "../assets/styles/design";
     @import "../assets/styles/mixins";
 
-    .than-you {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        color: @mainColor;
-        text-align: left;
+    .thank-you-page {
+        background-color: white;
 
-        p {
-            font-size: 20px;
-        }
+        .signature {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: @mainColor;
+            text-align: left;
 
-        .image {
-            width: 200px;
-            margin: 45px;
-        }
+            p {
+                font-size: 20px;
+            }
 
-        .controls {
-            padding-bottom: 40px;
+            .image {
+                width: 200px;
+                margin: 45px;
+            }
+
+            .controls {
+                padding-bottom: 40px;
+            }
         }
     }
 
-    .responsive(@desktop, { .not-found-page {
-        flex-direction: row;
+
+    .responsive(@desktop, { .thank-you-page {
+        .signature {
+            flex-direction: row;
+
+        }
 
     } });
 </style>

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <div class="not-found-page">
+    <div class="not-found-page">
+        <div class="main-content not-found">
             <div class="image">
                 <img id="tree" src="../assets/images/icons/three-pines.svg" alt="">
                 <img id="garlands" src="../assets/images/icons/garlands.svg" alt="">
@@ -10,7 +10,7 @@
                 <p>Looks like you're lost...</p>
             </div>
         </div>
-        <div class="controls">
+        <div class="main-content controls">
             <rosem-button to="/">back home</rosem-button>
             <p>
                 <rosem-button @click.native="$router.go(-1)" class="dark">go back</rosem-button>
@@ -22,7 +22,7 @@
     import RosemButton from "../ui-components/Button"
 
     export default {
-        name: '404 Not found',
+        name: 'NotFound',
         metaInfo() {
             return {
                 title: this.$options.name
@@ -44,43 +44,46 @@
     @import "../assets/styles/mixins";
 
     .not-found-page {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        cursor: pointer;
-        color: @mainColor;
+        background-color: white;
 
-        .image {
-            position: relative;
-            display: inline;
-            align-self: center;
-            margin-right: 25px;
+        .not-found {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            cursor: pointer;
+            color: @mainColor;
 
-            img#tree {
-                width: 236px;
+            .image {
+                position: relative;
+                display: inline;
+                align-self: center;
+                margin-right: 25px;
+
+                img#tree {
+                    width: 236px;
+                }
+
+                img#garlands {
+                    position: absolute;
+                    width: 58px;
+                    left: 27px;
+                    bottom: 55px;
+                    filter: grayscale(100%);
+                    transition: .3s ease-in-out;
+                }
             }
 
-            img#garlands {
-                position: absolute;
-                width: 58px;
-                left: 27px;
-                bottom: 55px;
-                filter: grayscale(100%);
-                transition: .3s ease-in-out;
+            &:hover {
+                img#garlands {
+                    filter: none;
+                }
+            }
+
+            p {
+                font-size: 20px;
             }
         }
-
-        &:hover {
-            img#garlands {
-                filter: none;
-            }
-        }
-
-        p {
-            font-size: 20px;
-        }
-
     }
 
     .controls {
@@ -92,10 +95,14 @@
     }
 
     .responsive(@desktop, { .not-found-page {
-        flex-direction: row;
+        .not-found {
+            flex-direction: row;
 
-        .image {
-            align-self: flex-start;
+            .image {
+                align-self: flex-start;
+            }
+
         }
+
     } });
 </style>

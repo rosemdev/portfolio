@@ -97,7 +97,7 @@
     }
 
     .content.push {
-        right: 295px;
+        right: 250px;
     }
 
 

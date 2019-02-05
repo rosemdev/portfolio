@@ -70,7 +70,7 @@
 
                 li {
                     text-align: right;
-                    font-size: 3rem;
+                    font-size: 2rem;
                     padding: 15px 3rem 15px 0;
                     transition: all .3s ease-in-out;
                     position: relative;

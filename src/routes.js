@@ -66,7 +66,7 @@ export const routes = [
     },
     {
         path: '/404',
-        name: '404 NotFound',
+        name: 'NotFound',
         component: "views/404",
         meta: {
             layout: "layouts/OneColumnLayout",
