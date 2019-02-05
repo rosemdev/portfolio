@@ -66,7 +66,12 @@
         }
 
         &.dark {
-            background: @mainColor;
+            background: @mainColor !important;
+        }
+
+        &.light {
+            background: white !important;
+            color: @mainColor;
         }
 
         &.colorful {

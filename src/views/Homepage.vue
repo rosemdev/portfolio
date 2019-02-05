@@ -34,7 +34,7 @@
                             <p><span class="stage">{{ card.stage }}</span>
                                 <span class="stage-name">{{ card.name }}</span></p>
                             <p class="stage-description">{{ card.description }}</p>
-                            <rosem-button>more</rosem-button>
+                            <rosem-button class="light">more</rosem-button>
                         </div>
                     </rosem-card>
                 </div>
@@ -186,8 +186,6 @@
                 .button {
                     opacity: 1;
                     margin: auto;
-                    background: #fafafa;
-                    color: @mainColor;
                     margin-top: 3rem;
                 }
 

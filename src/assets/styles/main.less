@@ -71,6 +71,12 @@ body {
   font-family: inherit;
 }
 
+.grey-background {
+  & .hashtag:before, .hashtag-right:before {
+    color: #f5f5f5
+  }
+}
+
 
 .hashtag:before, .hashtag-right:before {
   content: "#" attr(data-hashtag);
@@ -79,7 +85,7 @@ body {
   top: -26px;
   font-size: 1.5em;
   font-weight: 700;
-  color: #f5f5f5;
+  color: rgba(248, 248, 248);
   width: 100%;
   left: -20px;
 }
@@ -127,7 +133,7 @@ body {
     }
 
   .hashtag:before, .hashtag-right:before {
-        top: -90px;
+        top: -110px;
         font-size: 3em;
       }
 
