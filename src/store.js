@@ -14,6 +14,9 @@ export default new Vuex.Store({
         totalPages: "",
         totalCards: "",
         showNav: false,
+        instagram: {
+            imageSrc: []
+        },
     },
 
     mutations: {
@@ -44,6 +47,10 @@ export default new Vuex.Store({
 
         navState(state, isOpen) {
             state.showNav = isOpen;
+        },
+
+        getPhotosFromInstagram(state, photoData) {
+            state.instagram = photoData;
         }
     },
 
@@ -155,6 +162,67 @@ export default new Vuex.Store({
                     throw error
 
                 });
+        },
+
+        getInstagramPhotos({dispatch}) {
+            return new Promise((resolve, reject) => {
+                let request = new XMLHttpRequest(),
+                    responseData,
+                    url = "https://api.instagram.com/v1/users/self/media/recent/?access_token=",
+                    accessToken = "8440872427.1677ed0.51740d5b84624cbab3d90e2f8e224b66";
+
+                request.open('GET', url + accessToken);
+                request.onload = () => {
+                    if (request.status === 200) {
+                        resolve(request.responseText);
+                        responseData = JSON.parse(request.responseText);
+                        dispatch('extractInfo', responseData.data);
+
+                    } else {
+                        let error = new Error(request.statusText);
+                        error.code = this.status;
+                        reject(error);
+                    }
+                };
+
+                request.send();
+            });
+        },
+
+        extractInfo({commit}, data) {
+
+            let instagram = {
+                imageSrc: [],
+                carouselImages: [],
+                likes: [],
+                postLink: [],
+                location: []
+            };
+            
+            console.log(data);
+
+            data.forEach(item => {
+                instagram.imageSrc.push(item.images.standard_resolution.url);
+                instagram.likes.push(item.likes.count);
+                instagram.postLink.push(item.link);
+
+                if (item.location !== null) {
+                    instagram.location.push(item.location.name);
+                } else {
+                    instagram.location.push('')
+                }
+
+                if (item.hasOwnProperty('carousel_media')) {
+                    item.carousel_media.forEach(carouselItem => {
+                        instagram.carouselImages.push(carouselItem.images.standard_resolution.url);
+
+                    });
+                }
+
+            });
+            
+
+            commit('getPhotosFromInstagram', instagram);
         },
     },
 });

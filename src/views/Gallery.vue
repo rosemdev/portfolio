@@ -1,6 +1,6 @@
 <template>
     <div class="gallery">
-        <rosem-photo-gallery :cols="5" :imageWarehouse="photos"></rosem-photo-gallery>
+        <rosem-photo-gallery :cols="5" :imageWarehouse="instagram.imageSrc"></rosem-photo-gallery>
         <div class="main-content gallery-quotes">
             <div class="margin quote">
                 <blockquote>When words become unclear, I shall focus with photographs. When images become
@@ -72,6 +72,7 @@
     import RosemCard from "../components/Card";
     import RosemInstaFeed from "../partials/InstaFeed";
     import {Carousel, Slide} from "vue-carousel";
+    import {mapState} from "vuex";
 
     export default {
         name: "Gallery",
@@ -98,6 +99,20 @@
             RosemInstaFeed,
             RosemButton,
         },
+
+        computed: {
+            ...mapState([
+                'instagram'
+            ]),
+        },
+
+        created() {
+            this.$store.dispatch('getInstagramPhotos').then(() => {
+                console.log(this.instagram.imageSrc.length);
+
+            });
+
+        }
     }
 </script>
 <style lang="less" scoped>
@@ -110,23 +125,31 @@
         .object-fit(@fit: cover);
     }
 
+    blockquote {
+        font-size: 25px;
+        font-weight: 200;
+        text-align: right;
+        margin: 200px 0;
+        quotes: "\201C""\201D""\2018""\2019";
+
+        &:before, &:after {
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            color: tomato;
+        }
+
+    }
+
+
     .gallery {
         background-color: white;
 
         .gallery-quotes {
             .quote {
                 blockquote {
-                    font-size: 25px;
-                    text-align: right;
-                    margin: 200px 0;
-                    quotes: "\201C""\201D""\2018""\2019";
-
                     &:before {
-                        color: tomato;
                         content: open-quote;
-                        font-size: 4em;
-                        line-height: 0.1em;
-                        margin-right: 0.25em;
                         vertical-align: -0.4em;
                     }
                 }
@@ -222,17 +245,8 @@
 
         .last-quote {
             blockquote {
-                font-size: 25px;
-                text-align: left;
-                margin: 200px 0;
-                quotes: "\201C""\201D""\2018""\2019";
-
                 &:after {
-                    color: tomato;
                     content: close-quote;
-                    font-size: 4em;
-                    line-height: 0.1em;
-                    margin-right: 0.25em;
                     vertical-align: -0.7em;
                 }
             }

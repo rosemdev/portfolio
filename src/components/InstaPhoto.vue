@@ -91,7 +91,7 @@
                 position: absolute;
                 bottom: 0;
                 height: 20%;
-                background-color: rgba(0, 0, 0, 0.7);
+                background: linear-gradient(to top, rgba(0, 0, 0, .7) 33%, transparent);
                 width: 100%;
                 display: flex;
                 align-items: center;
@@ -104,6 +104,8 @@
                 .location {
                     cursor: pointer;
                     color: white;
+                    font-weight: bold;
+                    font-size: 25px;
 
                     &:hover {
                         text-decoration: underline;
@@ -113,6 +115,7 @@
                 .likes {
                     display: flex;
                     align-items: center;
+                    font-size: 1.4em;
 
                     img {
                         width: 15px;

@@ -2,16 +2,22 @@
     <div class="gallery">
         <div class="row" v-for="row in computedRows" :key="row">
             <div class="col" v-for="col in cols" :key="getSrc(row, col)">
-                <img :src="getSrc(row, col)"/>
+               <img :src="getSrc(row, col)"/>
             </div>
         </div>
     </div>
 </template>
 <script>
+    import RosemInstaPhoto from "../components/InstaPhoto";
+
 
     export default {
         data() {
             return {}
+        },
+
+        components: {
+            RosemInstaPhoto,
         },
 
         props: {
@@ -23,6 +29,7 @@
                 type: Number,
             },
             imageWarehouse: {
+                type: Array,
                 required: true
             }
         },
@@ -38,7 +45,7 @@
 
         methods: {
             getSrc(row, col) {
-                return this.imageWarehouse[(row - 1) * this.cols + col - 1].imageSource
+                return this.imageWarehouse[(row - 1) * this.cols + col - 1]
             },
         },
     }
@@ -47,6 +54,7 @@
     @import "../assets/styles/design";
 
     .gallery {
+        padding: 0 8px;
         width: 100%;
         height: 400px;
         display: flex;
@@ -68,7 +76,7 @@
             & .col {
                 background-color: tomato;
                 flex: 0.0000000001 2 20%; // 100% / cols
-                border: 1px solid white;
+                border: 8px solid white;
                 transition: flex 0.3s ease-in-out;
                 display: flex;
 
@@ -80,13 +88,15 @@
                 }
 
                 &:hover {
-                    flex: 1 1 90%;
+                    /*flex: 1 1 90%;*/
+                    flex: 1 2 37%;
                 }
 
             }
 
             &:hover {
-                flex: 1 1 90%;
+                /*flex: 1 1 90%;*/
+                flex: 1 2 63%;
             }
 
         }
