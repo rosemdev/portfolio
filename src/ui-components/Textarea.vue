@@ -65,7 +65,6 @@
 
             &.error-message {
                 margin-left: 0;
-                margin-top: -5px;
             }
 
         }
