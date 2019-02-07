@@ -89,6 +89,7 @@
 
                     a {
                         color: white;
+                        transition: color .3s;
                     }
                 }
             }

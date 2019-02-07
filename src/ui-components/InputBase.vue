@@ -52,8 +52,8 @@
     .field {
         position: relative;
         display: flex;
-        align-items: start;
-        justify-content: start;
+        align-items: flex-start;
+        justify-content: flex-start;
         flex-direction: column;
         color: @mainColor;
 

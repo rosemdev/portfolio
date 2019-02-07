@@ -55,7 +55,7 @@
 
     .contact-page {
         display: flex;
-        align-items: start;
+        align-items: flex-start;
         justify-content: center;
         flex-direction: column;
         flex-wrap: wrap;
