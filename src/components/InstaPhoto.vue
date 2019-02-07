@@ -62,7 +62,6 @@
     .insta-photo {
         color: white;
         position: relative;
-        /*background: url("../assets/images/icons/instagram.svg") ;*/
 
         > a {
             display: block;
@@ -123,4 +122,6 @@
             }
         }
     }
+
+    .responsive(@desktop, {});
 </style>

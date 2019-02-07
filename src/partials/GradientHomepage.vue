@@ -3,9 +3,11 @@
         <div class="main-content intro" slot="gradientContent">
             <h1>Hello! I'm rosem</h1>
             <h2>And I like to create pretty cool websites</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dignissimos dolorem
-                eaque
-                est facere laudantium magnam maiores, numquam quia quibusdam sequi, sit vero voluptas?</p>
+            <p>I'm experienced Quality Assurance Engineer. Skilled in software quality, manual testing, and
+                cross-browser compatibility. I'm working with e-commerce sphere, especially with content
+                management systems like Magento 1/2, Typo3, Drupal and so on... and I love frontend so much and wanna
+                become a developer. So welcome to portfolio, this is my first and the biggest project on VueJS. Feel
+                free to contact me if you have questions or just to talk! Let's go!</p>
             <rosem-theme></rosem-theme>
         </div>
     </rosem-gradient>
@@ -53,7 +55,7 @@
     }
 
     .responsive(@desktop, { .intro {
-        padding-top: 17rem;
+        padding-top: 15rem;
         padding-bottom: 17rem;
 
         h1 {
