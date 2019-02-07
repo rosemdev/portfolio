@@ -14,9 +14,7 @@ export default new Vuex.Store({
         totalPages: "",
         totalCards: "",
         showNav: false,
-        instagram: {
-            imageSrc: []
-        },
+        instagram: {},
     },
 
     mutations: {
@@ -191,36 +189,31 @@ export default new Vuex.Store({
 
         extractInfo({commit}, data) {
 
-            let instagram = {
-                imageSrc: [],
-                carouselImages: [],
-                likes: [],
-                postLink: [],
-                location: []
-            };
-            
-            console.log(data);
+            let instagram = [];
 
             data.forEach(item => {
-                instagram.imageSrc.push(item.images.standard_resolution.url);
-                instagram.likes.push(item.likes.count);
-                instagram.postLink.push(item.link);
+                instagram.push(
+                    {
+                        imageSrc: item.images.standard_resolution.url,
+                        likes: item.likes.count,
+                        postLink: item.link,
+                        location: item.location !== null ? item.location.name : '',
+                        carouselImages: getCarouselImages(),
+                    }
+                );
 
-                if (item.location !== null) {
-                    instagram.location.push(item.location.name);
-                } else {
-                    instagram.location.push('')
-                }
+                function getCarouselImages() {
+                    let carousel = [];
+                    if (item.hasOwnProperty('carousel_media')) {
+                        item.carousel_media.forEach(carouselItem => {
+                            carousel.push(carouselItem.images.standard_resolution.url);
+                        });
+                    }
 
-                if (item.hasOwnProperty('carousel_media')) {
-                    item.carousel_media.forEach(carouselItem => {
-                        instagram.carouselImages.push(carouselItem.images.standard_resolution.url);
-
-                    });
+                    return carousel;
                 }
 
             });
-            
 
             commit('getPhotosFromInstagram', instagram);
         },
