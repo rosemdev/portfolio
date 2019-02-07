@@ -1,23 +1,16 @@
 <template>
     <div class="gallery">
         <div class="row" v-for="row in computedRows" :key="row">
-            <div class="col" v-for="col in cols" :key="getSrc(row, col)">
-               <img :src="getSrc(row, col)"/>
+            <div class="col" v-for="(col, index) in cols" :key="index">
+                <slot :item="collection[(row - 1) * cols + col - 1]"></slot>
             </div>
         </div>
     </div>
 </template>
 <script>
-    import RosemInstaPhoto from "../components/InstaPhoto";
-
-
     export default {
         data() {
             return {}
-        },
-
-        components: {
-            RosemInstaPhoto,
         },
 
         props: {
@@ -28,25 +21,19 @@
             rows: {
                 type: Number,
             },
-            imageWarehouse: {
+            collection: {
                 type: Array,
                 required: true
-            }
+            },
         },
 
         computed: {
             computedCols() {
-                return Math.ceil(this.imageWarehouse.length / this.rows);
+                return Math.ceil(this.collection.length / this.rows);
             },
             computedRows() {
-                return Math.ceil(this.imageWarehouse.length / this.cols);
+                return Math.ceil(this.collection.length / this.cols);
             }
-        },
-
-        methods: {
-            getSrc(row, col) {
-                return this.imageWarehouse[(row - 1) * this.cols + col - 1]
-            },
         },
     }
 </script>
@@ -69,23 +56,12 @@
             flex: 0.0000000001 2 25%; // 100% / rows
             transition: flex 0.3s ease-in-out;
 
-            & img {
-                width: 100%;
-            }
-
             & .col {
                 background-color: tomato;
                 flex: 0.0000000001 2 20%; // 100% / cols
-                border: 8px solid white;
+                margin: 8px;
                 transition: flex 0.3s ease-in-out;
                 display: flex;
-
-                & img {
-                    width: 100%;
-                    object-fit: cover;
-                    .object-fit(@fit: cover);
-                    transition: transform .3s ease-in-out;
-                }
 
                 &:hover {
                     /*flex: 1 1 90%;*/
