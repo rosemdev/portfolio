@@ -22,7 +22,7 @@
             object-fit: cover;
             .object-fit(@fit: cover);
             display: block;
-            
+
             &:hover {
                 transform: scale(1.1);
             }

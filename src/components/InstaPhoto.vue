@@ -1,24 +1,22 @@
 <template>
     <div class="insta-photo">
-        <rosem-photo>
-            <a :href="postLink" target="_blank">
-                <img :src="imageSrc">
+        <a :href="postLink" target="_blank">
+            <img :src="imageSrc">
+        </a>
+        <div class="photo-info">
+            <a
+                    :href="showMap(location)"
+                    class="location"
+                    @click="$emit('location-clicked')"
+                    target="_blank"
+                    v-if="location"
+            >{{ location }}
             </a>
-            <div class="photo-info">
-                <a
-                        :href="showMap(location)"
-                        class="location"
-                        @click="$emit('location-clicked')"
-                        target="_blank"
-                        v-if="location"
-                >{{ location }}
-                </a>
-                <p class="likes">
-                    <img src="../assets/images/icons/heart.svg" alt="likes">
-                    <span>{{ likes }}</span>
-                </p>
-            </div>
-        </rosem-photo>
+            <p class="likes">
+                <img src="../assets/images/icons/heart.svg" alt="likes">
+                <span>{{ likes }}</span>
+            </p>
+        </div>
     </div>
 </template>
 <script>
@@ -49,7 +47,6 @@
         },
 
         methods: {
-
             showMap(locationStr) {
                 let googleMap = "https://www.google.com/maps/search/?api=1&query=";
                 locationStr = this.location.replace(/[, ]+/g, "+").toLowerCase();
@@ -64,68 +61,60 @@
 
     .insta-photo {
         color: white;
-        .photo {
-            position: relative;
-            box-shadow: none;
+        position: relative;
+        /*background: url("../assets/images/icons/instagram.svg") ;*/
 
-            &:before {
-                content: '';
-                display: block;
-                width: 20px;
-                height: 20px;
-                position: absolute;
-                right: 15px;
-                top: 15px;
-                z-index: 2;
-                background: url("../assets/images/icons/instagram.svg") ;
-            }
+        > a {
+            display: block;
+            height: 100%;
+        }
 
-            a {
-                img {
-                    width: 100%;
-                    height: 400px;
+        > img,
+        > a > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            .object-fit(@fit: cover);
+            transition: transform .3s ease-in-out;
+        }
+
+        .photo-info {
+            position: absolute;
+            bottom: 0;
+            height: 20%;
+            background: linear-gradient(to top, rgba(0, 0, 0, .7) 33%, transparent);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 10px;
+            font-weight: 400;
+            opacity: 0;
+            transition: opacity .5s ease-in-out;
+
+            .location {
+                cursor: pointer;
+                color: white;
+                font-weight: bold;
+                font-size: 25px;
+
+                &:hover {
+                    text-decoration: underline;
                 }
             }
 
-            .photo-info {
-                position: absolute;
-                bottom: 0;
-                height: 20%;
-                background: linear-gradient(to top, rgba(0, 0, 0, .7) 33%, transparent);
-                width: 100%;
+            .likes {
                 display: flex;
                 align-items: center;
-                justify-content: space-around;
-                padding: 10px;
-                font-weight: 400;
-                opacity: 0;
-                transition: opacity .5s ease-in-out;
+                font-size: 1.4em;
 
-                .location {
-                    cursor: pointer;
-                    color: white;
-                    font-weight: bold;
-                    font-size: 25px;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-
-                .likes {
-                    display: flex;
-                    align-items: center;
-                    font-size: 1.4em;
-
-                    img {
-                        width: 15px;
-                        height: 15px;
-                        margin: 10px;
-                        background-size: 15px 15px;
-                    }
+                img {
+                    width: 24px;
+                    height: 24px;
+                    margin: 10px;
+                    background-size: 15px 15px;
                 }
             }
-
         }
 
         &:hover {

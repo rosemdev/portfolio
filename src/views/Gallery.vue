@@ -1,6 +1,17 @@
 <template>
     <div class="gallery">
-        <rosem-photo-gallery :cols="5" :imageWarehouse="instagram.imageSrc"></rosem-photo-gallery>
+        <rosem-photo-gallery :cols="5"
+                             :collection="instagram"
+                             v-slot="{ item: photo }"
+        >
+            <rosem-insta-photo
+                    :key="photo.imageSrc"
+                    :post-link="photo.postLink"
+                    :image-src="photo.imageSrc"
+                    :likes="photo.likes"
+                    :location="photo.location"
+            />
+        </rosem-photo-gallery>
         <div class="main-content gallery-quotes">
             <div class="margin quote">
                 <blockquote>When words become unclear, I shall focus with photographs. When images become
@@ -57,7 +68,6 @@
             <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
                 captured forever…
             </blockquote>
-            <rosem-insta-feed></rosem-insta-feed>
         </div>
     </div>
 </template>
@@ -66,13 +76,12 @@
     import RosemPhotoGallery from "../partials/PhotoGallery";
     import RosemButton from "../ui-components/Button";
     import RosemQuote from "../components/Quote";
-    import RosemHistoryLine from "../components/HistoryLine";
     import RosemPhoto from "../components/Photo";
     import RosemDescriptionBlock from "../components/DescriptionBlock";
-    import RosemCard from "../components/Card";
-    import RosemInstaFeed from "../partials/InstaFeed";
     import {Carousel, Slide} from "vue-carousel";
+    import RosemInstaPhoto from "../components/InstaPhoto"
     import {mapState} from "vuex";
+    import store from '@store'
 
     export default {
         name: "Gallery",
@@ -90,14 +99,12 @@
         components: {
             RosemPhotoGallery,
             RosemQuote,
-            RosemHistoryLine,
             RosemPhoto,
             RosemDescriptionBlock,
-            RosemCard,
             Carousel,
             Slide,
-            RosemInstaFeed,
             RosemButton,
+            RosemInstaPhoto,
         },
 
         computed: {
@@ -106,12 +113,15 @@
             ]),
         },
 
-        created() {
-            this.$store.dispatch('getInstagramPhotos').then(() => {
-                console.log(this.instagram.imageSrc.length);
 
+        beforeRouteEnter(to, from, next) {
+            store.dispatch('getInstagramPhotos').then(function () {
+                next()
+            }).catch(() => {
+                next(vm => {
+                    vm.$router.push({name: 'NotFound'});
+                })
             });
-
         }
     }
 </script>
@@ -211,7 +221,7 @@
         .gallery-complect {
             display: flex;
             align-items: center;
-            justify-content: start;
+            justify-content: flex-start;
             flex-direction: column;
             position: relative;
             z-index: 1;
@@ -224,9 +234,7 @@
                 height: 100%;
                 z-index: -1;
                 left: 0;
-                top: -60px;
                 background-color: #262a2e;
-                padding: 60px;
                 display: block;
             }
 
