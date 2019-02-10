@@ -36,17 +36,14 @@
     .text-description {
         color: white;
         margin-left: 24px;
-        font-size: 15px;
-        line-height: 2.8;
-
 
         .text-background {
             span {
                 background-color: @mainColor;
                 padding: 15px;
+                font-size: 20px;
                 box-shadow: 10px 0 0 @mainColor, -10px 0 0 @mainColor;
                 line-height: 50px;
-                font-style: italic;
             }
 
             &:first-letter {

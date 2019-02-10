@@ -51,7 +51,7 @@
         h3 {
             font-weight: 400;
             margin: 25px 0;
-            font-size: 19px;
+            font-size: 20px;
         }
 
     }
