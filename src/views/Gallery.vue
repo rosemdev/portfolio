@@ -24,11 +24,11 @@
         </div>
         <div class="grey-background">
             <div class="main-content">
-                <p class="section-title right-text hashtag-right" data-hashtag="Montenegro">I love it</p>
+                <p class="section-title right-text hashtag-right" data-hashtag="I love it">Montenegro</p>
                 <div class="montenegro">
-                    <div class="design-photo">
+                    <rosem-photo class="design-photo">
                         <img src="../assets/images/photos/montenegro/montenegro.jpg" alt="montenegro">
-                    </div>
+                    </rosem-photo>
                     <div class="montenegro-description">
                         <rosem-description-block subtitle="montenegro" title="First country">
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="montenegro-memories">
-                        <div class="memories-photos">
+                        <div class="memories">
                             <div class="memories-description">
                                 <rosem-description-block subtitle=""
                                                          title="Dreams come true!">
@@ -72,36 +72,20 @@
                 </div>
             </div>
         </div>
-        <div class="main-content">
-            <p class="section-title left-text hashtag" data-hashtag="Russia">I love it</p>
-        </div>
-        <div class="gallery-complect">
-            <rosem-photo><img src="../assets/images/photos/ef908e5a83305dcaaf5106e1e4269997.jpg"></rosem-photo>
-            <rosem-description-block subtitle="lorem" title="Questions">
-                <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-                    atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
-                    soluta totam vitae, voluptates.
-                </template>
-                <rosem-button class="dark" slot="additional-info"><span>see details</span></rosem-button>
-            </rosem-description-block>
-            <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
-                <slide v-for="image in photos" :key="image.imageSource">
-                    <img :src="image.imageSource" class="carousel-images"
-                         style="width: 100%; height: 300px; object-fit:cover;">
-                </slide>
-            </carousel>
-        </div>
         <div class="main-content gallery-quotes">
             <p class="section-title right-text hashtag-right" data-hashtag="Quotes">I agree</p>
-            <div class="margin quote">
+            <div class="quote">
                 <blockquote>When words become unclear, I shall focus with photographs. When images become
                     inadequate, I shall
                     be content with silence.
                 </blockquote>
             </div>
         </div>
+        <div class="main-content">
+            <p class="section-title left-text hashtag" data-hashtag="Neighbors">Russia</p>
+        </div>
         <div class="gallery-history">
-            <rosem-photo><img src="../assets/images/photos/12bb14a8da987ea439288c84c9602e7a.jpg"></rosem-photo>
+            <rosem-photo><img src="../assets/images/photos/russia/russia.jpg"></rosem-photo>
             <rosem-description-block subtitle=""
                                      title="Dreams come true!">
                 <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus ad
@@ -111,6 +95,22 @@
                 </template>
                 >
             </rosem-description-block>
+        </div>
+        <div class="gallery-complect">
+            <rosem-photo><img src="../assets/images/photos/russia/IMG_20180715_111215_HDR.jpg"></rosem-photo>
+            <rosem-description-block subtitle="Russia" title="Mountains and see">
+                <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
+                    atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
+                    soluta totam vitae, voluptates.
+                </template>
+                <rosem-button class="dark" slot="additional-info"><span>see details</span></rosem-button>
+            </rosem-description-block>
+            <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
+                <slide v-for="image in russia" :key="image.imageSource">
+                    <img :src="image.imageSource" class="carousel-images"
+                         style="width: 100%; height: 350px; object-fit:cover;">
+                </slide>
+            </carousel>
         </div>
         <div class="margin main-content last-quote">
             <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
@@ -133,6 +133,7 @@
 </template>
 <script>
     import {photos} from "../data/photos";
+    import {russia} from "../data/russia";
     import RosemPhotoGallery from "../partials/PhotoGallery";
     import RosemButton from "../ui-components/Button";
     import RosemQuote from "../components/Quote";
@@ -153,7 +154,8 @@
 
         data() {
             return {
-                photos: photos
+                photos: photos,
+                russia: russia
             }
         },
         components: {
@@ -203,7 +205,7 @@
         font-size: 25px;
         font-weight: 200;
         text-align: left;
-        margin: 200px 0;
+        margin: 50px 0;
         quotes: "\201C""\201D""\2018""\2019";
 
         &:before, &:after {
@@ -273,8 +275,9 @@
 
             .montenegro-memories {
                 display: flex;
+                margin-top: 50px;
 
-                .memories-photos {
+                .memories {
                     display: flex;
                     flex-wrap: wrap;
                     align-items: flex-start;
@@ -369,7 +372,7 @@
                 z-index: -1;
                 right: 0;
                 top: -60px;
-                background-color: #d5809a;
+                background-color: rgba(96, 185, 123, 0.78);
                 padding: 60px;
 
             }
