@@ -36,6 +36,7 @@
                                 atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis
                                 repudiandae
                                 soluta totam vitae, voluptates.
+                                soluta totam vitae, voluptates.
                             </template>
                         </rosem-description-block>
                         <div class="carousel">
@@ -103,7 +104,6 @@
                     atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
                     soluta totam vitae, voluptates.
                 </template>
-                <rosem-button class="dark" slot="additional-info"><span>see details</span></rosem-button>
             </rosem-description-block>
             <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
                 <slide v-for="image in russia" :key="image.imageSource">
@@ -111,6 +111,20 @@
                          style="width: 100%; height: 350px; object-fit:cover;">
                 </slide>
             </carousel>
+        </div>
+        <div class="grey-background france">
+            <div class="main-content">
+                <p class="section-title left-text hashtag" data-hashtag="Fairy tale...">France</p>
+            </div>
+            <div class="france-memories">
+                <rosem-photo><img src="../assets/images/photos/russia/IMG_20180715_111215_HDR.jpg"></rosem-photo>
+                <rosem-description-block subtitle="Russia" title="Mountains and sea">
+                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
+                        atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
+                        soluta totam vitae, voluptates.
+                    </template>
+                </rosem-description-block>
+            </div>
         </div>
         <div class="main-content">
             <p class="section-title left-text hashtag" data-hashtag="Instagram">Instafeed</p>
@@ -209,7 +223,7 @@
         font-weight: 200;
         text-align: left;
         margin: 50px 0;
-        quotes: "\201C""\201D""\2018""\2019";
+        quotes: "\201C" "\201D" "\2018" "\2019";
 
         &:before, &:after {
             font-size: 4em;
@@ -265,6 +279,8 @@
 
             .design-photo {
                 flex-basis: 30%;
+                position: relative;
+                z-index: 2;
 
                 img {
                     width: 100%;
@@ -274,11 +290,26 @@
 
             .montenegro-description {
                 flex-basis: 68%;
+                position: relative;
+                z-index: 1;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    background-color: #dedede;
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    z-index: -1;
+                    padding: 25px 100% 25px;
+                }
             }
 
             .montenegro-memories {
                 display: flex;
-                margin-top: 50px;
+                margin-top: 100px;
 
                 .memories {
                     display: flex;
@@ -375,7 +406,7 @@
                 z-index: -1;
                 right: 0;
                 top: -60px;
-                background-color: rgba(96, 185, 123, 0.78);
+                background-color: #dedede;
                 padding: 60px;
 
             }

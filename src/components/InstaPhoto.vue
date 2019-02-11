@@ -85,8 +85,8 @@
             width: 100%;
             display: flex;
             align-items: center;
-            justify-content: space-around;
-            padding: 10px;
+            justify-content: space-between;
+            padding: 10px 25px;
             font-weight: 400;
             opacity: 0;
             transition: opacity .5s ease-in-out;
@@ -96,6 +96,7 @@
                 color: white;
                 font-weight: bold;
                 font-size: 25px;
+                white-space: nowrap;
 
                 &:hover {
                     text-decoration: underline;
@@ -106,6 +107,7 @@
                 display: flex;
                 align-items: center;
                 font-size: 1.4em;
+                margin-left: auto;
 
                 img {
                     width: 24px;
