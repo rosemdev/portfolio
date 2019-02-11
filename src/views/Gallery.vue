@@ -98,7 +98,7 @@
         </div>
         <div class="gallery-complect">
             <rosem-photo><img src="../assets/images/photos/russia/IMG_20180715_111215_HDR.jpg"></rosem-photo>
-            <rosem-description-block subtitle="Russia" title="Mountains and see">
+            <rosem-description-block subtitle="Russia" title="Mountains and sea">
                 <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
                     atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
                     soluta totam vitae, voluptates.
