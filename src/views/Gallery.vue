@@ -112,10 +112,8 @@
                 </slide>
             </carousel>
         </div>
-        <div class="margin main-content last-quote">
-            <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
-                captured forever…
-            </blockquote>
+        <div class="main-content">
+            <p class="section-title left-text hashtag" data-hashtag="Instagram">Instafeed</p>
         </div>
         <rosem-photo-gallery :cols="5"
                              :collection="instagram"
@@ -129,6 +127,11 @@
                     :location="photo.location"
             />
         </rosem-photo-gallery>
+        <div class="margin main-content last-quote">
+            <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
+                captured forever…
+            </blockquote>
+        </div>
     </div>
 </template>
 <script>

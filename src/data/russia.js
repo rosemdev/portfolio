@@ -10,16 +10,15 @@ import image9 from "../assets/images/photos/russia/IMG_20180712_131006.jpg";
 import image10 from "../assets/images/photos/russia/IMG_20180715_110648.jpg";
 import image11 from "../assets/images/photos/russia/IMG_20180715_110716.jpg";
 import image12 from "../assets/images/photos/russia/IMG_20180715_111134_HDR.jpg";
-import image13 from "../assets/images/photos/russia/IMG_20180715_111215_HDR.jpg";
-import image14 from "../assets/images/photos/russia/IMG_20180715_111616_HDR.jpg";
-import image15 from "../assets/images/photos/russia/IMG_20180715_112124_HDR.jpg";
-import image16 from "../assets/images/photos/russia/IMG_20180715_115607_HDR.jpg";
-import image17 from "../assets/images/photos/russia/IMG_20180715_115702_HDR.jpg";
-import image18 from "../assets/images/photos/russia/IMG_20180715_122520.jpg";
-import image19 from "../assets/images/photos/russia/IMG_20180716_085236.jpg";
-import image20 from "../assets/images/photos/russia/IMG_20180716_090652.jpg";
-import image21 from "../assets/images/photos/russia/IMG_20180907_155849.jpg";
-import image22 from "../assets/images/photos/russia/IMG_20180907_160007.jpg";
+import image13 from "../assets/images/photos/russia/IMG_20180715_111616_HDR.jpg";
+import image14 from "../assets/images/photos/russia/IMG_20180715_112124_HDR.jpg";
+import image15 from "../assets/images/photos/russia/IMG_20180715_115607_HDR.jpg";
+import image16 from "../assets/images/photos/russia/IMG_20180715_115702_HDR.jpg";
+import image17 from "../assets/images/photos/russia/IMG_20180715_122520.jpg";
+import image18 from "../assets/images/photos/russia/IMG_20180716_085236.jpg";
+import image19 from "../assets/images/photos/russia/IMG_20180716_090652.jpg";
+import image20 from "../assets/images/photos/russia/IMG_20180907_155849.jpg";
+import image21 from "../assets/images/photos/russia/IMG_20180907_160007.jpg";
 
 
 export let russia = [
@@ -106,10 +105,6 @@ export let russia = [
     },
     {
         imageSource: image21,
-        attributes: ""
-    },
-    {
-        imageSource: image22,
         attributes: ""
     },
 
