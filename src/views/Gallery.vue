@@ -124,7 +124,7 @@
                 </carousel>
             </div>
         </div>
-        <div class="grey-background france">
+        <div class="france">
             <div class="main-content">
                 <p class="section-title left-text hashtag" data-hashtag="Fairy tale...">France</p>
             </div>
@@ -147,9 +147,33 @@
             </div>
             <div class="memories-photo">
                 <div class="main-content">
-                    <p class="section-title right-text hashtag-right" data-hashtag="Paris">Paris</p>
                     <div class="france-photos">
-
+                        <div class="row">
+                            <div class="column">
+                                <img src="../assets/images/photos/france/IMG_20181124_164339.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_151725.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_155944.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_153837.jpg" alt="">
+                            </div>
+                            <div class="column">
+                                <img src="../assets/images/photos/france/IMG_20181124_160326.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_161534.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_155752.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_145721.jpg" alt="">
+                            </div>
+                            <div class="column background">
+                                <img src="../assets/images/photos/france/IMG_20181124_153319.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_172404.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_154428.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_162049.jpg" alt="">
+                            </div>
+                            <div class="column">
+                                <img src="../assets/images/photos/france/IMG_20181124_170645.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_162957.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_163139.jpg" alt="">
+                                <img src="../assets/images/photos/france/IMG_20181124_162800.jpg" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -519,11 +543,10 @@
 
         .memories-photo {
             .france-photos {
-                display: flex;
-                align-items: center;
-                flex-wrap: wrap;
                 position: relative;
                 z-index: 1;
+                overflow: hidden;
+                margin-top: 50px;
 
                 &:after {
                     content: '';
@@ -534,16 +557,45 @@
                     top: 0;
                     left: 0;
                     z-index: -1;
+                    margin-top: 75px;
+                }
+
+                .row {
+                    display: flex;
+                    align-items: center;
+                    flex-wrap: wrap;
+
+                }
+
+                .column {
+                    flex: 25%;
+                    max-width: 25%;
+                    padding: 0 5px;
+
+                    &.background {
+                        position: relative;
+                        z-index: 1;
+
+                        &:after {
+                            content: '';
+                            position: absolute;
+                            width: 100%;
+                            height: 100%;
+                            background-color: white;
+                            z-index: -1;
+                            top: 0;
+                            left: 0;
+                        }
+                    }
                 }
 
                 img {
                     width: 100%;
                     max-width: 300px;
                     display: block;
+                    object-fit: cover;
+                    margin: 15px;
 
-                    &:first-child {
-                        width: 600px;
-                    }
                 }
             }
         }
