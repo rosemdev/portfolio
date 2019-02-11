@@ -145,22 +145,32 @@
                 </div>
                 <rosem-photo class="design-photo"><img src="../assets/images/photos/france/france.jpg"></rosem-photo>
             </div>
+            <div class="memories-photo">
+                <div class="main-content">
+                    <p class="section-title right-text hashtag-right" data-hashtag="Paris">Paris</p>
+                    <div class="france-photos">
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="main-content">
-            <p class="section-title left-text hashtag" data-hashtag="Instagram">Instafeed</p>
+        <div class="instagram">
+            <div class="main-content">
+                <p class="section-title left-text hashtag" data-hashtag="Instagram">Instafeed</p>
+            </div>
+            <rosem-photo-gallery :cols="5"
+                                 :collection="instagram"
+                                 v-slot="{ item: photo }"
+            >
+                <rosem-insta-photo
+                        :key="photo.imageSrc"
+                        :post-link="photo.postLink"
+                        :image-src="photo.imageSrc"
+                        :likes="photo.likes"
+                        :location="photo.location"
+                />
+            </rosem-photo-gallery>
         </div>
-        <rosem-photo-gallery :cols="5"
-                             :collection="instagram"
-                             v-slot="{ item: photo }"
-        >
-            <rosem-insta-photo
-                    :key="photo.imageSrc"
-                    :post-link="photo.postLink"
-                    :image-src="photo.imageSrc"
-                    :likes="photo.likes"
-                    :location="photo.location"
-            />
-        </rosem-photo-gallery>
         <div class="margin main-content last-quote">
             <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
                 captured forever…
@@ -504,6 +514,37 @@
 
             .design-photo {
                 margin-right: auto;
+            }
+        }
+
+        .memories-photo {
+            .france-photos {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                position: relative;
+                z-index: 1;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: @mainColor;
+                    top: 0;
+                    left: 0;
+                    z-index: -1;
+                }
+
+                img {
+                    width: 100%;
+                    max-width: 300px;
+                    display: block;
+
+                    &:first-child {
+                        width: 600px;
+                    }
+                }
             }
         }
     }
