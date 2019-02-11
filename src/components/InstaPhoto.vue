@@ -125,5 +125,5 @@
         }
     }
 
-    .responsive(@desktop, {});
+    .responsive(@desktop, { });
 </style>
