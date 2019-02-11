@@ -19,7 +19,7 @@
         props: {
             buttonName: {
                 type: String,
-                default: 'sent'
+                default: 'send'
             }
         },
 
