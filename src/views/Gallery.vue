@@ -74,11 +74,11 @@
                                         voluptate.
                                     </template>
                                 </rosem-description-block>
-                            <img src="/images/photos/montenegro/IMG_20180624_201126.jpg" alt="">
+                                <img src="/images/photos/montenegro/IMG_20180624_201126.jpg" alt="">
                             </div>
                         </div>
                         <div class="column">
-                                <img src="/images/photos/montenegro/IMG_20180624_164939.jpg" alt="">
+                            <img src="/images/photos/montenegro/IMG_20180624_164939.jpg" alt="">
                             <img src="/images/photos/montenegro/IMG_20180625_164414.jpg" alt="">
                         </div>
                         <div class="column">
@@ -89,6 +89,7 @@
                 </div>
             </div>
         </div>
+        <img src="images/photos/montenegro/PANO_20180627_174647.jpg" alt="Russia mountains">
         <div class="main-content gallery-quotes">
             <p class="section-title right-text hashtag-right" data-hashtag="Quotes">I agree</p>
             <div class="quote">
@@ -98,14 +99,31 @@
                 </blockquote>
             </div>
         </div>
+        <div class="russia-mountains">
+            <rosem-photo class="design-photo">
+                <img src="/images/photos/russia/IMG_20180715_111215_HDR.jpg" alt="Russia mountains">
+            </rosem-photo>
+            <rosem-description-block subtitle="russia" title="Mountains and sea">
+                <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
+                    atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
+                    soluta totam vitae, voluptates.
+                </template>
+            </rosem-description-block>
+            <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
+                <slide v-for="photo in russiaPhotos" :key="photo.imageSrc">
+                    <img :src="photo.imageSrc"
+                         :alt="photo.altText"
+                         height="350"
+                         class="carousel-images"
+                         style="width: 100%; object-fit:cover;">
+                </slide>
+            </carousel>
+        </div>
         <div class="russia">
             <div class="main-content">
                 <p class="section-title left-text hashtag" data-hashtag="Neighbors">Russia</p>
             </div>
             <div class="russia-memories">
-                <rosem-photo class="design-photo">
-                    <img src="/images/photos/russia/russia.jpg" alt="Russia">
-                </rosem-photo>
                 <div class="memories-photos">
                     <rosem-description-block subtitle=""
                                              title="Dreams come true!"
@@ -128,26 +146,9 @@
                         </slide>
                     </carousel>
                 </div>
-            </div>
-            <div class="russia-mountains">
                 <rosem-photo class="design-photo">
-                    <img src="/images/photos/russia/IMG_20180715_111215_HDR.jpg" alt="Russia mountains">
+                    <img src="/images/photos/russia/russia.jpg" alt="Russia">
                 </rosem-photo>
-                <rosem-description-block subtitle="russia" title="Mountains and sea">
-                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-                        atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
-                        soluta totam vitae, voluptates.
-                    </template>
-                </rosem-description-block>
-                <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
-                    <slide v-for="photo in russiaPhotos" :key="photo.imageSrc">
-                        <img :src="photo.imageSrc"
-                             :alt="photo.altText"
-                             height="350"
-                             class="carousel-images"
-                             style="width: 100%; object-fit:cover;">
-                    </slide>
-                </carousel>
             </div>
         </div>
         <div class="france">
@@ -155,6 +156,9 @@
                 <p class="section-title left-text hashtag" data-hashtag="Fairy tale...">France</p>
             </div>
             <div class="france-memories">
+                <rosem-photo class="design-photo">
+                    <img src="/images/photos/france/france.jpg" alt="France">
+                </rosem-photo>
                 <div class="memories-description">
                     <rosem-description-block subtitle="france" title="Fairy tale">
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
@@ -172,9 +176,6 @@
                         </slide>
                     </carousel>
                 </div>
-                <rosem-photo class="design-photo">
-                    <img src="/images/photos/france/france.jpg" alt="France">
-                </rosem-photo>
             </div>
             <div class="memories-photo">
                 <div class="main-content">
@@ -438,7 +439,7 @@
                     width: 430px;
                     object-fit: cover;
                     display: block;
-                    margin: 8px  5px;
+                    margin: 8px 5px;
                 }
             }
         }
@@ -470,7 +471,7 @@
                 width: 70%;
                 height: 100%;
                 z-index: -1;
-                right: 0;
+                left: 0;
                 top: -60px;
                 background-color: #a5afb9;
                 padding: 60px;
@@ -478,12 +479,12 @@
             }
 
             .design-photo {
-                margin-left: auto;
+                margin-right: auto;
             }
 
             .memories-photos {
                 flex-basis: 60%;
-                margin-left: auto;
+                margin-right: auto;
             }
         }
 
@@ -533,7 +534,7 @@
             &:after {
                 content: '';
                 position: absolute;
-                left: 0;
+                right: 0;
                 top: -25px;
                 background-color: #a5afb9;
                 display: block;
@@ -545,11 +546,11 @@
 
             .memories-description {
                 flex-basis: 60%;
-                margin-right: auto;
+                margin-left: auto;
             }
 
             .design-photo {
-                margin-right: auto;
+                margin-left: auto;
             }
         }
 
@@ -569,7 +570,7 @@
                     top: 0;
                     left: 0;
                     z-index: -1;
-                    margin-top: 75px;
+                    margin-top: 125px;
                 }
 
                 .column {
@@ -579,10 +580,10 @@
 
                 img {
                     width: 100%;
-                    max-width: 300px;
+                    max-width: 320px;
                     display: block;
                     object-fit: cover;
-                    margin: 15px;
+                    margin: 10px;
 
                 }
             }
