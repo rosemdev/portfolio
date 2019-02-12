@@ -59,25 +59,33 @@
             </div>
             <div class="main-content montenegro-memories">
                 <div class="memories">
-                    <div class="memories-description">
-                        <rosem-description-block subtitle=""
-                                                 title="Dreams come true!"
-                        >
-                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                elit. Accusamus ad
-                                distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum
-                                dolor sit amet,
-                                consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae
-                                veritatis
-                                voluptate.
-                            </template>
-                        </rosem-description-block>
+                    <div class="row">
+                        <div class="column">
+                            <div class="memories-description">
+                                <rosem-description-block subtitle=""
+                                                         title="Dreams come true!"
+                                >
+                                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                        elit. Accusamus ad
+                                        distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum
+                                        dolor sit amet,
+                                        consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae
+                                        veritatis
+                                        voluptate.
+                                    </template>
+                                </rosem-description-block>
+                            <img src="/images/photos/montenegro/IMG_20180624_201126.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="column">
+                                <img src="/images/photos/montenegro/IMG_20180624_164939.jpg" alt="">
+                            <img src="/images/photos/montenegro/IMG_20180625_164414.jpg" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="/images/photos/montenegro/IMG_20180624_203307.jpg" alt="">
+                            <img src="/images/photos/montenegro/IMG_20180624_180932.jpg" alt="">
+                        </div>
                     </div>
-                    <img src="/images/photos/montenegro/IMG_20180624_164939.jpg" alt="">
-                    <img src="/images/photos/montenegro/IMG_20180624_203307.jpg" alt="">
-                    <img src="/images/photos/montenegro/IMG_20180624_201126.jpg" alt="">
-                    <img src="/images/photos/montenegro/IMG_20180625_164414.jpg" alt="">
-                    <img src="/images/photos/montenegro/IMG_20180624_180932.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -184,7 +192,7 @@
                                 <img src="/images/photos/france/IMG_20181124_155752.jpg" alt="">
                                 <img src="/images/photos/france/IMG_20181124_145721.jpg" alt="">
                             </div>
-                            <div class="column background">
+                            <div class="column">
                                 <img src="/images/photos/france/IMG_20181124_153319.jpg" alt="">
                                 <img src="/images/photos/france/IMG_20181124_172404.jpg" alt="">
                                 <img src="/images/photos/france/IMG_20181124_154428.jpg" alt="">
@@ -291,10 +299,6 @@
         .object-fit(@fit: cover);
     }
 
-    img {
-        width: 100px;
-    }
-
     blockquote {
         font-size: 25px;
         font-weight: 200;
@@ -319,6 +323,12 @@
 
     }
 
+    .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+    }
 
     .gallery {
         background-color: white;
@@ -369,7 +379,7 @@
                 position: absolute;
                 right: 0;
                 top: -25px;
-                background-color: #dedede;
+                background-color: #a5afb9;
                 display: block;
                 width: 70%;
                 height: 100%;
@@ -413,43 +423,22 @@
 
                 }
 
-                .memories-description {
-                    width: 30%;
+                .description-block {
+                    color: white;
+                }
 
-                    .description-block {
-                        color: white;
-                    }
+                .column {
+                    flex: 33.7%;
+                    max-width: 33.7%;
+                    align-self: flex-start;
+                    margin: -3px;
                 }
 
                 img {
-                    width: 100%;
-                    display: block;
-                    margin: 10px;
+                    width: 430px;
                     object-fit: cover;
-
-                    &:nth-of-type(1) {
-                        max-width: 405px;
-                    }
-
-                    &:nth-of-type(2) {
-                        max-width: 475px;
-                    }
-
-                    &:nth-of-type(3) {
-                        max-width: 375px;
-                        margin-top: -205px;
-
-                    }
-
-                    &:nth-of-type(4) {
-                        max-width: 405px;
-                        margin-top: -320px;
-                    }
-
-                    &:last-child {
-                        max-width: 475px;
-
-                    }
+                    display: block;
+                    margin: 8px  5px;
                 }
             }
         }
@@ -483,7 +472,7 @@
                 z-index: -1;
                 right: 0;
                 top: -60px;
-                background-color: #dedede;
+                background-color: #a5afb9;
                 padding: 60px;
 
             }
@@ -546,7 +535,7 @@
                 position: absolute;
                 left: 0;
                 top: -25px;
-                background-color: #dedede;
+                background-color: #a5afb9;
                 display: block;
                 width: 70%;
                 height: 100%;
@@ -583,33 +572,9 @@
                     margin-top: 75px;
                 }
 
-                .row {
-                    display: flex;
-                    align-items: center;
-                    flex-wrap: wrap;
-
-                }
-
                 .column {
                     flex: 25%;
                     max-width: 25%;
-                    padding: 0 5px;
-
-                    &.background {
-                        position: relative;
-                        z-index: 1;
-
-                        &:after {
-                            content: '';
-                            position: absolute;
-                            width: 100%;
-                            height: 100%;
-                            background-color: white;
-                            z-index: -1;
-                            top: 0;
-                            left: 0;
-                        }
-                    }
                 }
 
                 img {
