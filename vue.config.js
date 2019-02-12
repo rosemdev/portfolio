@@ -22,7 +22,9 @@ module.exports = {
         }
 
         Object.assign(config.resolve.alias, {
+            '@resources': path.join(__dirname, 'resources'),
             '@store': path.join(__dirname, 'src/store'),
+            '@utils': path.join(__dirname, 'src/utils'),
             'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
         });
     },

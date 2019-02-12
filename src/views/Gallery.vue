@@ -14,8 +14,12 @@
                     </div>
                     <div class="carousel">
                         <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 3]]">
-                            <slide v-for="image in photos" :key="image.imageSource">
-                                <img :src="image.imageSource" class="carousel-images " style="height: 500px;">
+                            <slide v-for="photo in photos" :key="photo.imageSrc">
+                                <img :src="photo.imageSrc"
+                                     :alt="photo.altText"
+                                     class="carousel-images"
+                                     height="500"
+                                >
                             </slide>
                         </carousel>
                     </div>
@@ -28,7 +32,7 @@
             </div>
             <div class="montenegro-first-abroad">
                 <rosem-photo class="design-photo">
-                    <img src="../assets/images/photos/montenegro/montenegro.jpg" alt="montenegro">
+                    <img src="/images/photos/montenegro/montenegro.jpg" alt="Montenegro">
                 </rosem-photo>
                 <div class="montenegro-description">
                     <rosem-description-block subtitle="montenegro" title="First country">
@@ -42,8 +46,12 @@
                     </rosem-description-block>
                     <div class="carousel">
                         <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 3]]">
-                            <slide v-for="image in photos" :key="image.imageSource">
-                                <img :src="image.imageSource" class="carousel-images " style="height: 300px;">
+                            <slide v-for="photo in photos" :key="photo.imageSrc">
+                                <img :src="photo.imageSrc"
+                                     :alt="photo.altText"
+                                     class="carousel-images"
+                                     height="300"
+                                >
                             </slide>
                         </carousel>
                     </div>
@@ -53,7 +61,8 @@
                 <div class="memories">
                     <div class="memories-description">
                         <rosem-description-block subtitle=""
-                                                 title="Dreams come true!">
+                                                 title="Dreams come true!"
+                        >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing
                                 elit. Accusamus ad
                                 distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum
@@ -62,14 +71,13 @@
                                 veritatis
                                 voluptate.
                             </template>
-                            >
                         </rosem-description-block>
                     </div>
-                    <img src="../assets/images/photos/montenegro/IMG_20180624_164939.jpg" alt="">
-                    <img src="../assets/images/photos/montenegro/IMG_20180624_203307.jpg" alt="">
-                    <img src="../assets/images/photos/montenegro/IMG_20180624_201126.jpg" alt="">
-                    <img src="../assets/images/photos/montenegro/IMG_20180625_164414.jpg" alt="">
-                    <img src="../assets/images/photos/montenegro/IMG_20180624_180932.jpg" alt="">
+                    <img src="/images/photos/montenegro/IMG_20180624_164939.jpg" alt="">
+                    <img src="/images/photos/montenegro/IMG_20180624_203307.jpg" alt="">
+                    <img src="/images/photos/montenegro/IMG_20180624_201126.jpg" alt="">
+                    <img src="/images/photos/montenegro/IMG_20180625_164414.jpg" alt="">
+                    <img src="/images/photos/montenegro/IMG_20180624_180932.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -87,28 +95,35 @@
                 <p class="section-title left-text hashtag" data-hashtag="Neighbors">Russia</p>
             </div>
             <div class="russia-memories">
-                <rosem-photo class="design-photo"><img src="../assets/images/photos/russia/russia.jpg"></rosem-photo>
+                <rosem-photo class="design-photo">
+                    <img src="/images/photos/russia/russia.jpg" alt="Russia">
+                </rosem-photo>
                 <div class="memories-photos">
                     <rosem-description-block subtitle=""
-                                             title="Dreams come true!">
+                                             title="Dreams come true!"
+                    >
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
                             ad
                             distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum dolor sit amet,
                             consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae veritatis
                             voluptate.
                         </template>
-                        >
                     </rosem-description-block>
                     <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
-                        <slide v-for="image in russia" :key="image.imageSource">
-                            <img :src="image.imageSource" class="carousel-images"
-                                 style="width: 100%; height: 300px; object-fit:cover;">
+                        <slide v-for="photo in russiaPhotos" :key="photo.imageSrc">
+                            <img :src="photo.imageSrc"
+                                 :alt="photo.altText"
+                                 height="300"
+                                 class="carousel-images"
+                                 style="width: 100%; object-fit:cover;"
+                            >
                         </slide>
                     </carousel>
                 </div>
             </div>
             <div class="russia-mountains">
-                <rosem-photo class="design-photo"><img src="../assets/images/photos/russia/IMG_20180715_111215_HDR.jpg">
+                <rosem-photo class="design-photo">
+                    <img src="/images/photos/russia/IMG_20180715_111215_HDR.jpg" alt="Russia mountains">
                 </rosem-photo>
                 <rosem-description-block subtitle="russia" title="Mountains and sea">
                     <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
@@ -117,9 +132,12 @@
                     </template>
                 </rosem-description-block>
                 <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
-                    <slide v-for="image in russia" :key="image.imageSource">
-                        <img :src="image.imageSource" class="carousel-images"
-                             style="width: 100%; height: 350px; object-fit:cover;">
+                    <slide v-for="photo in russiaPhotos" :key="photo.imageSrc">
+                        <img :src="photo.imageSrc"
+                             :alt="photo.altText"
+                             height="350"
+                             class="carousel-images"
+                             style="width: 100%; object-fit:cover;">
                     </slide>
                 </carousel>
             </div>
@@ -137,41 +155,46 @@
                         </template>
                     </rosem-description-block>
                     <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
-                        <slide v-for="image in russia" :key="image.imageSource">
-                            <img :src="image.imageSource" class="carousel-images"
-                                 style="width: 100%; height: 350px; object-fit:cover;">
+                        <slide v-for="photo in russiaPhotos" :key="photo.imageSrc">
+                            <img :src="photo.imageSrc"
+                                 :alt="photo.altText"
+                                 height="350"
+                                 class="carousel-images"
+                                 style="width: 100%; object-fit:cover;">
                         </slide>
                     </carousel>
                 </div>
-                <rosem-photo class="design-photo"><img src="../assets/images/photos/france/france.jpg"></rosem-photo>
+                <rosem-photo class="design-photo">
+                    <img src="/images/photos/france/france.jpg" alt="France">
+                </rosem-photo>
             </div>
             <div class="memories-photo">
                 <div class="main-content">
                     <div class="france-photos">
                         <div class="row">
                             <div class="column">
-                                <img src="../assets/images/photos/france/IMG_20181124_164339.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_151725.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_155944.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_153837.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_164339.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_151725.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_155944.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_153837.jpg" alt="">
                             </div>
                             <div class="column">
-                                <img src="../assets/images/photos/france/IMG_20181124_160326.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_161534.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_155752.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_145721.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_160326.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_161534.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_155752.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_145721.jpg" alt="">
                             </div>
                             <div class="column background">
-                                <img src="../assets/images/photos/france/IMG_20181124_153319.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_172404.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_154428.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_162049.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_153319.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_172404.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_154428.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_162049.jpg" alt="">
                             </div>
                             <div class="column">
-                                <img src="../assets/images/photos/france/IMG_20181124_170645.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_162957.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_163139.jpg" alt="">
-                                <img src="../assets/images/photos/france/IMG_20181124_162800.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_170645.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_162957.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_163139.jpg" alt="">
+                                <img src="/images/photos/france/IMG_20181124_162800.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -203,8 +226,8 @@
     </div>
 </template>
 <script>
-    import {photos} from "../data/photos";
-    import {russia} from "../data/russia";
+    import photos from "@resources/photos.json";
+    import russiaPhotos from "@resources/gallery/russia";
     import RosemPhotoGallery from "../partials/PhotoGallery";
     import RosemButton from "../ui-components/Button";
     import RosemQuote from "../components/Quote";
@@ -225,8 +248,8 @@
 
         data() {
             return {
-                photos: photos,
-                russia: russia
+                photos,
+                russiaPhotos
             }
         },
         components: {
@@ -306,7 +329,7 @@
 
             &:after {
                 content: "";
-                background-image: url("../assets/images/photos/1map.png");
+                background-image: url("../assets/images/1map.png");
                 background-repeat: no-repeat;
                 opacity: 0.5;
                 top: 0;
