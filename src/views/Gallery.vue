@@ -14,7 +14,7 @@
                     </div>
                     <div class="carousel">
                         <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 3]]">
-                            <slide v-for="photo in photos" :key="photo.imageSrc">
+                            <slide v-for="photo in flights" :key="photo.imageSrc">
                                 <img :src="photo.imageSrc"
                                      :alt="photo.altText"
                                      class="carousel-images"
@@ -46,7 +46,7 @@
                     </rosem-description-block>
                     <div class="carousel">
                         <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 3]]">
-                            <slide v-for="photo in photos" :key="photo.imageSrc">
+                            <slide v-for="photo in montenegroKotor" :key="photo.imageSrc">
                                 <img :src="photo.imageSrc"
                                      :alt="photo.altText"
                                      class="carousel-images"
@@ -91,7 +91,7 @@
             </div>
             <div class="panorama">
                 <div class="main-content">
-                    <p class="section-title left-text">Sveti Stefan</p>
+                    <p class="section-title right-text">Sveti Stefan</p>
                     <div class="description">
                         <rosem-quote class="right-text">We dolor sit amet, consectetur adipisicing
                             elit. Aliquid aperiam
@@ -107,7 +107,7 @@
             </div>
         </div>
         <div class="main-content gallery-quotes">
-            <p class="section-title right-text hashtag-right" data-hashtag="Quotes">I agree</p>
+            <p class="section-title right-text">I agree</p>
             <div class="quote">
                 <blockquote>When words become unclear, I shall focus with photographs. When images become
                     inadequate, I shall
@@ -115,18 +115,18 @@
                 </blockquote>
             </div>
         </div>
-        <div class="russia-mountains">
+        <div class="sveti-stefan">
             <rosem-photo class="design-photo">
-                <img src="/images/photos/russia/IMG_20180715_111215_HDR.jpg" alt="Russia mountains">
+                <img src="/images/photos/montenegro/sveti_stefan/IMG_20180627_175816_HDR.jpg" alt="Sveti Stefan">
             </rosem-photo>
-            <rosem-description-block subtitle="russia" title="Mountains and sea" class="left-text">
+            <rosem-description-block subtitle="island" title="Way to Sveti Stefan" class="left-text">
                 <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
                     atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
                     soluta totam vitae, voluptates.
                 </template>
             </rosem-description-block>
             <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
-                <slide v-for="photo in russiaPhotos" :key="photo.imageSrc">
+                <slide v-for="photo in montenegroSFPhotos" :key="photo.imageSrc">
                     <img :src="photo.imageSrc"
                          :alt="photo.altText"
                          height="350"
@@ -141,8 +141,8 @@
             </div>
             <div class="russia-memories">
                 <div class="memories-photos">
-                    <rosem-description-block subtitle=""
-                                             title="Dreams come true!"
+                    <rosem-description-block subtitle="rissia"
+                                             title="Mountains and Sea"
                                              class="left-text"
                     >
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
@@ -166,6 +166,28 @@
                 <rosem-photo class="design-photo">
                     <img src="/images/photos/russia/russia.jpg" alt="Russia">
                 </rosem-photo>
+            </div>
+        </div>
+        <div class="moscow-memories-photos">
+            <div class="main-content">
+                <p class="section-title right-text">Moscow</p>
+            </div>
+            <div class="main-content row">
+                <div class="column">
+                    <img src="/images/photos/russia/russia-memories/IMG_20180716_132924_HDR.jpg" alt="">
+                    <img src="/images/photos/russia/russia-memories/IMG_20180716_124242_HDR.jpg" alt="">
+                    <img src="/images/photos/russia/russia-memories/IMG_20180716_123454.jpg" alt="">
+                </div>
+                <div class="column">
+                    <img src="/images/photos/russia/russia-memories/IMG_20180716_124313_HDR.jpg" alt="">
+                    <img src="/images/photos/russia/russia-memories/IMG_20180804_002305.jpg" alt="">
+                    <img src="/images/photos/russia/russia-memories/IMG_20180716_124910_HDR.jpg" alt="">
+                </div>
+                <div class="column">
+                    <img src="/images/photos/russia/russia-memories/IMG_20180716_132805_HDR.jpg" alt="">
+                    <img src="/images/photos/russia/russia-memories/IMG_20180804_002249.jpg" alt="">
+                    <img src="/images/photos/russia/russia-memories/IMG_20180716_124253_HDR.jpg" alt="">
+                </div>
             </div>
         </div>
         <div class="france">
@@ -197,6 +219,9 @@
             <div class="memories-photo">
                 <div class="main-content">
                     <div class="france-photos">
+                        <div class="main-content">
+                            <p class="section-title right-text">Paris</p>
+                        </div>
                         <div class="row">
                             <div class="column">
                                 <img src="/images/photos/france/IMG_20181124_164339.jpg" alt="">
@@ -252,8 +277,11 @@
     </div>
 </template>
 <script>
+    import flights from "@resources/gallery/flights.json";
     import photos from "@resources/photos.json";
     import russiaPhotos from "@resources/gallery/russia";
+    import montenegroKotor from "@resources/gallery/montenegro-kotor";
+    import montenegroSFPhotos from "@resources/gallery/montenegro_sveti-stefan";
     import RosemPhotoGallery from "../partials/PhotoGallery";
     import RosemButton from "../ui-components/Button";
     import RosemQuote from "../components/Quote";
@@ -274,8 +302,11 @@
 
         data() {
             return {
+                flights,
                 photos,
-                russiaPhotos
+                russiaPhotos,
+                montenegroSFPhotos,
+                montenegroKotor,
             }
         },
         components: {
@@ -345,6 +376,22 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+        padding: 15px;
+        overflow: hidden;
+
+        &:after {
+            content: '';
+            position: absolute;
+            background-color: @mainColor;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
 
     }
 
@@ -397,7 +444,7 @@
                 position: absolute;
                 right: 0;
                 top: -25px;
-                background-color: rgba(255, 224, 241, 0.55);;
+                background-color: #e9e9e9;
                 display: block;
                 width: 70%;
                 height: 100%;
@@ -423,23 +470,6 @@
                 flex-wrap: wrap;
                 align-items: flex-start;
                 position: relative;
-                z-index: 1;
-                padding: 15px;
-                overflow: hidden;
-
-                &:after {
-                    content: '';
-                    position: absolute;
-                    background-color: @mainColor;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    width: 100%;
-                    height: 100%;
-                    z-index: -1;
-                    top: -100px;
-
-                }
 
                 .description-block {
                     color: white;
@@ -464,6 +494,32 @@
         .panorama {
             .description {
                 text-align: right;
+            }
+        }
+
+        .sveti-stefan {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+            margin: 150px 0;
+
+            &:after {
+                content: '';
+                position: absolute;
+                width: 75%;
+                height: 100%;
+                z-index: -1;
+                left: 0;
+                background-color: #262a2e;
+                display: block;
+            }
+
+            .description-block {
+                flex-basis: 25%;
+                color: white;
             }
         }
 
@@ -496,7 +552,7 @@
                 z-index: -1;
                 left: 0;
                 top: -60px;
-                background-color: rgba(255, 224, 241, 0.55);
+                background-color: #e9e9e9;
                 padding: 60px;
 
             }
@@ -511,31 +567,18 @@
             }
         }
 
-        .russia-mountains {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            flex-direction: column;
-            position: relative;
-            z-index: 1;
-            margin: 150px 0;
-
-            &:after {
-                content: '';
-                position: absolute;
-                width: 75%;
-                height: 100%;
-                z-index: -1;
-                left: 0;
-                background-color: #262a2e;
-                display: block;
-            }
-
-            .description-block {
-                flex-basis: 25%;
-                color: white;
+        .moscow-memories-photos {
+            margin: 100px 0;
+            .row {
+                img {
+                    width: 445px;
+                    object-fit: cover;
+                    display: block;
+                    margin: 8px 5px;
+                }
             }
         }
+
 
         .last-quote {
             blockquote {
@@ -559,7 +602,7 @@
                 position: absolute;
                 right: 0;
                 top: -25px;
-                background-color: rgba(255, 224, 241, 0.55);
+                background-color: #e9e9e9;
                 display: block;
                 width: 70%;
                 height: 100%;
@@ -579,35 +622,20 @@
 
         .memories-photo {
             .france-photos {
-                position: relative;
-                z-index: 1;
-                overflow: hidden;
-                margin-top: 50px;
+                .row {
+                    .column {
+                        flex: 25%;
+                        max-width: 25%;
+                    }
 
-                &:after {
-                    content: '';
-                    position: absolute;
-                    width: 100%;
-                    height: 100%;
-                    background-color: @mainColor;
-                    top: 0;
-                    left: 0;
-                    z-index: -1;
-                    margin-top: 125px;
-                }
+                    img {
+                        width: 100%;
+                        max-width: 320px;
+                        display: block;
+                        object-fit: cover;
+                        margin: 10px;
 
-                .column {
-                    flex: 25%;
-                    max-width: 25%;
-                }
-
-                img {
-                    width: 100%;
-                    max-width: 320px;
-                    display: block;
-                    object-fit: cover;
-                    margin: 10px;
-
+                    }
                 }
             }
         }
@@ -636,7 +664,7 @@
         }
 
 
-        .russia-mountains {
+        .sveti-stefan {
             .description-block {
                 width: 600px;
             }
@@ -666,7 +694,7 @@
         }
 
 
-        .russia-mountains {
+        .sveti-stefan {
             flex-direction: row;
 
             .VueCarousel {

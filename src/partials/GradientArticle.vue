@@ -217,7 +217,6 @@
 
     .responsive(@tablet, {
         .gradient-article {
-            margin: 6rem auto;
           .author-info {
               width: 50%;
               align-items: flex-start;
