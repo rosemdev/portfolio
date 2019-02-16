@@ -133,7 +133,6 @@
                 slideContents: descriptions,
                 aboutMyself: aboutMyself,
                 cards: cards,
-
             }
         },
 
@@ -163,7 +162,7 @@
         },
     }
 </script>
-<style lang="less" scoped>
+<style lang="less">
     @import "../assets/styles/reset";
     @import "../assets/styles/design";
     @import "../assets/styles/main";

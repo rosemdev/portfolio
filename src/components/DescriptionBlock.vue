@@ -32,7 +32,6 @@
     @import "../assets/styles/mixins";
 
     & .description-block {
-        text-align: left;
         margin: 25px 0;
         padding: 15px 25px;
         color: @mainColor;

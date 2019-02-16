@@ -118,6 +118,26 @@ body {
       } });
 
 
+//carousel
+
+.VueCarousel {
+  .VueCarousel-pagination {
+    .VueCarousel-dot-container {
+      .VueCarousel-dot--active {
+        background-color: @mainColor !important;
+      }
+    }
+  }
+
+  .VueCarousel-navigation {
+    button {
+      color: white;
+      background-color: @mainColor;
+    }
+  }
+}
+
+
 .responsive(@desktop, {
 
   .main-title {
@@ -143,6 +163,18 @@ body {
   .hashtag-right:before {
             right: -215px;
           }
+
+
+  //carousel
+
+  .VueCarousel {
+    .VueCarousel-navigation {
+      button {
+        padding: 10px !important;
+        margin-left: -10px !important;
+      }
+    }
+  }
 
 });
 

@@ -1,7 +1,6 @@
 <template>
     <div class="text-description">
-        <p :class="[blockBackground ? 'block-background' : 'text-background']"
-           :style="{textAlign: textAlign}">
+        <p :class="[blockBackground ? 'block-background' : 'text-background']">
             <span><slot></slot></span>
         </p>
     </div>
@@ -21,11 +20,6 @@
                 type: Boolean,
                 default: false,
             },
-
-            textAlign: {
-                type: String,
-                default: 'left'
-            }
         }
     }
 </script>
@@ -43,7 +37,7 @@
                 padding: 15px;
                 font-size: 20px;
                 box-shadow: 10px 0 0 @mainColor, -10px 0 0 @mainColor;
-                line-height: 50px;
+                line-height: 57px;
             }
 
             &:first-letter {

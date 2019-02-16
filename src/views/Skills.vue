@@ -2,7 +2,7 @@
     <div class="skills">
         <div class="main-content">
             <div class="introduction">
-                <rosem-description-block subtitle="me" title="Romanna Semenenyshyn">
+                <rosem-description-block subtitle="me" title="Romanna Semenenyshyn" class="left-text">
                     <template slot="description">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor sit
                         amet,
@@ -25,7 +25,7 @@
                         <template slot="beginData">Sep. 29</template>
                         <template slot="endData">Present</template>
                     </rosem-history-line>
-                    <rosem-description-block subtitle="work" title="smile">
+                    <rosem-description-block subtitle="work" title="smile" class="left-text">
                         <template slot="description">
                             <span class="position">QA Engineer</span>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor
@@ -46,7 +46,7 @@
                         <template slot="beginData">Sep. 01</template>
                         <template slot="endData">Jen 25</template>
                     </rosem-history-line>
-                    <rosem-description-block subtitle="education" title="Ternopil National Economic University">
+                    <rosem-description-block subtitle="education" title="Ternopil National Economic University" class="left-text">
                         <template slot="description">
                             <span class="position">Master degree</span>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor
@@ -67,7 +67,7 @@
                         <template slot="beginData">Sep. 01</template>
                         <template slot="endData">Jun. 25</template>
                     </rosem-history-line>
-                    <rosem-description-block subtitle="education" title="Ternopil National Economic University">
+                    <rosem-description-block subtitle="education" title="Ternopil National Economic University" class="left-text">
                         <template slot="description">
                             <span class="position">Bachelor degree</span>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor

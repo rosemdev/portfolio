@@ -5,7 +5,7 @@
                 <p class="section-title left-text hashtag" data-hashtag="Traveling">My traveling history</p>
                 <div class="travel-history">
                     <div class="description">
-                        <rosem-quote>Lorem ipsum dolor sit amet, consectetur adipisicing
+                        <rosem-quote class="left-text">Lorem ipsum dolor sit amet, consectetur adipisicing
                             elit. Aliquid aperiam
                             dignissimos, eo laboriosam obcaecatit? Lorem ipsum dolor sit amet, consectetur adipisicing
                             elit.
@@ -35,7 +35,7 @@
                     <img src="/images/photos/montenegro/montenegro.jpg" alt="Montenegro">
                 </rosem-photo>
                 <div class="montenegro-description">
-                    <rosem-description-block subtitle="montenegro" title="First country">
+                    <rosem-description-block subtitle="montenegro" title="First country" class="left-text">
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Assumenda
                             atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis
@@ -64,6 +64,7 @@
                             <div class="memories-description">
                                 <rosem-description-block subtitle=""
                                                          title="Dreams come true!"
+                                                         class="left-text"
                                 >
                                     <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing
                                         elit. Accusamus ad
@@ -88,8 +89,23 @@
                     </div>
                 </div>
             </div>
+            <div class="panorama">
+                <div class="main-content">
+                    <p class="section-title left-text">Sveti Stefan</p>
+                    <div class="description">
+                        <rosem-quote class="right-text">We dolor sit amet, consectetur adipisicing
+                            elit. Aliquid aperiam
+                            dignissimos, eo laboriosam obcaecatit? Lorem ipsum dolor sit amet, consectetur adipisicing
+                            elit.
+                            A amet animi asperiores, at atque consequuntur cumque doloremque eligendi.
+                        </rosem-quote>
+                    </div>
+                </div>
+                <rosem-photo>
+                    <img src="images/photos/montenegro/PANO_20180627_174647.jpg" alt="panorama">
+                </rosem-photo>
+            </div>
         </div>
-        <img src="images/photos/montenegro/PANO_20180627_174647.jpg" alt="Russia mountains">
         <div class="main-content gallery-quotes">
             <p class="section-title right-text hashtag-right" data-hashtag="Quotes">I agree</p>
             <div class="quote">
@@ -103,7 +119,7 @@
             <rosem-photo class="design-photo">
                 <img src="/images/photos/russia/IMG_20180715_111215_HDR.jpg" alt="Russia mountains">
             </rosem-photo>
-            <rosem-description-block subtitle="russia" title="Mountains and sea">
+            <rosem-description-block subtitle="russia" title="Mountains and sea" class="left-text">
                 <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
                     atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
                     soluta totam vitae, voluptates.
@@ -127,6 +143,7 @@
                 <div class="memories-photos">
                     <rosem-description-block subtitle=""
                                              title="Dreams come true!"
+                                             class="left-text"
                     >
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
                             ad
@@ -160,7 +177,7 @@
                     <img src="/images/photos/france/france.jpg" alt="France">
                 </rosem-photo>
                 <div class="memories-description">
-                    <rosem-description-block subtitle="france" title="Fairy tale">
+                    <rosem-description-block subtitle="france" title="Fairy tale" class="left-text">
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
                             atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
                             soluta totam vitae, voluptates.
@@ -210,23 +227,23 @@
                 </div>
             </div>
         </div>
-        <div class="instagram">
-            <div class="main-content">
-                <p class="section-title left-text hashtag" data-hashtag="Instagram">Instafeed</p>
-            </div>
-            <rosem-photo-gallery :cols="5"
-                                 :collection="instagram"
-                                 v-slot="{ item: photo }"
-            >
-                <rosem-insta-photo
-                        :key="photo.imageSrc"
-                        :post-link="photo.postLink"
-                        :image-src="photo.imageSrc"
-                        :likes="photo.likes"
-                        :location="photo.location"
-                />
-            </rosem-photo-gallery>
-        </div>
+        <!--<div class="instagram">-->
+        <!--<div class="main-content">-->
+        <!--<p class="section-title left-text hashtag" data-hashtag="Instagram">Instafeed</p>-->
+        <!--</div>-->
+        <!--<rosem-photo-gallery :cols="5"-->
+        <!--:collection="instagram"-->
+        <!--v-slot="{ item: photo }"-->
+        <!--&gt;-->
+        <!--<rosem-insta-photo-->
+        <!--:key="photo.imageSrc"-->
+        <!--:post-link="photo.postLink"-->
+        <!--:image-src="photo.imageSrc"-->
+        <!--:likes="photo.likes"-->
+        <!--:location="photo.location"-->
+        <!--/>-->
+        <!--</rosem-photo-gallery>-->
+        <!--</div>-->
         <div class="margin main-content last-quote">
             <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
                 captured forever…
@@ -245,7 +262,7 @@
     import {Carousel, Slide} from "vue-carousel";
     import RosemInstaPhoto from "../components/InstaPhoto"
     import {mapState} from "vuex";
-    import store from '@store'
+    // import store from '@store'
 
     export default {
         name: "Gallery",
@@ -279,15 +296,15 @@
         },
 
 
-        beforeRouteEnter(to, from, next) {
-            store.dispatch('getInstagramPhotos').then(function () {
-                next()
-            }).catch(() => {
-                next(vm => {
-                    vm.$router.push({name: 'NotFound'});
-                })
-            });
-        }
+        // beforeRouteEnter(to, from, next) {
+        //     store.dispatch('getInstagramPhotos').then(function () {
+        //         next()
+        //     }).catch(() => {
+        //         next(vm => {
+        //             vm.$router.push({name: 'NotFound'});
+        //         })
+        //     });
+        // }
     }
 </script>
 <style lang="less" scoped>
@@ -380,7 +397,7 @@
                 position: absolute;
                 right: 0;
                 top: -25px;
-                background-color: #a5afb9;
+                background-color: rgba(255, 224, 241, 0.55);;
                 display: block;
                 width: 70%;
                 height: 100%;
@@ -444,6 +461,12 @@
             }
         }
 
+        .panorama {
+            .description {
+                text-align: right;
+            }
+        }
+
         .gallery-quotes {
             .quote {
                 blockquote {
@@ -473,7 +496,7 @@
                 z-index: -1;
                 left: 0;
                 top: -60px;
-                background-color: #a5afb9;
+                background-color: rgba(255, 224, 241, 0.55);
                 padding: 60px;
 
             }
@@ -536,7 +559,7 @@
                 position: absolute;
                 right: 0;
                 top: -25px;
-                background-color: #a5afb9;
+                background-color: rgba(255, 224, 241, 0.55);
                 display: block;
                 width: 70%;
                 height: 100%;
