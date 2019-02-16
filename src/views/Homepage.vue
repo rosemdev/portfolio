@@ -3,22 +3,14 @@
         <div class="main-content done-works">
             <p class="section-title left-text hashtag" data-hashtag="projects">Done works</p>
             <div class="carousel">
-                <carousel :per-page="1"
-                          :mouse-drag="true"
-                          :navigationEnabled="true"
-                          navigationNextLabel="&#11166;"
-                          navigationPrevLabel="&#11164;"
-                          paginationColor="#5c59599e"
-                          :loop="true"
-                          :autoplay="false"
-                          easing="ease-in-out"
-                          :speed="500"
-                >
+                <hooper style="height: 100%" :settings="hooperSettings">
                     <slide v-for="(slide, index) in slideContents"
                            :key="index">
                         <rosem-slide-description :descriptions="{slide}"></rosem-slide-description>
                     </slide>
-                </carousel>
+                    <hooper-navigation slot="hooper-addons"></hooper-navigation>
+                    <hooper-pagination slot="hooper-addons"></hooper-pagination>
+                </hooper>
             </div>
             <div class="bottom-contact-panel">
                 <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
@@ -110,13 +102,14 @@
     import RosemSocialBlock from "../components/SocialBlock"
     import RosemPhoto from "../components/Photo";
     import RosemCard from "../components/Card"
-    import {Carousel, Slide} from "vue-carousel"
     import RosemSlideDescription from "../partials/SlideContent"
     import RosemFooter from "../partials/Footer"
     import RosemForm from "../ui-components/Form"
     import RosemInput from "../ui-components/Input"
     import RosemContactForm from "../partials/ContactForm"
     import formLeavePreventing from "../utils/formLeavePreventing"
+    import 'hooper/dist/hooper.css';
+    import {Hooper, Navigation as HooperNavigation, Pagination as HooperPagination, Slide} from 'hooper';
 
     export default {
         name: "Homepage",
@@ -134,6 +127,12 @@
                 aboutMyself: aboutMyself,
                 cards: cards,
 
+                hooperSettings: {
+                   centerMode: true,
+                    infiniteScroll: true,
+                    wheelControl: false,
+                }
+
             }
         },
 
@@ -150,8 +149,10 @@
             RosemInput,
             RosemContactForm,
             RosemFooter,
-            Carousel,
             Slide,
+            Hooper,
+            HooperPagination,
+            HooperNavigation
         },
 
         beforeRouteLeave(to, from, next) {
@@ -163,14 +164,21 @@
         },
     }
 </script>
-<style lang="less" scoped>
+<style lang="less"  scoped>
     @import "../assets/styles/reset";
     @import "../assets/styles/design";
     @import "../assets/styles/main";
     @import "../assets/styles/themes";
 
+
     .homepage {
         background-color: white;
+
+        .done-works {
+            .bottom-contact-panel {
+                margin-top: 50px;
+            }
+        }
 
         & .stages {
             display: flex;
