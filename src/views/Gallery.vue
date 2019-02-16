@@ -342,6 +342,12 @@
     @import "../assets/styles/design";
     @import "../assets/styles/main";
 
+    .VueCarousel-slide {
+        img {
+            padding: 10px;
+        }
+    }
+
     .carousel-images {
         width: 100%;
         object-fit: cover;
