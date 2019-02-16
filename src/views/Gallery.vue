@@ -89,22 +89,6 @@
                     </div>
                 </div>
             </div>
-            <div class="panorama">
-                <div class="main-content">
-                    <p class="section-title right-text">Sveti Stefan</p>
-                    <div class="description">
-                        <rosem-quote class="right-text">We dolor sit amet, consectetur adipisicing
-                            elit. Aliquid aperiam
-                            dignissimos, eo laboriosam obcaecatit? Lorem ipsum dolor sit amet, consectetur adipisicing
-                            elit.
-                            A amet animi asperiores, at atque consequuntur cumque doloremque eligendi.
-                        </rosem-quote>
-                    </div>
-                </div>
-                <rosem-photo>
-                    <img src="images/photos/montenegro/PANO_20180627_174647.jpg" alt="panorama">
-                </rosem-photo>
-            </div>
         </div>
         <div class="main-content gallery-quotes">
             <p class="section-title right-text">I agree</p>
@@ -114,6 +98,9 @@
                     be content with silence.
                 </blockquote>
             </div>
+        </div>
+        <div class="main-content">
+            <p class="section-title left-text">Sveti Stefan</p>
         </div>
         <div class="sveti-stefan">
             <rosem-photo class="design-photo">
@@ -278,7 +265,6 @@
 </template>
 <script>
     import flights from "@resources/gallery/flights.json";
-    import photos from "@resources/photos.json";
     import russiaPhotos from "@resources/gallery/russia";
     import montenegroKotor from "@resources/gallery/montenegro-kotor";
     import montenegroSFPhotos from "@resources/gallery/montenegro_sveti-stefan";
@@ -303,7 +289,6 @@
         data() {
             return {
                 flights,
-                photos,
                 russiaPhotos,
                 montenegroSFPhotos,
                 montenegroKotor,
@@ -450,7 +435,7 @@
                 position: absolute;
                 right: 0;
                 top: -25px;
-                background-color: #e9e9e9;
+                background-color: rgba(211, 229, 250, 0.7);
                 display: block;
                 width: 70%;
                 height: 100%;
@@ -497,12 +482,6 @@
             }
         }
 
-        .panorama {
-            .description {
-                text-align: right;
-            }
-        }
-
         .sveti-stefan {
             display: flex;
             align-items: center;
@@ -510,7 +489,7 @@
             flex-direction: column;
             position: relative;
             z-index: 1;
-            margin: 150px 0;
+            margin-bottom: 100px;
 
             &:after {
                 content: '';
@@ -558,7 +537,7 @@
                 z-index: -1;
                 left: 0;
                 top: -60px;
-                background-color: #e9e9e9;
+                background-color: rgba(52, 230, 91, 0.23);
                 padding: 60px;
 
             }
@@ -575,6 +554,7 @@
 
         .moscow-memories-photos {
             margin: 100px 0;
+
             .row {
                 img {
                     width: 445px;
@@ -608,7 +588,7 @@
                 position: absolute;
                 right: 0;
                 top: -25px;
-                background-color: #e9e9e9;
+                background-color: rgba(248, 230, 39, 0.31);
                 display: block;
                 width: 70%;
                 height: 100%;

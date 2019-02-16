@@ -42,7 +42,7 @@
 
             &:first-letter {
                 font-weight: 800;
-                font-size: 50px;
+                font-size: 90px;
                 margin-right: 5px;
                 color: @theme1-main;
             }
@@ -60,7 +60,6 @@
                 font-weight: 900;
                 font-size: 50px;
                 color: @mainColor;
-                font-style: italic;
             }
 
             &:before {
