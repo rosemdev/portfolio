@@ -18,6 +18,10 @@
         width: 50px;
         margin: 15px 5px;
 
+        a {
+            display: block;
+        }
+
         img {
             width: 100%;
         }

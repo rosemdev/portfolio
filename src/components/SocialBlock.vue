@@ -105,7 +105,7 @@
 
                     &:hover {
                         &:before {
-                            left: -15px;
+                            left: -10px;
                         }
                     }
 

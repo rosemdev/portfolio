@@ -61,8 +61,9 @@
 
 
         .arrow {
-            width: 13px;
-            height: 13px;
+            width: 55px;
+            height: 55px;
+            padding: 20px;
             transform: rotate(135deg);
             margin: auto;
             cursor: pointer;
