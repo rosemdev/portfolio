@@ -31,6 +31,13 @@
         text-align: center;
         opacity: 1;
         transition: opacity 3s ease-in-out;
+        position: fixed;
+        z-index: 45;
+        background-color: white;
+        left: 0;
+        border: 0;
+        width: 100%;
+        height: 100%;
 
         p {
             margin-bottom: -35px;
@@ -74,7 +81,7 @@
     }
 
     .loader.loaded {
-        opacity: 0;
+        /*opacity: 0;*/
     }
 
     .loader.fixed {

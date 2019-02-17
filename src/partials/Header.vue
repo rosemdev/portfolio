@@ -1,11 +1,11 @@
 <template>
-        <header :class="{sticky: isStuck}">
-            <rosem-logo></rosem-logo>
-            <rosem-burger-menu
-                    :open="showNav"
-                    @click.native="toggleNav"
-            ></rosem-burger-menu>
-        </header>
+    <header :class="{sticky: isStuck}">
+        <rosem-logo></rosem-logo>
+        <rosem-burger-menu
+                :open="showNav"
+                @click.native="toggleNav"
+        ></rosem-burger-menu>
+    </header>
 </template>
 
 <script>
@@ -95,7 +95,10 @@
             closeMenu(event) {
                 if (this.showNav && event.target !== this.$el.firstChild.nextSibling
                     && !this.$el.querySelector('.burger-icon').contains(event.target)) {
-                    this.showNav = false;
+                    this.$nextTick(() => {
+                        this.$store.commit('navState', false);
+                    });
+
                 }
             }
         },
@@ -103,7 +106,7 @@
         created() {
             this.$nextTick(() => {
                 window.addEventListener('scroll', this.stickHeader);
-                // document.addEventListener('click', this.closeMenu);
+                document.addEventListener('click', this.closeMenu);
             });
 
         },
@@ -116,7 +119,7 @@
 
         destroyed() {
             window.removeEventListener('scroll', this.stickHeader);
-            // document.removeEventListener('click', this.closeMenu);
+            document.removeEventListener('click', this.closeMenu);
         }
     }
 </script>

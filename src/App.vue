@@ -1,5 +1,5 @@
 <template>
-    <div id="app" :class="theme">
+    <div id="app" :class="theme" style="display: none;">
             <div class="content" :class="{push: showNav}">
                 <keep-alive>
                     <router-view name="underHeader" ref="underHeader"></router-view>
@@ -43,7 +43,8 @@
 
         computed: {
             ...mapState([
-                'showNav'
+                'showNav',
+                'loading'
             ]),
         },
 
@@ -78,6 +79,10 @@
     @import "./assets/styles/themes";
     @import "./assets/styles/main";
 
+    [v-cloak] {
+        display: none;
+    }
+
     #app, input, textarea {
         font-family: 'Montserrat', sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -89,7 +94,7 @@
     }
 
     .content {
-        transition: right .5s ease-in-out;
+        transition: right .7s ease-in-out;
         position: relative;
         overflow: hidden;
         z-index: 1;
