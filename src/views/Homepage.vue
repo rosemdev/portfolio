@@ -56,7 +56,7 @@
                 <rosem-photo><img src="../assets/images/me/rosem2.jpg"/></rosem-photo>
             </div>
             <div class="about-me block-bellow">
-                <rosem-photo><img src="../assets/images/me/me.jpg"/></rosem-photo>
+                <rosem-photo><img src="../assets/images/me/rosem.jpg"/></rosem-photo>
                 <rosem-description-block subtitle="About me"
                                          title="Romanna Semenyshyn"
                                          class="left-text"

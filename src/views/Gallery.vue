@@ -476,6 +476,7 @@
                 img {
                     width: 430px;
                     object-fit: cover;
+                    .object-fit(@fit: cover);
                     display: block;
                     margin: 8px 5px;
                 }
@@ -559,6 +560,7 @@
                 img {
                     width: 445px;
                     object-fit: cover;
+                    .object-fit(@fit: cover);
                     display: block;
                     margin: 8px 5px;
                 }
@@ -618,6 +620,7 @@
                         max-width: 320px;
                         display: block;
                         object-fit: cover;
+                        .object-fit(@fit: cover);
                         margin: 10px;
 
                     }
