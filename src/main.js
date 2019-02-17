@@ -13,6 +13,8 @@ import VueAnalytics from 'vue-analytics'
 import objectFitImages from 'object-fit-images'
 import Meta from 'vue-meta'
 import NProgress from 'nprogress'
+import Loader from '../src/components/Loader'
+import notFound from '../src/views/404'
 
 NProgress.configure({ showSpinner: false });
 
@@ -28,13 +30,28 @@ Vue.use(SocialSharing);
 Vue.use(Meta);
 
 const router = new VueRouter({
-    routes: resolveViews(routes, componentName => import(`./${componentName}`)),
+    routes: resolveViews(routes, (componentName) => ({
+        // import(`./${componentName}`);
+
+        // The component to load (should be a Promise)
+            component: import(`./${componentName}`),
+            // A component to use while the async component is loading
+            loading: Loader,
+            // A component to use if the load fails
+            error: notFound,
+            // Delay before showing the loading component. Default: 200ms.
+            delay: 0,
+            // The error component will be displayed if a timeout is
+            // provided and exceeded. Default: Infinity.
+            timeout: 10000
+    })),
     mode: 'history',
     scrollBehavior () {
         return { x: 0, y: 0 }
     }
 });
 
+// eslint-disable-next-line
 router.beforeResolve((to, from, next) => {
     // If this isn't an initial page load.
     if (to.name) {
@@ -44,6 +61,7 @@ router.beforeResolve((to, from, next) => {
     next();
 });
 
+// eslint-disable-next-line
 router.afterEach((to, from) => {
     // Complete the animation of the route progress bar.
     NProgress.done();
