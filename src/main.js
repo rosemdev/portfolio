@@ -14,7 +14,7 @@ import objectFitImages from 'object-fit-images'
 import Meta from 'vue-meta'
 import NProgress from 'nprogress'
 
-NProgress.configure({showSpinner: false});
+NProgress.configure({ showSpinner: false });
 
 
 Vue.use(PrismicVue, {
@@ -30,22 +30,25 @@ Vue.use(Meta);
 const router = new VueRouter({
     routes: resolveViews(routes, componentName => import(`./${componentName}`)),
     mode: 'history',
-    scrollBehavior() {
-        return {x: 0, y: 0}
+    scrollBehavior () {
+        return { x: 0, y: 0 }
     }
 });
 
 router.beforeResolve((to, from, next) => {
+    // If this isn't an initial page load.
     if (to.name) {
+        // Start the route progress bar.
         NProgress.start();
     }
     next();
 });
 
 router.afterEach((to, from) => {
-   // Complete the animation of the route progress bar.
+    // Complete the animation of the route progress bar.
     NProgress.done();
 });
+
 
 Vue.use(VueAnalytics, {
     id: 'UA-127776624-1',
