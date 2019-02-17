@@ -1,5 +1,5 @@
 <template>
-    <div id="app" :class="theme" style="display: none;">
+    <div id="app" :class="theme">
             <div class="content" :class="{push: showNav}">
                 <keep-alive>
                     <router-view name="underHeader" ref="underHeader"></router-view>
