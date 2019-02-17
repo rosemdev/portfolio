@@ -53,10 +53,10 @@
                     </template>
                     <rosem-button slot="additional-info">see projects</rosem-button>
                 </rosem-description-block>
-                <rosem-photo><img src="../assets/images/me/rosem2.jpg"/></rosem-photo>
+                <rosem-photo><img src="../assets/images/me/rosem2.jpg" alt="me at work"/></rosem-photo>
             </div>
             <div class="about-me block-bellow">
-                <rosem-photo><img src="../assets/images/me/rosem.jpg"/></rosem-photo>
+                <rosem-photo><img src="../assets/images/me/rosem.jpg" alt="me"/></rosem-photo>
                 <rosem-description-block subtitle="About me"
                                          title="Romanna Semenyshyn"
                                          class="left-text"

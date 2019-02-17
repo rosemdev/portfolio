@@ -4,7 +4,7 @@
              v-for="slide in descriptions"
              :key="slide.id">
             <div class="slide-image">
-                <img :src="slide.imageSource"/>
+                <img :src="slide.imageSource" :alt="slide.name"/>
             </div>
             <div class="slide-description">
             <rosem-description-block :subtitle="slide.type"
@@ -14,7 +14,7 @@
             </rosem-description-block>
                 <div class="site-link">
                     <a :href="slide.siteLink" target="_blank" rel="noopener">
-                        <img src="../assets/images/icons/earth.svg"/>
+                        <img src="../assets/images/icons/earth.svg" alt="earth"/>
                         <small>visit</small>
                     </a>
                 </div>

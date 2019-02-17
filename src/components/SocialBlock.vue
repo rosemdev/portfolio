@@ -5,7 +5,7 @@
                 :key="link.link"
                 :class="{mobileView: isMobileView, icons: link.isIcon}">
                 <a :href="link.link" :aria-label="link.name" v-if="link.isIcon" target="_blank" rel="noopener">
-                    <img :src="link.src" v-if="link.src"/>
+                    <img :src="link.src" v-if="link.src" :alt="link.name"/>
                     <span class="link-name">{{link.name }}</span>
                     <slot
                             name="socialWithIcon"
