@@ -59,7 +59,6 @@
         justify-content: center;
         flex-direction: column;
         flex-wrap: wrap;
-        padding-bottom: 9rem;
         padding-top: 3rem;
         background-color: white;
 
@@ -85,7 +84,6 @@
 
         .history {
             align-self: center;
-            transform: rotate(-45deg);
         }
     }
 
@@ -109,7 +107,7 @@
         }
 
         .history {
-            transform: none;
+            /*transform: none;*/
         }
 
     } });

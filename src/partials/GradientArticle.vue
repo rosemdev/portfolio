@@ -8,7 +8,9 @@
                 </rosem-avatar>
                 <rosem-description-block v-if="author.name"
                         subtitle="author"
-                        :title="author.name">
+                        :title="author.name"
+                        class="left-text"
+                >
                     <template slot="description">
                         {{ author.description }}
                     </template>
@@ -185,15 +187,12 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                flex-direction: column;
 
                 .publication-date {
                     font-weight: 500;
                     font-size: 20px;
                     color: white;
-
-                    .history {
-                        display: none;
-                    }
                 }
 
                 .article-tags {
@@ -253,14 +252,7 @@
 
               .article-intro {
                   justify-content: flex-end;
-
-                  .publication-date {
-                      .history {
-                          display: block;
-                          width: auto;
-                      }
-                  }
-
+                  flex-direction: row;
               }
 
               .social-sharing {

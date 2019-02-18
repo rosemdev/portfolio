@@ -1,6 +1,5 @@
 <template>
     <div class="article-page">
-        <rosem-loader :isLoading="loading" class="fixed"></rosem-loader>
         <div class="main-content">
             <div class="article-content">
                 <prismic-rich-text
