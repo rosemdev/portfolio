@@ -15,6 +15,7 @@ import Meta from 'vue-meta'
 import NProgress from 'nprogress'
 import Loader from '../src/components/Loader'
 import notFound from '../src/views/404'
+import './registerServiceWorker';
 
 NProgress.configure({ showSpinner: false });
 

@@ -3,19 +3,18 @@
   "name": "rosem portfolio",
   "icons": [
     {
-      "src": "logo-192.png",
+      "src": "./img/icons/android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "logo-512.png",
+      "src": "./img/icons/android-chrome-512x512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/?utm_source=a2hs",
+  "start_url": "./index.html",
   "background_color": "#333",
   "display": "standalone",
-  "scope": "/",
   "theme_color": "#333"
 }
