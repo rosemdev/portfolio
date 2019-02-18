@@ -1,7 +1,7 @@
 <template>
     <rosem-gradient :is-rand-gradient="true">
         <rosem-loader :isLoading="loading" class="fixed"></rosem-loader>
-        <div class="main-container-limit padding-aside gradient-article" slot="gradientContent">
+        <div class="gradient-article" slot="gradientContent">
             <div class="author-info">
                 <rosem-avatar>
                     <prismic-image :field="author.avatar"/>
@@ -116,6 +116,7 @@
         align-items: center;
         justify-content: space-between;
         flex-direction: column;
+        padding: 15px 25px;
 
         .author-info {
             display: flex;

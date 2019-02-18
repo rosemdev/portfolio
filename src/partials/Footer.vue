@@ -1,5 +1,5 @@
 <template>
-    <footer class="main-container-limit" ref="footer">
+    <footer ref="footer">
         <div class="main-content footer">
             <div class="footer-links">
                 <ul>
@@ -92,7 +92,7 @@
                     flex-direction: column;
                     align-items: center;
                     justify-content: space-between;
-                    margin-top: 25px;
+                    text-transform: uppercase;
 
                     li {
                         margin: 10px;
@@ -168,6 +168,7 @@
         .footer {
             & .footer-links {
                 ul {
+                    text-transform: none;
                     flex-direction: row;
                     margin-top: 0;
 

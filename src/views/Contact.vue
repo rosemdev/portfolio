@@ -106,10 +106,6 @@
             }
         }
 
-        .history {
-            /*transform: none;*/
-        }
-
     } });
 
     .responsive(@desktop, { .contact-page {

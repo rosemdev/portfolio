@@ -1,5 +1,5 @@
 <template>
-    <div class="padding-aside resume-aside">
+    <div class="resume-aside">
         <rosem-avatar>
             <a href="https://www.linkedin.com/in/romanna-semenyshyn/" target="_blank">
                 <img src="../assets/images/me/rosem2.jpg">

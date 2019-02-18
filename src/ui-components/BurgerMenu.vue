@@ -26,6 +26,7 @@
         cursor: pointer;
         margin: 5px;
         display: flex;
+        padding: 10px;
         flex-direction: column;
         align-items: flex-end;
         transition: background-color .3s ease-in-out;

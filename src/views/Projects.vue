@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            <div class="padding-aside">
+            <div>
                 <p class="section-title hashtag-right right-text" data-hashtag="design">Screenshots</p>
                 <div class="screenshots">
                     <div class="image-holder top">
