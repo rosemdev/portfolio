@@ -223,7 +223,7 @@
                 justify-content: space-between;
 
                 .photo {
-                    background-size: cover;
+                    background-size: contain;
                     background-attachment: fixed;
                     background-repeat: no-repeat;
                     background-position: center;
@@ -234,6 +234,7 @@
                 &.block-above {
                     .photo {
                         background-image: url("../assets/images/me/rosem2.jpg");
+                        background-position: 85%;
                     }
                 }
 
@@ -241,6 +242,7 @@
                     .photo {
                         order: 1;
                         background-image: url("../assets/images/me/rosem.jpg");
+                        background-position: 8%;
                     }
                 }
 
@@ -305,6 +307,7 @@
         }
 
         .greeting {
+            background-attachment: fixed;
             & .order {
                 .main-title {
                     transition: font-weight 0.3s ease-in-out;
@@ -380,10 +383,6 @@
         .about {
             .about-me {
                 flex-direction: row;
-
-                .photo {
-                    background-position: initial;
-                }
 
                 &.block-bellow {
                     .photo {

@@ -7,11 +7,11 @@
                 <img :src="slide.imageSource" :alt="slide.name"/>
             </div>
             <div class="slide-description">
-            <rosem-description-block :subtitle="slide.type"
-                                     :title="slide.name">
-                <template slot="description">{{ slide.text}}</template>
-                <rosem-button slot="additional-info">more details</rosem-button>
-            </rosem-description-block>
+                <rosem-description-block :subtitle="slide.type"
+                                         :title="slide.name">
+                    <template slot="description">{{ slide.text}}</template>
+                    <rosem-button slot="additional-info">more details</rosem-button>
+                </rosem-description-block>
                 <div class="site-link">
                     <a :href="slide.siteLink" target="_blank" rel="noopener">
                         <img src="../assets/images/icons/earth.svg" alt="earth"/>
@@ -55,6 +55,7 @@
         & .slide-image {
             width: 100%;
             margin: 25px 0;
+
             img {
                 width: 100%;
             }
@@ -66,9 +67,6 @@
             .description-block {
                 text-align: left;
                 padding: 0;
-                .button {
-                    margin: auto;
-                }
             }
 
 
@@ -95,38 +93,20 @@
         }
     }
 
-    .responsive(@tablet, {
-        .slide-content {
-            & .slide-image {
+    .responsive(@desktop, { .slide-content {
+        flex-direction: row;
 
-            }
-
-            & .slide-description {
-                .button {
-                    margin-left: 44%;
-                }
-            }
+        & .slide-image {
+            width: 70%;
+            height: 30rem;
         }
-    });
 
-    .responsive(@desktop, {
-        .slide-content {
-            flex-direction: row;
-            & .slide-image {
-                width: 70%;
-                height: 30rem;
-            }
+        & .slide-description {
+            width: 30%;
+            margin: 25px;
 
-            & .slide-description {
-                width: 30%;
-                margin: 25px;
-
-                .button {
-                    margin-left: 44%;
-                }
-            }
         }
-    });
+    } });
 
 
 </style>
