@@ -53,10 +53,10 @@
                     </template>
                     <rosem-button slot="additional-info">see projects</rosem-button>
                 </rosem-description-block>
-                <rosem-photo><img src="../assets/images/me/rosem2.jpg" alt="me at work"/></rosem-photo>
+                <rosem-photo></rosem-photo>
             </div>
             <div class="about-me block-bellow">
-                <rosem-photo><img src="../assets/images/me/rosem.jpg" alt="me"/></rosem-photo>
+                <rosem-photo></rosem-photo>
                 <rosem-description-block subtitle="About me"
                                          title="Romanna Semenyshyn"
                                          class="left-text"
@@ -222,9 +222,25 @@
                 flex-direction: column;
                 justify-content: space-between;
 
+                .photo {
+                    background-size: cover;
+                    background-attachment: fixed;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    width: 500px;
+                    height: 500px;
+                }
+
+                &.block-above {
+                    .photo {
+                        background-image: url("../assets/images/me/rosem2.jpg");
+                    }
+                }
+
                 &.block-bellow {
                     .photo {
                         order: 1;
+                        background-image: url("../assets/images/me/rosem.jpg");
                     }
                 }
 
@@ -366,8 +382,7 @@
                 flex-direction: row;
 
                 .photo {
-                    width: auto;
-                    height: auto;
+                    background-position: initial;
                 }
 
                 &.block-bellow {
@@ -409,12 +424,6 @@
             .about-me {
                 flex-direction: row;
                 margin-top: -140px;
-
-                .photo {
-                    width: 500px;
-                    height: 500px;
-
-                }
 
                 &.block-above {
                     .description-block {
