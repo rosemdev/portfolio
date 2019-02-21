@@ -1,7 +1,7 @@
 <template>
-    <div class="photo">
+    <figure class="photo">
         <slot></slot>
-    </div>
+    </figure>
 </template>
 <script>
     export default {
@@ -16,6 +16,7 @@
         overflow: hidden;
         position: relative;
         box-shadow: 6px 7px 20px -7px #464343e6;
+        display: inline-block;
 
         img {
             transition: .3s ease-in-out;
