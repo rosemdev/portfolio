@@ -46,7 +46,8 @@
                         <template slot="beginData">Sep. 01</template>
                         <template slot="endData">Jen 25</template>
                     </rosem-history-line>
-                    <rosem-description-block subtitle="education" title="Ternopil National Economic University" class="left-text">
+                    <rosem-description-block subtitle="education" title="Ternopil National Economic University"
+                                             class="left-text">
                         <template slot="description">
                             <span class="position">Master degree</span>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor
@@ -67,7 +68,8 @@
                         <template slot="beginData">Sep. 01</template>
                         <template slot="endData">Jun. 25</template>
                     </rosem-history-line>
-                    <rosem-description-block subtitle="education" title="Ternopil National Economic University" class="left-text">
+                    <rosem-description-block subtitle="education" title="Ternopil National Economic University"
+                                             class="left-text">
                         <template slot="description">
                             <span class="position">Bachelor degree</span>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor
@@ -133,52 +135,63 @@
 
     .skills {
         background-color: white;
-    }
 
-    .introduction {
-        .number {
-            color: @mainColor;
-
-            a {
+        .introduction {
+            .number {
                 color: @mainColor;
+
+                a {
+                    color: @mainColor;
+                }
+            }
+
+            .button {
+                margin-top: 25px;
+
+                a {
+                    color: white;
+                }
             }
         }
 
-        .button {
-            margin-top: 25px;
+        .resume {
+            .life-cycle {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: column;
+                color: @mainColor;
 
-            a {
-                color: white;
+                & /deep/ .description-block {
+                    h2 {
+                        text-transform: uppercase;
+                        font-size: 25px;
+
+                        .responsive(@tablet, { h2 {
+                            font-size: 30px;
+                        } })
+                    }
+
+                    .position {
+                        font-size: 25px;
+                        font-weight: 500;
+                    }
+
+                    ul {
+                        list-style: inside;
+                    }
+                }
             }
         }
     }
 
-    .resume {
-        .life-cycle {
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            color: @mainColor;
-
-            & /deep/ .description-block {
-                h2 {
-                    text-transform: uppercase;
-                    font-size: 25px;
-
-                    .responsive(@tablet, { h2 {
-                        font-size: 30px;
-                    } })
-                }
-
-                .position {
-                    font-size: 25px;
-                    font-weight: 500;
-                }
-
-                ul {
-                    list-style: inside;
+    .responsive(@tablet, {
+        .skills {
+            .resume {
+                .life-cycle {
+                    flex-direction: row;
                 }
             }
         }
-    }
+    });
 </style>

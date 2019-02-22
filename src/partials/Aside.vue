@@ -106,6 +106,7 @@
         width: 100%;
         overflow-x: hidden;
         overflow-y: auto;
+        padding: 25px 10px;
 
         .heading {
             font-size: 25px;

@@ -30,6 +30,7 @@
         align-items: flex-start;
         justify-content: flex-start;
         flex-direction: column;
+        background-color: white;
 
         & aside {
             padding: 15px 25px;
