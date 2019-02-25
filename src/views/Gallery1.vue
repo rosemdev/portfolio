@@ -128,7 +128,7 @@
             </div>
             <div class="russia-memories">
                 <div class="memories-photos">
-                    <rosem-description-block subtitle="rissia"
+                    <rosem-description-block subtitle="russia"
                                              title="Mountains and Sea"
                                              class="left-text"
                     >

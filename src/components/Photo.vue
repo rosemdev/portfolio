@@ -17,6 +17,7 @@
         position: relative;
         box-shadow: 6px 7px 20px -7px #464343e6;
         display: inline-block;
+        margin: 0;
 
         img {
             transition: .3s ease-in-out;

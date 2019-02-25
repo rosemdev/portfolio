@@ -5,7 +5,7 @@
                 <p class="section-title left-text hashtag" data-hashtag="Traveling">My traveling history</p>
                 <div class="travel-history">
                     <div class="carousel">
-                        <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 3]]">
+                        <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 4]]">
                             <slide v-for="photo in flights" :key="photo.imageSrc">
                                 <img :src="photo.imageSrc"
                                      :alt="photo.altText"
@@ -25,9 +25,6 @@
             </div>
         </div>
         <div class="montenegro">
-            <div class="main-content">
-                <p class="section-title right-text hashtag-right" data-hashtag="I love it">Montenegro</p>
-            </div>
             <div class="introduction">
                 <div class="col top">
                     <rosem-photo class="design-photo">
@@ -54,34 +51,104 @@
                         </template>
                     </rosem-description-block>
                 </div>
+                <div class="title">
+                    <p class="section-title right-text hashtag-right" data-hashtag="I love it">Montenegro</p>
+                </div>
             </div>
-
+            <div class="montenegro-memories">
+                <div class="main-content title">
+                    <p class="section-title left-text hashtag" data-hashtag="Unforgettable">Memories..</p>
+                </div>
+                <div class="memories">
+                    <div class="gallery-quotes">
+                        <p class="section-title right-text">I agree</p>
+                        <div class="quote">
+                            <blockquote>When words become unclear, I shall focus with photographs. When images become
+                                inadequate, I shall
+                                be content with silence.
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="main-content row">
+                        <div class="column">
+                            <div class="memories-description">
+                                <rosem-description-block subtitle=""
+                                                         title="Dreams come true!"
+                                                         class="left-text"
+                                >
+                                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                        elit. Accusamus ad
+                                        distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum
+                                        dolor sit amet,
+                                        consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae
+                                        veritatis
+                                        voluptate.
+                                    </template>
+                                </rosem-description-block>
+                                <img src="/images/photos/montenegro/IMG_20180624_201126.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <img src="/images/photos/montenegro/IMG_20180624_164939.jpg" alt="">
+                            <img src="/images/photos/montenegro/IMG_20180625_164414.jpg" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="/images/photos/montenegro/IMG_20180624_203307.jpg" alt="">
+                            <img src="/images/photos/montenegro/IMG_20180624_180932.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!--<div class="country">-->
-        <!--<div class="text-content">-->
-        <!--<rosem-description-block subtitle="montenegro" title="First country" class="left-text">-->
-        <!--<template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.-->
-        <!--Assumenda-->
-        <!--atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis-->
-        <!--repudiandae-->
-        <!--soluta totam vitae, voluptates.-->
-        <!--soluta totam vitae, voluptates.-->
-        <!--</template>-->
-        <!--</rosem-description-block>-->
-        <!--</div>-->
-        <!--<div class="photo-content">-->
-        <!--<carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">-->
-        <!--<slide v-for="photo in montenegroKotor" :key="photo.imageSrc">-->
-        <!--<img :src="photo.imageSrc"-->
-        <!--:alt="photo.altText"-->
-        <!--height="700"-->
-        <!--class="carousel-images"-->
-        <!--style="width: 100%; object-fit:cover;"-->
-        <!--&gt;-->
-        <!--</slide>-->
-        <!--</carousel>-->
-        <!--</div>-->
-        <!--</div>-->
+        <div class="russia">
+            <div class="russian-memories">
+                <div class="main-content title">
+                    <p class="section-title left-text hashtag" data-hashtag="Neighbors">Russia</p>
+                </div>
+                <div class="col block1">
+                    <rosem-photo class="design-photo">
+                        <img src="/images/photos/russia/russia.jpg" alt="Russia">
+                    </rosem-photo>
+                    <rosem-description-block subtitle="russia"
+                                             title="Mountains and Sea"
+                                             class="right-text"
+                    >
+                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                            ad distinctio in molestiae.
+                        </template>
+                    </rosem-description-block>
+                </div>
+                <div class="col block2">
+                    <rosem-photo class="design-photo">
+                        <img src="/images/photos/russia/IMG_20180907_155849.jpg" alt="Russia">
+
+                    </rosem-photo>
+                    <rosem-description-block subtitle="Kislovodsk"
+                                             title="Ring-mountain"
+                                             class="left-text"
+                    >
+                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                            ad distinctio in molestiae, quo tempora. Lorem ipsum dolor sit amet,
+                            consectetur adipisicing elit.
+                        </template>
+                    </rosem-description-block>
+                </div>
+                <div class="col block3">
+                    <rosem-photo class="design-photo">
+                        <img src="/images/photos/russia/IMG_20180708_121042_HDR.jpg" alt="Russia">
+                    </rosem-photo>
+                    <rosem-description-block subtitle="Zheleznovodsk"
+                                             title="Five peaks of the mountain Beshtau"
+                                             class="right-text"
+                    >
+                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                            ad
+                            distinctio in molestiae voluptate.
+                        </template>
+                    </rosem-description-block>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -144,31 +211,44 @@
 
     }
 
-
-    .country {
+    .row {
         display: flex;
         align-items: center;
-        justify-content: center;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+        padding: 15px;
+        overflow: hidden;
 
-        .photo-content {
-            width: 85%;
-
+        &:after {
+            content: '';
+            position: absolute;
+            background-color: @mainColor;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
         }
 
-        .text-content {
-            width: 20%;
-            position: relative;
-            z-index: 2;
-            padding: 2rem;
-            transform: translate3d(17rem, -8rem, 0);
-            background-color: rgba(9, 9, 9, 0.59);
-
-            .description-block {
-                color: white;
-            }
-        }
     }
 
+    blockquote {
+        font-size: 45px;
+        font-weight: 200;
+        text-align: left;
+        margin: 50px 0;
+        quotes: "\201C" "\201D" "\2018" "\2019";
+
+        &:before, &:after {
+            font-size: 4em;
+            line-height: 0.1em;
+            margin-right: 0.25em;
+            color: tomato;
+        }
+
+    }
 
     .gallery {
         background-color: white;
@@ -177,17 +257,15 @@
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            flex-direction: row;
+            flex-direction: column;
 
-            .description {
-                width: 400px;
-                position: relative;
-                z-index: 2;
-                transform: translateX(-4rem);
+            .carousel, .description {
+                width: 100%;
             }
 
-            .carousel {
-                width: 75%;
+            .description {
+                transform: none;
+                order: -1;
             }
         }
 
@@ -201,7 +279,7 @@
 
                 &:after {
                     content: '';
-                    background-image: url("../../public/images/photos/white-gray-concrete-wall-texture-hd-min.png");
+                    background-image: url("../assets/images/white-gray-concrete-wall-texture-hd-min.png");
                     background-repeat: no-repeat;
                     background-attachment: fixed;
                     opacity: .5;
@@ -213,6 +291,10 @@
                     left: 0;
                     top: 0;
 
+                }
+
+                .title {
+                    order: -1;
                 }
 
                 .col {
@@ -251,8 +333,113 @@
                             margin-left: 10px;
                         }
                     }
+                }
+            }
 
+            .montenegro-memories {
+                .memories {
+                    display: flex;
+                    align-items: flex-start;
+                    position: relative;
+                    flex-direction: column;
 
+                    .description-block {
+                        color: white;
+                    }
+
+                    .column {
+                        flex: 100%;
+                        max-width: 100%;
+                        align-self: flex-start;
+                        margin: -3px;
+                    }
+
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                        .object-fit(@fit: cover);
+                        display: block;
+                        margin: 8px 5px;
+                    }
+                }
+            }
+
+            .gallery-quotes {
+                padding: 5rem;
+                align-self: center;
+
+                .quote {
+                    blockquote {
+                        &:before {
+                            content: open-quote;
+                            vertical-align: -0.4em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .russia {
+            position: relative;
+            z-index: 1;
+            padding: 1rem;
+
+            &:after {
+                content: '';
+                background-image: url("../assets/images/gray-texture.png");
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                opacity: .3;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: block;
+                z-index: -5;
+                left: 0;
+                top: 0;
+
+            }
+
+            .russian-memories {
+                .col {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    justify-content: flex-start;
+
+                    .description-block {
+                        padding: 7rem 2rem 3rem 2rem;
+                    }
+
+                    &.block1 {
+                        .description-block {
+                            background-color: rgba(106, 224, 124, 0.81);
+                            padding: 7rem 2rem 3rem 2rem;
+                            margin-top: -5rem;
+                            width: 75%;
+
+                        }
+                    }
+
+                    &.block2 {
+                        .description-block {
+                            color: white;
+                            background-color: #422013;
+                            margin-left: auto;
+                            margin-top: -3rem;
+                            z-index: 1;
+                            width: 75%;
+                        }
+                    }
+
+                    &.block3 {
+                        .description-block {
+                            width: 100%;
+                            margin-top: -5rem;
+                            color: white;
+                            background-color: #44708d;
+                        }
+                    }
                 }
             }
         }
@@ -264,6 +451,15 @@
             .introduction {
                 flex-direction: row;
                 padding: 25px 50px;
+
+                .title {
+                    align-self: flex-start;
+                    order: -1;
+                    position: absolute;
+                    width: 100%;
+                    top: -4rem;
+                    left: -20px;
+                }
 
                 .col {
                     img {
@@ -283,14 +479,55 @@
                     }
                 }
             }
+
+            .montenegro-memories {
+                .memories {
+                    .column {
+                        flex: 33.7%;
+                        max-width: 33.7%;
+                        align-self: flex-start;
+                        margin: -3px;
+                    }
+
+                    img {
+                        width: 400px;
+                    }
+                }
+            }
+
         }
+
 
     } });
 
     .responsive(@desktop, { .gallery {
+
+        .travel-history {
+            flex-direction: row;
+
+            .carousel {
+                width: 75%;
+            }
+
+            .description {
+                order: 1;
+                width: 400px;
+                position: relative;
+                z-index: 1;
+                transform: translateX(-4rem);
+            }
+        }
+
         .montenegro {
             .introduction {
-                max-width: 1200px;
+                max-width: 1400px;
+
+                .title {
+                    position: static;
+                    order: 1;
+                }
+
+
                 .col {
                     img {
                         width: 500px;
@@ -310,6 +547,10 @@
                     &.bottom {
                         .photo {
                             margin: 0;
+
+                            img {
+                                width: 600px;
+                            }
                         }
 
                         .description-block {
@@ -317,12 +558,22 @@
                                 position: absolute;
                                 width: 250px;
                                 margin-left: 24rem;
-                                margin-top: 11rem;
+                                margin-top: 15rem;
                                 background-color: white;
                                 padding: 2rem;
 
                             }
                         }
+                    }
+                }
+            }
+
+            .montenegro-memories {
+                .memories {
+                    flex-direction: row;
+
+                    .gallery-quotes {
+                        width: 35%;
                     }
                 }
             }
