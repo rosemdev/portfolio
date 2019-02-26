@@ -114,7 +114,8 @@
                                                  title="Mountains and Sea"
                                                  class="right-text"
                         >
-                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Accusamus
                                 ad distinctio in molestiae.
                             </template>
                         </rosem-description-block>
@@ -129,7 +130,8 @@
                                                  title="Ring-mountain"
                                                  class="left-text"
                         >
-                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Accusamus
                                 ad distinctio in molestiae, quo tempora. Lorem ipsum dolor sit amet,
                                 consectetur adipisicing elit.
                             </template>
@@ -143,12 +145,65 @@
                                                  title="Five peaks of the mountain Beshtau"
                                                  class="right-text"
                         >
-                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Accusamus
                                 ad
                                 distinctio in molestiae voluptate.
                             </template>
                         </rosem-description-block>
                     </div>
+                </div>
+            </div>
+            <div class="moscow-memories-photos">
+                <div class="main-content">
+                    <p class="section-title left-text hashtag" data-hashtag="Capital">Moscow</p>
+                </div>
+                <div class="main-content row">
+                    <div class="column">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_132924_HDR.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_124242_HDR.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_123454.jpg" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_124313_HDR.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180804_002305.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_124910_HDR.jpg" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_132805_HDR.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180804_002249.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_124253_HDR.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="france">
+            <div class="main-content">
+                <p class="section-title left-text hashtag" data-hashtag="Fairy tale...">France</p>
+            </div>
+            <div class="paris">
+                <rosem-photo class="design-photo">
+                    <img src="/images/photos/france/france.jpg" alt="France">
+                </rosem-photo>
+                <rosem-description-block subtitle="attractions" title="Paris" class="left-text">
+                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
+                        atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
+                        soluta totam vitae, voluptates.
+                    </template>
+                </rosem-description-block>
+                <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
+                    <slide v-for="photo in montenegroSFPhotos" :key="photo.imageSrc">
+                        <img :src="photo.imageSrc"
+                             :alt="photo.altText"
+                             height="350"
+                             class="carousel-images"
+                             style="width: 100%; object-fit:cover;">
+                    </slide>
+                </carousel>
+            </div>
+            <div class="montpellier">
+                <div class="main-content">
+                    <p class="section-title left-text hashtag" data-hashtag="South">Montpellier</p>
                 </div>
             </div>
         </div>
@@ -256,6 +311,22 @@
     .gallery {
         background-color: white;
 
+        .column {
+            flex: 100%;
+            max-width: 100%;
+            align-self: flex-start;
+            margin: -3px;
+
+            img {
+                width: 100%;
+                object-fit: cover;
+                .object-fit(@fit: cover);
+                display: block;
+                margin: 8px 5px;
+            }
+        }
+
+
         .travel-history {
             display: flex;
             align-items: flex-start;
@@ -349,21 +420,6 @@
                     .description-block {
                         color: white;
                     }
-
-                    .column {
-                        flex: 100%;
-                        max-width: 100%;
-                        align-self: flex-start;
-                        margin: -3px;
-                    }
-
-                    img {
-                        width: 100%;
-                        object-fit: cover;
-                        .object-fit(@fit: cover);
-                        display: block;
-                        margin: 8px 5px;
-                    }
                 }
             }
 
@@ -395,7 +451,7 @@
                 opacity: .4;
                 position: absolute;
                 width: 100%;
-                height: 100%;
+                height: 1500px;
                 display: block;
                 z-index: -5;
                 left: 0;
@@ -450,11 +506,46 @@
                     }
                 }
             }
+
+        }
+
+        .france {
+            .paris {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                flex-direction: column;
+                position: relative;
+                z-index: 1;
+                margin-bottom: 100px;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: 75%;
+                    height: 100%;
+                    z-index: -1;
+                    left: 0;
+                    background-color: #262a2e;
+                    display: block;
+                }
+
+                .description-block {
+                    color: white;
+                    width: 66%;
+                }
+            }
         }
     }
 
 
     .responsive(@tablet, { .gallery {
+
+        .column {
+            flex: 33.7%;
+            max-width: 33.7%;
+        }
+
         .montenegro {
             .introduction {
                 flex-direction: row;
@@ -491,15 +582,11 @@
             .montenegro-memories {
                 .memories {
                     .column {
-                        flex: 33.7%;
-                        max-width: 33.7%;
-                        align-self: flex-start;
-                        margin: -3px;
+                        img {
+                            width: 400px;
+                        }
                     }
 
-                    img {
-                        width: 400px;
-                    }
                 }
             }
         }
@@ -522,6 +609,25 @@
                         position: relative;
                         top: -16rem;
                     }
+                }
+            }
+
+            .moscow-memories-photos {
+                .row {
+                    img {
+                        width: 225px;
+                    }
+                }
+            }
+        }
+
+        .france {
+            .paris {
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                .photo {
+                    flex-shrink: 0;
                 }
             }
         }
@@ -651,6 +757,29 @@
                         }
                     }
                 }
+            }
+
+            .moscow-memories-photos {
+                .row {
+                    img {
+                        width: 445px;
+                    }
+                }
+            }
+        }
+
+        .france {
+            .paris {
+                flex-wrap: nowrap;
+
+                .description-block {
+                    width: 15%;
+                }
+
+                .VueCarousel {
+                    width: 85%;
+                }
+
             }
         }
 
