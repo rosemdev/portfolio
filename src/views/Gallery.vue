@@ -102,50 +102,53 @@
         </div>
         <div class="russia">
             <div class="russian-memories">
-                <div class="main-content title">
-                    <p class="section-title left-text hashtag" data-hashtag="Neighbors">Russia</p>
+                <div class="col">
+                    <div class="block1">
+                        <p class="section-title left-text hashtag" data-hashtag="Neighbors">Russia</p>
+                    </div>
+                    <div class="wrapper block2">
+                        <rosem-photo class="design-photo">
+                            <img src="/images/photos/russia/russia.jpg" alt="Russia">
+                        </rosem-photo>
+                        <rosem-description-block subtitle="russia"
+                                                 title="Mountains and Sea"
+                                                 class="right-text"
+                        >
+                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                                ad distinctio in molestiae.
+                            </template>
+                        </rosem-description-block>
+                    </div>
                 </div>
-                <div class="col block1">
-                    <rosem-photo class="design-photo">
-                        <img src="/images/photos/russia/russia.jpg" alt="Russia">
-                    </rosem-photo>
-                    <rosem-description-block subtitle="russia"
-                                             title="Mountains and Sea"
-                                             class="right-text"
-                    >
-                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-                            ad distinctio in molestiae.
-                        </template>
-                    </rosem-description-block>
-                </div>
-                <div class="col block2">
-                    <rosem-photo class="design-photo">
-                        <img src="/images/photos/russia/IMG_20180907_155849.jpg" alt="Russia">
-
-                    </rosem-photo>
-                    <rosem-description-block subtitle="Kislovodsk"
-                                             title="Ring-mountain"
-                                             class="left-text"
-                    >
-                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-                            ad distinctio in molestiae, quo tempora. Lorem ipsum dolor sit amet,
-                            consectetur adipisicing elit.
-                        </template>
-                    </rosem-description-block>
-                </div>
-                <div class="col block3">
-                    <rosem-photo class="design-photo">
-                        <img src="/images/photos/russia/IMG_20180708_121042_HDR.jpg" alt="Russia">
-                    </rosem-photo>
-                    <rosem-description-block subtitle="Zheleznovodsk"
-                                             title="Five peaks of the mountain Beshtau"
-                                             class="right-text"
-                    >
-                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-                            ad
-                            distinctio in molestiae voluptate.
-                        </template>
-                    </rosem-description-block>
+                <div class="col">
+                    <div class="wrapper block3">
+                        <rosem-photo class="design-photo">
+                            <img src="/images/photos/russia/IMG_20180907_155849.jpg" alt="Russia">
+                        </rosem-photo>
+                        <rosem-description-block subtitle="Kislovodsk"
+                                                 title="Ring-mountain"
+                                                 class="left-text"
+                        >
+                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                                ad distinctio in molestiae, quo tempora. Lorem ipsum dolor sit amet,
+                                consectetur adipisicing elit.
+                            </template>
+                        </rosem-description-block>
+                    </div>
+                    <div class="wrapper block4">
+                        <rosem-photo class="design-photo">
+                            <img src="/images/photos/russia/IMG_20180708_121042_HDR.jpg" alt="Russia">
+                        </rosem-photo>
+                        <rosem-description-block subtitle="Zheleznovodsk"
+                                                 title="Five peaks of the mountain Beshtau"
+                                                 class="right-text"
+                        >
+                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
+                                ad
+                                distinctio in molestiae voluptate.
+                            </template>
+                        </rosem-description-block>
+                    </div>
                 </div>
             </div>
         </div>
@@ -389,7 +392,7 @@
                 background-image: url("../assets/images/gray-texture.png");
                 background-repeat: no-repeat;
                 background-attachment: fixed;
-                opacity: .3;
+                opacity: .4;
                 position: absolute;
                 width: 100%;
                 height: 100%;
@@ -408,20 +411,25 @@
                     justify-content: flex-start;
 
                     .description-block {
-                        padding: 7rem 2rem 3rem 2rem;
+                        padding: 1rem 2rem 3rem 2rem;
+                        position: relative;
+                        z-index: 2;
+
+                        /deep/ h3 {
+                            font-size: 15px;
+                        }
                     }
 
-                    &.block1 {
+                    .block2 {
                         .description-block {
                             background-color: rgba(106, 224, 124, 0.81);
-                            padding: 7rem 2rem 3rem 2rem;
                             margin-top: -5rem;
                             width: 75%;
 
                         }
                     }
 
-                    &.block2 {
+                    .block3 {
                         .description-block {
                             color: white;
                             background-color: #422013;
@@ -432,7 +440,7 @@
                         }
                     }
 
-                    &.block3 {
+                    .block4 {
                         .description-block {
                             width: 100%;
                             margin-top: -5rem;
@@ -494,9 +502,29 @@
                     }
                 }
             }
-
         }
 
+        .russia {
+            .russian-memories {
+                display: flex;
+                align-self: center;
+                justify-content: center;
+
+                .col {
+                    display: flex;
+                    align-self: center;
+                    justify-content: center;
+                    width: 50%;
+
+                    .block1 {
+                        word-break: break-all;
+                        width: 100%;
+                        position: relative;
+                        top: -16rem;
+                    }
+                }
+            }
+        }
 
     } });
 
@@ -574,6 +602,53 @@
 
                     .gallery-quotes {
                         width: 35%;
+                    }
+                }
+            }
+        }
+
+        .russia {
+            .russian-memories {
+                .col {
+                    .wrapper {
+                        display: flex;
+                        align-self: center;
+                        justify-content: center;
+                    }
+
+                    .block1 {
+                        left: 13rem;
+                        top: -3rem;
+                    }
+
+                    .block2 {
+                        align-items: flex-end;
+                        margin-left: 11rem;
+
+                        .description-block {
+                            order: -1;
+                            width: 300px;
+                            margin-right: -5rem;
+                        }
+                    }
+
+                    .block3 {
+                        .description-block {
+                            width: 400px;
+                            align-self: center;
+                            margin-left: -11rem;
+                        }
+                    }
+
+                    .block4 {
+                        margin-top: 5rem;
+
+                        .description-block {
+                            order: -1;
+                            width: 400px;
+                            align-self: flex-end;
+                            margin-right: -4rem;
+                        }
                     }
                 }
             }
