@@ -178,19 +178,59 @@
             </div>
         </div>
         <div class="france">
-            <div class="main-content">
-                <p class="section-title left-text hashtag" data-hashtag="Fairy tale...">France</p>
+            <div class="france-paris">
+                <div class="col top">
+                    <rosem-photo class="design-photo">
+                        <img src="/images/photos/france/IMG_20181124_153837.jpg" alt="Paris building">
+                    </rosem-photo>
+                    <rosem-description-block subtitle="paris"
+                                             title="Amazing architecture"
+                                             class="left-text"
+                    >
+                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Accusamus
+                            ad distinctio in molestiae.
+                        </template>
+                    </rosem-description-block>
+                    <div class="main-content">
+                        <p class="section-title right-text hashtag-right" data-hashtag="Fairy tale...">France</p>
+                    </div>
+                </div>
+                <div class="col bottom">
+                    <div class="block1">
+                        <rosem-description-block subtitle="paris"
+                                                 title="Amazing architecture"
+                                                 class="left-text"
+                        >
+                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Accusamus
+                                ad distinctio in molestiae.
+                            </template>
+                        </rosem-description-block>
+                        <rosem-photo class="design-photo">
+                            <img src="/images/photos/france/france.jpg" alt="France">
+                        </rosem-photo>
+                    </div>
+                    <div class="block2">
+                        <rosem-photo class="design-photo">
+                            <img src="/images/photos/france/IMG_20181124_162800.jpg" alt="Paris building">
+                        </rosem-photo>
+                        <rosem-description-block subtitle="paris"
+                                                 title="Amazing architecture"
+                                                 class="right-text"
+                        >
+                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Accusamus
+                                ad distinctio in molestiae.
+                            </template>
+                        </rosem-description-block>
+                    </div>
+                </div>
             </div>
-            <div class="paris">
-                <rosem-photo class="design-photo">
-                    <img src="/images/photos/france/france.jpg" alt="France">
-                </rosem-photo>
-                <rosem-description-block subtitle="attractions" title="Paris" class="left-text">
-                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-                        atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
-                        soluta totam vitae, voluptates.
-                    </template>
-                </rosem-description-block>
+            <div class="main-content">
+                <p class="section-title right-text hashtag-right" data-hashtag="She is ...">Eiffel Tower</p>
+            </div>
+            <div class="eiffel-tower">
                 <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
                     <slide v-for="photo in montenegroSFPhotos" :key="photo.imageSrc">
                         <img :src="photo.imageSrc"
@@ -200,11 +240,15 @@
                              style="width: 100%; object-fit:cover;">
                     </slide>
                 </carousel>
-            </div>
-            <div class="montpellier">
-                <div class="main-content">
-                    <p class="section-title left-text hashtag" data-hashtag="South">Montpellier</p>
-                </div>
+                <rosem-description-block subtitle="attractions" title="Paris" class="left-text">
+                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
+                        atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
+                        soluta totam vitae, voluptates.
+                    </template>
+                </rosem-description-block>
+                <rosem-photo class="design-photo">
+                    <img src="/images/photos/france/IMG_20181124_172404.jpg" alt="France">
+                </rosem-photo>
             </div>
         </div>
     </div>
@@ -510,14 +554,79 @@
         }
 
         .france {
-            .paris {
+            .france-paris {
+                position: relative;
+                z-index: 1;
+                padding: 1rem;
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                justify-content: center;
+
+                &:after {
+                    content: '';
+                    background-image: url("../assets/images/colorful texture.png");
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                    opacity: .4;
+                    position: absolute;
+                    width: 100%;
+                    height: 1000px;
+                    display: block;
+                    z-index: -5;
+                    left: 0;
+                    top: 0;
+
+                }
+
+                .description-block {
+                    padding: 2rem 3rem;
+                }
+
+                .col {
+                    &.top {
+                        margin-left: 3rem;
+
+                        .photo {
+                            position: relative;
+                            z-index: 0;
+                        }
+
+                        .description-block {
+                            color: white;
+                            background-color: #464f58;
+                            margin-top: -1rem;
+                            z-index: 1;
+                            position: relative;
+                        }
+                    }
+
+                    &.bottom {
+                        .block1 {
+                            .description-block {
+                                background-color: rgba(255, 44, 49, 0.71);
+                                margin-bottom: -2rem;
+                            }
+                        }
+
+                        .block2 {
+                            .description-block {
+                                background-color: rgb(247, 162, 162);
+                                margin-top: -2rem;
+                            }
+                        }
+                    }
+                }
+
+            }
+
+            .eiffel-tower {
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
                 flex-direction: column;
                 position: relative;
                 z-index: 1;
-                margin-bottom: 100px;
 
                 &:after {
                     content: '';
@@ -525,7 +634,7 @@
                     width: 75%;
                     height: 100%;
                     z-index: -1;
-                    left: 0;
+                    right: 0;
                     background-color: #262a2e;
                     display: block;
                 }
@@ -622,12 +731,43 @@
         }
 
         .france {
-            .paris {
+            .eiffel-tower {
                 flex-direction: row;
                 flex-wrap: wrap;
 
                 .photo {
                     flex-shrink: 0;
+                }
+            }
+
+            .france-paris {
+                .col {
+                    &.top {
+                        width: 80%;
+
+                        .photo {
+                            img {
+                                max-width: 925px;
+                            }
+                        }
+
+                        .description-block {
+                            width: 500px;
+                            margin-left: auto;
+                            margin-top: -4rem;
+                        }
+                    }
+
+                    &.bottom {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        .block2 {
+                            margin-top: -8rem;
+
+                        }
+                    }
                 }
             }
         }
@@ -769,7 +909,7 @@
         }
 
         .france {
-            .paris {
+            .eiffel-tower {
                 flex-wrap: nowrap;
 
                 .description-block {
@@ -780,6 +920,39 @@
                     width: 85%;
                 }
 
+            }
+
+            .france-paris {
+                /*flex-direction: row;*/
+
+                .col {
+                    &.top {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                    }
+
+                    &.bottom {
+                        .block1 {
+                            .description-block {
+                                width: 600px;
+                                margin-top: -2rem;
+                            }
+                        }
+
+                        .block2 {
+                            .description-block {
+                                margin-left: auto;
+                            }
+
+                            .photo {
+                                img {
+                                    max-width: 800px;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
 
