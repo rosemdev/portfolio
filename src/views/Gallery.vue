@@ -192,7 +192,7 @@
                             ad distinctio in molestiae.
                         </template>
                     </rosem-description-block>
-                    <div class="main-content">
+                    <div class="main-content title">
                         <p class="section-title right-text hashtag-right" data-hashtag="Fairy tale...">France</p>
                     </div>
                 </div>
@@ -641,7 +641,17 @@
 
                 .description-block {
                     color: white;
-                    width: 66%;
+                    width: 40%;
+                    order: 1;
+
+                }
+
+                .VueCarousel {
+                    order: 3;
+                }
+
+                .photo {
+                    order: -1;
                 }
             }
         }
@@ -731,19 +741,18 @@
         }
 
         .france {
-            .eiffel-tower {
-                flex-direction: row;
-                flex-wrap: wrap;
-
-                .photo {
-                    flex-shrink: 0;
-                }
-            }
-
             .france-paris {
                 .col {
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-end;
+                    flex-direction: column;
                     &.top {
                         width: 80%;
+
+                        .title {
+                            order: -1;
+                        }
 
                         .photo {
                             img {
@@ -768,6 +777,14 @@
 
                         }
                     }
+                }
+            }
+
+            .eiffel-tower {
+                flex-wrap: wrap;
+
+                .photo {
+                    flex-shrink: 0;
                 }
             }
         }
@@ -909,27 +926,15 @@
         }
 
         .france {
-            .eiffel-tower {
-                flex-wrap: nowrap;
-
-                .description-block {
-                    width: 15%;
-                }
-
-                .VueCarousel {
-                    width: 85%;
-                }
-
-            }
-
             .france-paris {
-                /*flex-direction: row;*/
-
                 .col {
+                    flex-direction: row;
+
                     &.top {
-                        display: flex;
-                        align-items: center;
-                        justify-content: flex-end;
+                        .title {
+                            order: 0;
+                        }
+
                     }
 
                     &.bottom {
@@ -953,6 +958,26 @@
                         }
                     }
                 }
+            }
+
+            .eiffel-tower {
+                flex-direction: row;
+                flex-wrap: nowrap;
+
+                .description-block {
+                    width: 15%;
+                    order: 2;
+                }
+
+                .VueCarousel {
+                    width: 85%;
+                    order: 1;
+                }
+
+                .photo {
+                    order: 3;
+                }
+
             }
         }
 
