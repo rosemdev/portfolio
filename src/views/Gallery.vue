@@ -227,28 +227,43 @@
                     </div>
                 </div>
             </div>
-            <div class="main-content">
-                <p class="section-title right-text hashtag-right" data-hashtag="She is ...">Eiffel Tower</p>
-            </div>
-            <div class="eiffel-tower">
-                <carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">
-                    <slide v-for="photo in montenegroSFPhotos" :key="photo.imageSrc">
+            <!--<div class="eiffel-tower1">-->
+            <!--<carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">-->
+            <!--<slide v-for="photo in montenegroSFPhotos" :key="photo.imageSrc">-->
+            <!--<img :src="photo.imageSrc"-->
+            <!--:alt="photo.altText"-->
+            <!--height="350"-->
+            <!--class="carousel-images"-->
+            <!--style="width: 100%; object-fit:cover;">-->
+            <!--</slide>-->
+            <!--</carousel>-->
+            <!--<rosem-description-block subtitle="attractions" title="Paris" class="left-text">-->
+            <!--<template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda-->
+            <!--atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae-->
+            <!--soluta totam vitae, voluptates.-->
+            <!--</template>-->
+            <!--</rosem-description-block>-->
+            <!--<rosem-photo class="design-photo">-->
+            <!--<img src="/images/photos/france/IMG_20181124_172404.jpg" alt="France">-->
+            <!--</rosem-photo>-->
+            <!--</div>-->
+            <div class="main-content eiffel-tower">
+                <div class="title">
+                    <p class="section-title right-text hashtag-right" data-hashtag="She is ...">Eiffel Tower</p>
+                </div>
+                <carousel :loop="true" :perPageCustom="[[320, 1], [768, 1]]">
+                    <slide v-for="photo in tower" :key="photo.imageSrc">
                         <img :src="photo.imageSrc"
                              :alt="photo.altText"
-                             height="350"
                              class="carousel-images"
-                             style="width: 100%; object-fit:cover;">
+                             style="sobject-fit:cover;">
                     </slide>
                 </carousel>
-                <rosem-description-block subtitle="attractions" title="Paris" class="left-text">
+                <rosem-description-block subtitle="attractions" title="Eiffel Tower" class="left-text">
                     <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-                        atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae
-                        soluta totam vitae, voluptates.
+                        atque autem dignissimos facilis harum nulla.
                     </template>
                 </rosem-description-block>
-                <rosem-photo class="design-photo">
-                    <img src="/images/photos/france/IMG_20181124_172404.jpg" alt="France">
-                </rosem-photo>
             </div>
         </div>
     </div>
@@ -256,6 +271,7 @@
 <script>
     import flights from "@resources/gallery/flights.json";
     import russiaPhotos from "@resources/gallery/russia";
+    import tower from "@resources/gallery/tower";
     import montenegroKotor from "@resources/gallery/montenegro-kotor";
     import montenegroSFPhotos from "@resources/gallery/montenegro_sveti-stefan";
     import {Carousel, Slide} from "vue-carousel";
@@ -278,6 +294,7 @@
                 russiaPhotos,
                 montenegroSFPhotos,
                 montenegroKotor,
+                tower
             }
         },
         components: {
@@ -619,8 +636,28 @@
                 }
 
             }
-
             .eiffel-tower {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+
+                .description-block {
+                    padding: 3rem;
+                    background-color: rgba(253, 251, 251, 0.6);
+                }
+                
+
+                .VueCarousel {
+                    img {
+                        width: 100%;
+                    }
+                }
+
+
+            }
+
+            .eiffel-tower1 {
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
@@ -684,11 +721,6 @@
                         width: 300px;
                     }
 
-                    &.top {
-                        .description-block {
-                        }
-                    }
-
                     &.bottom {
                         .photo {
                             margin-left: -60px;
@@ -747,6 +779,7 @@
                     align-items: center;
                     justify-content: flex-end;
                     flex-direction: column;
+
                     &.top {
                         width: 80%;
 
@@ -781,6 +814,25 @@
             }
 
             .eiffel-tower {
+                flex-direction: row;
+
+                .VueCarousel {
+                    width: 50%;
+
+                    img {
+                        width: 400px;
+                    }
+                }
+
+                .description-block {
+                    width: 300px;
+                    position: relative;
+                    right: 3rem;
+                    z-index: 2;
+                }
+            }
+
+            .eiffel-tower1 {
                 flex-wrap: wrap;
 
                 .photo {
@@ -961,11 +1013,28 @@
             }
 
             .eiffel-tower {
+
+                .title {
+                    align-self: flex-start;
+                }
+
+                .VueCarousel {
+                    img {
+                        width: 600px;
+                    }
+                }
+
+                .description-block {
+                    right: 7rem;
+                }
+            }
+
+            .eiffel-tower1 {
                 flex-direction: row;
                 flex-wrap: nowrap;
 
                 .description-block {
-                    width: 15%;
+                    width: 25%;
                     order: 2;
                 }
 
