@@ -227,29 +227,9 @@
                     </div>
                 </div>
             </div>
-            <!--<div class="eiffel-tower1">-->
-            <!--<carousel :loop="true" :perPageCustom="[[320, 1], [768, 3]]">-->
-            <!--<slide v-for="photo in montenegroSFPhotos" :key="photo.imageSrc">-->
-            <!--<img :src="photo.imageSrc"-->
-            <!--:alt="photo.altText"-->
-            <!--height="350"-->
-            <!--class="carousel-images"-->
-            <!--style="width: 100%; object-fit:cover;">-->
-            <!--</slide>-->
-            <!--</carousel>-->
-            <!--<rosem-description-block subtitle="attractions" title="Paris" class="left-text">-->
-            <!--<template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda-->
-            <!--atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis repudiandae-->
-            <!--soluta totam vitae, voluptates.-->
-            <!--</template>-->
-            <!--</rosem-description-block>-->
-            <!--<rosem-photo class="design-photo">-->
-            <!--<img src="/images/photos/france/IMG_20181124_172404.jpg" alt="France">-->
-            <!--</rosem-photo>-->
-            <!--</div>-->
             <div class="main-content eiffel-tower">
                 <div class="title">
-                    <p class="section-title right-text hashtag-right" data-hashtag="She is ...">Eiffel Tower</p>
+                    <p class="section-title right-text hashtag-right" data-hashtag="She is ...">Architecture</p>
                 </div>
                 <carousel :loop="true" :perPageCustom="[[320, 1], [768, 1]]">
                     <slide v-for="photo in tower" :key="photo.imageSrc">
@@ -259,12 +239,92 @@
                              style="sobject-fit:cover;">
                     </slide>
                 </carousel>
-                <rosem-description-block subtitle="attractions" title="Eiffel Tower" class="left-text">
+                <rosem-description-block subtitle="attractions" title="Eiffel Tower & Architecture" class="left-text">
                     <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
                         atque autem dignissimos facilis harum nulla.
                     </template>
                 </rosem-description-block>
             </div>
+            <div class="montpellier">
+                <div class="main-content">
+                    <p class="section-title right-text hashtag-right" data-hashtag="comfortable">Montpellier</p>
+                </div>
+                <div class="montpellier-photo-memories">
+                    <div class="main-content row">
+                        <div class="column">
+                            <div class="memories-description">
+                                <rosem-description-block subtitle=""
+                                                         title="Dreams come true!"
+                                                         class="left-text"
+                                >
+                                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing
+                                        elit. Accusamus ad
+                                        distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum
+                                        dolor sit amet,
+                                        consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae
+                                        veritatis
+                                        voluptate.
+                                    </template>
+                                </rosem-description-block>
+                                <img src="/images/photos/france/montpellier/IMG_20181128_151847.jpg" alt="">
+                                <img src="/images/photos/france/montpellier/IMG_20181125_150652.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <img src="/images/photos/france/montpellier/IMG_20181125_145312.jpg" alt="">
+                            <img src="/images/photos/montenegro/IMG_20181125_150747.jpg" alt="">
+                            <img src="/images/photos/montenegro/IMG_20181125_173200.jpg" alt="">
+                            <img src="/images/photos/montenegro/IMG_20181128_160910.jpg" alt="">
+                            <img src="/images/photos/france/montpellier/IMG_20181125_172612.jpg" alt="">
+                            <img src="/images/photos/france/montpellier/IMG_20181128_154352.jpg" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="/images/photos/france/montpellier/IMG_20181125_165758.jpg" alt="">
+                            <img src="/images/photos/france/montpellier/IMG_20181125_155618.jpg" alt="">
+                            <img src="/images/photos/france/montpellier/IMG_20181201_101956.jpg" alt="">
+                            <img src="/images/photos/france/montpellier/IMG_20181201_155351.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="gallery-quotes">
+                        <p class="section-title right-text">I agree</p>
+                        <div class="description">
+                            <rosem-quote class="right-text">Here is my collection of photos form airports and plane. The
+                                first time I tried to fly was last summer - it was amazing despite that the exactly
+                                beginning of journey wasn't not 100% lucky. Lorem ipsum dolor sit amet, consectetur
+                                adipisicing
+                                elit. Accusamus ad
+                                distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum
+                                dolor sit amet,
+                                consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae
+                                veritatis
+                                voluptate.
+                            </rosem-quote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="margin main-content last-quote">
+            <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
+                captured forever…
+            </blockquote>
+        </div>
+        <div class="instagram">
+            <div class="main-content">
+                <p class="section-title left-text hashtag" data-hashtag="Instagram">Instafeed</p>
+            </div>
+            <rosem-photo-gallery :cols="5"
+                                 :collection="instagram"
+                                 v-slot="{ item: photo }"
+            >
+                <rosem-insta-photo
+                        :key="photo.imageSrc"
+                        :post-link="photo.postLink"
+                        :image-src="photo.imageSrc"
+                        :likes="photo.likes"
+                        :location="photo.location"
+                />
+            </rosem-photo-gallery>
         </div>
     </div>
 </template>
@@ -278,6 +338,10 @@
     import RosemDescriptionBlock from "../components/DescriptionBlock";
     import RosemQuote from "../components/Quote";
     import RosemPhoto from "../components/Photo";
+    import RosemInstaPhoto from "../components/InstaPhoto"
+    import RosemPhotoGallery from "../partials/PhotoGallery";
+    import {mapState} from "vuex";
+    import store from '@store'
 
 
     export default {
@@ -302,11 +366,26 @@
             Slide,
             RosemDescriptionBlock,
             RosemQuote,
-            RosemPhoto
-
+            RosemPhoto,
+            RosemPhotoGallery,
+            RosemInstaPhoto,
         },
 
-        computed: {},
+        computed: {
+            ...mapState([
+                'instagram'
+            ]),
+        },
+
+        beforeRouteEnter(to, from, next) {
+            store.dispatch('getInstagramPhotos').then(function () {
+                next()
+            }).catch(() => {
+                next(vm => {
+                    vm.$router.push({name: 'NotFound'});
+                })
+            });
+        }
 
     }
 
@@ -582,7 +661,7 @@
 
                 &:after {
                     content: '';
-                    background-image: url("../assets/images/colorful texture.png");
+                    background-image: url("../assets/images/grey.png");
                     background-repeat: no-repeat;
                     background-attachment: fixed;
                     opacity: .4;
@@ -636,6 +715,7 @@
                 }
 
             }
+
             .eiffel-tower {
                 display: flex;
                 align-items: center;
@@ -646,49 +726,49 @@
                     padding: 3rem;
                     background-color: rgba(253, 251, 251, 0.6);
                 }
-                
+
 
                 .VueCarousel {
                     img {
                         width: 100%;
                     }
                 }
-
-
             }
 
-            .eiffel-tower1 {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                flex-direction: column;
-                position: relative;
-                z-index: 1;
+            .montpellier {
+                .montpellier-photo-memories {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    flex-direction: column;
 
+                    img {
+                        width: 95%;
+                    }
+
+                    .description-block {
+                        color: white;
+                    }
+
+                    .gallery-quotes {
+                        padding: 5rem;
+
+                        blockquote {
+                            &:after {
+                                content: close-quote;
+                                vertical-align: -0.7em;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .last-quote {
+            blockquote {
                 &:after {
-                    content: '';
-                    position: absolute;
-                    width: 75%;
-                    height: 100%;
-                    z-index: -1;
-                    right: 0;
-                    background-color: #262a2e;
-                    display: block;
-                }
-
-                .description-block {
-                    color: white;
-                    width: 40%;
-                    order: 1;
-
-                }
-
-                .VueCarousel {
-                    order: 3;
-                }
-
-                .photo {
-                    order: -1;
+                    content: close-quote;
+                    vertical-align: -0.7em;
                 }
             }
         }
@@ -829,14 +909,6 @@
                     position: relative;
                     right: 3rem;
                     z-index: 2;
-                }
-            }
-
-            .eiffel-tower1 {
-                flex-wrap: wrap;
-
-                .photo {
-                    flex-shrink: 0;
                 }
             }
         }
@@ -1029,24 +1101,14 @@
                 }
             }
 
-            .eiffel-tower1 {
-                flex-direction: row;
-                flex-wrap: nowrap;
+            .montpellier {
+                .montpellier-photo-memories {
+                    flex-direction: row;
 
-                .description-block {
-                    width: 25%;
-                    order: 2;
+                    .gallery-quotes {
+                        width: 35%;
+                    }
                 }
-
-                .VueCarousel {
-                    width: 85%;
-                    order: 1;
-                }
-
-                .photo {
-                    order: 3;
-                }
-
             }
         }
 
