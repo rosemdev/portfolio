@@ -304,7 +304,7 @@
                 </div>
             </div>
         </div>
-        <div class="margin main-content last-quote">
+        <div class="main-content last-quote">
             <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
                 captured forever…
             </blockquote>
@@ -751,8 +751,7 @@
                     }
 
                     .gallery-quotes {
-                        padding: 5rem;
-
+                        padding: 1rem;
                         blockquote {
                             &:after {
                                 content: close-quote;
@@ -1106,6 +1105,7 @@
                     flex-direction: row;
 
                     .gallery-quotes {
+                        padding: 5rem;
                         width: 35%;
                     }
                 }
