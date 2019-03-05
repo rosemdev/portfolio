@@ -87,7 +87,8 @@ export let descriptions = [
         imageSource: ToDoList,
         moreLink: '',
         siteLink: 'https://romsem.github.io/To-do-List/',
-        text: 'landing page about Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dignissimos dolorem eest facere laudantium magnam maiores',
+        text: "This is my a first project after learning the Java Script language. So it have my not super cool design, but it's working well and performs its function. Also It could 'remember' your tasks and redisplay after long break. So follow the link" +
+            " bellow to check it out."
     },
 
     {
@@ -97,7 +98,7 @@ export let descriptions = [
         imageSource: TravelAgency,
         moreLink: '',
         siteLink: 'https://romsem.github.io/travelAgency/',
-        text: 'landing page about Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dignissimos dolorem eest facere laudantium magnam maiores',
+        text: "This is a landing page for a travel agency. It may seem to be not finished but this is a result of a little course in Udemy. In this project I used Webpack, PostCsss and ES6 and some library for scroll on reveal.",
     },
 
     {
@@ -107,7 +108,7 @@ export let descriptions = [
         imageSource: mobApp,
         moreLink: '',
         siteLink: 'https://romsem.github.io/mobapp/',
-        text: 'landing page about Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dignissimos dolorem eest facere laudantium magnam maiores',
+        text: "There is a most beautiful landing page I have created. I love the page like this and the my site have a similar playing with colors. I think the site should be bright, memorized and gorgeous. This is a good example to reach such attributes."
     },
 ];
 

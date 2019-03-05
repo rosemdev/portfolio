@@ -10,7 +10,7 @@
                 <rosem-description-block :subtitle="slide.type"
                                          :title="slide.name">
                     <template slot="description">{{ slide.text}}</template>
-                    <rosem-button slot="additional-info">more details</rosem-button>
+                    <rosem-button slot="additional-info":to="{path: 'projects'}" >more details</rosem-button>
                 </rosem-description-block>
                 <div class="site-link">
                     <a :href="slide.siteLink" target="_blank" rel="noopener">

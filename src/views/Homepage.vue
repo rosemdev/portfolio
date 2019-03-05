@@ -47,22 +47,21 @@
                                          title="Romanna Semenyshyn"
                                          class="right-text"
                 >
-                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
-                        iure
-                        iusto quibusdam temporibus voluptatem voluptatibus?
+                    <template slot="description">So I'm a QR engineer. I worked on different projects but always I
+                        wanted to understand how the sites become 'working', how to create a page and force it engaging
+                        the customers. And now I have my site but it's not the end, there are a lot of technologies I want to know.
                     </template>
-                    <rosem-button slot="additional-info">see projects</rosem-button>
+                    <rosem-button slot="additional-info" :to="{path: 'skills'}">skills</rosem-button>
                 </rosem-description-block>
                 <rosem-photo></rosem-photo>
             </div>
             <div class="about-me block-bellow">
                 <rosem-photo></rosem-photo>
-                <rosem-description-block subtitle="About me"
-                                         title="Romanna Semenyshyn"
+                <rosem-description-block subtitle="hobbies"
+                                         title="Journey"
                                          class="left-text"
                 >
-                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor
-                        More photos in gallery
+                    <template slot="description">Also I love to travel. For now the list of visited countries is not so big - but I'm on it! So let's delight in my collections of photos from some countries, I'll be pleased if you share them with friends.
                     </template>
                     <rosem-button slot="additional-info" :to="{path: 'gallery'}">gallery</rosem-button>
                 </rosem-description-block>
@@ -308,9 +307,11 @@
 
         .greeting {
             background-attachment: fixed;
+
             & .order {
                 .main-title {
                     transition: font-weight 0.3s ease-in-out;
+
                     &:hover {
                         font-weight: 500;
                     }
@@ -422,7 +423,7 @@
 
             .about-me {
                 flex-direction: row;
-                margin-top: -140px;
+                margin-top: -85px;
 
                 &.block-above {
                     .description-block {
