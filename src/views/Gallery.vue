@@ -27,10 +27,10 @@
         <div class="montenegro">
             <div class="introduction">
                 <div class="col top">
-                    <rosem-photo class="design-photo">
+                    <rosem-photo class="box-to-scroll design-photo" data-speed="-0.05">
                         <img src="/images/photos/montenegro/montenegro.jpg" alt="Montenegro">
                     </rosem-photo>
-                    <rosem-description-block subtitle="montenegro" title="First country">
+                    <rosem-description-block subtitle="montenegro" title="First country" class="box-to-scroll" data-speed="0.03">
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Assumenda
                             atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis
@@ -39,11 +39,11 @@
                     </rosem-description-block>
                 </div>
                 <div class="col bottom">
-                    <rosem-description-block subtitle="montenegro" title="First country"/>
-                    <rosem-photo>
+                    <rosem-description-block subtitle="montenegro" title="First country" class="box-to-scroll" data-speed="0.03"/>
+                    <rosem-photo class="box-to-scroll design-photo" data-speed="0.05">
                         <img src="/images/photos/montenegro//kotor/IMG_20180628_142446_HDR.jpg" alt="Montenegro">
                     </rosem-photo>
-                    <rosem-description-block class="bottom-part">
+                    <rosem-description-block class="box-to-scroll bottom-part" data-speed="-0.03">
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Assumenda
                             atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis
@@ -106,13 +106,14 @@
                     <div class="block1">
                         <p class="section-title left-text hashtag" data-hashtag="Neighbors">Russia</p>
                     </div>
-                    <div class="wrapper block2">
+                    <div class="box-to-scroll wrapper block2" data-speed="-0.02">
                         <rosem-photo class="design-photo">
                             <img src="/images/photos/russia/russia.jpg" alt="Russia">
                         </rosem-photo>
                         <rosem-description-block subtitle="russia"
                                                  title="Mountains and Sea"
-                                                 class="right-text"
+                                                 class="box-to-scroll right-text"
+                                                 data-speed="0.03"
                         >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Accusamus
@@ -122,13 +123,14 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="wrapper block3">
+                    <div class="box-to-scroll wrapper block3" data-speed="0.05">
                         <rosem-photo class="design-photo">
                             <img src="/images/photos/russia/IMG_20180907_155849.jpg" alt="Russia">
                         </rosem-photo>
                         <rosem-description-block subtitle="Kislovodsk"
                                                  title="Ring-mountain"
-                                                 class="left-text"
+                                                 class="box-to-scroll left-text"
+                                                 data-speed="-0.04"
                         >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Accusamus
@@ -137,13 +139,14 @@
                             </template>
                         </rosem-description-block>
                     </div>
-                    <div class="wrapper block4">
+                    <div class="box-to-scroll wrapper block4" data-speed="-0.03">
                         <rosem-photo class="design-photo">
                             <img src="/images/photos/russia/IMG_20180708_121042_HDR.jpg" alt="Russia">
                         </rosem-photo>
                         <rosem-description-block subtitle="Zheleznovodsk"
                                                  title="Five peaks of the mountain Beshtau"
-                                                 class="right-text"
+                                                 class="box-to-scroll right-text"
+                                                 data-speed="0.05"
                         >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Accusamus
@@ -180,12 +183,13 @@
         <div class="france">
             <div class="france-paris">
                 <div class="col top">
-                    <rosem-photo class="design-photo">
+                    <rosem-photo class="box-to-scroll design-photo" data-speed="0.03">
                         <img src="/images/photos/france/IMG_20181124_153837.jpg" alt="Paris building">
                     </rosem-photo>
                     <rosem-description-block subtitle="paris"
                                              title="Amazing architecture"
-                                             class="left-text"
+                                             class="box-to-scrol left-text"
+                                             data-speed="-0.05"
                     >
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Accusamus
@@ -200,24 +204,26 @@
                     <div class="block1">
                         <rosem-description-block subtitle="paris"
                                                  title="Amazing architecture"
-                                                 class="left-text"
+                                                 class="left-text box-to-scroll"
+                                                 data-speed="0.04"
                         >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Accusamus
                                 ad distinctio in molestiae.
                             </template>
                         </rosem-description-block>
-                        <rosem-photo class="design-photo">
+                        <rosem-photo class="box-to-scroll design-photo" data-speed="0.06">
                             <img src="/images/photos/france/france.jpg" alt="France">
                         </rosem-photo>
                     </div>
                     <div class="block2">
-                        <rosem-photo class="design-photo">
+                        <rosem-photo class="box-to-scroll design-photo" data-speed="-0.03">
                             <img src="/images/photos/france/IMG_20181124_162800.jpg" alt="Paris building">
                         </rosem-photo>
                         <rosem-description-block subtitle="paris"
                                                  title="Amazing architecture"
-                                                 class="right-text"
+                                                 class="box-to-scroll right-text"
+                                                 data-speed="0.03"
                         >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Accusamus
@@ -342,6 +348,7 @@
     import RosemPhotoGallery from "../partials/PhotoGallery";
     import {mapState} from "vuex";
     import store from '@store'
+    import IntersectionObserver from "../utils/IntersectionObserver";
 
 
     export default {
@@ -358,7 +365,8 @@
                 russiaPhotos,
                 montenegroSFPhotos,
                 montenegroKotor,
-                tower
+                tower,
+                IntersectionObserver
             }
         },
         components: {
@@ -385,6 +393,18 @@
                     vm.$router.push({name: 'NotFound'});
                 })
             });
+        },
+
+        created() {
+
+            this.$nextTick(()=>{
+                let items = document.querySelectorAll('.box-to-scroll');
+                // eslint-disable-next-line
+                let animation = new IntersectionObserver(items);
+            });
+
+
+
         }
 
     }
@@ -971,7 +991,7 @@
                             &.bottom-part {
                                 position: absolute;
                                 width: 250px;
-                                margin-left: 24rem;
+                                margin-left: 22rem;
                                 margin-top: 15rem;
                                 background-color: white;
                                 padding: 2rem;
