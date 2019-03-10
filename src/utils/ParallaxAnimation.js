@@ -21,7 +21,6 @@ export default class ParallaxAnimation {
             let speed = (Math.random() * 0.1).toFixed(2),
                 yPos = (element.getBoundingClientRect().top * speed).toFixed(1);
 
-            console.log(speed);
             element.classList.add("scrolling");
             element.style.transform = `translate3d(0px, ${yPos}px, 0px)`;
         });
@@ -39,8 +38,8 @@ export default class ParallaxAnimation {
     removeElement(element) {
         const index = this.elementCollection.indexOf(element);
 
-        element.style.transform = 'translate3d(0px, 0px, 0px)';
         this.elementCollection.splice(index, 1);
+        element.style.transform = 'translate3d(0px, 0px, 0px)';
 
         if (0 === this.elementCollection.length) {
             this.destroy();

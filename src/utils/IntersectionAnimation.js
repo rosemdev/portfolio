@@ -2,7 +2,7 @@ import ParallaxAnimation from './ParallaxAnimation'
 
 const defaultOptions = {
     root: null,
-    rootMargin: '50px 0px 0px 0px',
+    rootMargin: '0px',
     threshold: 0
 };
 
