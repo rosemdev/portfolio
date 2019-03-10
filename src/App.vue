@@ -20,6 +20,7 @@
     import RosemHeader from "./partials/Header"
     import RosemNavigation from "./partials/Navigation"
     import RosemFooter from "./partials/Footer"
+    import IntersectionObserver from "./utils/IntersectionObserver";
     import {mapState} from "vuex";
 
     export default {
@@ -65,6 +66,12 @@
             });
 
             this.theme = localStorage.getItem('theme') || this.theme;
+
+            this.$nextTick(()=>{
+                let items = document.querySelectorAll('.box-to-scroll');
+                // eslint-disable-next-line
+                let animation = new IntersectionObserver(items);
+            });
         },
     }
 </script>

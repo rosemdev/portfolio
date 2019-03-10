@@ -93,6 +93,9 @@ body {
 .scrolling {
   will-change: transform;
   transition: transform .8s ease .0s;
+  animation-duration: .8s;
+  animation-timing-function: ease-in-out;
+  animation-name: opacity;
 }
 
 .grey-background {
@@ -186,6 +189,16 @@ body {
       }
     }
   } });
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
 
 
 

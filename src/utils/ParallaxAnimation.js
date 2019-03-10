@@ -8,7 +8,7 @@ export default class ParallaxAnimation {
     }
 
     initialize() {
-        this.scrollContainer.addEventListener('scroll', this.onScroll);
+        this.scrollContainer.addEventListener('scroll', this.onScroll, {passive: true});
     }
 
     destroy() {
@@ -20,9 +20,12 @@ export default class ParallaxAnimation {
             // do some logic here concerning event details
             
             if (event) {
-                let speed = element.getAttribute('speed') || 0.05;
+                let speed = (Math.random() * 0.1).toFixed(2),
+                    yPos = (element.getBoundingClientRect().top* speed).toFixed(1);
+
+                console.log(speed);
                 element.classList.add("scrolling");
-                element.style.transform = `translateY(${element.getBoundingClientRect().top* speed}px)`;
+                element.style.transform = `translate3d(0px, ${yPos}px, 0px)`;
             } else {
                 element.classList.remove('scrolling');
             }
