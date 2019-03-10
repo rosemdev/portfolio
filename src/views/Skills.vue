@@ -162,7 +162,7 @@
                 flex-direction: column;
                 color: @mainColor;
 
-                & /deep/ .description-block {
+                & .description-block {
                     h2 {
                         text-transform: uppercase;
                         font-size: 25px;

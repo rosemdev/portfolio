@@ -40,7 +40,7 @@
         <div class="social-block">
             <rosem-logo></rosem-logo>
             <p class="find-me-in">Find me in: </p>
-            <rosem-social-block :socialLinks="socialLinks"></rosem-social-block>
+            <rosem-social-block :socialLinks="socialLinks" class="social-white"></rosem-social-block>
             <div class="scroll-top">
                 <rosem-scroll-block></rosem-scroll-block>
             </div>
@@ -129,15 +129,6 @@
             justify-content: center;
             align-items: center;
 
-            & .logo {
-                & /deep/ a {
-                    & sup {
-                        margin-left: -7px;
-                        opacity: 1;
-                    }
-                }
-            }
-
             .find-me-in {
                 color: white;
                 font-size: 20px;
@@ -147,19 +138,6 @@
 
             .social {
                 margin-top: 45px;
-
-                & /deep/ ul {
-                    & li {
-                        &:before {
-                            background-color: white;
-                        }
-
-                        & a {
-                            color: white;
-                            font-size: 12px;
-                        }
-                    }
-                }
             }
         }
     }
@@ -176,16 +154,6 @@
                         margin-right: 25px;
                     }
 
-                }
-            }
-        }
-
-        .social-block {
-            .logo {
-                & /deep/ a {
-                    & sup {
-                        margin-left: -15px;
-                    }
                 }
             }
         }

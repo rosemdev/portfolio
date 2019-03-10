@@ -15,9 +15,11 @@
                         {{ author.description }}
                     </template>
                 </rosem-description-block>
-                <rosem-social-block
+                <rosem-social-block class="social-white"
                         v-if="author.links !== undefined && author.links.length > 0"
-                        :socialLinks="author.links"></rosem-social-block>
+                        :socialLinks="author.links">
+
+                </rosem-social-block>
             </div>
             <div class="article-title">
                 <h2>{{ article.title }}</h2>
@@ -136,28 +138,11 @@
                 color: white;
                 order: 2;
 
-                /deep/ h2 {
+                h2 {
                     font-size: 22px;
                 }
 
             }
-
-            & /deep/ .social {
-                ul {
-                    li {
-                        &:before {
-                            background-color: white;
-                        }
-                        a {
-                            color: white;
-
-                        }
-
-                    }
-
-                }
-            }
-
         }
 
         .article-title {

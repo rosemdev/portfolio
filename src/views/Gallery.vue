@@ -618,7 +618,7 @@
                         position: relative;
                         z-index: 2;
 
-                        /deep/ h3 {
+                        h3 {
                             font-size: 15px;
                         }
                     }

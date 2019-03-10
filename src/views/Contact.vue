@@ -70,7 +70,7 @@
                 text-align: left;
                 font-weight: 500;
 
-                & /deep/ form {
+                & form {
                     .button {
                         text-align: center;
                     }
@@ -98,7 +98,7 @@
         }
 
         .form {
-            & /deep/ form {
+            & form {
                 .user-identification, .user-social {
                     flex-direction: column;
 
@@ -111,7 +111,7 @@
     .responsive(@desktop, { .contact-page {
 
         .form {
-            & /deep/ form {
+            & form {
                 .user-identification, .user-social {
                     flex-direction: row;
 

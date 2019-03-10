@@ -30,10 +30,10 @@
                 <div class="stages" v-dialScrolling>
                     <rosem-card v-for="(card, index) in cards"
                                 :key="index">
-                        <div class="stage-container">
-                            <p><span class="stage">{{ card.stage }}</span>
-                                <span class="stage-name">{{ card.name }}</span></p>
-                            <p class="stage-description">{{ card.description }}</p>
+                        <div class="blog-stage-container">
+                            <p><span class="blog-stage">{{ card.stage }}</span>
+                                <span class="blog-stage-name">{{ card.name }}</span></p>
+                            <p class="blog-stage-description">{{ card.description }}</p>
                             <rosem-button class="light">more</rosem-button>
                         </div>
                     </rosem-card>
@@ -179,7 +179,7 @@
             align-items: center;
             margin: auto;
 
-            & /deep/ .card {
+            & .card {
                 width: 265px;
                 margin: 0;
 
@@ -198,19 +198,19 @@
             }
         }
 
-        /deep/ div:nth-child(1) > div.card + .card-overlay {
+        div:nth-child(1) > div.card + .card-overlay {
             &::after {
                 background: url("../assets/images/prototype.jpg") no-repeat center;
             }
         }
 
-        /deep/ div:nth-child(2) > div.card + .card-overlay {
+        div:nth-child(2) > div.card + .card-overlay {
             &::after {
                 background: url("../assets/images/development.png") no-repeat center;
             }
         }
 
-        /deep/ div:nth-child(3) > div.card + .card-overlay {
+        div:nth-child(3) > div.card + .card-overlay {
             &::after {
                 background: url("../assets/images/overview.png") no-repeat center;
             }
@@ -357,7 +357,7 @@
             flex-direction: row;
 
             & .card-container {
-                & /deep/ .card {
+                & .card {
                     width: 200px;
                     padding: 0;
                     margin: 0 25px;
@@ -368,7 +368,7 @@
                         }
                     }
 
-                    .stage {
+                    .blog-stage {
                         font-size: 3em;
                     }
 
@@ -404,11 +404,11 @@
     .responsive(@desktop, { & .homepage {
         & .stages {
             & .card-container {
-                & /deep/ .card {
+                & .card {
                     width: 320px;
                     padding: 1rem 2rem;
 
-                    .stage {
+                    .blog-stage {
                         font-size: 5em;
                     }
                 }
@@ -419,7 +419,7 @@
         .about {
             .section-title {
                 &:before {
-                    font-size: 3.5em;
+                    font-size: 12rem;
                 }
             }
 

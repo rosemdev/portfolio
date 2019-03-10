@@ -240,7 +240,7 @@
                 flex-direction: column;
                 margin-bottom: 30px;
 
-                & /deep/ .card {
+                & .card {
                     min-height: 300px;
                     width: auto;
                     color: @mainColor;
@@ -301,7 +301,7 @@
 
                 }
 
-                /deep/ .card-overlay {
+                .card-overlay {
                     opacity: 0;
                 }
             }
@@ -325,7 +325,7 @@
                 flex-wrap: wrap;
                 flex-direction: row;
 
-                /deep/ .card {
+                .card {
                     width: 320px;
                 }
             }
@@ -369,7 +369,7 @@
                 height: 100%;
             }
 
-            & /deep/ .scroll-block {
+            & .scroll-block {
                 &:before {
                     border-color: @mainColor;
                     left: 25px;

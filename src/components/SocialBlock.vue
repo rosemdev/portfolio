@@ -121,6 +121,22 @@
         }
     }
 
+    .social-white {
+        ul {
+            li {
+                &:before {
+                    background-color: white;
+                }
+                a {
+                    color: white;
+
+                }
+
+            }
+
+        }
+    }
+
     .responsive(@tablet, { .social {
         ul {
             justify-content: flex-end;
