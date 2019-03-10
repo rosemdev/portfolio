@@ -1,7 +1,7 @@
 <template>
     <div class="not-found-page">
         <div class="main-content not-found">
-            <div class="image">
+            <div class="image" v-dialScrolling>
                 <img id="tree" src="../assets/images/icons/three-pines.svg" alt="">
                 <img id="garlands" src="../assets/images/icons/garlands.svg" alt="">
             </div>

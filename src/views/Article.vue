@@ -35,7 +35,7 @@
             <div class="block-title">
                 <p class="section-title">You may also like</p>
             </div>
-            <div class="related-articles">
+            <div class="related-articles" v-dialScrolling>
                 <router-link v-for="(relArticle, index) in relatedArticles"
                              :key="index"
                              :to="{name:'article', params: {article: relArticle.slug}}">

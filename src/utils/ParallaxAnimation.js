@@ -15,20 +15,15 @@ export default class ParallaxAnimation {
         this.scrollContainer.removeEventListener('scroll', this.onScroll);
     }
 
-    onScroll(event) {
+    onScroll() {
         this.elementCollection.forEach(element => {
             // do some logic here concerning event details
-            
-            if (event) {
-                let speed = (Math.random() * 0.1).toFixed(2),
-                    yPos = (element.getBoundingClientRect().top* speed).toFixed(1);
+            let speed = (Math.random() * 0.1).toFixed(2),
+                yPos = (element.getBoundingClientRect().top * speed).toFixed(1);
 
-                console.log(speed);
-                element.classList.add("scrolling");
-                element.style.transform = `translate3d(0px, ${yPos}px, 0px)`;
-            } else {
-                element.classList.remove('scrolling');
-            }
+            console.log(speed);
+            element.classList.add("scrolling");
+            element.style.transform = `translate3d(0px, ${yPos}px, 0px)`;
         });
     }
 
@@ -44,6 +39,7 @@ export default class ParallaxAnimation {
     removeElement(element) {
         const index = this.elementCollection.indexOf(element);
 
+        element.style.transform = 'translate3d(0px, 0px, 0px)';
         this.elementCollection.splice(index, 1);
 
         if (0 === this.elementCollection.length) {

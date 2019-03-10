@@ -1,6 +1,6 @@
 <template>
     <rosem-gradient>
-        <div class="main-content intro" slot="gradientContent">
+        <div class="main-content intro" slot="gradientContent" v-dialScrolling>
             <h1>Hello! I'm rosem</h1>
             <h2>And I like to create pretty cool websites</h2>
             <p>I'm experienced Quality Assurance Engineer. Skilled in software quality, manual testing, and

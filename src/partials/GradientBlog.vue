@@ -1,6 +1,6 @@
 <template>
     <rosem-gradient :is-rand-gradient="true">
-        <div class="main-content intro" slot="gradientContent">
+        <div class="main-content intro" slot="gradientContent" v-dialScrolling>
             <h1>Blog</h1>
             <p>The first thing you need to decide when you build your blog is what you want to accomplish with it, and what it can do if successful.
                 Blogging is a conversation, not a code</p>

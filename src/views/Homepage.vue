@@ -1,6 +1,6 @@
 <template>
     <div class="homepage">
-        <div class="main-content done-works">
+        <div class="main-content done-works" v-dialScrolling>
             <p class="section-title left-text hashtag" data-hashtag="projects">Done works</p>
             <div class="carousel">
                 <carousel :per-page="1"
@@ -27,7 +27,7 @@
         <div class="grey-background">
             <div class="main-content">
                 <p class="section-title right-text hashtag-right" data-hashtag="development">Development stages</p>
-                <div class="stages">
+                <div class="stages" v-dialScrolling>
                     <rosem-card v-for="(card, index) in cards"
                                 :key="index">
                         <div class="stage-container">
@@ -45,7 +45,8 @@
             <div class="about-me block-above">
                 <rosem-description-block subtitle="About me"
                                          title="Romanna Semenyshyn"
-                                         class="right-text"
+                                         class=" right-text"
+                                         v-dialScrolling
                 >
                     <template slot="description">So I'm a QR engineer. I worked on different projects but always I
                         wanted to understand how the sites become 'working', how to create a page and force it engaging
@@ -59,7 +60,8 @@
                 <rosem-photo></rosem-photo>
                 <rosem-description-block subtitle="hobbies"
                                          title="Journey"
-                                         class="left-text"
+                                         class=" left-text"
+                                         v-dialScrolling
                 >
                     <template slot="description">Also I love to travel. For now the list of visited countries is not so big - but I'm on it! So let's delight in my collections of photos from some countries, I'll be pleased if you share them with friends.
                     </template>
@@ -86,7 +88,7 @@
         <div>
             <div class="main-content">
                 <p class="section-title left-text hashtag" data-hashtag="contact">Get in touch...</p>
-                <div class="margin contact">
+                <div class=" margin contact" v-dialScrolling>
                     <rosem-contact-form/>
                     <div class="contact-info">
                         <p class="section-title left-text">Or here...</p>
@@ -107,7 +109,7 @@
     import RosemDescriptionBlock from "../components/DescriptionBlock"
     import RosemHistoryLine from "../components/HistoryLine"
     import RosemSocialBlock from "../components/SocialBlock"
-    import RosemPhoto from "../components/Photo";
+    import RosemPhoto from "../components/Photo"
     import RosemCard from "../components/Card"
     import {Carousel, Slide} from "vue-carousel"
     import RosemSlideDescription from "../partials/SlideContent"

@@ -1,6 +1,6 @@
 <template>
     <rosem-gradient :is-rand-gradient="true">
-        <div class="intro" slot="gradientContent">
+        <div class="intro" slot="gradientContent" v-dialScrolling>
                 <h1>Projects</h1>
                 <p>Welcome! Here my ones of the first learning projects.</p>
         </div>

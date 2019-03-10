@@ -15,7 +15,8 @@ import Meta from 'vue-meta'
 import NProgress from 'nprogress'
 import Loader from '../src/components/Loader'
 import notFound from '../src/views/404'
-import './registerServiceWorker';
+import './registerServiceWorker'
+import dialScrollingDirective from './directives/dialScrolling'
 
 NProgress.configure({ showSpinner: false });
 
@@ -86,6 +87,7 @@ Vue.use(VueAnalytics, {
 
 Vue.filter('truncating', truncatingFilter);
 
+Vue.directive('dialScrolling', dialScrollingDirective);
 
 Vue.config.productionTip = false;
 

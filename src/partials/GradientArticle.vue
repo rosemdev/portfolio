@@ -1,7 +1,7 @@
 <template>
     <rosem-gradient :is-rand-gradient="true">
         <rosem-loader :isLoading="loading" class="fixed"></rosem-loader>
-        <div class="gradient-article" slot="gradientContent">
+        <div class="gradient-article" slot="gradientContent" v-dialScrolling>
             <div class="author-info">
                 <rosem-avatar>
                     <prismic-image :field="author.avatar"/>

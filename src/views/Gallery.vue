@@ -3,7 +3,7 @@
         <div class="traveling">
             <div class="main-content">
                 <p class="section-title left-text hashtag" data-hashtag="Traveling">My traveling history</p>
-                <div class="travel-history">
+                <div class="travel-history" v-dialScrolling>
                     <div class="carousel">
                         <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 4]]">
                             <slide v-for="photo in flights" :key="photo.imageSrc">
@@ -15,7 +15,7 @@
                             </slide>
                         </carousel>
                     </div>
-                    <div class="description">
+                    <div class="description" v-dialScrolling>
                         <rosem-quote class="right-text">Here is my collection of photos form airports and plane. The
                             first time I tried to fly was last summer - it was amazing despite that the exactly
                             beginning of journey wasn't not 100% lucky.
@@ -27,10 +27,10 @@
         <div class="montenegro">
             <div class="introduction">
                 <div class="col top">
-                    <rosem-photo class="box-to-scroll design-photo">
+                    <rosem-photo class="design-photo" v-dialScrolling>
                         <img src="/images/photos/montenegro/montenegro.jpg" alt="Montenegro">
                     </rosem-photo>
-                    <rosem-description-block subtitle="montenegro" title="First country" class="box-to-scroll">
+                    <rosem-description-block subtitle="montenegro" title="First country" v-dialScrolling>
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Assumenda
                             atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis
@@ -39,11 +39,11 @@
                     </rosem-description-block>
                 </div>
                 <div class="col bottom">
-                    <rosem-description-block subtitle="montenegro" title="First country" class="box-to-scroll"/>
-                    <rosem-photo class="box-to-scroll design-photo">
+                    <rosem-description-block subtitle="montenegro" title="First country" class=""/>
+                    <rosem-photo class="design-photo" v-dialScrolling>
                         <img src="/images/photos/montenegro//kotor/IMG_20180628_142446_HDR.jpg" alt="Montenegro">
                     </rosem-photo>
-                    <rosem-description-block class="box-to-scroll bottom-part">
+                    <rosem-description-block class=" bottom-part" v-dialScrolling>
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Assumenda
                             atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis
@@ -75,6 +75,7 @@
                                 <rosem-description-block subtitle=""
                                                          title="Dreams come true!"
                                                          class="left-text"
+                                                         v-dialScrolling
                                 >
                                     <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing
                                         elit. Accusamus ad
@@ -106,13 +107,14 @@
                     <div class="block1">
                         <p class="section-title left-text hashtag" data-hashtag="Neighbors">Russia</p>
                     </div>
-                    <div class="box-to-scroll wrapper block2">
-                        <rosem-photo class="design-photo">
+                    <div class="wrapper block2">
+                        <rosem-photo class="design-photo" v-dialScrolling>
                             <img src="/images/photos/russia/russia.jpg" alt="Russia">
                         </rosem-photo>
                         <rosem-description-block subtitle="russia"
                                                  title="Mountains and Sea"
-                                                 class="box-to-scroll right-text"
+                                                 class="right-text"
+                                                 v-dialScrolling
                         >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Accusamus
@@ -122,13 +124,14 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="box-to-scroll wrapper block3">
-                        <rosem-photo class="design-photo">
+                    <div class="wrapper block3">
+                        <rosem-photo class="design-photo" v-dialScrolling>
                             <img src="/images/photos/russia/IMG_20180907_155849.jpg" alt="Russia">
                         </rosem-photo>
                         <rosem-description-block subtitle="Kislovodsk"
                                                  title="Ring-mountain"
-                                                 class="box-to-scroll left-text"
+                                                 class="left-text"
+                                                 v-dialScrolling
                         >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Accusamus
@@ -137,14 +140,15 @@
                             </template>
                         </rosem-description-block>
                     </div>
-                    <div class="box-to-scroll wrapper block4">
-                        <rosem-photo class="design-photo">
+                    <div class="wrapper block4">
+                        <rosem-photo class="design-photo" v-dialScrolling>
                             <img src="/images/photos/russia/IMG_20180708_121042_HDR.jpg" alt="Russia">
                         </rosem-photo>
                         <rosem-description-block subtitle="Zheleznovodsk"
                                                  title="Five peaks of the mountain Beshtau"
-                                                 class="box-to-scroll right-text"
-                                                >
+                                                 class="right-text"
+                                                 v-dialScrolling
+                        >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Accusamus
                                 ad
@@ -180,13 +184,14 @@
         <div class="france">
             <div class="france-paris">
                 <div class="col top">
-                    <rosem-photo class="box-to-scroll design-photo">
+                    <rosem-photo class="design-photo" v-dialScrolling>
                         <img src="/images/photos/france/IMG_20181124_153837.jpg" alt="Paris building">
                     </rosem-photo>
                     <rosem-description-block subtitle="paris"
                                              title="Amazing architecture"
-                                             class="box-to-scrol left-text"
-                                           >
+                                             class="left-text"
+                                             v-dialScrolling
+                    >
                         <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                             Accusamus
                             ad distinctio in molestiae.
@@ -200,24 +205,26 @@
                     <div class="block1">
                         <rosem-description-block subtitle="paris"
                                                  title="Amazing architecture"
-                                                 class="left-text box-to-scroll"
+                                                 class="left-text"
+                                                 v-dialScrolling
                         >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Accusamus
                                 ad distinctio in molestiae.
                             </template>
                         </rosem-description-block>
-                        <rosem-photo class="box-to-scroll design-photo">
+                        <rosem-photo class=" design-photo" v-dialScrolling>
                             <img src="/images/photos/france/france.jpg" alt="France">
                         </rosem-photo>
                     </div>
                     <div class="block2">
-                        <rosem-photo class="box-to-scroll design-photo">
+                        <rosem-photo class=" design-photo" v-dialScrolling>
                             <img src="/images/photos/france/IMG_20181124_162800.jpg" alt="Paris building">
                         </rosem-photo>
                         <rosem-description-block subtitle="paris"
                                                  title="Amazing architecture"
-                                                 class="box-to-scroll right-text"
+                                                 class="right-text"
+                                                 v-dialScrolling
                         >
                             <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Accusamus
@@ -227,7 +234,7 @@
                     </div>
                 </div>
             </div>
-            <div class="main-content eiffel-tower">
+            <div class="main-content eiffel-tower" v-dialScrolling>
                 <div class="title">
                     <p class="section-title right-text hashtag-right" data-hashtag="She is ...">Architecture</p>
                 </div>
@@ -256,6 +263,7 @@
                                 <rosem-description-block subtitle=""
                                                          title="Dreams come true!"
                                                          class="left-text"
+                                                         v-dialScrolling
                                 >
                                     <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing
                                         elit. Accusamus ad
@@ -341,7 +349,7 @@
     import RosemInstaPhoto from "../components/InstaPhoto"
     import RosemPhotoGallery from "../partials/PhotoGallery";
     import {mapState} from "vuex";
-    import store from '@store'
+    import store from '@store';
 
     export default {
         name: "Gallery",
