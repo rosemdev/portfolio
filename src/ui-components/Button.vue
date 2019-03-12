@@ -51,32 +51,85 @@
         color: white;
         cursor: pointer;
         white-space: nowrap;
-        background-color: @mainColor;
+        position: relative;
+        background-color: transparent;
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+        z-index: 1;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0;
+            transition: all 0.3s;
+            border: 1px solid @mainColor;
+            margin: -1px;
+            border-radius: inherit;
+            transform: scale(0.1, 1);
+        }
+
+        &:after {
+            content: '';
+            position: absolute;
+            border-radius: inherit;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
 
         &:hover {
             box-shadow: 0 11px 15px rgba(0, 0, 0, 0.1);
+            letter-spacing: 1px;
+            background-color: transparent;
+            color: @mainColor;
+
+            &:before {
+                transform: scale(1, 1);
+                opacity: 1;
+            }
+
+            &:after {
+                background: transparent;
+                width: 0;
+            }
         }
 
         &.simple {
-            background: transparent;
             border: 1px solid @mainColor;
             color: @mainColor;
+
+            &:after {
+                background: transparent;
+            }
         }
 
         &.dark {
-            background: @mainColor !important;
+            &:after {
+                background: @mainColor !important;
+            }
         }
 
         &.light {
-            background: white !important;
             color: @mainColor;
+
+            &:after {
+                background: white !important;
+            }
         }
 
         &.colorful {
             border: 2px solid;
-            background: transparent;
+
+            &:after {
+                background: transparent;
+            }
         }
 
     }

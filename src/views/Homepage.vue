@@ -6,8 +6,6 @@
                 <carousel :per-page="1"
                           :mouse-drag="true"
                           :navigationEnabled="true"
-                          navigationNextLabel="&#11166;"
-                          navigationPrevLabel="&#11164;"
                           paginationColor="#5c59599e"
                           :loop="true"
                           :autoplay="false"
