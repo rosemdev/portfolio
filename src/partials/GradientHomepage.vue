@@ -51,11 +51,12 @@
 
         & p {
             font-size: 1em;
+            max-width: 900px;
         }
     }
 
     .responsive(@desktop, { .intro {
-        padding-top: 15rem;
+        padding-top: 12rem;
         padding-bottom: 17rem;
 
         h1 {

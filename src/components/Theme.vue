@@ -17,7 +17,7 @@
 
                 let homepageElement = document.querySelector('.homepage');
 
-                if(homepageElement) {
+                if (homepageElement) {
                     homepageElement.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
@@ -47,6 +47,7 @@
 
     .theme {
         margin-top: 30px;
+
         p {
             color: white;
             font-size: 1.5em;
@@ -126,6 +127,7 @@
             box-shadow: 0 3px 20px 3px #0000004d;
             flex-shrink: 0;
             user-select: none;
+            transition: all .3s ease-in-out;
 
             &:first-child {
                 background: @theme1;
@@ -138,12 +140,18 @@
             &:last-child {
                 background: @theme3;
             }
+
+            &:hover {
+                letter-spacing: 1px;
+                transform: scale(.9);
+            }
         }
     }
 
     .responsive(@desktop, { .theme {
         & .select-theme {
             margin: 2.5rem 0;
+
             & span {
                 width: 100px;
                 height: 100px;
