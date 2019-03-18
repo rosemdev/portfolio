@@ -240,7 +240,7 @@
                 flex-direction: column;
                 margin-bottom: 30px;
 
-                & .card {
+                & /deep/ .card {
                     min-height: 300px;
                     width: auto;
                     color: @mainColor;
@@ -325,7 +325,7 @@
                 flex-wrap: wrap;
                 flex-direction: row;
 
-                .card {
+                /deep/ .card {
                     width: 320px;
                 }
             }
