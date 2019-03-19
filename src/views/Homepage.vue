@@ -28,10 +28,10 @@
                 <div class="stages" v-dialScrolling>
                     <rosem-card v-for="(card, index) in cards"
                                 :key="index">
-                        <div class="blog-stage-container">
-                            <p><span class="blog-stage">{{ card.stage }}</span>
-                                <span class="blog-stage-name">{{ card.name }}</span></p>
-                            <p class="blog-stage-description">{{ card.description }}</p>
+                        <div class="stage-container">
+                            <p class="card-header"><span class="stage">{{ card.stage }}</span>
+                                <span class="stage-name">{{ card.name }}</span></p>
+                            <p class="stage-description left-text">{{ card.description }}</p>
                             <rosem-button class="light">more</rosem-button>
                         </div>
                     </rosem-card>
@@ -180,6 +180,12 @@
             & .card {
                 width: 265px;
                 margin: 0;
+
+                .card-header {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
 
                 .button {
                     opacity: 1;
@@ -366,7 +372,7 @@
                         }
                     }
 
-                    .blog-stage {
+                    .stage {
                         font-size: 3em;
                     }
 
@@ -406,7 +412,7 @@
                     width: 320px;
                     padding: 1rem 2rem;
 
-                    .blog-stage {
+                    .stage {
                         font-size: 5em;
                     }
                 }

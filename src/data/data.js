@@ -116,20 +116,20 @@ export let descriptions = [
 export let cards = [
     {
         stage: '01',
-        name: 'prototype',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        name: 'requirements collection',
+        description: 'analysis of input data, discussions of the technologies, determine the pros and cons, creating a prototype'
     },
 
     {
         stage: '02',
         name: 'development',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        description: 'transforming of the documentations above - to the real result that can be seen, client agreement'
     },
 
     {
         stage: '03',
         name: 'testing',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
+        description: 'transforming the real result into a perfect one, client agreement, closing the project or maintaining features'
     },
 ];
 

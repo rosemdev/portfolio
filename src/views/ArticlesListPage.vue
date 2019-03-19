@@ -3,13 +3,13 @@
         <rosem-loader v-if="loading"></rosem-loader>
         <div class="main-content">
             <div class="blog-cards">
-                <rosem-card v-for="(card, index) in cards" class="blog-card"
+                <rosem-card v-for="(card, index) in cards" class="card"
                             :key="index">
-                    <div class="blog-stage-container">
+                    <div class="stage-container">
                         <p class="blog-card-header"><span
-                                class="blog-stage">{{pad(index + 1 + (currentPage-1) * perPage) }}</span>
-                            <span class="blog-stage-name">{{ card.title }}</span></p>
-                        <p class="blog-stage-description" v-if="card.description !== null">
+                                class="stage">{{pad(index + 1 + (currentPage-1) * perPage) }}</span>
+                            <span class="stage-name">{{ card.title }}</span></p>
+                        <p class="stage-description" v-if="card.description !== null">
                             {{ card.description | truncating(130) }}
                         </p>
                         <div class="article-background">
@@ -103,7 +103,7 @@
         justify-content: center;
         flex-wrap: wrap;
 
-        .blog-card {
+        .card {
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -115,7 +115,7 @@
             width: 100%;
             background-color: @lightGray;
 
-            .blog-stage-container {
+            .stage-container {
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -129,7 +129,7 @@
                     width: 250px;
                 }
 
-                .blog-card-header, .blog-stage-description {
+                .blog-card-header, .stage-description {
                     padding: 0 15px;
                     transition: color .3s ease-in-out;
                     color: @mainColor;
@@ -138,12 +138,12 @@
                     justify-content: center;
                 }
 
-                .blog-stage-description {
+                .stage-description {
                     font-size: 13px;
                     width: 250px;
                 }
 
-                .blog-stage {
+                .stage {
                     display: none;
                 }
 
@@ -163,7 +163,7 @@
             }
 
             &:hover {
-                .blog-stage-container {
+                .stage-container {
                     transform: translateY(-1.5rem);
                 }
             }
@@ -172,21 +172,21 @@
     }
 
     .responsive(@tablet, { .blog-cards {
-        .blog-card {
+        .card {
             height: 600px;
-            max-width: 300px;
+            width: auto;
             margin: 0 25px;
             background-color: transparent;
 
-            .blog-stage-container {
+            .stage-container {
                 margin: 15px;
                 padding: 25px 0;
 
-                .blog-stage {
+                .stage {
                     display: inline-block;
                 }
 
-                .blog-stage-description {
+                .stage-description {
                     font-size: 15px;
                 }
 
@@ -204,10 +204,10 @@
             }
 
             &:hover {
-                .blog-stage-container {
+                .stage-container {
                     transform: translateY(-3rem);
 
-                    .blog-card-header, .blog-stage-description {
+                    .blog-card-header, .stage-description {
                         color: white;
                     }
 
