@@ -10,7 +10,7 @@
                     @click="$emit('location-clicked')"
                     target="_blank"
                     v-if="location"
-            >{{ location }}
+            >{{ location | truncating(32) }}
             </a>
             <p class="likes">
                 <img src="../assets/images/icons/heart.svg" alt="likes">

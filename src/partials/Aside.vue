@@ -17,19 +17,10 @@
                 impedit ipsam iure neque optio placeat quasi sequi tempora tempore ullam unde, vel?</p>
             <rosem-progress-bar :progress="78" :max="200">rosem</rosem-progress-bar>
         </div>
-        <div class="get-resume">
-            <rosem-button
-                    href="../../data/CV_Romanna_Semenyshyn.docx.odt"
-                    download="Romanna_Semenyshyn_resume"
-                    class="light"
-            >get resume
-            </rosem-button>
-        </div>
     </div>
 </template>
 <script>
     import RosemProgressBar from "../components/ProgressBar"
-    import RosemButton from "../ui-components/Button"
     import RosemAvatar from "../components/Avatar"
 
     export default {
@@ -44,7 +35,6 @@
 
         components: {
             RosemProgressBar,
-            RosemButton,
             RosemAvatar
         },
 
@@ -100,7 +90,7 @@
         flex-flow: column wrap;
         align-items: center;
         justify-content: space-between;
-        background-color: @gray;
+        background-color: @mainColor;
         color: white;
         position: static;
         width: 100%;

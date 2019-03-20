@@ -22,17 +22,6 @@ export const routes = [
         },
     },
     {
-        path: '/gallery1',
-        name: 'gallery',
-        components: {
-            underHeader: "partials/GradientGallery",
-            default: "views/Gallery1",
-        },
-        meta: {
-            layout: "layouts/OneColumnLayout",
-        },
-    },
-    {
         path: '/contact',
         name: 'contact',
         components: {

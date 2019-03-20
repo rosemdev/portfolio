@@ -28,15 +28,32 @@
                     <rosem-description-block subtitle="work" title="smile" class="left-text">
                         <template slot="description">
                             <span class="position">QA Engineer</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor
-                                sit amet,
-                                consectetur adipisicing elit. Aliquid beatae consectetur.</p>
+                            <p>I'm working a QA engineer almost 3 years. I love my work so much, but in the same time a
+                                needed a progress. And I found it interesting to know deeper how it works behind the
+                                scene. I have obtained a basic knowledge in the university but it's a so little piece in
+                                this world of programming. So I started from the HTML and CSS. The further the more
+                                interesting. JavaScript became my first strong language (despite on the couple of
+                                lessons of C++ in the first curses of the university). You may ask "why front-end" - my
+                                answer will be - it's exciting, and you always can see the result on the browser.
+                                Moreover - all people over the world could see what you made, isn't pleasure? I believe
+                                it is. Please find below me list of duties that I do everyday.</p>
                         </template>
                         <div slot="additional-info">
                             <ul>
-                                <li>test</li>
-                                <li>test</li>
-                                <li>test</li>
+                                <li>Functional testing, testing related to changes, cross-browser testing, usability
+                                    testing, regression testing;
+                                </li>
+                                <li>Experience in testing CRM and web-sites based on CMS Magento 1, Magento 2, typo3,
+                                    Drupal,
+                                    Jahia etc.
+                                </li>
+                                <li> Creating test cases, checklists, bug reports, verification and maintenance;</li>
+                                <li>Writing of user’s manual;</li>
+                                <li>Work with the development team to continuously improve application;</li>
+                                <li>Work with bug tracking system Jira, Redmine;</li>
+                                <li>Also have practical background with graphical editors: analyze, processing and
+                                    editing of mockups, raster and vector images, svg icons;
+                                </li>
                             </ul>
                         </div>
                     </rosem-description-block>
@@ -50,9 +67,13 @@
                                              class="left-text">
                         <template slot="description">
                             <span class="position">Master degree</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor
-                                sit amet,
-                                consectetur adipisicing elit. Aliquid beatae consectetur.</p>
+                            <p>My master degree is about the project management. To be honest I obtained the real
+                                conception of project management on the real tasks. There is no better thing than to see
+                                it and try by myself. On my working project, I have an opportunity to try myself in this
+                                area, to speak with colleges how to do something, make decisions, taking into account
+                                the risks
+                                and transfer all that stuff to the customer - it's a specific science.
+                            </p>
                         </template>
                         <div slot="additional-info">
                             <ul>
@@ -179,19 +200,19 @@
 
                     ul {
                         list-style: inside;
+                        max-width: 700px;
+                        font-size: 17px;
                     }
                 }
             }
         }
     }
 
-    .responsive(@tablet, {
-        .skills {
-            .resume {
-                .life-cycle {
-                    flex-direction: row;
-                }
+    .responsive(@tablet, { .skills {
+        .resume {
+            .life-cycle {
+                flex-direction: row;
             }
         }
-    });
+    } });
 </style>
