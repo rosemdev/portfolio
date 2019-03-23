@@ -59,7 +59,7 @@
             & .col {
                 background-color: tomato;
                 flex: 0.0000000001 2 20%; // 100% / cols
-                margin: 8px;
+                margin: 2px;
                 transition: flex 0.3s ease-in-out;
                 display: flex;
 
@@ -81,6 +81,13 @@
 
     .responsive(@tablet, { .gallery {
         height: 900px;
+
+        & .row {
+            & .col {
+                margin: 8px;
+
+            }
+        }
     } });
 
 </style>
