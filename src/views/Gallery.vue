@@ -280,9 +280,6 @@
                         </div>
                         <div class="column">
                             <img src="/images/photos/france/montpellier/IMG_20181125_145312.jpg" alt="">
-                            <img src="/images/photos/montenegro/IMG_20181125_150747.jpg" alt="">
-                            <img src="/images/photos/montenegro/IMG_20181125_173200.jpg" alt="">
-                            <img src="/images/photos/montenegro/IMG_20181128_160910.jpg" alt="">
                             <img src="/images/photos/france/montpellier/IMG_20181125_172612.jpg" alt="">
                             <img src="/images/photos/france/montpellier/IMG_20181128_154352.jpg" alt="">
                         </div>
@@ -985,6 +982,14 @@
 
                             }
                         }
+
+                        //IF IE
+                        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                            .description-block {
+                                margin-left: 10rem !important;
+                                margin-top: -21rem !important;
+                            }
+                        }
                     }
                 }
             }
@@ -995,6 +1000,10 @@
 
                     .gallery-quotes {
                         width: 35%;
+                    }
+
+                    .row {
+                        width: 65%;
                     }
                 }
             }
@@ -1114,6 +1123,10 @@
                     .gallery-quotes {
                         padding: 5rem;
                         width: 35%;
+                    }
+
+                    .row {
+                        width: 65%;
                     }
                 }
             }

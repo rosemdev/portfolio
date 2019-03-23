@@ -66,8 +66,8 @@
             height: 100%;
             z-index: 1;
             opacity: 0;
-            transition: all 0.3s;
-            border: 1px solid @mainColor;
+            transition: all .3s;
+            border: 2px solid @mainColor;
             margin: -1px;
             border-radius: inherit;
             transform: scale(0.1, 1);
@@ -126,9 +126,14 @@
 
         &.colorful {
             border: 2px solid;
+            transition: border-color .3s ease-in-out;
 
             &:after {
                 background: transparent;
+            }
+
+            &:hover {
+                border-color: transparent;
             }
         }
 
