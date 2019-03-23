@@ -366,6 +366,10 @@
                     padding: 0;
                     margin: 0 25px;
 
+                    .stage-container {
+                        margin: 100px 0;
+                    }
+
                     &:hover {
                         & .button {
                             opacity: 1;
