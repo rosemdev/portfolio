@@ -103,11 +103,18 @@
 
     .content.push {
         right: 250px;
-    }
 
+        header {
+            left: -250px;
+        }
+    }
 
     .responsive(@tablet, {  .content.push {
             right: 410px;
+
+         header {
+            left: -410px;
+        }
 
     } });
 

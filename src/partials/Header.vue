@@ -128,10 +128,12 @@
 
     header {
         display: flex;
-        transition: top .3s ease-in-out;
+        transition: all .7s ease-in-out;
         background-color: white;
         position: static;
         top: -50px;
+        left: 0;
+        right: 0;
         z-index: 10;
         align-items: center;
         justify-content: space-between;
