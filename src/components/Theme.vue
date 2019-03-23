@@ -62,12 +62,14 @@
 
 
         .arrow {
-            width: 55px;
-            height: 55px;
+            width: 20px;
+            height: 20px;
             padding: 20px;
             transform: rotate(135deg);
             margin: auto;
             cursor: pointer;
+            position: relative;
+            box-sizing: content-box;
 
 
             &::before {
@@ -84,10 +86,11 @@
             &:after {
                 content: '';
                 float: left;
-                position: relative;
-                top: -100%;
-                width: 100%;
-                height: 100%;
+                position: absolute;
+                top: 21px;
+                left: 20px;
+                width: 20px;
+                height: 20px;
                 border-right: 1.2px solid #fafafa;
                 transform-origin: 100% 0;
                 transition: .2s ease;
@@ -96,7 +99,7 @@
             &:hover::after {
                 transform: rotate(45deg);
                 border-color: white;
-                height: 120%;
+                height: 26px;
             }
 
             &:hover::before {
