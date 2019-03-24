@@ -31,9 +31,11 @@
                     <li>Experience with RESTful Services and APIs</li>
                     <li>Responsive and Mobile Design</li>
                     <li>Cross-Browser Development</li>
+                    <li>Browser Developer Tools</li>
                     <li>Testing and Debugging</li>
                     <li>Git and Version Control Systems</li>
                     <li>Problem Solving Skills</li>
+                    <li>A knack for teamwork</li>
                     <li>Content Management Systems and E-commerce Platforms (as a QA)</li>
                 </ul>
             </div>

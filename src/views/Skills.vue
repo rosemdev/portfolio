@@ -4,11 +4,12 @@
             <div class="introduction">
                 <rosem-description-block subtitle="me" title="Romanna Semenenyshyn" class="left-text">
                     <template slot="description">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor sit
-                        amet,
-                        consectetur adipisicing elit. Aliquid beatae consectetur dolore doloremque exercitationem
-                        facilis
-                        iure iusto mollitia natus omnis.
+                        Nice to e-meet you guys here, on my site. Please get awareness with a big part of my
+                        life, but I have to admit this page isn't formal and so rigorous I just take this opportunity to
+                        share my thoughts about different spheres of study and work. So my name is Romanna, but I prefer
+                        a more friendly name - just Roma. So if you are interested please keep read this. If you have
+                        question you can always write an email or call. Or if you have some proposals for me I would
+                        greatly appreciate your kindly on this.
                     </template>
                     <div slot="additional-info">
                         <span class="number">phone: <a href="tel:+380957277490">+38(095) 72 77 490</a></span>
@@ -36,7 +37,7 @@
                                 lessons of C++ in the first curses of the university). You may ask "why front-end" - my
                                 answer will be - it's exciting, and you always can see the result on the browser.
                                 Moreover - all people over the world could see what you made, isn't pleasure? I believe
-                                it is. Please find below me list of duties that I do everyday.</p>
+                                it is. Please find below a list of duties that I do everyday.</p>
                         </template>
                         <div slot="additional-info">
                             <ul>
@@ -72,7 +73,8 @@
                                 it and try by myself. On my working project, I have an opportunity to try myself in this
                                 area, to speak with colleges how to do something, make decisions, taking into account
                                 the risks
-                                and transfer all that stuff to the customer - it's a specific science.
+                                and transfer all that stuff to the customer - it's a specific science. So please find
+                                below a list of my skills and knowledge which are acquired on the study and at the work:
                             </p>
                         </template>
                         <div slot="additional-info">
@@ -82,6 +84,7 @@
                                 <li>Management of human resources on the project</li>
                                 <li>Control of project execution</li>
                                 <li>Risk management</li>
+                                <li>The methodologies of project management. Flexible methodologies</li>
                             </ul>
                         </div>
                     </rosem-description-block>
@@ -95,9 +98,11 @@
                                              class="left-text">
                         <template slot="description">
                             <span class="position">Bachelor degree</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum, quaerat. Lorem ipsum dolor
-                                sit amet,
-                                consectetur adipisicing elit. Aliquid beatae consectetur.</p>
+                            <p>There are a lot of topics we learned in the university, but only now I understand that
+                                was foundations and some of the technologies are very old for now. Anyway, it was a
+                                great experience to cognize something new after school and become a person who heard
+                                about all things related to IT and could understand the essence. Below you can find a
+                                list of some topic I had a chance to learn:</p>
                         </template>
                         <div slot="additional-info">
                             <ul>

@@ -134,6 +134,7 @@
 
             &:hover {
                 border-color: transparent;
+                color: @mainColor;
             }
         }
 
