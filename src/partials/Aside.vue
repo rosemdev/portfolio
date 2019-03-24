@@ -5,17 +5,38 @@
                 <img src="../assets/images/me/rosem2.jpg">
             </a>
         </rosem-avatar>
-        <div class="address">
-            <img src="../assets/images/icons/placeholder-filled-point.png" alt="">
-            <p class="heading">Address</p>
-            <p>Ternopil, Verbitskogo 4 st., room 222</p>
-        </div>
         <div class="skills">
-            <img src="../assets/images/icons/skills.png">
+            <img src="../assets/images/icons/body-building.png">
             <p class="heading">Skills</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci consectetur, consequatur delectus
-                impedit ipsam iure neque optio placeat quasi sequi tempora tempore ullam unde, vel?</p>
-            <rosem-progress-bar :progress="78" :max="200">rosem</rosem-progress-bar>
+            <p>Please also find this detailed info in resume and in the Linkedin.</p>
+            <div class="skill-box">
+                <ul>
+                    <li><img src="../assets/images/icons/skills/html5.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/css3.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/less.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/PostCSS.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/js.jpg" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/ES6.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/Vue.js.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/git.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/sql.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/linux.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/photoshop.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/adobe-illustrator.png" alt=""></li>
+                </ul>
+            </div>
+            <div class="additional-info">
+                <p class="heading">Additionally:</p>
+                <ul>
+                    <li>Experience with RESTful Services and APIs</li>
+                    <li>Responsive and Mobile Design</li>
+                    <li>Cross-Browser Development</li>
+                    <li>Testing and Debugging</li>
+                    <li>Git and Version Control Systems</li>
+                    <li>Problem Solving Skills</li>
+                    <li>Content Management Systems and E-commerce Platforms (as a QA)</li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
@@ -46,7 +67,7 @@
                         document.body.scrollHeight, document.documentElement.scrollHeight,
                         document.body.offsetHeight, document.documentElement.offsetHeight,
                         document.body.clientHeight, document.documentElement.clientHeight
-                    ),
+                        ),
                         distance = 250,
                         footerHeight = document.querySelector('footer').getBoundingClientRect().height,
                         sidebarHeight = this.$el.getBoundingClientRect().height;
@@ -98,18 +119,53 @@
         overflow-y: auto;
         padding: 25px 10px;
 
-        .heading {
-            font-size: 25px;
-            text-transform: uppercase;
-            font-weight: 700;
+        .skills {
+            margin-top: 25px;
+
+            img {
+                width: 35px;
+            }
+
+            .heading {
+                font-size: 25px;
+                text-transform: uppercase;
+                font-weight: 700;
+            }
+
+            .skill-box {
+                ul {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-around;
+                    flex-wrap: wrap;
+
+                    li {
+                        display: block;
+
+                        img {
+                            width: 100px;
+                        }
+                    }
+
+                }
+            }
+
+            .additional-info {
+                ul {
+                    list-style: inside;
+                    text-align: left;
+                    font-size: 17px;
+                    padding-left: 35px;
+
+                    li {
+                        margin: 6px 0;
+                    }
+                }
+            }
+
         }
 
-        .address {
-            margin: 25px 0;
-            p {
-                font-size: 18px;
-            }
-        }
+
     }
 
     .responsive(@desktop, { .resume-aside {

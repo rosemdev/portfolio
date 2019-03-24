@@ -25,7 +25,7 @@
                         <template slot="beginData">Sep. 29</template>
                         <template slot="endData">Present</template>
                     </rosem-history-line>
-                    <rosem-description-block subtitle="work" title="smile" class="left-text">
+                    <rosem-description-block subtitle="work" title="SMILE" class="left-text">
                         <template slot="description">
                             <span class="position">QA Engineer</span>
                             <p>I'm working a QA engineer almost 3 years. I love my work so much, but in the same time a
@@ -77,9 +77,11 @@
                         </template>
                         <div slot="additional-info">
                             <ul>
-                                <li>test</li>
-                                <li>test</li>
-                                <li>test</li>
+                                <li>Planning and organizations of project</li>
+                                <li>Quality managing and standards</li>
+                                <li>Management of human resources on the project</li>
+                                <li>Control of project execution</li>
+                                <li>Risk management</li>
                             </ul>
                         </div>
                     </rosem-description-block>
@@ -99,9 +101,21 @@
                         </template>
                         <div slot="additional-info">
                             <ul>
-                                <li>test</li>
-                                <li>test</li>
-                                <li>test</li>
+                                <li>Mathematical analysis</li>
+                                <li>Web technologies and Web design</li>
+                                <li>Computer science</li>
+                                <li>The basic of C++</li>
+                                <li>The interaction between human and computer</li>
+                                <li>System analysis</li>
+                                <li>Intellectual Property</li>
+                                <li>Numerical methods and programming</li>
+                                <li>System modeling</li>
+                                <li>The technologies of data protection</li>
+                                <li>Method and systems of the Artificial Intelligence</li>
+                                <li>Computer networks</li>
+                                <li>Information systems in the economic</li>
+                                <li>Management of the IT projects</li>
+                                <li>High performance computing</li>
                             </ul>
                         </div>
                     </rosem-description-block>
@@ -202,6 +216,7 @@
                         list-style: inside;
                         max-width: 700px;
                         font-size: 17px;
+                        padding-left: 35px;
                     }
                 }
             }
@@ -212,6 +227,10 @@
         .resume {
             .life-cycle {
                 flex-direction: row;
+
+                .history {
+                    width: 20px;
+                }
             }
         }
     } });
