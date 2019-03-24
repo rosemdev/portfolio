@@ -1,6 +1,8 @@
 <template>
     <div class="burger-icon"
-        :class="{cross: this.open}">
+         :class="{cross: this.open}"
+         @mousemove="setMovement"
+         @mouseout="setStaticPosition">
         <span></span>
         <span></span>
         <span></span>
@@ -9,39 +11,60 @@
 <script>
     export default {
         data() {
-            return {}
+            return {
+                playAnimation: false
+            }
         },
 
         props: {
             open: {
-                type: Boolean
+                type: Boolean,
             }
         },
+
+        methods: {
+            setMovement(event) {
+                console.log(event.target);
+                let x = 0.2 * event.offsetX,
+                    y = 0.2 * event.offsetY;
+
+                event.currentTarget.style.transform = `translate3d(${x}px, ${y}px, 0px)`;
+                console.log(event.target, 'move');
+            },
+
+            setStaticPosition(event) {
+                console.log('moveout');
+                event.currentTarget.style.transform = `translate3d(0px, 0px, 0px)`;
+            }
+
+        }
     }
 </script>
 <style lang="less" scoped>
     @import "../assets/styles/globalVariables";
 
     & .burger-icon {
-        cursor: pointer;
-        margin: 5px;
+        cursor: url('../assets/images/icons/circle-shape.svg') 25 25, pointer;
         display: flex;
-        padding: 10px;
+        padding: 20px;
+        box-sizing: content-box;
         flex-direction: column;
         align-items: flex-end;
-        transition: background-color .3s ease-in-out;
+        will-change: transform;
+        transition: all .1s ease-in-out .0s;
 
         & span {
             background-color: @mainColor;
             margin: 1px;
             padding: 2px;
+            opacity: 1;
             border-radius: 5px;
             display: block;
             height: 2px;
             transition: all .3s ease-in;
 
             &:first-child {
-               width: 25px;
+                width: 25px;
 
             }
 
@@ -50,7 +73,7 @@
             }
 
             &:last-child {
-               width: 8px;
+                width: 8px;
             }
 
         }
@@ -62,6 +85,7 @@
         &.cross {
             & span {
                 width: 25px;
+
                 &:first-child {
                     transform: translateY(7px) rotate(45deg);
 
