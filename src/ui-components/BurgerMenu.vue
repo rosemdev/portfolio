@@ -44,7 +44,12 @@
     @import "../assets/styles/globalVariables";
 
     & .burger-icon {
-        cursor: url('../assets/images/icons/circle-shape.svg') 25 25, pointer;
+        cursor: url('../assets/images/icons/circle-shape.svg') 2 15, pointer;
+        cursor: -webkit-image-set(
+                url('../assets/images/icons/circle-shape.svg') 1x,
+                url('../assets/images/icons/circle-shape2x.svg') 2x
+        ), 2 15 pointer;
+        image-rendering: auto;
         display: flex;
         padding: 20px;
         box-sizing: content-box;
