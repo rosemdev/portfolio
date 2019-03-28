@@ -335,10 +335,7 @@
 </template>
 <script>
     import flights from "@resources/gallery/flights.json";
-    import russiaPhotos from "@resources/gallery/russia";
     import tower from "@resources/gallery/tower";
-    import montenegroKotor from "@resources/gallery/montenegro-kotor";
-    import montenegroSFPhotos from "@resources/gallery/montenegro_sveti-stefan";
     import {Carousel, Slide} from "vue-carousel";
     import RosemDescriptionBlock from "../components/DescriptionBlock";
     import RosemQuote from "../components/Quote";
@@ -359,11 +356,7 @@
         data() {
             return {
                 flights,
-                russiaPhotos,
-                montenegroSFPhotos,
-                montenegroKotor,
                 tower,
-                IntersectionObserver
             }
         },
         components: {

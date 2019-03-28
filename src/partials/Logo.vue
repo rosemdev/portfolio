@@ -5,14 +5,7 @@
         </router-link>
     </div>
 </template>
-<style>
-    @import url('https://fonts.googleapis.com/css?family=Metamorphous');
-</style>
-
 <style lang="less" scoped>
-    @import "../assets/styles/globalVariables";
-    @import "../assets/styles/design";
-
     .logo {
         height: 50px;
         width: 50px;
