@@ -1,11 +1,8 @@
 <template>
-    <div class="cursor" data-cursor>
-        <div></div>
-    </div>
+    <div class="cursor" data-cursor></div>
 </template>
 <script>
     import Cursor from "../utils/cursor"
-
 
     export default {
         name: 'cursor',
@@ -41,8 +38,8 @@
         height: .75rem;
         background-color: #e35592;
         border-radius: 50%;
-        transform: translate(-50%, -50%);
-        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, position .3s;
+        transform: translate(-50%, -50%) scale(1);
+        transition: transform .3s ease-in-out, opacity 0.3s ease-in-out, position .3s;
 
 
         &.target-is-hovered {

@@ -14,12 +14,12 @@ export default class Cursor {
         this.xPos = event.pageX - cursorBounds.width / 2;
         this.yPos = event.pageY - cursorBounds.height / 2;
 
-        console.log(this.xPos + " " + this.xPos, null !== this.target);
+        // console.log(this.xPos + " " + this.xPos, null !== this.target);
 
         // this.cursor.style.transform = `translate3d(${this.xPos}px,  ${this.yPos}px, 0), scale(5)`;
 
-        this.cursor.style.left = this.xPos +('px');
-        this.cursor.style.top = this.yPos +('px');
+        this.cursor.style.left = this.xPos + ('px');
+        this.cursor.style.top = this.yPos + ('px');
     }
 
     initCursor() {
@@ -31,21 +31,28 @@ export default class Cursor {
     }
 
     _update(event) {
-        this.cursor.classList.add('target-is-hovered');
-        const {offsetX: x, offsetY: y} = event,
-            {offsetWidth: width, offsetHeight: height} = this.target,
-            stagger = 20,
-            xStagger = (x / width) * (stagger * 2) - stagger,
-            yStagger = (y / height) * (stagger * 2) - stagger;
+        if (event.type === 'mousemove') {
+            this.cursor.classList.add('target-is-hovered');
+            const {offsetX: x, offsetY: y} = event,
+                {offsetWidth: width, offsetHeight: height} = this.target,
 
-        console.log(xStagger, yStagger);
+                stagger = 15,
 
-        this.target.style.transform = `translate3d(${xStagger}px, ${yStagger}px, 0)`;
+                xStagger = (x / width) * (stagger * 2) - stagger,
+                yStagger = (y / height) * (stagger * 2) - stagger;
 
-        if (event.type === 'mouseleave') {
-            this.target.style.transform = '';
+            console.log(xStagger, yStagger);
+
+            this.target.style.transform = `translate3d(${xStagger}px, ${yStagger}px, 0)`;
+
+            console.log(event.type);
+
+        } else if (event.type === 'mouseleave') {
+            this.cursor.classList.remove('target-is-hovered');
+            this.target.style.transform = 'translate3d(0px, 0px, 0)';
 
         }
+
         if (!this._checkTarget) {
 
             // console.log(!this._checkTarget, 'test');
@@ -72,7 +79,9 @@ export default class Cursor {
         // }
 
         this._update = this._update.bind(this);
-        this.target.addEventListener('mousemove', this._update);
-    }I
+        this.target.addEventListener('mouseleave', this._update);
+    }
+
+    I
 }
 
