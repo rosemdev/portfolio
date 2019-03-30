@@ -1,4 +1,4 @@
-import IntersectionAnimation from "../utils/IntersectionAnimation";
+import IntersectionAnimation from "../utils/intersectionAnimation";
 
 const intersectionAnimation = new IntersectionAnimation();
 

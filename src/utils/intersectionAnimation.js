@@ -1,4 +1,4 @@
-import ParallaxAnimation from './ParallaxAnimation'
+import ParallaxAnimation from './parallaxAnimation'
 
 const defaultOptions = {
     root: null,
