@@ -41,7 +41,6 @@
         }
     }
 </script>
-<style lang="less" src="../assets/styles/themes.less"></style>
 <style lang="less" scoped>
     @import "../assets/styles/design";
 

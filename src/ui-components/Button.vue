@@ -52,7 +52,6 @@
         cursor: pointer;
         white-space: nowrap;
         position: relative;
-        background-color: transparent;
         box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease-in-out;
         z-index: 1;
@@ -68,7 +67,7 @@
             opacity: 0;
             transition: all .3s;
             border: 2px solid @mainColor;
-            margin: -1px;
+            margin: -2px;
             border-radius: inherit;
             transform: scale(0.1, 1);
         }
@@ -79,15 +78,16 @@
             border-radius: inherit;
             width: 100%;
             height: 100%;
+            opacity: 1;
             top: 0;
             left: 0;
             z-index: -1;
+            transition: opacity .3s ease-in-out, z-index .3s ease-in-out;
         }
 
         &:hover {
             box-shadow: 0 11px 15px rgba(0, 0, 0, 0.1);
             letter-spacing: 1px;
-            background-color: transparent;
             color: @mainColor;
 
             &:before {
@@ -97,7 +97,7 @@
 
             &:after {
                 background: transparent;
-                width: 0;
+                opacity: 0;
             }
         }
 

@@ -1,19 +1,14 @@
 <template>
     <div class="burger-icon"
          :class="{cross: this.open}"
-         data-stick-cursor>
-<!--         @mousemove="setMovement"-->
-<!--         @mouseout="setStaticPosition"-->
+    >
         <span>Menu</span>
     </div>
 </template>
 <script>
-    import Cursor from "../utils/cursor"
-
     export default {
         data() {
             return {
-                Cursor,
                 cursorInstance: null
             }
         },
@@ -25,20 +20,9 @@
         },
 
         created() {
-            this.$nextTick(() => {
-                // this.cursorInstance = new Cursor(this.$el);
-            });
         },
 
-        methods: {
-            // setMovement() {
-            //     this.cursorInstance.setMovement();
-            // },
-            //
-            // setStaticPosition() {
-            //     this.cursorInstance.setStaticPosition();
-            // }
-        }
+        methods: {}
     }
 </script>
 <style lang="less">
@@ -58,18 +42,17 @@
         font-weight: 600;
         position: relative;
 
+
         &:after {
             content: '';
             position: absolute;
             top: 25px;
-            left: 77px;
+            left: 78px;
             width: 6px;
             height: 6px;
-            border-top: 2px solid #333;
-            border-right: 2px solid #333;
+            border-top: 2px solid @mainColor;
+            border-right: 2px solid @mainColor;
             transform: rotate(-135deg);
-            transition: 0.2s ease;
-
 
         }
 
@@ -77,19 +60,19 @@
             cursor: pointer;
 
             &:after {
-                left: 80px;
+                left: 81px;
             }
         }
 
         &.cross {
             &:after {
-                left: 75px;
+                left: 77px;
                 transform: rotate(45deg);
             }
 
             &:hover {
                 &:after {
-                    left: 80px;
+                    left: 81px;
                 }
             }
         }

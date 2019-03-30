@@ -162,6 +162,10 @@
             span {
                 color: white;
             }
+
+            &:after {
+                border-color: white;
+            }
         }
     }
 
