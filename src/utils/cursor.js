@@ -1,134 +1,78 @@
-const math = {
-    lerp: (a, b, n) => {
-        return (1 - n) * a + n * b
-    }
-};
-
 export default class Cursor {
-    constructor() {
+    constructor(target) {
         this.cursor = document.querySelector('.cursor');
-        this.stickies = [...document.querySelectorAll('[data-stick-cursor]')];
+        this.target = target;
 
-        console.log(this.stickies);
+        this.xPos = 0;
+        this.yPos = 0;
 
-        this.data = {
-            mouse: {
-                x: 0,
-                y: 0
-            },
-            current: {
-                x: 0,
-                y: 0
-            },
-            last: {
-                x: 0,
-                y: 0
-            },
-            ease: 0.15,
-            dist: 2000,
-            fx: {
-                diff: 0,
-                acc: 0,
-                velo: 0,
-                scale: 0
-            }
-        };
-
-        this.bounds = {
-            h: 0,
-            a: 0
-        };
-
-        this.targets = null;
-
-        this.run = this.run.bind(this);
-        this.mousePos = this.mousePos.bind(this);
-        this.stick = this.stick.bind(this);
-
-        this.state = {
-            stick: false
-        };
-
-        this.init()
+        console.log(this.target);
     }
 
-    mousePos(e) {
-        this.data.mouse.x = e.pageX;
-        this.data.mouse.y = e.pageY;
+    moveCursor(event) {
+        let cursorBounds = this.cursor.getBoundingClientRect();
+        this.xPos = event.pageX - cursorBounds.width / 2;
+        this.yPos = event.pageY - cursorBounds.height / 2;
 
-        this.data.current.x = e.pageX;
-        this.data.current.y = e.pageY;
+        console.log(this.xPos + " " + this.xPos, null !== this.target);
+
+        // this.cursor.style.transform = `translate3d(${this.xPos}px,  ${this.yPos}px, 0), scale(5)`;
+
+        this.cursor.style.left = this.xPos +('px');
+        this.cursor.style.top = this.yPos +('px');
     }
 
-    getCache() {
-        this.targets = [];
+    initCursor() {
+        this.moveCursor = this.moveCursor.bind(this);
 
-        this.stickies.forEach((el) => {
-            const bounds = el.getBoundingClientRect();
-
-            this.targets.push({
-                el: el,
-                x: bounds.left + bounds.width / 2,
-                y: bounds.top + bounds.height / 2
-            })
-        })
+        document.addEventListener("mousemove", this.moveCursor, false);
+        requestAnimationFrame(this.moveCursor);
+        this.moveCursor();
     }
 
-    stick(target) {
-        const d = {
-            x: target.x - this.data.mouse.x,
-            y: target.y - this.data.mouse.y
-        };
+    _update(event) {
+        this.cursor.classList.add('target-is-hovered');
+        const {offsetX: x, offsetY: y} = event,
+            {offsetWidth: width, offsetHeight: height} = this.target,
+            stagger = 20,
+            xStagger = (x / width) * (stagger * 2) - stagger,
+            yStagger = (y / height) * (stagger * 2) - stagger;
 
-        const a = Math.atan2(target.x - this.data.mouse.x, target.y - this.data.mouse.y);
-        const h = Math.sqrt(d.x * d.x + d.y * d.y);
+        console.log(xStagger, yStagger);
 
-        // console.log(this.state.stick, h < this.data.dist);
+        this.target.style.transform = `translate3d(${xStagger}px, ${yStagger}px, 0)`;
 
-        if (h < this.data.dist && !this.state.stick) {
+        if (event.type === 'mouseleave') {
+            this.target.style.transform = '';
 
-            this.state.stick = true;
-            this.data.ease = 0.075;
+        }
+        if (!this._checkTarget) {
 
-            this.data.current.x = target.x - Math.sin(a) * h / 2.5;
-            this.data.current.y = target.y - Math.cos(a) * h / 2.5;
-
-            this.cursor.classList.add('is-active');
-
-        } else if (this.state.stick) {
-
-            this.state.stick = false;
-            this.data.ease = 0.15
-
-        } else if (h > this.data.dist) {
-
-            this.cursor.classList.remove('is-active')
+            // console.log(!this._checkTarget, 'test');
         }
     }
 
-    run() {
-        this.targets.forEach(this.stick);
-
-        this.data.last.x = math.lerp(this.data.last.x, this.data.current.x, this.data.ease);
-        this.data.last.y = math.lerp(this.data.last.y, this.data.current.y, this.data.ease);
-
-        this.data.fx.diff = this.data.current.x - this.data.last.x;
-        this.data.fx.acc = this.data.fx.diff / window.innerWidth;
-        this.data.fx.velo = +this.data.fx.acc;
-        this.data.fx.scale = 1 - Math.abs(this.data.fx.velo * 5);
-
-        this.cursor.style.transform = `translate3d(${this.data.last.x}px, ${this.data.last.y}px, 0) scale(${this.data.fx.scale})`;
-
-        requestAnimationFrame(this.run);
+    _checkTarget() {
+        return (null === this.target);
     }
 
-    addListeners() {
-        window.addEventListener('mousemove', this.mousePos, {passive: true})
+    setMovement() {
+        // if (!this._checkTarget) {
+        //     return
+        // }
+        //
+
+        this._update = this._update.bind(this);
+        this.target.addEventListener('mousemove', this._update);
     }
 
-    init() {
-        this.getCache();
-        this.addListeners();
-        requestAnimationFrame(this.run);
-    }
+    setStaticPosition() {
+        // if (!this._checkTarget) {
+        //     return
+        // }
+
+        this._update = this._update.bind(this);
+        this.target.addEventListener('mousemove', this._update);
+    }I
 }
+

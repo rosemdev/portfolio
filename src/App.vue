@@ -1,17 +1,18 @@
 <template>
     <div id="app" :class="theme">
-            <div class="content" :class="{push: showNav}">
+        <rosem-cursor></rosem-cursor>
+        <div class="content" :class="{push: showNav}">
+            <keep-alive>
+                <router-view name="underHeader" ref="underHeader"></router-view>
+            </keep-alive>
+            <rosem-header :offsetValue="130" v-once></rosem-header>
+            <component :is="$route.meta.layout">
                 <keep-alive>
-                    <router-view name="underHeader" ref="underHeader"></router-view>
+                    <router-view></router-view>
                 </keep-alive>
-                <rosem-header :offsetValue="130" v-once></rosem-header>
-                <component :is="$route.meta.layout">
-                    <keep-alive>
-                        <router-view></router-view>
-                    </keep-alive>
-                </component>
-                <rosem-footer v-once></rosem-footer>
-            </div>
+            </component>
+            <rosem-footer v-once></rosem-footer>
+        </div>
         <rosem-navigation></rosem-navigation>
     </div>
 </template>
@@ -20,6 +21,7 @@
     import RosemHeader from "./partials/Header"
     import RosemNavigation from "./partials/Navigation"
     import RosemFooter from "./partials/Footer"
+    import RosemCursor from "./partials/Cursor"
     import {mapState} from "vuex";
 
     export default {
@@ -39,6 +41,7 @@
             RosemHeader,
             RosemFooter,
             RosemNavigation,
+            RosemCursor
         },
 
         computed: {
@@ -109,10 +112,10 @@
         }
     }
 
-    .responsive(@tablet, {  .content.push {
-            right: 410px;
+    .responsive(@tablet, { .content.push {
+        right: 410px;
 
-         header {
+        header {
             left: -410px;
         }
 

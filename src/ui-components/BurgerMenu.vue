@@ -2,17 +2,21 @@
     <div class="burger-icon"
          :class="{cross: this.open}"
          @mousemove="setMovement"
-         @mouseout="setStaticPosition">
+         @mouseout="setStaticPosition"
+         data-stick-cursor>
         <span></span>
         <span></span>
         <span></span>
     </div>
 </template>
 <script>
+    import Cursor from "../utils/cursor"
+
     export default {
         data() {
             return {
-                playAnimation: false
+                Cursor,
+                cursorInstance: null
             }
         },
 
@@ -22,33 +26,42 @@
             }
         },
 
-        methods: {
-            setMovement(event) {
-                console.log(event.target);
-                let x = 0.2 * event.offsetX,
-                    y = 0.2 * event.offsetY;
+        created() {
+            this.$nextTick(() => {
+                this.cursorInstance = new Cursor(this.$el);
+            });
+        },
 
-                event.currentTarget.style.transform = `translate3d(${x}px, ${y}px, 0px)`;
-                console.log(event.target, 'move');
+        methods: {
+            setMovement() {
+                this.cursorInstance.setMovement();
             },
 
-            setStaticPosition(event) {
-                console.log('moveout');
-                event.currentTarget.style.transform = `translate3d(0px, 0px, 0px)`;
+            setStaticPosition() {
+                this.cursorInstance.setStaticPosition();
             }
-
         }
+
+        // methods: {
+        //     setMovement(event) {
+        //         let x = 0.2 * event.offsetX,
+        //             y = 0.2 * event.offsetY;
+        //
+        //         event.currentTarget.style.transform = `translate3d(${x}px, ${y}px, 0px)`;
+        //     },
+        //
+        //     setStaticPosition(event) {
+        //         event.currentTarget.style.transform = `translate3d(0px, 0px, 0px)`;
+        //     },
+        //
+        // }
     }
 </script>
-<style lang="less" scoped>
+<style lang="less">
     @import "../assets/styles/globalVariables";
 
     & .burger-icon {
-        cursor: url('../assets/images/icons/circle-shape.svg') 2 15, pointer;
-        cursor: -webkit-image-set(
-                url('../assets/images/icons/circle-shape.svg') 1x,
-                url('../assets/images/icons/circle-shape2x.svg') 2x
-        ), 2 15 pointer;
+        /*cursor: url('../assets/images/icons/circle-shape.svg') 2 15, pointer;*/
         image-rendering: auto;
         display: flex;
         padding: 20px;
@@ -57,6 +70,14 @@
         align-items: flex-end;
         will-change: transform;
         transition: all .1s ease-in-out .0s;
+
+        &:hover {
+            cursor: pointer;
+
+            .cursor {
+                transform: translate(-50%, -50%) scale(5); opacity: 1.3;
+            }
+        }
 
         & span {
             background-color: @mainColor;

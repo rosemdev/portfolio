@@ -154,7 +154,7 @@
 
 
         & .burger-icon {
-            cursor: url('../assets/images/icons/circle-shape-white.svg') 25 15, pointer;
+            /*cursor: url('../assets/images/icons/circle-shape-white.svg') 25 15, pointer;*/
 
             span {
                 background-color: white;
