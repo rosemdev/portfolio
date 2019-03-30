@@ -1,6 +1,5 @@
 <template>
     <div id="app" :class="theme">
-        <rosem-cursor></rosem-cursor>
         <div class="content" :class="{push: showNav}">
             <keep-alive>
                 <router-view name="underHeader" ref="underHeader"></router-view>
@@ -21,7 +20,6 @@
     import RosemHeader from "./partials/Header"
     import RosemNavigation from "./partials/Navigation"
     import RosemFooter from "./partials/Footer"
-    import RosemCursor from "./partials/Cursor"
     import {mapState} from "vuex";
 
     export default {
@@ -41,7 +39,6 @@
             RosemHeader,
             RosemFooter,
             RosemNavigation,
-            RosemCursor
         },
 
         computed: {
