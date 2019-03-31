@@ -291,17 +291,13 @@
 
                     }
 
-                    &:hover + .card-overlay {
-                        opacity: 0;
-                    }
-
                     &:hover {
                         transform: translateY(-5px);
                     }
 
                 }
 
-                .card-overlay {
+                /deep/ .card-overlay {
                     opacity: 0;
                 }
             }

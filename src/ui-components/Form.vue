@@ -2,7 +2,7 @@
     <form @submit="onSubmit" novalidate action="https://www.enformed.io/gvupimm9" method="POST">
         <slot></slot>
         <footer>
-            <rosem-button class="colorful" type="submit" name="*redirect" value="http://localhost:8080/thankyou">{{ buttonName }}</rosem-button>
+            <rosem-button class="colorful" type="submit" name="*redirect">{{ buttonName }}</rosem-button>
         </footer>
     </form>
 </template>
@@ -40,15 +40,27 @@
 
                 for (let field of this.fields) {
                     if (!field.checkValidity(field.$refs.input)) {
-                        this.valid = false
+                        this.valid = false;
                     }
                 }
 
                 if (!this.valid) {
                     event.preventDefault()
                 }
+            },
+
+            redirectIntoThanksPage () {
+                let location = window.location.origin +  '/thankyou';
+                let button = this.$el.querySelector('.button');
+
+                button.setAttribute('value', location);
+
             }
         },
+
+        mounted() {
+            this.redirectIntoThanksPage();
+        }
 
     }
 </script>

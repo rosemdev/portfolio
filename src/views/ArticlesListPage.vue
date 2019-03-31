@@ -3,7 +3,7 @@
         <rosem-loader v-if="loading"></rosem-loader>
         <div class="main-content">
             <div class="blog-cards">
-                <rosem-card v-for="(card, index) in cards" class="card"
+                <rosem-card v-for="(card, index) in cards"
                             :key="index">
                     <div class="stage-container">
                         <p class="blog-card-header"><span
@@ -103,7 +103,7 @@
         justify-content: center;
         flex-wrap: wrap;
 
-        .card {
+        /deep/ .card {
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -172,7 +172,7 @@
     }
 
     .responsive(@tablet, { .blog-cards {
-        .card {
+        /deep/ .card {
             height: 600px;
             width: auto;
             margin: 0 25px;
