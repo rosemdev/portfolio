@@ -1,9 +1,7 @@
 <template>
     <div class="progress-bar">
-        <div class="progress" :style="{width: progress/max *100 + '%'}">
-            <span><slot></slot></span>
-        </div>
-        <span class="progress-value">{{ progress + '%' }} / {{ max + '%'}}</span>
+        <span>Read</span>
+        <div class="progress" ref="progress"></div>
     </div>
 </template>
 <script>
@@ -12,17 +10,34 @@
             return {}
         },
 
-        props: {
-            progress: {
-                type: Number,
-                default: 35,
-                required: true
+        methods: {
+            currentScrollPercentage() {
+                return ((document.documentElement.scrollTop + document.body.scrollTop) /
+                    (document.documentElement.scrollHeight - document.documentElement.clientHeight) * 100).toFixed(0);
             },
 
-            max: {
-                type: Number,
-                default: 100,
+            addScrollProgress() {
+                const viewPortHeight = document.documentElement.clientHeight;
+
+                if (window.pageYOffset > viewPortHeight) {
+                    this.$el.style.opacity = '1';
+                    this.$refs.progress.style.height = (this.currentScrollPercentage() / 100) * (170) + 'px';
+                } else {
+                    this.$el.style.opacity = '0';
+                }
+
+                console.log(window.pageYOffset, viewPortHeight);
             }
+        },
+
+        mounted() {
+            this.$nextTick(() => {
+                document.addEventListener('scroll', this.addScrollProgress);
+            });
+        },
+
+        destroyed() {
+            document.removeEventListener('scroll', this.addScrollProgress);
         }
     }
 </script>
@@ -30,34 +45,40 @@
     @import "../assets/styles/design";
 
     .progress-bar {
-        height: 20px;
-        background-color: #a29e9e99;
+        display: none;
+    }
+
+    .responsive(@desktop, { .progress-bar {
+        height: 170px;
+        width: 25px;
         border-radius: 15px;
         margin: 15px 0;
-        transition: width .3s ease-in-out;
+        transition: width .3s ease-in-out, right .7s ease-in-out, opacity .3s ease-in-out;
+        color: tomato;
+        white-space: nowrap;
+        position: fixed;
+        right: 30px;
+        top: 50%;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+        z-index: 5;
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        color: white;
-        white-space: nowrap;
-        position: relative;
+        justify-content: center;
+        flex-direction: column;
+
+        span {
+            font-size: 20px;
+            transform: rotate(90deg);
+            margin-bottom: 25px;
+            text-transform: lowercase;
+            font-weight: 600;
+        }
 
         .progress {
-            background-color: #4792ff;
-            height: inherit;
-            border-top-left-radius: inherit;
-            border-bottom-left-radius: inherit;
-
-            span {
-                text-align: center;
-                font-size: 15px;
-            }
+            width: 2px;
         }
+    } });
 
-        .progress-value {
-            font-size: 13px;
-            right: 10px;
-            position: absolute;
-        }
-    }
+
 </style>

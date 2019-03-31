@@ -24,7 +24,7 @@ module.exports = {
             '@resources': path.join(__dirname, 'resources'),
             '@store': path.join(__dirname, 'src/store'),
             '@utils': path.join(__dirname, 'src/utils'),
-            // 'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
+            'vue$': 'vue/dist/vue.esm.js' // 'vue/dist/vue.common.js' for webpack 1
         });
     },
 

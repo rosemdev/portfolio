@@ -2,7 +2,7 @@
     import Cursor from "../utils/cursor"
 
     export default {
-        name: 'cursor',
+        name: 'custom-cursor',
         data() {
             return {}
         },
@@ -12,7 +12,7 @@
 
         mounted() {
             this.$nextTick(() => {
-                // eslint-disable-next-line 
+                // eslint-disable-next-line
                 const cursor = new Cursor({
                     target: this.$el,
                     cursorClass: 'cursor',

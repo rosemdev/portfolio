@@ -58,7 +58,6 @@
         right: 0;
         width: 100%;
         height: 1800px;
-        transition: border-radius 1s ease-in-out;
     }
 
 </style>

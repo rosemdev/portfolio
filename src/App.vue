@@ -10,6 +10,7 @@
                     <router-view></router-view>
                 </keep-alive>
             </component>
+            <rosem-progress-bar/>
             <rosem-footer v-once></rosem-footer>
         </div>
         <rosem-navigation></rosem-navigation>
@@ -20,6 +21,7 @@
     import RosemHeader from "./partials/Header"
     import RosemNavigation from "./partials/Navigation"
     import RosemFooter from "./partials/Footer"
+    import RosemProgressBar from "./components/ProgressBar"
     import {mapState} from "vuex";
 
     export default {
@@ -39,6 +41,8 @@
             RosemHeader,
             RosemFooter,
             RosemNavigation,
+            RosemProgressBar
+
         },
 
         computed: {
@@ -104,6 +108,10 @@
     .content.push {
         right: 250px;
 
+        .progress-bar {
+            right: 250px;
+        }
+
         header {
             left: -250px;
         }
@@ -111,6 +119,11 @@
 
     .responsive(@tablet, { .content.push {
         right: 410px;
+
+        .progress-bar {
+            right: 410px;
+
+        }
 
         header {
             left: -410px;
