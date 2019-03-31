@@ -12,12 +12,14 @@
 
         mounted() {
             this.$nextTick(() => {
-                // eslint-disable-next-line
-                const cursor = new Cursor({
-                    target: this.$el,
-                    cursorClass: 'cursor',
-                    targetHoveredClass: 'target-is-hovered',
-                });
+                if (window.innerWidth > 1200) {
+                    // eslint-disable-next-line
+                    const cursor = new Cursor({
+                        target: this.$el,
+                        cursorClass: 'cursor',
+                        targetHoveredClass: 'target-is-hovered',
+                    });
+                }
             });
         },
 
@@ -35,7 +37,7 @@
         height: 12px;
         background-color: #e35592;
         border-radius: 50%;
-        transform: translate(-50%, -50%);
+        transform: translate(14px, 30px);
         transition: transform .3s ease-in-out, opacity .3s ease-in-out;
 
 

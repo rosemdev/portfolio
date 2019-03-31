@@ -74,7 +74,6 @@
     .responsive(@desktop, { .thank-you-page {
         .signature {
             flex-direction: row;
-
         }
 
     } });

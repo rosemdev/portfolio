@@ -21,12 +21,10 @@
 
                 if (window.pageYOffset > viewPortHeight) {
                     this.$el.style.opacity = '1';
-                    this.$refs.progress.style.height = (this.currentScrollPercentage() / 100) * (170) + 'px';
+                    this.$refs.progress.style.height = 170 * (this.currentScrollPercentage() / 100) + 'px';
                 } else {
                     this.$el.style.opacity = '0';
                 }
-
-                console.log(window.pageYOffset, viewPortHeight);
             }
         },
 

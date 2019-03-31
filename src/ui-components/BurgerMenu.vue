@@ -53,6 +53,7 @@
             border-top: 2px solid @mainColor;
             border-right: 2px solid @mainColor;
             transform: rotate(-135deg);
+            transition: left .3s ease-in-out;
 
         }
 
