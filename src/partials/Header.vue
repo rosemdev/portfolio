@@ -18,7 +18,6 @@
     import RosemCursorTarget from "../partials/CursorTarget";
 
 
-
     export default {
         name: "Header",
         data() {
@@ -133,7 +132,7 @@
 
     header {
         display: flex;
-        transition: all .7s ease-in-out;
+        transition: all .3s ease-in-out;
         background-color: white;
         position: static;
         top: -50px;
@@ -154,18 +153,13 @@
         position: fixed;
         height: 50px;
         width: 100%;
-        background-color: @mainColor;
+        background-color: transparent;
         box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
 
 
-        & .burger-icon {
-            span {
-                color: white;
-            }
-
-            &:after {
-                border-color: white;
-            }
+        .logo {
+            width: 40px;
+            height: 40px;
         }
     }
 

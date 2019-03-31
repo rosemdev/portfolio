@@ -10,6 +10,7 @@
         height: 50px;
         width: 50px;
         margin: 15px 5px;
+        transition: width .3s ease-in-out, height .3ms ease-in-out;
 
         a {
             display: block;

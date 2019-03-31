@@ -21,7 +21,7 @@
 
                 if (window.pageYOffset > viewPortHeight) {
                     this.$el.style.opacity = '1';
-                    this.$refs.progress.style.height = 170 * (this.currentScrollPercentage() / 100) + 'px';
+                    this.$refs.progress.style.height = (this.currentScrollPercentage() / 100) * (200) + 'px';
                 } else {
                     this.$el.style.opacity = '0';
                 }
@@ -47,7 +47,6 @@
     }
 
     .responsive(@desktop, { .progress-bar {
-        height: 170px;
         width: 25px;
         border-radius: 15px;
         margin: 15px 0;
