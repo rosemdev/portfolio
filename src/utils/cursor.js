@@ -3,7 +3,7 @@ export default class Cursor {
         this.options = options;
         this.target = options.target;
         this.cursorContainer = document.createElement('div');
-        this.cursorContainer.style.position = 'absolute';
+        this.cursorContainer.style.position = 'fixed';
         this.cursorContainer.style.top = '0';
         this.cursorContainer.style.left = '0';
         this.cursorContainer.style.zIndex = '10000';
@@ -51,8 +51,8 @@ export default class Cursor {
 
     moveCursor(event) {
         requestAnimationFrame(() => {
-            this.xPos = event.pageX - this.cursor.offsetWidth / 2;
-            this.yPos = event.pageY - this.cursor.offsetHeight / 2;
+            this.xPos = event.clientX - this.cursor.offsetWidth / 2;
+            this.yPos = event.clientY - this.cursor.offsetHeight / 2;
             this.cursorContainer.style.transform = `translate3d(${this.xPos}px,  ${this.yPos}px, 0px)`;
         });
     }
