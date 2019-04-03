@@ -49,9 +49,7 @@
                                         inline-template>
                             <div class="network">
                                 <network :network="network.network">
-                                    <svg>
-                                        <use :xlink:href="network.icon"></use>
-                                    </svg>
+                                    <img :src="network.src">
                                 </network>
                             </div>
                         </social-sharing>
@@ -101,7 +99,7 @@
         },
 
         methods: {
-            getDate
+            getDate,
         },
 
     }
@@ -246,6 +244,16 @@
 
                   .share-text {
                       margin-right: 30px;
+                  }
+
+                  .share {
+                     /deep/ .network {
+                          span {
+                              img {
+                                  width: 27px;
+                              }
+                          }
+                      }
                   }
               }
           }

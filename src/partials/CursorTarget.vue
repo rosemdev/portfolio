@@ -37,7 +37,7 @@
         height: 12px;
         background-color: #e35592;
         border-radius: 50%;
-        transform: translate(0px, 0px);
+        transform: translate(12px, 20px);
         transition: transform .3s ease-in-out, opacity .3s ease-in-out;
 
 

@@ -4,7 +4,10 @@ import ToDoList from "../assets/images/myWorks/todoList.png";
 import linkedinSocialImage from '../assets/images/icons/linkedin-logo.svg'
 import githubSocialImage from '../assets/images/icons/github-sign.svg'
 import facebookSocialImage from '../assets/images/icons/facebook-app-logo.svg'
-import socials from '../assets/images/icons/socials.svg'
+import skypeSocialImage from '../assets/images/icons/skype-symbol.svg'
+import twitterSocialImage from '../assets/images/icons/twitter-sign.svg'
+import facebookWhSocialImage from '../assets/images/icons/facebook-app-logo_white.svg'
+import linkedinWHWhSocialImage from '../assets/images/icons/linkedin-logo-white.svg'
 
 export let socialLinks = [
     {
@@ -60,21 +63,25 @@ export let socialShareNetworks = [
     {
         network: 'linkedin',
         isIcon: true,
-        icon: `${socials}#linkedin`
+        src: linkedinWHWhSocialImage
 
     },
-
-    {
-        network: 'googleplus',
-        isIcon: true,
-        icon: `${socials}#googleplus`
-
-    },
-
     {
         network: 'facebook',
         isIcon: true,
-        icon: `${socials}#facebook`
+        src: facebookWhSocialImage
+
+    },
+    {
+        network: 'skype',
+        isIcon: true,
+        src: skypeSocialImage
+
+    },
+    {
+        network: 'twitter',
+        isIcon: true,
+        src: twitterSocialImage
 
     }
 ];
