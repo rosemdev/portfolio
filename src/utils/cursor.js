@@ -1,7 +1,7 @@
 export default class Cursor {
     constructor(options = {}) {
         this.options = options;
-        this.target = options.target;
+        this.targetCollection = [];
         this.cursorContainer = document.createElement('div');
         this.cursorContainer.style.position = 'fixed';
         this.cursorContainer.style.top = '0';
@@ -19,33 +19,36 @@ export default class Cursor {
         this.leave = this.leave.bind(this);
 
         document.addEventListener('mousemove', this.moveCursor, false);
-        this.target.addEventListener('mouseenter', this.enter);
-        this.target.addEventListener('mouseleave', this.leave);
+
     }
 
-    enter() {
+    enter(event) {
         this.cursor.classList.add(this.options.targetHoveredClass);
-        this.target.addEventListener('mousemove', this.moveTarget);
+        event.currentTarget.addEventListener('mousemove', this.moveTarget);
     }
 
-    leave() {
+    leave(event) {
+        let currentTarget = event.currentTarget;
+
         this.cursor.classList.remove(this.options.targetHoveredClass);
-        this.target.removeEventListener('mousemove', this.moveTarget);
+        currentTarget.removeEventListener('mousemove', this.moveTarget);
 
         requestAnimationFrame(() => {
-            this.target.style.transform = 'translate3d(0px, 0px, 0px)';
+            currentTarget.style.transform = 'translate3d(0px, 0px, 0px)';
         });
     }
 
     moveTarget(event) {
+        let currentTarget = event.currentTarget;
+
         requestAnimationFrame(() => {
             const {offsetX: x, offsetY: y} = event;
-            const {offsetWidth: width, offsetHeight: height} = this.target;
+            const {offsetWidth: width, offsetHeight: height} = currentTarget;
             const stagger = 15;
             const xStagger = (x / width) * (stagger * 2) - stagger;
             const yStagger = (y / height) * (stagger * 2) - stagger;
 
-            this.target.style.transform = `translate3d(${xStagger}px, ${yStagger}px, 0)`;
+            currentTarget.style.transform = `translate3d(${xStagger}px, ${yStagger}px, 0)`;
         });
     }
 
@@ -55,5 +58,26 @@ export default class Cursor {
             this.yPos = event.clientY - this.cursor.offsetHeight / 2;
             this.cursorContainer.style.transform = `translate3d(${this.xPos}px,  ${this.yPos}px, 0px)`;
         });
+    }
+
+    addElement(element) {
+        this.targetCollection.push(element);
+
+        element.addEventListener('mouseenter', this.enter);
+        element.addEventListener('mouseleave', this.leave);
+        console.log(this.targetCollection);
+
+    }
+
+    removeElement(element) {
+        const index = this.targetCollection.indexOf(element);
+
+        if (index >= 0) {
+            this.targetCollection.splice(index, 1);
+            element.removeEventListener('mouseenter', this.enter);
+            element.removeEventListener('mouseleave', this.leave);
+
+        }
+
     }
 }

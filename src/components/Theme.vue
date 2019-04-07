@@ -7,7 +7,7 @@
             <span @click="$root.$emit('change-theme', 'theme2')">...or me</span>
             <span @click="$root.$emit('change-theme', 'theme3')">meeee!!</span>
         </div>
-        <p class="reset" @click="$root.$emit('change-theme', 'theme-default')">reset</p>
+        <p class="reset" @click="$root.$emit('change-theme', 'theme-default')"><span v-dial-mouse-target>reset</span></p>
     </div>
 </template>
 <script>
@@ -114,40 +114,40 @@
             justify-content: center;
             margin: 50px 0;
 
+            & span {
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                margin: 15px;
+                color: white;
+                text-align: center;
+                font-size: 1em;
+                line-height: 80px;
+                cursor: pointer;
+                box-shadow: 0 3px 20px 3px #0000004d;
+                flex-shrink: 0;
+                user-select: none;
+                transition: all .3s ease-in-out;
+
+                &:first-child {
+                    background: @theme1;
+                }
+
+                &:nth-child(2) {
+                    background: @theme2;
+                }
+
+                &:last-child {
+                    background: @theme3;
+                }
+
+                &:hover {
+                    letter-spacing: 1px;
+                    transform: scale(.9);
+                }
+            }
         }
 
-        & span {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin: 15px;
-            color: white;
-            text-align: center;
-            font-size: 1em;
-            line-height: 80px;
-            cursor: pointer;
-            box-shadow: 0 3px 20px 3px #0000004d;
-            flex-shrink: 0;
-            user-select: none;
-            transition: all .3s ease-in-out;
-
-            &:first-child {
-                background: @theme1;
-            }
-
-            &:nth-child(2) {
-                background: @theme2;
-            }
-
-            &:last-child {
-                background: @theme3;
-            }
-
-            &:hover {
-                letter-spacing: 1px;
-                transform: scale(.9);
-            }
-        }
     }
 
     .responsive(@desktop, { .theme {

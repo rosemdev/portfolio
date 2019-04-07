@@ -1,6 +1,7 @@
 <template>
     <div class="burger-icon"
          :class="{cross: this.open}"
+         v-dial-mouse-target
     >
         <span>Menu</span>
     </div>

@@ -1,12 +1,10 @@
 <template>
     <header :class="{sticky: isStuck}">
         <rosem-logo></rosem-logo>
-        <rosem-cursor-target>
             <rosem-burger-menu
                     :open="showNav"
                     @click.native="toggleNav"
             ></rosem-burger-menu>
-        </rosem-cursor-target>
     </header>
 </template>
 
@@ -15,8 +13,6 @@
     import RosemLogo from "../partials/Logo";
     import RosemBurgerMenu from "../ui-components/BurgerMenu";
     import {mapState} from "vuex";
-    import RosemCursorTarget from "../partials/CursorTarget";
-
 
     export default {
         name: "Header",
@@ -42,7 +38,6 @@
         components: {
             RosemBurgerMenu,
             RosemLogo,
-            RosemCursorTarget
         },
 
         methods: {
