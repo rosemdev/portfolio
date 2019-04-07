@@ -16,16 +16,13 @@
             <div class="share">
                 <social-sharing v-for="network in socialShareNetworks"
                                 :key="network.network"
-                                url="https://vuejs.org/"
                                 :title="article.title"
                                 :description="article.prologue"
                                 :quote="article.prologue"
                                 inline-template>
                     <div class="network">
                         <network :network="network.network">
-                            <svg>
-                                <use :xlink:href="network.icon"></use>
-                            </svg>
+                            <img :src="network.src">
                         </network>
                     </div>
                 </social-sharing>
@@ -208,6 +205,16 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+
+            .share {
+                /deep/ .network {
+                    span {
+                        img {
+                            width: 27px;
+                        }
+                    }
+                }
+            }
 
             p {
                 color: white;

@@ -47,6 +47,7 @@
     }
 
     .responsive(@desktop, { .progress-bar {
+        cursor: default;
         width: 25px;
         border-radius: 15px;
         margin: 15px 0;

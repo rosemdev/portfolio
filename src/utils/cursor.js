@@ -65,7 +65,6 @@ export default class Cursor {
 
         element.addEventListener('mouseenter', this.enter);
         element.addEventListener('mouseleave', this.leave);
-        console.log(this.targetCollection);
 
     }
 
