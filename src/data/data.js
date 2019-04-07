@@ -89,7 +89,7 @@ export let socialShareNetworks = [
 export let descriptions = [
     {
         id: '0001',
-        type: 'Website',
+        type: 'webtool',
         name: 'ToDo List',
         imageSource: ToDoList,
         moreLink: '',

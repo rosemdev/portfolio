@@ -29,7 +29,7 @@
             <div class="grey-background">
                 <div class="main-content about">
                     <div class="gif-code">
-                        <img src="../assets/images/hurray.gif" alt="">
+                        <img src="../assets/images/myWorks/code.gif" alt="">
                     </div>
                     <div class="project-description">
                         <p class="section-title hashtag-right right-text" data-hashtag="about">What? When? Why?</p>
@@ -122,6 +122,12 @@
                                    rel="noopener">the
                                 repo in gitHub</a></li>
                         </ul>
+                        <p class="short-description left-text">Color pallet</p>
+                        <div class="colors">
+                            <span>#363f4e</span>
+                            <span>#df555d</span>
+                            <span>#be9271</span>
+                        </div>
                     </template>
                 </rosem-description-block>
             </div>
@@ -129,14 +135,41 @@
                 <img src="../assets/images/myWorks/todo_list.png" alt="">
             </div>
         </div>
+        <div class="main-content look-feel">
+            <rosem-description-block subtitle=""
+                                     title=""
+            >
+                <template slot="description">
+                    <p class="section-title hashtag-right right-text" data-hashtag="interacting">Look and Feel</p>
+                    <p class="short-description right-text">To be more attractive the landing page should have some
+                        thing with a user could "touch" a long story short it's how he feel when use this site and
+                        what he will do next.
+                        I love to use a lot of hover effects, shadows (maybe you have already
+                        noticed that), animations also different
+                        types of ways submitting the content means tables, accordions, carousels - all this actions
+                        directed on user attention. So The "look" is defined by the following components:</p>
+                    <ul class="right-text">
+                        <li>colors</li>
+                        <li>images</li>
+                        <li>layout</li>
+                        <li>font family</li>
+                        <li>whole designer flavor</li>
+                    </ul>
+                </template>
+            </rosem-description-block>
+        </div>
         <div class="grey-background third-project">
+            <div class="travel-agency parallax"></div>
             <div class="main-content description">
-                <p class="section-title hashtag left-text" data-hashtag="traveling">Travel Agency</p>
+                <div class="gif-code">
+                    <img src="../assets/images/myWorks/travel.gif" alt="">
+                </div>
                 <rosem-description-block subtitle=""
                                          title=""
                 >
                     <template slot="description">
-                        <p class="short-description left-text">
+                <p class="section-title hashtag-right right-text" data-hashtag="history">Travel Agency</p>
+                        <p class="short-description right-text">
                             This is a small project made on the basis of Udemy course.
                             <a href="https://github.com/LearnWebCode" class="link" target="_blank"
                                rel="noopener">Brad Schiff</a> is a great teacher, and this course may become a brilliant
@@ -147,7 +180,7 @@
                             for me JavaScript features and even CSS and HTML, about proper style classes organization
                             and so on... Please find below the link to get detailed information:
                         </p>
-                        <ul class="left-text">
+                        <ul class="right-text">
                             <li><a href="https://romsem.github.io/travelAgency/" class="link" target="_blank"
                                    rel="noopener">The travel agency</a>
                             </li>
@@ -155,28 +188,15 @@
                                    rel="noopener">the
                                 repo in gitHub</a></li>
                         </ul>
+                        <p class="short-description left-text">Color pallet</p>
+                        <div class="colors">
+                            <span>#2f5572</span>
+                            <span>#d59442</span>
+                            <span>#f39826</span>
+                        </div>
                     </template>
                 </rosem-description-block>
             </div>
-            <div class="travel-agency parallax"></div>
-        </div>
-        <div class="main-content">
-            <p class="section-title hashtag-right right-text" data-hashtag="interacting">Look and Feel</p>
-            <p class="short-description left-text">To be more attractive the landing page should have some
-                thing with a user could "touch" a long story short it's how he feel when use this site and
-                what he will do next.
-                I love to use a lot of hover effects, shadows (maybe you have already
-                noticed that), animations also different
-                types of ways submitting the content means tables, accordions, carousels - all this actions
-                directed on user attention. So The "look" is defined by the following components:
-            <ol>
-                <li>colors</li>
-                <li>images</li>
-                <li>layout</li>
-                <li>font family</li>
-                <li>whole designer flavor</li>
-            </ol>
-            </p>
         </div>
     </div>
 </template>
@@ -225,6 +245,31 @@
         background-repeat: no-repeat;
         box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
         position: relative;
+    }
+
+    .colors {
+        display: flex;
+        align-items: center;
+
+        & span {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 15px;
+            color: white;
+            text-align: center;
+            font-size: 15px;
+            line-height: 80px;
+            cursor: pointer;
+            box-shadow: 0 3px 20px 3px #0000004d;
+            flex-shrink: 0;
+            transition: transform .3s ease-in-out;
+
+            &:hover {
+                transform: scale(.9);
+            }
+        }
+
     }
 
     .projects {
@@ -278,26 +323,7 @@
                     margin: 25px;
 
                     .colors {
-                        display: flex;
-                        align-items: center;
-
                         & span {
-                            width: 80px;
-                            height: 80px;
-                            border-radius: 50%;
-                            margin: 15px;
-                            color: white;
-                            text-align: center;
-                            font-size: 15px;
-                            line-height: 80px;
-                            cursor: pointer;
-                            box-shadow: 0 3px 20px 3px #0000004d;
-                            flex-shrink: 0;
-                            transition: transform .3s ease-in-out;
-
-                            &:hover {
-                                transform: scale(.9);
-                            }
 
                             &:first-child {
                                 background-color: #4b0e8f;
@@ -327,6 +353,24 @@
 
             .description {
                 width: 40%;
+
+                .colors {
+                    & span {
+
+                        &:first-child {
+                            background-color: #363f4e;
+                        }
+
+                        &:nth-child(2) {
+                            background-color: #df555d;
+                        }
+
+                        &:last-child {
+                            background-color: #be9271;
+                        }
+                    }
+
+                }
             }
 
             .todo-list {
@@ -337,12 +381,36 @@
         }
 
         .third-project {
-            margin: 10px 0;
-
             .travel-agency {
                 background-image: url("../assets/images/myWorks/travel_agency.png");
                 height: 900px;
                 background-size: contain;
+
+            }
+
+            .description {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                top: -4rem;
+            }
+
+            .colors {
+                & span {
+
+                    &:first-child {
+                        background-color: #2f5572;
+                    }
+
+                    &:nth-child(2) {
+                        background-color: #d59442;
+                    }
+
+                    &:last-child {
+                        background-color: #f398268a;
+                    }
+                }
 
             }
         }
