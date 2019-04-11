@@ -8,7 +8,7 @@
                         life, but I have to admit this page isn't formal and so rigorous I just take this opportunity to
                         share my thoughts about different spheres of study and work. So my name is Romanna, but I prefer
                         a more friendly name - just Roma. So if you are interested please keep read this. If you have
-                        question you can always write an email or call. Or if you have some proposals for me I would
+                        question you can always write an email or make a call. Or if you have some proposals for me I would
                         greatly appreciate your kindly on this.
                     </template>
                     <div slot="additional-info">

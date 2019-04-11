@@ -10,7 +10,7 @@
                         :to="{path: item.url}"
                         exact
                 >
-                    <a tabindex="0">{{ item.text}}</a>
+                    <a tabindex="0" v-dial-mouse-target>{{ item.text}}</a>
                 </router-link>
             </ul>
         </nav>

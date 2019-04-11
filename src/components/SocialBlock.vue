@@ -3,7 +3,8 @@
         <ul>
             <li v-for="link in socialLinks"
                 :key="link.link"
-                :class="{mobileView: isMobileView, icons: link.isIcon}">
+                :class="{mobileView: isMobileView, icons: link.isIcon}"
+            >
                 <a :href="link.link" :aria-label="link.name" v-if="link.isIcon" target="_blank" rel="noopener">
                     <img :src="link.src" v-if="link.src" :alt="link.name"/>
                     <span class="link-name">{{link.name }}</span>
@@ -14,7 +15,11 @@
 
                     </slot>
                 </a>
-                <a :href="link.link" :aria-label="link.name" target="_blank" rel="noopener" v-else>{{ link.name }}
+                <a      v-else
+                        :href="link.link"
+                        :aria-label="link.name"
+                        target="_blank" rel="noopener"
+                        v-dial-mouse-target>{{ link.name }}
                     <slot
                             name="social"
                             :link="link">
@@ -60,7 +65,7 @@
                 font-weight: 600;
                 position: relative;
                 z-index: 1;
-                padding: 0 8px;
+                padding: 10px;
 
                 &:before {
                     content: '';
@@ -70,7 +75,7 @@
                     position: absolute;
                     background-color: @mainColor;
                     left: -12px;
-                    bottom: 7px;
+                    bottom: 16px;
                     transition: all 0.3s ease-in-out;
                 }
 
@@ -78,7 +83,7 @@
                     &:before {
                         width: 82%;
                         left: 17px;
-                        bottom: -4px;
+                        bottom: 6px;
                     }
                 }
 
@@ -100,7 +105,7 @@
                     &:before {
                         width: 15px;
                         left: -18px;
-                        bottom: 17px;
+                        bottom: 23px;
                     }
 
                     &:hover {
@@ -127,6 +132,7 @@
                 &:before {
                     background-color: white;
                 }
+
                 a {
                     color: white;
 

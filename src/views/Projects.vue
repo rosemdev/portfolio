@@ -103,22 +103,18 @@
                                          title=""
                 >
                     <template slot="description">
-                        <p class="short-description left-text">
-                            This is a small project made on the basis of Udemy course.
-                            <a href="https://github.com/LearnWebCode" class="link" target="_blank"
-                               rel="noopener">Brad Schiff</a> is a great teacher, and this course may become a brilliant
-                            find for the
-                            beginner. The amazing part of this course is instructor tells you some
-                            amazing tips and tricks you can use to make your work easier and faster.
-                            At this project I firstly met a Webpack and started to configure it, come to know some new
-                            for me JavaScript features and even CSS and HTML, about proper style classes organization
-                            and so on... Please find below the link to get detailed information:
+                        <p class="short-description left-text">It is a basic ToDo list with simple styles which are
+                            trying to be similar to the tablet. It's possible to create tasks, edit them and delete -
+                            and everything is saving in the local storage. To write it I used the vanilla JavaScript and
+                            for the time being, I experienced at Vue it appears to be some ridiculous. But it's working
+                            and everyone can use it - that's the main idea.
+                            Please check out the links below. I'll be glad if you like it and start to use:
                         </p>
                         <ul class="left-text">
-                            <li><a href="https://romsem.github.io/travelAgency/" class="link" target="_blank"
-                                   rel="noopener">The travel agency</a>
+                            <li><a href="https://romsem.github.io/To-do-List/" class="link" target="_blank"
+                                   rel="noopener">ToDo list</a>
                             </li>
-                            <li><a href="https://github.com/RomSem/travelAgency" class="link" target="_blank"
+                            <li><a href="https://github.com/RomSem/To-do-List" class="link" target="_blank"
                                    rel="noopener">the
                                 repo in gitHub</a></li>
                         </ul>
@@ -168,18 +164,19 @@
                                          title=""
                 >
                     <template slot="description">
-                <p class="section-title hashtag-right right-text" data-hashtag="history">Travel Agency</p>
+                        <p class="section-title hashtag-right right-text" data-hashtag="history">Travel Agency</p>
                         <p class="short-description right-text">
-                            This is a small project made on the basis of Udemy course.
+                            This is a small project made on the basis of the Udemy course.
                             <a href="https://github.com/LearnWebCode" class="link" target="_blank"
                                rel="noopener">Brad Schiff</a> is a great teacher, and this course may become a brilliant
-                            find for the
-                            beginner. The amazing part of this course is instructor tells you some
-                            amazing tips and tricks you can use to make your work easier and faster.
-                            At this project I firstly met a Webpack and started to configure it, come to know some new
-                            for me JavaScript features and even CSS and HTML, about proper style classes organization
-                            and so on... Please find below the link to get detailed information:
-                        </p>
+                            find for the beginner. The amazing part of this course is the instructor tells you some
+                            amazing tips and tricks you can use to make your work easier and faster. At this project, I
+                            first met a Webpack and started to configure it, come to know some new for me JavaScript
+                            features and even CSS and HTML, about proper style classes organization and so on...So if
+                            you're in learning programming I would recommend you to visit Brad's courses, they help
+                            you anyway.Please
+                            find below the link to get detailed information about what I got after the curse, it wasn't
+                            so big, but it gave new knowledge and experience as well:
                         <ul class="right-text">
                             <li><a href="https://romsem.github.io/travelAgency/" class="link" target="_blank"
                                    rel="noopener">The travel agency</a>
