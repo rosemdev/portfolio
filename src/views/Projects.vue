@@ -2,7 +2,7 @@
     <div class="projects">
         <div class="first-project">
             <div class="main-content overview">
-                <p class="section-title hashtag left-text" data-hashtag="landing">Mobile app</p>
+                <p class="section-title hashtag" data-hashtag="landing">Mobile app</p>
                 <div class="mobile-app-description right-text">
                     <rosem-description-block subtitle=""
                                              title="">
@@ -84,6 +84,7 @@
                                         has
                                         subdued
                                         me especially in conjunction with a gradient.</p>
+                                    <p class="short-description left-text">Color pallet</p>
                                     <div class="colors">
                                         <span>#4b0e8f</span>
                                         <span>#f6298f</span>
@@ -232,16 +233,12 @@
         font-size: 19px;
     }
 
-    ol {
-        list-style: disc;
-    }
-
     .parallax {
         width: 100%;
-        background-attachment: fixed;
         background-repeat: no-repeat;
         box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
         position: relative;
+        background-size: cover;
     }
 
     .colors {
@@ -249,10 +246,10 @@
         align-items: center;
 
         & span {
-            width: 80px;
-            height: 80px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
-            margin: 15px;
+            margin: 8px;
             color: white;
             text-align: center;
             font-size: 15px;
@@ -277,6 +274,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                flex-direction: column;
 
                 .section-title {
                     &:before {
@@ -285,10 +283,8 @@
                 }
 
                 .mobile-app-description {
-                    width: 100%;
-                    max-width: 800px;
+                    text-align: center;
                     margin: auto;
-                    padding: 15px 50px;
                     z-index: 2;
                 }
 
@@ -297,22 +293,20 @@
             .mobile-app {
                 background-image: url("../assets/images/myWorks/mobile-app.png");
                 width: 100%;
-                height: 750px;
-                background-attachment: fixed;
-                background-repeat: no-repeat;
-                background-size: cover;
-                box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
+                height: 185px;
                 position: relative;
+                background-size: cover ;
             }
 
             .about {
                 display: flex;
                 align-items: center;
                 justify-content: flex-start;
+                flex-direction: column;
 
                 .gif-code {
                     position: relative;
-                    top: -8rem;
+                    top: -1rem;
                     z-index: 3;
                 }
 
@@ -347,9 +341,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-direction: column;
 
             .description {
-                width: 40%;
+                width: 100%;
 
                 .colors {
                     & span {
@@ -379,9 +374,8 @@
 
         .third-project {
             .travel-agency {
-                background-image: url("../assets/images/myWorks/travel_agency.png");
-                height: 900px;
-                background-size: contain;
+                background-image: url("../assets/images/myWorks/travel.png");
+                height: 185px;
 
             }
 
@@ -389,8 +383,8 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
+                flex-direction: column;
                 position: relative;
-                top: -4rem;
             }
 
             .colors {
@@ -413,12 +407,56 @@
         }
     }
 
-    .responsive(@tablet, { .projects {
-        .first-project {
-            .overview {
+    .responsive(@desktop, {
 
-            }
+        .parallax {
+            background-attachment: fixed;
         }
+
+    .colors {
+        span {
+            width: 80px;
+            height: 80px;
+            margin: 15px;
+        }
+    }
+
+
+        .projects {
+            .first-project {
+                .mobile-app {
+                    background-attachment: fixed;
+                    height: 750px;
+                }
+
+                .about {
+                    flex-direction: row;
+
+                    .gif-code {
+                        top: -9rem;
+                    }
+                }
+            }
+
+            .second-project {
+                flex-direction: row;
+
+                .description {
+                    width: 40%;
+                }
+            }
+
+            .third-project {
+                .travel-agency {
+                    height: 700px;
+                    background-position: -60px 0;
+                }
+
+                .description {
+                    flex-direction: row;
+                    top: -4rem;
+                }
+            }
     } });
 
 
