@@ -30,6 +30,7 @@ body {
   border-radius: 50%;
   transform: translate(-2px, -2px);
   transition: transform .3s ease-in-out, opacity .3s ease-in-out;
+  display: none;
 
 
   &.target-is-hovered {
@@ -204,7 +205,13 @@ body {
         margin-left: -10px !important;
       }
     }
-  } });
+  }
+
+.cursor {
+  display: block;
+}
+
+});
 
 @keyframes opacity {
   0% {

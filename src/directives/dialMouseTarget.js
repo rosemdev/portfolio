@@ -5,9 +5,13 @@ const cursor = new Cursor({
     targetHoveredClass: 'target-is-hovered',
 });
 
+
+
 export default {
     bind(el) {
-        cursor.addElement(el);
+        if (window.innerWidth > 1200) {
+            cursor.addElement(el);
+        }
     },
     unbind(el) {
         cursor.removeElement(el);
