@@ -194,6 +194,16 @@
                 display: flex;
                 align-items: center;
                 flex-direction: column;
+
+                .share {
+                    /deep/ .network {
+                        span {
+                            img {
+                                width: 27px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -244,16 +254,6 @@
 
                   .share-text {
                       margin-right: 30px;
-                  }
-
-                  .share {
-                     /deep/ .network {
-                          span {
-                              img {
-                                  width: 27px;
-                              }
-                          }
-                      }
                   }
               }
           }

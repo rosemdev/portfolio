@@ -8,7 +8,7 @@
                         :key="item.url"
                         active-class="active"
                         :to="{path: item.url}"
-                        exact
+                        :exact="item.url === '/'"
                 >
                     <a tabindex="0" v-dial-mouse-target>{{ item.text}}</a>
                 </router-link>

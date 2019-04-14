@@ -52,9 +52,7 @@ export default function (type, element, content, children) {
     if (type === Elements.label) {
         const label = element.data.label ? ` class="${element.data.label}"` : '';
         if (element.data.label.includes('language')) {
-            return `<pre>
-                    <code ${label}>${children.join('').replace(/<br\s*?\/?>/g, '\n')}</code>
-                </pre>`;
+            return `<pre><code ${label}>${children.join('').replace(/<br\s*?\/?>/g, '\n')}</code></pre>`;
 
         } else if (element.data.label === 'code') {
             return `<code ${label}>${children.join('')}</code>`
@@ -68,9 +66,7 @@ export default function (type, element, content, children) {
 
     if (type === Elements.label) {
         if (element.data.label.classList.contains('quote')) {
-            return `<div class="quote">
-                   ${children.join('')}
-                </div>`;
+            return `<div class="quote">${children.join('')}</div>`;
         }
     }
 
