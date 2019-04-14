@@ -57,10 +57,23 @@
     }
   }
 
-  .picture-and-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .quote {
+    color: @gray;
+    margin-left: 40px;
+    padding-left: 25px;
+    position: relative;
+    background-color: antiquewhite;
+    line-height: 1.7;
+
+    &:before {
+      content: '';
+      left: 0;
+      top: 0;
+      position: absolute;
+      width: 5px;
+      height: 100%;
+      background-color: tomato;
+    }
   }
 
   .prismic-video {

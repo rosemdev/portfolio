@@ -32,7 +32,7 @@
                             <p class="card-header"><span class="stage">{{ card.stage }}</span>
                                 <span class="stage-name">{{ card.name }}</span></p>
                             <p class="stage-description left-text">{{ card.description }}</p>
-                            <rosem-button class="light">more</rosem-button>
+                            <rosem-button class="light" :to="{path: 'blog/development-stages'}">more</rosem-button>
                         </div>
                     </rosem-card>
                 </div>

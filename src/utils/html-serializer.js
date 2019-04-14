@@ -66,6 +66,14 @@ export default function (type, element, content, children) {
 
     }
 
+    if (type === Elements.label) {
+        if (element.data.label.classList.contains('quote')) {
+            return `<div class="quote">
+                   ${children.join('')}
+                </div>`;
+        }
+    }
+
     // Return null to stick with the default behavior for everything else
     return null;
 }
