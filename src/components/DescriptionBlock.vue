@@ -1,7 +1,7 @@
 <template>
     <div class="description-block">
-        <p class="subtitle">{{ subtitle }}</p>
-        <h2>{{ title }}</h2>
+        <p class="subtitle" v-if="subtitle">{{ subtitle }}</p>
+        <h2 v-if="title">{{ title }}</h2>
         <h3><slot name="description"></slot></h3>
         <slot name="additional-info"></slot>
     </div>

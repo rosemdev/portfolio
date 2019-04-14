@@ -95,7 +95,8 @@
                     text-transform: uppercase;
 
                     li {
-                        margin: 10px;
+                        padding: 20px 0;
+                        margin: 0 10px;
                         position: relative;
 
                         &:after {

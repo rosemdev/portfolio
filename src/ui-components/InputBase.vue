@@ -63,7 +63,7 @@
             font-size: 15px;
             position: absolute;
             overflow: hidden;
-            margin: 10px 0;
+            margin: 4px 0;
             width: 100%;
 
             & .required {

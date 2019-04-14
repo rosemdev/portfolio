@@ -9,7 +9,7 @@
             <p class="published">Published: {{ getDate(article.publicationDate).date }},
                 {{ getDate(article.publicationDate).year }}</p>
         </div>
-        <div class="article-details">
+        <div class="article-details" >
             <p>
                 Interesting? Send to friend.
             </p>
@@ -81,8 +81,8 @@
         name: "Article",
         metaInfo() {
             return {
-                title: this.article.title,
-                titleTemplate: null
+                title: this.article.title.toLocaleLowerCase().replace(/^\w/, c => c.toUpperCase()),
+                titleTemplate: '%s | rosem'
             }
         },
 
@@ -182,7 +182,6 @@
         color: @mainColor;
         text-align: left;
         font-size: 17px;
-        min-height: 100vh;
         background-color: white;
 
         .article-content {
