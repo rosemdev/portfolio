@@ -14,6 +14,7 @@
             <rosem-footer v-once></rosem-footer>
         </div>
         <rosem-navigation></rosem-navigation>
+        <rosem-cursor></rosem-cursor>
     </div>
 </template>
 
@@ -21,6 +22,7 @@
     import RosemHeader from "./partials/Header"
     import RosemNavigation from "./partials/Navigation"
     import RosemFooter from "./partials/Footer"
+    import RosemCursor from "./partials/Cursor"
     import RosemProgressBar from "./components/ProgressBar"
     import {mapState} from "vuex";
 
@@ -41,7 +43,8 @@
             RosemHeader,
             RosemFooter,
             RosemNavigation,
-            RosemProgressBar
+            RosemProgressBar,
+            RosemCursor,
 
         },
 

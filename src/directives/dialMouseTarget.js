@@ -1,11 +1,4 @@
-import Cursor from "../utils/cursor";
-
-const cursor = new Cursor({
-    cursorClass: 'cursor',
-    targetHoveredClass: 'target-is-hovered',
-});
-
-
+import {cursor} from "../utils/cursor"
 
 export default {
     bind(el) {

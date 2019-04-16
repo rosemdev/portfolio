@@ -23,21 +23,6 @@ body {
   }
 }
 
-.cursor {
-  width: 12px;
-  height: 12px;
-  background-color: #e35592;
-  border-radius: 50%;
-  transform: translate(-2px, -2px);
-  transition: transform .3s ease-in-out, opacity .3s ease-in-out;
-  display: none;
-
-
-  &.target-is-hovered {
-    transform: scale(5);
-    opacity: .3;
-  }
-}
 
 #nprogress .bar {
   background: #27c4f5 linear-gradient(to right,#27c4f5,#a307ba,#fd8d32,#70c050,#27c4f5);
@@ -206,11 +191,6 @@ body {
       }
     }
   }
-
-.cursor {
-  display: block;
-}
-
 });
 
 @keyframes opacity {
