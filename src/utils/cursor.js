@@ -15,6 +15,7 @@ export default class Cursor {
         this.cursorContainer = target;
         this.cursor = target.firstElementChild;
         this.cursor.classList.add(this.options.cursorClass);
+        this.cursorContainer.nextElementSibling.classList.add(this.options.cursorClass);
         document.addEventListener('mousemove', this.moveCursor, false);
     }
 
@@ -53,6 +54,7 @@ export default class Cursor {
             this.xPos = event.clientX - this.cursor.offsetWidth / 2;
             this.yPos = event.clientY - this.cursor.offsetHeight / 2;
             this.cursorContainer.style.transform = `translate3d(${this.xPos}px,  ${this.yPos}px, 0px)`;
+            this.cursorContainer.nextElementSibling.style.transform = `translate3d(${this.xPos}px,  ${this.yPos}px, 0px)`;
         });
     }
 

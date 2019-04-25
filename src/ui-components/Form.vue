@@ -1,5 +1,5 @@
 <template>
-    <form @submit="onSubmit" novalidate action="https://www.enformed.io/gvupimm9" method="POST">
+    <form @submit="onSubmit" novalidate action="https://www.enformed.io/gvupimm9" method="POST" data-netlify="true" data-netlify-recaptcha="true">
         <slot></slot>
         <footer>
             <rosem-button class="colorful" type="submit" name="*redirect">{{ buttonName }}</rosem-button>

@@ -1,6 +1,9 @@
 <template>
     <div class="cursor">
-        <div class="follower"></div>
+        <div class="pink-follower" ref="follower">
+            <div class="follower"></div>
+        </div>
+        <div class="white-follower"></div>
     </div>
 </template>
 <script>
@@ -19,7 +22,8 @@
             this.$nextTick(() => {
                 if (window.innerWidth > 1200) {
                     // eslint-disable-next-line
-                    cursor.setTarget(this.$el)
+                    cursor.setTarget(this.$refs.follower);
+                    console.log(this.$refs.follower);
                 }
             });
         },
@@ -42,14 +46,27 @@
             height: 12px;
             background-color: #e35592;
             border-radius: 50%;
-            transform: translate(-2px, -2px);
-            transition: transform .3s ease-in-out, opacity .3s ease-in-out;
-
-
+            transition: transform .1s ease-in-out, opacity .3s ease-in-out;
 
             &.target-is-hovered {
                 transform: scale(5);
                 opacity: .3;
+            }
+        }
+
+        .white-follower {
+            width: 12px;
+            height: 12px;
+            background-color: white;
+            border-radius: 50%;
+            z-index: -1;
+            position: absolute;
+            transition: transform .1s ease-in-out;
+            will-change: transform;
+
+            .target-is-hovered {
+                opacity: 0;
+                size: 0;
             }
         }
     }
