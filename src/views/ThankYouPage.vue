@@ -13,7 +13,7 @@
         <div class="main-content controls">
             <rosem-button to="/">back home</rosem-button>
             <p>
-                <rosem-button to="blog" class="dark">visit blog</rosem-button>
+                <rosem-button :to="{path: 'blog'}" class="dark">visit blog</rosem-button>
             </p>
         </div>
     </div>

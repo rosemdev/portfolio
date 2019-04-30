@@ -45,7 +45,7 @@
             height: 12px;
             background-color: #e35592;
             border-radius: 50%;
-            transition: transform .1s ease-in-out, opacity .3s ease-in-out;
+            transition: transform .1s, opacity .3s;
 
             &.target-is-hovered {
                 transform: scale(5);
@@ -60,7 +60,7 @@
             border-radius: 50%;
             z-index: -1;
             position: absolute;
-            transition: transform .075s ease-in-out, opacity .3s ease-in-out;
+            transition: transform .075s, opacity .3s;
             will-change: transform;
         }
     }

@@ -96,7 +96,6 @@
             }
 
             &:after {
-                background: transparent;
                 opacity: 0;
             }
         }
@@ -104,10 +103,6 @@
         &.simple {
             border: 1px solid @mainColor;
             color: @mainColor;
-
-            &:after {
-                background: transparent;
-            }
         }
 
         &.dark {
@@ -126,7 +121,7 @@
 
         &.colorful {
             border: 2px solid;
-            transition: border-color .3s ease-in-out;
+            transition: all .3s ease-in-out;
 
             &:after {
                 background: transparent;
