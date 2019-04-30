@@ -22,8 +22,7 @@
             this.$nextTick(() => {
                 if (window.innerWidth > 1200) {
                     // eslint-disable-next-line
-                    cursor.setTarget(this.$refs.follower);
-                    console.log(this.$refs.follower);
+                    cursor.setTarget(this.$el);
                 }
             });
         },
@@ -61,15 +60,23 @@
             border-radius: 50%;
             z-index: -1;
             position: absolute;
-            transition: transform .1s ease-in-out;
+            transition: transform .075s ease-in-out, opacity .3s ease-in-out;
             will-change: transform;
-
-            .target-is-hovered {
-                opacity: 0;
-                size: 0;
-            }
         }
     }
+
+    .cursor.target-is-hovered {
+        .follower {
+            transform: scale(5);
+            opacity: .3;
+        }
+
+        .white-follower {
+            opacity: 0;
+        }
+    }
+
+
 
 
     .responsive(@desktop, { .cursor {

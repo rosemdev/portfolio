@@ -15,19 +15,18 @@ export default class Cursor {
         this.cursorContainer = target;
         this.cursor = target.firstElementChild;
         this.cursor.classList.add(this.options.cursorClass);
-        this.cursorContainer.nextElementSibling.classList.add(this.options.cursorClass);
         document.addEventListener('mousemove', this.moveCursor, false);
     }
 
     enter(event) {
-        this.cursor.classList.add(this.options.targetHoveredClass);
+        this.cursorContainer.classList.add(this.options.targetHoveredClass);
         event.currentTarget.addEventListener('mousemove', this.moveTarget);
     }
 
     leave(event) {
         let currentTarget = event.currentTarget;
 
-        this.cursor.classList.remove(this.options.targetHoveredClass);
+        this.cursorContainer.classList.remove(this.options.targetHoveredClass);
         currentTarget.removeEventListener('mousemove', this.moveTarget);
 
         requestAnimationFrame(() => {
@@ -53,8 +52,8 @@ export default class Cursor {
         requestAnimationFrame(() => {
             this.xPos = event.clientX - this.cursor.offsetWidth / 2;
             this.yPos = event.clientY - this.cursor.offsetHeight / 2;
-            this.cursorContainer.style.transform = `translate3d(${this.xPos}px,  ${this.yPos}px, 0px)`;
-            this.cursorContainer.nextElementSibling.style.transform = `translate3d(${this.xPos}px,  ${this.yPos}px, 0px)`;
+            this.cursorContainer.firstElementChild.style.transform = `translate3d(${this.xPos}px,  ${this.yPos}px, 0px)`;
+            this.cursorContainer.lastChild.style.transform = `translate3d(${this.xPos}px,  ${this.yPos}px, 0px)`;
         });
     }
 
