@@ -6,28 +6,28 @@
                     <li>
                         <router-link
                                 tag="a"
-                                :to="{path: 'gallery'}"
+                                :to="{path: '/gallery'}"
                         >Gallery
                         </router-link>
                     </li>
                     <li>
                         <router-link
                                 tag="a"
-                                :to="{path: 'skills'}"
+                                :to="{path: '/skills'}"
                         >Skills
                         </router-link>
                     </li>
                     <li>
                         <router-link
                                 tag="a"
-                                :to="{path: 'blog'}"
+                                :to="{path: '/blog'}"
                         >Blog
                         </router-link>
                     </li>
                     <li>
                         <router-link
                                 tag="a"
-                                :to="{path: 'contact'}"
+                                :to="{path: '/contact'}"
                         >Contact
                         </router-link>
                     </li>

@@ -6,18 +6,12 @@
 </template>
 
 <script>
-    import RosemTheme from "../components/Theme"
-
     export default {
         props: {
             isRandGradient: {
                 type: Boolean,
                 default: false,
             },
-        },
-
-        components: {
-            RosemTheme
         },
 
         methods: {
@@ -28,7 +22,9 @@
 
             generateRandomGradient() {
                 let angle = Math.round(Math.random() * 360),
-                    type = Math.floor(Math.random() * 2) + 1, //return a random type of the gradient (1 - linear, 2 - radial)
+
+                    //return a random type of the gradient (1 - linear, 2 - radial)
+                    type = Math.floor(Math.random() * 2) + 1,
                     gradient;
 
                 if (type === 1) {

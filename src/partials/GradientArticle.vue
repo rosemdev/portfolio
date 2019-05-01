@@ -117,6 +117,7 @@
         justify-content: space-between;
         flex-direction: column;
         padding: 15px 25px;
+        cursor: auto;
 
         .author-info {
             display: flex;

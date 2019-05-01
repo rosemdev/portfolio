@@ -148,7 +148,7 @@
         position: fixed;
         height: 50px;
         width: 100%;
-        background-color: transparent;
+        background-color: rgba(255, 255, 255, 0.8);
         box-shadow: 0 1.8vw 4vw -0.7vw rgba(0, 0, 0, 0.2);
 
 
