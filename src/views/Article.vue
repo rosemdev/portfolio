@@ -194,6 +194,7 @@
         text-align: left;
         font-size: 17px;
         background-color: white;
+        cursor: auto;
 
         .article-content {
             max-width: 900px;
