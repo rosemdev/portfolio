@@ -65,6 +65,17 @@
     </div>
 </template>
 <script>
+    //Hotjar Tracking Code for https://rosem-portfolio.netlify.com
+
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1303246,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
     import RosemLoader from "../components/Loader"
     import RosemCard from "../components/Card"
     import RosemScrollButton from "../ui-components/ScrollButton"
