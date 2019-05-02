@@ -9,7 +9,7 @@
             <p class="published">Published: {{ getDate(article.publicationDate).date }},
                 {{ getDate(article.publicationDate).year }}</p>
         </div>
-        <div class="article-details" >
+        <div class="article-details">
             <p>
                 Interesting? Send to friend.
             </p>
@@ -58,6 +58,17 @@
                     </rosem-card>
                 </router-link>
             </div>
+            <div class="article-details">
+                <p>
+                   Still have a questions? - leave a comment I would be grateful to help!
+                </p>
+            </div>
+            <div class="main-content">
+                <div class="block-title">
+                    <p class="section-title">Discussion?</p>
+                </div>
+                <div id="disqus_thread"></div>
+            </div>
         </div>
         <div class="scroll-button" ref="scrollButton">
             <rosem-scroll-button></rosem-scroll-button>
@@ -65,16 +76,6 @@
     </div>
 </template>
 <script>
-    //Hotjar Tracking Code for https://rosem-portfolio.netlify.com
-
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:1303246,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
 
     import RosemLoader from "../components/Loader"
     import RosemCard from "../components/Card"
@@ -120,15 +121,20 @@
         },
 
         mounted() {
-        //Hotjar Tracking Code for https://rosem-portfolio.netlify.com -->
-            (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:1303246,hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
-            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
+            // eslint-disable-next-line
+            let disqus_config = function () {
+                this.page.url = window.location.href;  // Replace PAGE_URL with your page's canonical URL variable
+                this.page.identifier = this.article.slug; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+            };
+
+            (function () { // DON'T EDIT BELOW THIS LINE
+                let d = document, s = d.createElement('script');
+                s.src = 'https://rosem.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+
+            })();
         },
 
         methods: {
@@ -207,6 +213,10 @@
         font-size: 17px;
         background-color: white;
         cursor: auto;
+
+        iframe {
+            display: block !important;
+        }
 
         .article-content {
             max-width: 900px;
@@ -338,90 +348,94 @@
         }
     }
 
-    .responsive(@tablet, { .article-page {
-        font-size: 19px;
+    .responsive(@tablet, {
+        .article-page {
+            font-size: 19px;
 
-        .article-content {
-            text-align: justify;
-        }
+            .article-content {
+                text-align: justify;
+            }
 
 
-        .also-like-block {
-            .related-articles {
-                flex-wrap: wrap;
-                flex-direction: row;
+            .also-like-block {
+                .related-articles {
+                    flex-wrap: wrap;
+                    flex-direction: row;
 
-                /deep/ .card {
-                    width: 320px;
+                    /deep/ .card {
+                        width: 320px;
+                    }
                 }
             }
         }
-    } });
+    });
 
-    .responsive(@desktop, { .article-page {
-        .article-description {
-            .article-intro {
-                flex-basis: 40%;
-            }
-        }
-
-        .article-details {
-            flex-direction: row;
-        }
-
-        .scroll-button.showScrollButton {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .scroll-button {
-            display: block;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity .3s ease-in-out;
-            position: fixed;
-            z-index: 5;
-            bottom: 10%;
-            right: 30px;
-            cursor: pointer;
-
-            &:before {
-                content: '';
-                position: absolute;
-                box-shadow: 0 0 0 3px #333;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
+    .responsive(@desktop, {
+        .article-page {
+            .article-description {
+                .article-intro {
+                    flex-basis: 40%;
+                }
             }
 
-            & .scroll-block {
+            .article-details {
+                flex-direction: row;
+            }
+
+            .scroll-button.showScrollButton {
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .scroll-button {
+                display: block;
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity .3s ease-in-out;
+                position: fixed;
+                z-index: 5;
+                bottom: 10%;
+                right: 30px;
+                cursor: pointer;
+
                 &:before {
-                    border-color: @mainColor;
-                    left: 25px;
-                    transition: background-color .3s ease-in-out;
+                    content: '';
+                    position: absolute;
+                    box-shadow: 0 0 0 3px #333;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+
+                & .scroll-block {
+                    &:before {
+                        border-color: @mainColor;
+                        left: 25px;
+                        transition: background-color .3s ease-in-out;
+                    }
+
+                    &:hover {
+                        & span {
+                            box-shadow: 0 1px 26px 2px #0000003b;
+                            background-color: @mainColor;
+                        }
+
+                        &:before {
+                            border-color: white;
+                            left: 25px;
+                        }
+                    }
                 }
 
                 &:hover {
-                    & span {
-                        box-shadow: 0 1px 26px 2px #0000003b;
-                        background-color: @mainColor;
-                    }
-
                     &:before {
-                        border-color: white;
-                        left: 25px;
+                        box-shadow: 0 0 0 3px transparent;
                     }
-                }
-            }
-
-            &:hover {
-                &:before {
-                    box-shadow: 0 0 0 3px transparent;
                 }
             }
         }
-    } });
+    });
 
 
 </style>

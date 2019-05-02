@@ -101,7 +101,7 @@
     }
 
     .content {
-        transition: right .7s ease-in-out;
+        transition: right .3s ease-in-out;
         position: relative;
         overflow: hidden;
         z-index: 1;
