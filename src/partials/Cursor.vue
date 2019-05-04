@@ -45,7 +45,7 @@
             height: 12px;
             background-color: #e35592;
             border-radius: 50%;
-            transition: transform .1s, opacity .3s;
+            transition: opacity .3s;
 
             &.target-is-hovered {
                 transform: scale(5);

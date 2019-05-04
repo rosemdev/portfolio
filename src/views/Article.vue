@@ -60,7 +60,7 @@
             </div>
             <div class="article-details">
                 <p>
-                   Still have a questions? - leave a comment I would be grateful to help!
+                   Still have questions? - leave a comment I would be grateful to help!
                 </p>
             </div>
             <div class="main-content">

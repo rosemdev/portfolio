@@ -1,10 +1,10 @@
 <template>
     <header :class="{sticky: isStuck}">
         <rosem-logo></rosem-logo>
-            <rosem-burger-menu
-                    :open="showNav"
-                    @click.native="toggleNav"
-            ></rosem-burger-menu>
+        <rosem-burger-menu
+                :open="showNav"
+                @click.native="toggleNav"
+        ></rosem-burger-menu>
     </header>
 </template>
 
@@ -12,6 +12,7 @@
 
     import RosemLogo from "../partials/Logo";
     import RosemBurgerMenu from "../ui-components/BurgerMenu";
+    import Swipe from "../utils/Swipe";
     import {mapState} from "vuex";
 
     export default {
@@ -44,6 +45,15 @@
 
             toggleNav() {
                 this.$store.commit('navState', !this.showNav);
+            },
+
+            toggleNavBySwipe() {
+                // eslint-disable-next-line
+                let swiper = new Swipe({
+                    onLeft: () => {
+                        this.toggleNav();
+                    }
+                });
             },
 
             stickHeader() {
@@ -113,6 +123,7 @@
         mounted() {
             this.$nextTick(() => {
                 this.isTopElement();
+                this.toggleNavBySwipe();
             });
         },
 
@@ -127,7 +138,7 @@
 
     header {
         display: flex;
-        transition: all .3s ease-in-out;
+        transition: all .5s ease-in-out;
         background-color: white;
         position: static;
         top: -50px;
