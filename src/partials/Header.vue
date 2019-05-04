@@ -52,6 +52,10 @@
                 let swiper = new Swipe({
                     onLeft: () => {
                         this.toggleNav();
+                    },
+
+                    onRight:() => {
+                        this.$store.commit('navState', !this.showNav);
                     }
                 });
             },
