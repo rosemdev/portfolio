@@ -19,7 +19,7 @@ export let socialLinks = [
 
     {
         name: 'Github',
-        link: 'https://github.com/RomSem/',
+        link: 'https://github.com/rosemdev/',
         isIcon: false,
 
     },
@@ -43,7 +43,7 @@ export let socialIconsLinks = [
 
     {
         name: 'Github',
-        link: 'https://github.com/RomSem/',
+        link: 'https://github.com/rosemdev/',
         isIcon: true,
         src: githubSocialImage
 
@@ -93,7 +93,7 @@ export let descriptions = [
         name: 'ToDo List',
         imageSource: ToDoList,
         moreLink: '',
-        siteLink: 'https://romsem.github.io/To-do-List/',
+        siteLink: 'https://rosemdev.github.io/To-do-List/',
         text: "This is my a first project after learning the Java Script language. So it have my not super cool design, but it's working well and performs its function. Also It could 'remember' your tasks and redisplay after long break. So follow the link" +
             " bellow to check it out."
     },
@@ -104,7 +104,7 @@ export let descriptions = [
         name: 'Travel Agency',
         imageSource: TravelAgency,
         moreLink: '',
-        siteLink: 'https://romsem.github.io/travelAgency/',
+        siteLink: 'https://rosemdev.github.io/travelAgency/',
         text: "This is a landing page for a travel agency. It may seem to be not finished but this is a result of a little course in Udemy. In this project I used Webpack, PostCsss and ES6 and some library for scroll on reveal.",
     },
 
@@ -114,7 +114,7 @@ export let descriptions = [
         name: 'Mob app',
         imageSource: mobApp,
         moreLink: '',
-        siteLink: 'https://romsem.github.io/mobapp/',
+        siteLink: 'https://rosemdev.github.io/mobapp/',
         text: "There is a most beautiful landing page I have created. I love the page like this and the my site have a similar playing with colors. I think the site should be bright, memorized and gorgeous. This is a good example to reach such attributes."
     },
 ];

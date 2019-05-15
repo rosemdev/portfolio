@@ -72,10 +72,10 @@
                                         site itself, also follow the link to gitHub.
                                     </p>
                                     <ul class="right-text">
-                                        <li><a href="https://romsem.github.io/mobapp/" class="link" target="_blank"
+                                        <li><a href="https://rosemdev.github.io/mobapp/" class="link" target="_blank"
                                                rel="noopener">mobapp</a>
                                         </li>
-                                        <li><a href="https://github.com/RomSem/mobapp" class="link" target="_blank"
+                                        <li><a href="https://github.com/rosemdev/mobapp" class="link" target="_blank"
                                                rel="noopener">the
                                             repo in gitHub</a></li>
                                     </ul>
@@ -112,10 +112,10 @@
                             Please check out the links below. I'll be glad if you like it and start to use:
                         </p>
                         <ul class="left-text">
-                            <li><a href="https://romsem.github.io/To-do-List/" class="link" target="_blank"
+                            <li><a href="https://rosemdev.github.io/To-do-List/" class="link" target="_blank"
                                    rel="noopener">ToDo list</a>
                             </li>
-                            <li><a href="https://github.com/RomSem/To-do-List" class="link" target="_blank"
+                            <li><a href="https://github.com/rosemdev/To-do-List" class="link" target="_blank"
                                    rel="noopener">the
                                 repo in gitHub</a></li>
                         </ul>
@@ -179,10 +179,10 @@
                             find below the link to get detailed information about what I got after the curse, it wasn't
                             so big, but it gave new knowledge and experience as well:
                         <ul class="right-text">
-                            <li><a href="https://romsem.github.io/travelAgency/" class="link" target="_blank"
+                            <li><a href="https://rosemdev.github.io/travelAgency/" class="link" target="_blank"
                                    rel="noopener">The travel agency</a>
                             </li>
-                            <li><a href="https://github.com/RomSem/travelAgency" class="link" target="_blank"
+                            <li><a href="https://github.com/rosemdev/travelAgency" class="link" target="_blank"
                                    rel="noopener">the
                                 repo in gitHub</a></li>
                         </ul>

@@ -34,7 +34,7 @@
                 </ul>
             </div>
             <div class="copyright">
-                <p>All rights reserved by <a href="https://github.com/RomSem/">@rosem</a></p>
+                <p>All rights reserved by <a href="https://github.com/rosemdev/">@rosem</a></p>
             </div>
         </div>
         <div class="social-block">
