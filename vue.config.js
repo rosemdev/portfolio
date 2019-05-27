@@ -6,7 +6,10 @@ const productionPlugins = [
         // Required - The path to the webpack-outputted app to prerender.
         staticDir: path.join(__dirname, 'dist'),
         // Required - Routes to render.
-        routes: ['/', '/contact', '/gallery', '/skills', '/blog', '/404','/thankyou', '/projects'],
+        routes: [
+            '/', '/contact', '/gallery', '/skills', '/blog', '/404','/thankyou', '/projects',
+            '/blog/development-stages', '/blog/gradient-component'
+        ],
         renderer: new PuppeteerRenderer({
             renderAfterElementExists: '#app'
         }),
