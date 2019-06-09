@@ -48,7 +48,8 @@
                 >
                     <template slot="description">So I'm a QR engineer. I worked on different projects but always I
                         wanted to understand how the sites become 'working', how to create a page and force it engaging
-                        the customers. And now I have my site but it's not the end, there are a lot of technologies I want to know.
+                        the customers. And now I have my site but it's not the end, there are a lot of technologies I
+                        want to know.
                     </template>
                     <rosem-button slot="additional-info" :to="{path: 'skills'}">skills</rosem-button>
                 </rosem-description-block>
@@ -61,7 +62,9 @@
                                          class=" left-text"
                                          v-dialScrolling
                 >
-                    <template slot="description">Also I love to travel. For now the list of visited countries is not so big - but I'm on it! So let's delight in my collections of photos from some countries, I'll be pleased if you share them with friends.
+                    <template slot="description">Also, I love to travel. For now, the list of visited countries is not
+                        so big - but I'm on it! So let's delight in my collections of photos from some countries, I'll
+                        be pleased if you share them with friends.
                     </template>
                     <rosem-button slot="additional-info" :to="{path: 'gallery'}">gallery</rosem-button>
                 </rosem-description-block>
@@ -101,7 +104,7 @@
 </template>
 <script>
 
-    import {aboutMyself, cards, descriptions, socialIconsLinks, socialLinks} from "../data/data"
+    import {cards, descriptions, socialIconsLinks, socialLinks} from "../data/data"
     import RosemHeader from "../partials/Header"
     import RosemButton from "../ui-components/Button"
     import RosemDescriptionBlock from "../components/DescriptionBlock"
@@ -130,7 +133,6 @@
                 socialLinks: socialLinks,
                 socialIconsLinks: socialIconsLinks,
                 slideContents: descriptions,
-                aboutMyself: aboutMyself,
                 cards: cards,
             }
         },
@@ -356,107 +358,111 @@
         }
     }
 
-    .responsive(@tablet, { & .homepage {
-        & .stages {
-            flex-direction: row;
+    .responsive(@tablet, {
+        & .homepage {
+            & .stages {
+                flex-direction: row;
 
-            & .card-container {
-                & .card {
-                    width: 200px;
-                    padding: 0;
-                    margin: 0 25px;
+                & .card-container {
+                    & .card {
+                        width: 200px;
+                        padding: 0;
+                        margin: 0 25px;
 
-                    .stage-container {
-                        margin: 100px 0;
-                    }
+                        .stage-container {
+                            margin: 100px 0;
+                        }
 
-                    &:hover {
+                        &:hover {
+                            & .button {
+                                opacity: 1;
+                            }
+                        }
+
+                        .stage {
+                            font-size: 3em;
+                        }
+
                         & .button {
-                            opacity: 1;
+                            opacity: 0;
+                            transition: opacity .5s ease-in-out;
+
                         }
                     }
 
-                    .stage {
-                        font-size: 3em;
-                    }
 
-                    & .button {
-                        opacity: 0;
-                        transition: opacity .5s ease-in-out;
+                }
+            }
 
+            .about {
+                .about-me {
+                    flex-direction: row;
+
+                    &.block-bellow {
+                        .photo {
+                            margin-top: -50px;
+                            order: 0;
+                        }
                     }
                 }
 
-
+                .social {
+                    margin-top: 0;
+                }
             }
         }
+    });
 
-        .about {
-            .about-me {
+    .responsive(@desktop, {
+        & .homepage {
+            & .stages {
+                & .card-container {
+                    & .card {
+                        width: 320px;
+                        padding: 1rem 2rem;
+
+                        .stage {
+                            font-size: 5em;
+                        }
+                    }
+
+                }
+            }
+
+            .about {
+                .section-title {
+                    &:before {
+                        font-size: 12rem;
+                    }
+                }
+
+                .about-me {
+                    flex-direction: row;
+                    margin-top: -85px;
+
+                    &.block-above {
+                        .description-block {
+                            left: 430px;
+                        }
+                    }
+
+                    &.block-bellow {
+                        .description-block {
+                            right: 430px;
+                        }
+
+                        .photo {
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+
+            .contact {
                 flex-direction: row;
-
-                &.block-bellow {
-                    .photo {
-                        margin-top: -50px;
-                        order: 0;
-                    }
-                }
             }
 
-            .social {
-                margin-top: 0;
-            }
+
         }
-    } });
-
-    .responsive(@desktop, { & .homepage {
-        & .stages {
-            & .card-container {
-                & .card {
-                    width: 320px;
-                    padding: 1rem 2rem;
-
-                    .stage {
-                        font-size: 5em;
-                    }
-                }
-
-            }
-        }
-
-        .about {
-            .section-title {
-                &:before {
-                    font-size: 12rem;
-                }
-            }
-
-            .about-me {
-                flex-direction: row;
-                margin-top: -85px;
-
-                &.block-above {
-                    .description-block {
-                        left: 430px;
-                    }
-                }
-
-                &.block-bellow {
-                    .description-block {
-                        right: 430px;
-                    }
-
-                    .photo {
-                        margin-top: 0;
-                    }
-                }
-            }
-        }
-
-        .contact {
-            flex-direction: row;
-        }
-
-
-    } });
+    });
 </style>

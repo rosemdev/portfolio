@@ -8,18 +8,12 @@
                                              title="">
                         <template slot="description">
                             <p class="short-description">
-                                This is not exactly the first my learning project, but it's the first
-                                and more beautiful than previous. As you know - learning is a hard work,
-                                especially
-                                programing. So here I going to describe some concepts of this projects, but I must
-                                confess -
-                                the
-                                design - it's not my idea. I love Photoshop, I could doing some works related into
-                                photocorrection
-                                and some cool effects, but website design development - it's not my case unfortunately.
-                                I
-                                hope
-                                there there more creative people who can make masterpieces.
+                                This is not exactly the first my learning project, but it's the first and more beautiful
+                                than previous. As you know - learning is hard work, especially programming. So here I
+                                going to describe some concepts of these projects, but I must confess - the design -
+                                it's not my idea. I love Photoshop, I could doing some works related to photo correction
+                                and some cool effects, but website design development - it's not my case, unfortunately.
+                                I hope there more creative people who can make masterpieces.
                             </p>
                         </template>
                     </rosem-description-block>
@@ -36,29 +30,33 @@
                         <rosem-description-block subtitle=""
                                                  title="">
                             <template slot="description">
-                                <p class="short-description right-text">So after long search of something interesting, I
+                                <p class="short-description right-text">So after a long search of something interesting,
+                                    I
                                     forgot
                                     about
-                                    programing and hung out on different resources about art, creativity and mastery of
+                                    programming and hung out on different resources about art, creativity, and mastery
+                                    of
                                     people
                                     over
                                     the
                                     world - such as
-                                    <a class="link" href="https://behance.net" target="_blank" rel="noopener">behance.net</a>,
+                                    <a class="link" href="https://behance.net" target="_blank"
+                                       rel="noopener">behance</a>,
                                     <a
                                             class="link" href="https://land-book.com/" target="_blank"
                                             rel="noopener">land-book.com</a>,
                                     <a
                                             class="link"
-                                            href="https://bashooka.com/" target="_blank" rel="noopener">bashooka.com</a>,
+                                            href="https://bashooka.com/" target="_blank" rel="noopener">bashooka</a>,
                                     <a
                                             class="link"
-                                            href="https://dribbble.com/" target="_blank" rel="noopener">dribbble.com</a>
+                                            href="https://dribbble.com/" target="_blank" rel="noopener">dribbble</a>
                                     and of
                                     course
                                     <a
                                             class="link"
-                                            href="https://www.pinterest.com/" target="_blank" rel="noopener">pinterest.com</a>
+                                            href="https://www.pinterest.com/" target="_blank"
+                                            rel="noopener">pinterest</a>
                                     and
                                     finally found
                                     something to test my new skills. So I found this site so cute to learn and feel
@@ -69,7 +67,7 @@
                                 </p>
                                 <div>
                                     <p class="short-description right-text">Please take a look into
-                                        site itself, also follow the link to gitHub.
+                                        the site itself, also follow the link to gitHub.
                                     </p>
                                     <ul class="right-text">
                                         <li><a href="https://rosemdev.github.io/mobapp/" class="link" target="_blank"
@@ -79,7 +77,7 @@
                                                rel="noopener">the
                                             repo in gitHub</a></li>
                                     </ul>
-                                    <p class="short-description right-text">I love a bright colors so much, so this
+                                    <p class="short-description right-text">I love bright colors so much, so this
                                         design
                                         has
                                         subdued
@@ -138,13 +136,12 @@
             >
                 <template slot="description">
                     <p class="section-title hashtag-right right-text" data-hashtag="interacting">Look and Feel</p>
-                    <p class="short-description right-text">To be more attractive the landing page should have some
-                        thing with a user could "touch" a long story short it's how he feel when use this site and
-                        what he will do next.
-                        I love to use a lot of hover effects, shadows (maybe you have already
-                        noticed that), animations also different
-                        types of ways submitting the content means tables, accordions, carousels - all this actions
-                        directed on user attention. So The "look" is defined by the following components:</p>
+                    <p class="short-description right-text">To be more attractive the landing page should have something
+                        with a user could "touch" a long story short it's how he feels when using this site and what he
+                        will do next. I love to use a lot of hover effects, shadows (maybe you have already noticed
+                        that), animations also different types of ways submitting the content means tables, accordions,
+                        carousels - all these actions directed on user attention. So The "look" is defined by the
+                        following components:</p>
                     <ul class="right-text">
                         <li>colors</li>
                         <li>images</li>
@@ -175,7 +172,7 @@
                             first met a Webpack and started to configure it, come to know some new for me JavaScript
                             features and even CSS and HTML, about proper style classes organization and so on...So if
                             you're in learning programming I would recommend you to visit Brad's courses, they help
-                            you anyway.Please
+                            you anyway. Please
                             find below the link to get detailed information about what I got after the curse, it wasn't
                             so big, but it gave new knowledge and experience as well:
                         <ul class="right-text">
@@ -295,7 +292,7 @@
                 width: 100%;
                 height: 185px;
                 position: relative;
-                background-size: cover ;
+                background-size: cover;
             }
 
             .about {
@@ -413,13 +410,13 @@
             background-attachment: fixed;
         }
 
-    .colors {
-        span {
-            width: 80px;
-            height: 80px;
-            margin: 15px;
+        .colors {
+            span {
+                width: 80px;
+                height: 80px;
+                margin: 15px;
+            }
         }
-    }
 
 
         .projects {
@@ -457,7 +454,8 @@
                     top: -4rem;
                 }
             }
-    } });
+        }
+    });
 
 
 </style>

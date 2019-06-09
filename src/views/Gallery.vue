@@ -17,8 +17,8 @@
                     </div>
                     <div class="description" v-dialScrolling>
                         <rosem-quote class="right-text">Here is my collection of photos form airports and plane. The
-                            first time I tried to fly was last summer - it was amazing despite that the exactly
-                            beginning of journey wasn't not 100% lucky.
+                            first time I tried to fly was last summer - it was amazing despite that the beginning of the
+                            journey wasn't 100% lucky.
                         </rosem-quote>
                     </div>
                 </div>
@@ -749,6 +749,7 @@
 
                     .gallery-quotes {
                         padding: 1rem;
+
                         blockquote {
                             &:after {
                                 content: close-quote;
@@ -771,359 +772,363 @@
     }
 
 
-    .responsive(@tablet, { .gallery {
+    .responsive(@tablet, {
+        .gallery {
 
-        .column {
-            flex: 33.7%;
-            max-width: 33.7%;
-        }
+            .column {
+                flex: 33.7%;
+                max-width: 33.7%;
+            }
 
-        .montenegro {
-            .introduction {
-                flex-direction: row;
-                padding: 25px 50px;
+            .montenegro {
+                .introduction {
+                    flex-direction: row;
+                    padding: 25px 50px;
 
-                .title {
-                    align-self: flex-start;
-                    order: -1;
-                    position: absolute;
-                    width: 100%;
-                    top: -4rem;
-                    left: -20px;
-                }
-
-                .col {
-                    img {
-                        width: 300px;
+                    .title {
+                        align-self: flex-start;
+                        order: -1;
+                        position: absolute;
+                        width: 100%;
+                        top: -4rem;
+                        left: -20px;
                     }
 
-                    &.bottom {
-                        .photo {
-                            margin-left: -60px;
-                            margin-top: -60px;
+                    .col {
+                        img {
+                            width: 300px;
+                        }
+
+                        &.bottom {
+                            .photo {
+                                margin-left: -60px;
+                                margin-top: -60px;
+                            }
+                        }
+                    }
+                }
+
+                .montenegro-memories {
+                    .memories {
+                        .column {
+                            img {
+                                width: 400px;
+                            }
+                        }
+
+                    }
+                }
+            }
+
+            .russia {
+                .russian-memories {
+                    display: flex;
+                    align-self: center;
+                    justify-content: center;
+
+                    .col {
+                        display: flex;
+                        align-self: center;
+                        justify-content: center;
+                        width: 50%;
+
+                        .block1 {
+                            word-break: break-all;
+                            width: 100%;
+                            position: relative;
+                            top: -16rem;
+                        }
+                    }
+                }
+
+                .moscow-memories-photos {
+                    .row {
+                        img {
+                            width: 225px;
                         }
                     }
                 }
             }
 
-            .montenegro-memories {
-                .memories {
-                    .column {
+            .france {
+                .france-paris {
+                    .col {
+                        display: flex;
+                        align-items: center;
+                        justify-content: flex-end;
+                        flex-direction: column;
+
+                        &.top {
+                            width: 80%;
+
+                            .title {
+                                order: -1;
+                            }
+
+                            .photo {
+                                img {
+                                    max-width: 925px;
+                                }
+                            }
+
+                            .description-block {
+                                width: 500px;
+                                margin-left: auto;
+                                margin-top: -4rem;
+                            }
+                        }
+
+                        &.bottom {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+
+                            .block2 {
+                                margin-top: -8rem;
+
+                            }
+                        }
+                    }
+                }
+
+                .eiffel-tower {
+                    flex-direction: row;
+
+                    .VueCarousel {
+                        width: 50%;
+
                         img {
                             width: 400px;
                         }
                     }
 
-                }
-            }
-        }
-
-        .russia {
-            .russian-memories {
-                display: flex;
-                align-self: center;
-                justify-content: center;
-
-                .col {
-                    display: flex;
-                    align-self: center;
-                    justify-content: center;
-                    width: 50%;
-
-                    .block1 {
-                        word-break: break-all;
-                        width: 100%;
+                    .description-block {
+                        width: 300px;
                         position: relative;
-                        top: -16rem;
+                        right: 3rem;
+                        z-index: 2;
                     }
                 }
             }
 
-            .moscow-memories-photos {
-                .row {
-                    img {
-                        width: 225px;
-                    }
-                }
-            }
         }
+    });
 
-        .france {
-            .france-paris {
-                .col {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-end;
-                    flex-direction: column;
+    .responsive(@desktop, {
+        .gallery {
 
-                    &.top {
-                        width: 80%;
-
-                        .title {
-                            order: -1;
-                        }
-
-                        .photo {
-                            img {
-                                max-width: 925px;
-                            }
-                        }
-
-                        .description-block {
-                            width: 500px;
-                            margin-left: auto;
-                            margin-top: -4rem;
-                        }
-                    }
-
-                    &.bottom {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-
-                        .block2 {
-                            margin-top: -8rem;
-
-                        }
-                    }
-                }
-            }
-
-            .eiffel-tower {
+            .travel-history {
                 flex-direction: row;
 
-                .VueCarousel {
-                    width: 50%;
-
-                    img {
-                        width: 400px;
-                    }
+                .carousel {
+                    width: 75%;
                 }
 
-                .description-block {
-                    width: 300px;
-                    position: relative;
-                    right: 3rem;
-                    z-index: 2;
-                }
-            }
-        }
-
-    } });
-
-    .responsive(@desktop, { .gallery {
-
-        .travel-history {
-            flex-direction: row;
-
-            .carousel {
-                width: 75%;
-            }
-
-            .description {
-                order: 1;
-                width: 400px;
-                position: relative;
-                z-index: 1;
-                transform: translateX(-4rem);
-            }
-        }
-
-        .montenegro {
-            .introduction {
-                max-width: 1400px;
-
-                .title {
-                    position: static;
+                .description {
                     order: 1;
+                    width: 400px;
+                    position: relative;
+                    z-index: 1;
+                    transform: translateX(-4rem);
                 }
+            }
 
+            .montenegro {
+                .introduction {
+                    max-width: 1400px;
 
-                .col {
-                    img {
-                        width: 500px;
+                    .title {
+                        position: static;
+                        order: 1;
                     }
 
-                    &.top {
-                        .description-block {
-                            max-width: 500px;
-                            margin-right: 5rem;
+
+                    .col {
+                        img {
+                            width: 500px;
                         }
-                    }
 
-                    .photo {
-                        margin-left: 5rem;
-                    }
+                        &.top {
+                            .description-block {
+                                max-width: 500px;
+                                margin-right: 5rem;
+                            }
+                        }
 
-                    &.bottom {
                         .photo {
-                            margin: 0;
-
-                            img {
-                                width: 600px;
-                            }
+                            margin-left: 5rem;
                         }
 
-                        .description-block {
-                            &.bottom-part {
-                                position: absolute;
-                                width: 250px;
-                                margin-left: 22rem;
-                                margin-top: 15rem;
-                                background-color: white;
-                                padding: 2rem;
-
-                            }
-                        }
-
-                        //IF IE
-                        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-                            .description-block {
-                                margin-left: 10rem !important;
-                                margin-top: -21rem !important;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .montenegro-memories {
-                .memories {
-                    flex-direction: row;
-
-                    .gallery-quotes {
-                        width: 35%;
-                    }
-
-                    .row {
-                        width: 65%;
-                    }
-                }
-            }
-        }
-
-        .russia {
-            .russian-memories {
-                .col {
-                    .wrapper {
-                        display: flex;
-                        align-self: center;
-                        justify-content: center;
-                    }
-
-                    .block1 {
-                        left: 13rem;
-                        top: -3rem;
-                    }
-
-                    .block2 {
-                        align-items: flex-end;
-                        margin-left: 11rem;
-
-                        .description-block {
-                            order: -1;
-                            width: 300px;
-                            margin-right: -5rem;
-                        }
-                    }
-
-                    .block3 {
-                        .description-block {
-                            width: 400px;
-                            align-self: center;
-                            margin-left: -11rem;
-                        }
-                    }
-
-                    .block4 {
-                        margin-top: 5rem;
-
-                        .description-block {
-                            order: -1;
-                            width: 400px;
-                            align-self: flex-end;
-                            margin-right: -4rem;
-                        }
-                    }
-                }
-            }
-
-            .moscow-memories-photos {
-                .row {
-                    img {
-                        width: 445px;
-                    }
-                }
-            }
-        }
-
-        .france {
-            .france-paris {
-                .col {
-                    flex-direction: row;
-
-                    &.top {
-                        .title {
-                            order: 0;
-                        }
-
-                    }
-
-                    &.bottom {
-                        .block1 {
-                            .description-block {
-                                width: 600px;
-                                margin-top: -2rem;
-                            }
-                        }
-
-                        .block2 {
-                            .description-block {
-                                margin-left: auto;
-                            }
-
+                        &.bottom {
                             .photo {
+                                margin: 0;
+
                                 img {
-                                    max-width: 800px;
+                                    width: 600px;
+                                }
+                            }
+
+                            .description-block {
+                                &.bottom-part {
+                                    position: absolute;
+                                    width: 250px;
+                                    margin-left: 22rem;
+                                    margin-top: 15rem;
+                                    background-color: white;
+                                    padding: 2rem;
+
+                                }
+                            }
+
+                            //IF IE
+                            @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                                .description-block {
+                                    margin-left: 10rem !important;
+                                    margin-top: -21rem !important;
                                 }
                             }
                         }
                     }
                 }
-            }
 
-            .eiffel-tower {
+                .montenegro-memories {
+                    .memories {
+                        flex-direction: row;
 
-                .title {
-                    align-self: flex-start;
-                }
+                        .gallery-quotes {
+                            width: 35%;
+                        }
 
-                .VueCarousel {
-                    img {
-                        width: 600px;
+                        .row {
+                            width: 65%;
+                        }
                     }
-                }
-
-                .description-block {
-                    right: 7rem;
                 }
             }
 
-            .montpellier {
-                .montpellier-photo-memories {
-                    flex-direction: row;
+            .russia {
+                .russian-memories {
+                    .col {
+                        .wrapper {
+                            display: flex;
+                            align-self: center;
+                            justify-content: center;
+                        }
 
-                    .gallery-quotes {
-                        padding: 5rem;
-                        width: 35%;
+                        .block1 {
+                            left: 13rem;
+                            top: -3rem;
+                        }
+
+                        .block2 {
+                            align-items: flex-end;
+                            margin-left: 11rem;
+
+                            .description-block {
+                                order: -1;
+                                width: 300px;
+                                margin-right: -5rem;
+                            }
+                        }
+
+                        .block3 {
+                            .description-block {
+                                width: 400px;
+                                align-self: center;
+                                margin-left: -11rem;
+                            }
+                        }
+
+                        .block4 {
+                            margin-top: 5rem;
+
+                            .description-block {
+                                order: -1;
+                                width: 400px;
+                                align-self: flex-end;
+                                margin-right: -4rem;
+                            }
+                        }
                     }
+                }
 
+                .moscow-memories-photos {
                     .row {
-                        width: 65%;
+                        img {
+                            width: 445px;
+                        }
                     }
                 }
             }
-        }
 
-    } });
+            .france {
+                .france-paris {
+                    .col {
+                        flex-direction: row;
+
+                        &.top {
+                            .title {
+                                order: 0;
+                            }
+
+                        }
+
+                        &.bottom {
+                            .block1 {
+                                .description-block {
+                                    width: 600px;
+                                    margin-top: -2rem;
+                                }
+                            }
+
+                            .block2 {
+                                .description-block {
+                                    margin-left: auto;
+                                }
+
+                                .photo {
+                                    img {
+                                        max-width: 800px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .eiffel-tower {
+
+                    .title {
+                        align-self: flex-start;
+                    }
+
+                    .VueCarousel {
+                        img {
+                            width: 600px;
+                        }
+                    }
+
+                    .description-block {
+                        right: 7rem;
+                    }
+                }
+
+                .montpellier {
+                    .montpellier-photo-memories {
+                        flex-direction: row;
+
+                        .gallery-quotes {
+                            padding: 5rem;
+                            width: 35%;
+                        }
+
+                        .row {
+                            width: 65%;
+                        }
+                    }
+                }
+            }
+
+        }
+    });
 </style>

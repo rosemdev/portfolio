@@ -8,7 +8,8 @@
                         life, but I have to admit this page isn't formal and so rigorous I just take this opportunity to
                         share my thoughts about different spheres of study and work. So my name is Romanna, but I prefer
                         a more friendly name - just Roma. So if you are interested please keep read this. If you have
-                        question you can always write an email or make a call. Or if you have some proposals for me I would
+                        question you can always write an email or make a call. Or if you have some proposals for me I
+                        would
                         greatly appreciate your kindly on this.
                     </template>
                     <div slot="additional-info">
@@ -29,15 +30,15 @@
                     <rosem-description-block subtitle="work" title="SMILE" class="left-text">
                         <template slot="description">
                             <span class="position">QA Engineer</span>
-                            <p>I'm working a QA engineer almost 3 years. I love my work so much, but in the same time a
-                                needed a progress. And I found it interesting to know deeper how it works behind the
-                                scene. I have obtained a basic knowledge in the university but it's a so little piece in
-                                this world of programming. So I started from the HTML and CSS. The further the more
-                                interesting. JavaScript became my first strong language (despite on the couple of
-                                lessons of C++ in the first curses of the university). You may ask "why front-end" - my
-                                answer will be - it's exciting, and you always can see the result on the browser.
-                                Moreover - all people over the world could see what you made, isn't pleasure? I believe
-                                it is. Please find below a list of duties that I do everyday.</p>
+                            <p>I work as an engineer for quality assurance for almost 3 years. I love my work so much,
+                                but at the same time, progress is needed. And I found it interesting to know deeper how
+                                it works behind the scene. I have obtained a basic knowledge in the university but it's
+                                a so little piece in this world of programming. So I started from the HTML and CSS. The
+                                further the more interesting. JavaScript became my first strong language (despite on a
+                                couple of lessons of C++ in the first curses of the university). You may ask "why
+                                front-end" - my answer will be - it's exciting, and you always can see the result on the
+                                browser. Moreover - all people over the world could see what you made, isn't pleasure? I
+                                believe it is. Please find below a list of duties that I do every day.</p>
                         </template>
                         <div slot="additional-info">
                             <ul>
@@ -52,8 +53,8 @@
                                 <li>Writing of user’s manual;</li>
                                 <li>Work with the development team to continuously improve application;</li>
                                 <li>Work with bug tracking system Jira, Redmine;</li>
-                                <li>Also have practical background with graphical editors: analyze, processing and
-                                    editing of mockups, raster and vector images, svg icons;
+                                <li>Also, have a practical background with graphical editors: analyze, processing and
+                                    editing of mockups, raster and vector images, SVG icons;
                                 </li>
                             </ul>
                         </div>
@@ -68,11 +69,10 @@
                                              class="left-text">
                         <template slot="description">
                             <span class="position">Master degree</span>
-                            <p>My master degree is about the project management. To be honest I obtained the real
-                                conception of project management on the real tasks. There is no better thing than to see
-                                it and try by myself. On my working project, I have an opportunity to try myself in this
-                                area, to speak with colleges how to do something, make decisions, taking into account
-                                the risks
+                            <p>My master degree is about project management. To be honest I obtained the real conception
+                                of project management on the real tasks. There is no better thing than to see it and try
+                                by myself. On my working project, I have an opportunity to try myself in this area, to
+                                speak with colleges how to do something, make decisions, taking into account the risks
                                 and transfer all that stuff to the customer - it's a specific science. So please find
                                 below a list of my skills and knowledge which are acquired on the study and at the work:
                             </p>
@@ -207,9 +207,11 @@
                         text-transform: uppercase;
                         font-size: 25px;
 
-                        .responsive(@tablet, { h2 {
-                            font-size: 30px;
-                        } })
+                        .responsive(@tablet, {
+                            h2 {
+                                font-size: 30px;
+                            }
+                        })
                     }
 
                     .position {
@@ -228,15 +230,17 @@
         }
     }
 
-    .responsive(@tablet, { .skills {
-        .resume {
-            .life-cycle {
-                flex-direction: row;
+    .responsive(@tablet, {
+        .skills {
+            .resume {
+                .life-cycle {
+                    flex-direction: row;
 
-                .history {
-                    width: 20px;
+                    .history {
+                        width: 20px;
+                    }
                 }
             }
         }
-    } });
+    });
 </style>

@@ -94,8 +94,7 @@ export let descriptions = [
         imageSource: ToDoList,
         moreLink: '',
         siteLink: 'https://rosemdev.github.io/To-do-List/',
-        text: "This is my a first project after learning the Java Script language. So it have my not super cool design, but it's working well and performs its function. Also It could 'remember' your tasks and redisplay after long break. So follow the link" +
-            " bellow to check it out."
+        text: "This is my the first project after learning the JavaScript language. So it has maybe not super cool design, but it's working well and performs its function. Also, It could 'remember' your tasks and redisplay after a long break. So follow the link below to check it out."
     },
 
     {
@@ -105,7 +104,7 @@ export let descriptions = [
         imageSource: TravelAgency,
         moreLink: '',
         siteLink: 'https://rosemdev.github.io/travelAgency/',
-        text: "This is a landing page for a travel agency. It may seem to be not finished but this is a result of a little course in Udemy. In this project I used Webpack, PostCsss and ES6 and some library for scroll on reveal.",
+        text: "This is a landing page for a travel agency. It may seem to be not finished but this is a result of a little course in Udemy. In this project, I used Webpack, PostCsss and ES6 and some library for the scroll on reveal.",
     },
 
     {
@@ -115,7 +114,7 @@ export let descriptions = [
         imageSource: mobApp,
         moreLink: '',
         siteLink: 'https://rosemdev.github.io/mobapp/',
-        text: "There is a most beautiful landing page I have created. I love the page like this and the my site have a similar playing with colors. I think the site should be bright, memorized and gorgeous. This is a good example to reach such attributes."
+        text: "There is a most beautiful landing page I have created. I love the page like this and my site has a similar playing with colors. I think the site should be bright, memorized and gorgeous. This is a good example to reach such attributes."
     },
 ];
 
@@ -139,10 +138,3 @@ export let cards = [
         description: 'transforming the real result into a perfect one, client agreement, closing the project or maintaining features'
     },
 ];
-
-export let aboutMyself = {
-    name: 'Romanna Semenyshyn',
-    nickname: 'rosem',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.'
-
-};
