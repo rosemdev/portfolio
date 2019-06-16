@@ -64,7 +64,6 @@ export default new Vuex.Store({
                 commit('totalCards', response.total_results_size);
                 commit('totalPages', response.total_pages);
 
-                console.log(response);
                 const cards = response.results.map(({uid, data, first_publication_date}) => {
                     return {
                         slug: uid,
@@ -74,9 +73,6 @@ export default new Vuex.Store({
                         background: data.background,
                     }
                 });
-
-                console.log('currentPage', currentPage, "totalPages ", state.totalPages, 'new');
-                commit('setBlogCards', cards);
             })
         },
 
@@ -85,7 +81,7 @@ export default new Vuex.Store({
             return Vue.prototype.$prismic.client.getByUID('article', slug)
                 .then((response) => {
                     commit('isLoading', false);
-                    console.log('article newQuery response', response);
+
                     const article = {
                         authorId: response.data.article_author.id || null,
                         prologue: response.data.prologue.length > 0 ? response.data.prologue[0].text : null,
@@ -104,7 +100,6 @@ export default new Vuex.Store({
 
                     };
                     commit('setArticle', article);
-                    console.log('article newQuery', article);
 
                     return article
                 }).then((article) => {
