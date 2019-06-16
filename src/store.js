@@ -53,7 +53,7 @@ export default new Vuex.Store({
     },
 
     actions: {
-        getBlogCards({commit, state}, {perPage, currentPage}) {
+        getBlogCards({commit}, {perPage, currentPage}) {
             commit('isLoading', true);
             return Vue.prototype.$prismic.client.query(
                 Vue.prototype.$prismic.Predicates.at('document.type', 'article'),
@@ -73,6 +73,8 @@ export default new Vuex.Store({
                         background: data.background,
                     }
                 });
+
+                commit('setBlogCards', cards);
             })
         },
 
