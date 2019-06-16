@@ -31,23 +31,27 @@
                         <img src="/images/photos/montenegro/montenegro.jpg" alt="Montenegro">
                     </rosem-photo>
                     <rosem-description-block subtitle="montenegro" title="First country" v-dialScrolling>
-                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Assumenda
-                            atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis
-                            repudiandae
+                        <template slot="description">As I mentioned above this trip didn't start lucky. But at the same
+                            time, it was my first abroad experience. So why it was like that? The thing is our flight
+                            was delayed approximately on 15h. It was horrible, we spent all night at the airport, and
+                            got froze because of a drafty despite the summer. However, when we were finally flying over
+                            the Montenegro lands we saw so amazing landscapes, as never have seen. To get certain, see
+                            the photo gallery and short history of that below.
                         </template>
                     </rosem-description-block>
                 </div>
                 <div class="col bottom">
-                    <rosem-description-block subtitle="montenegro" title="First country" class=""/>
+                    <rosem-description-block subtitle="montenegro" title="Gospa od Škrpjela" class=""/>
                     <rosem-photo class="design-photo" v-dialScrolling>
                         <img src="/images/photos/montenegro//kotor/IMG_20180628_142446_HDR.jpg" alt="Montenegro">
                     </rosem-photo>
                     <rosem-description-block class=" bottom-part" v-dialScrolling>
-                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Assumenda
-                            atque autem dignissimos facilis harum nulla odit officiis, recusandae reiciendis
-                            repudiandae
+                        <template slot="description"><strong>Location: Gospa od Škrpjela</strong> (English: Our Lady of
+                            the Rocks). It is
+                            an artificial island created by bulwark of rocks and by sinking old and seized ships loaded
+                            with rocks. The Roman Catholic Church of Our Lady of the Rocks is the largest building on
+                            the islet; it has a museum attached. There is also a small gift shop close to the church and
+                            a navigation light at the western end of the islet.
                         </template>
                     </rosem-description-block>
                 </div>
@@ -77,13 +81,14 @@
                                                          class="left-text"
                                                          v-dialScrolling
                                 >
-                                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Accusamus ad
-                                        distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum
-                                        dolor sit amet,
-                                        consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae
-                                        veritatis
-                                        voluptate.
+                                    <template slot="description">There is only a little part of the gorgeous landscapes
+                                        in Montenegro.
+                                        Especially we had a rest in the town called Budva is a Montenegrin town on the
+                                        Adriatic Sea. The
+                                        coastal area around Budva, called the Budva riviera, is the center of
+                                        Montenegrin tourism, known for its well-preserved medieval walled city, sandy
+                                        beaches and diverse nightlife. Budva is 2,500 years old, which makes it one of
+                                        the oldest settlements on the Adriatic coast.
                                     </template>
                                 </rosem-description-block>
                                 <img src="/images/photos/montenegro/IMG_20180624_201126.jpg" alt="">
@@ -116,9 +121,9 @@
                                                  class="right-text"
                                                  v-dialScrolling
                         >
-                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Accusamus
-                                ad distinctio in molestiae.
+                            <template slot="description">Russia... The biggest country in the World. Here we had spent
+                                the exciting week and saw a lot of new customs and traditions, food... and of course
+                                beautiful places.
                             </template>
                         </rosem-description-block>
                     </div>
@@ -129,14 +134,13 @@
                             <img src="/images/photos/russia/IMG_20180907_155849.jpg" alt="Russia">
                         </rosem-photo>
                         <rosem-description-block subtitle="Kislovodsk"
-                                                 title="Ring-mountain"
+                                                 title="Ring Mountain"
                                                  class="left-text"
                                                  v-dialScrolling
                         >
-                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Accusamus
-                                ad distinctio in molestiae, quo tempora. Lorem ipsum dolor sit amet,
-                                consectetur adipisicing elit.
+                            <template slot="description">The Ring Mountain is a picturesque rock formation in the
+                                vicinity of Kislovodsk, near the village of Mirny. An amazing arch of 8 meters in
+                                diameter was formed on a hill as a result of weathering of sandy rocks.
                             </template>
                         </rosem-description-block>
                     </div>
@@ -144,15 +148,15 @@
                         <rosem-photo class="design-photo" v-dialScrolling>
                             <img src="/images/photos/russia/IMG_20180708_121042_HDR.jpg" alt="Russia">
                         </rosem-photo>
-                        <rosem-description-block subtitle="Zheleznovodsk"
+                        <rosem-description-block subtitle="Pyatigorsk"
                                                  title="Five peaks of the mountain Beshtau"
                                                  class="right-text"
                                                  v-dialScrolling
                         >
-                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Accusamus
-                                ad
-                                distinctio in molestiae voluptate.
+                            <template slot="description">Photo showing 2 of the five peaks of Mount Beshtau, which gives
+                                its name
+                                to the city of Pyatigorsk (‘five mountains’ in Russian), Stavropol Krai, in the North
+                                Caucasus region of Russia.
                             </template>
                         </rosem-description-block>
                     </div>
@@ -192,9 +196,8 @@
                                              class="left-text"
                                              v-dialScrolling
                     >
-                        <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Accusamus
-                            ad distinctio in molestiae.
+                        <template slot="description">I don't know whichever is the building is pictured on the photo,
+                            but it's unsurpassed, like all big city Paris.
                         </template>
                     </rosem-description-block>
                     <div class="main-content title">
@@ -203,14 +206,13 @@
                 </div>
                 <div class="col bottom">
                     <div class="block1">
-                        <rosem-description-block subtitle="paris"
-                                                 title="Amazing architecture"
+                        <rosem-description-block subtitle="France"
+                                                 title="Country with old history"
                                                  class="left-text"
                                                  v-dialScrolling
                         >
-                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Accusamus
-                                ad distinctio in molestiae.
+                            <template slot="description">This is a country where people love their history, language,
+                                traditions, and culture.
                             </template>
                         </rosem-description-block>
                         <rosem-photo class=" design-photo" v-dialScrolling>
@@ -226,9 +228,8 @@
                                                  class="right-text"
                                                  v-dialScrolling
                         >
-                            <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                Accusamus
-                                ad distinctio in molestiae.
+                            <template slot="description">Paris is a city of contrasts where all modern and old buildings
+                                are in harmony with each other.
                             </template>
                         </rosem-description-block>
                     </div>
@@ -247,8 +248,11 @@
                     </slide>
                 </carousel>
                 <rosem-description-block subtitle="attractions" title="Eiffel Tower & Architecture" class="left-text">
-                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-                        atque autem dignissimos facilis harum nulla.
+                    <template slot="description">Unfortunately, we had only several hours to see the most famous places.
+                        One of them is Cathédrale Notre-Dame, which was in a fire and is on the restorations for the
+                        moment. Of course, we saw one of the most famous places in the World is the Eiffel Tower. It was
+                        a magic time, especially when the tower was lit with a bright light which was enough to walk
+                        around and enjoy.
                     </template>
                 </rosem-description-block>
             </div>
@@ -261,17 +265,17 @@
                         <div class="column">
                             <div class="memories-description">
                                 <rosem-description-block subtitle=""
-                                                         title="Dreams come true!"
+                                                         title="Montpellier"
                                                          class="left-text"
                                                          v-dialScrolling
                                 >
-                                    <template slot="description">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit. Accusamus ad
-                                        distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum
-                                        dolor sit amet,
-                                        consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae
-                                        veritatis
-                                        voluptate.
+                                    <template slot="description">is a city near the south coast of France on the
+                                        Mediterranean Sea. It is the capital of the Hérault department. It is located in
+                                        the Occitanie region. During the 19th century the city thrived on the wine
+                                        culture that it was able to produce due to the abundance of sun throughout the
+                                        year. The wine consumption in France allowed Montpellier's citizens to become
+                                        very wealthy until in the 1890's a fungal disease had spread amongst the
+                                        vineyards and the people were no longer able to grow the grapes needed for wine.
                                     </template>
                                 </rosem-description-block>
                                 <img src="/images/photos/france/montpellier/IMG_20181128_151847.jpg" alt="">
@@ -293,16 +297,12 @@
                     <div class="gallery-quotes">
                         <p class="section-title right-text">I agree</p>
                         <div class="description">
-                            <rosem-quote class="right-text">Here is my collection of photos form airports and plane. The
-                                first time I tried to fly was last summer - it was amazing despite that the exactly
-                                beginning of journey wasn't not 100% lucky. Lorem ipsum dolor sit amet, consectetur
-                                adipisicing
-                                elit. Accusamus ad
-                                distinctio in molestiae, quo reiciendis sapiente sequi tempora. Lorem ipsum
-                                dolor sit amet,
-                                consectetur adipisicing elit. Accusamus dolorum laborum laudantium repudiandae
-                                veritatis
-                                voluptate.
+                            <rosem-quote class="right-text">No one photo could give the same emotions as you have during
+                                traveling. One of my best friends always says: "Life.. how much time we have it? Let's
+                                do everything we want". I think traveling is the most effective way to get some bright
+                                moments, curious and funny situations and sometimes even scary. So take a break and move
+                                ahead to the adventures and positive mood.
+                                Best wishes!
                             </rosem-quote>
                         </div>
                     </div>
@@ -330,6 +330,9 @@
                         :location="photo.location"
                 />
             </rosem-photo-gallery>
+        </div>
+        <div class="main-content">
+            <p class="section-title right-text hashtag" data-hashtag="Traveling">To be continued...</p>
         </div>
     </div>
 </template>
@@ -722,6 +725,7 @@
                 .description-block {
                     padding: 3rem;
                     background-color: rgba(253, 251, 251, 0.6);
+
                 }
 
 
@@ -903,9 +907,10 @@
                     }
 
                     .description-block {
-                        width: 300px;
+                        width: 345px;
                         position: relative;
                         right: 3rem;
+                        top: -2rem;
                         z-index: 2;
                     }
                 }
@@ -971,9 +976,9 @@
                             .description-block {
                                 &.bottom-part {
                                     position: absolute;
-                                    width: 250px;
-                                    margin-left: 22rem;
-                                    margin-top: 15rem;
+                                    width: 315px;
+                                    margin-left: 24rem;
+                                    margin-top: 9rem;
                                     background-color: white;
                                     padding: 2rem;
 
