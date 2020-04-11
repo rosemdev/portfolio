@@ -23,9 +23,72 @@
             </div>
             <div class="resume">
                 <div class="life-cycle">
-                    <rosem-history-line :begin-year="2016">
-                        <template slot="beginData">Sep. 29</template>
+                    <rosem-history-line :begin-year="2020">
+                        <template slot="beginData">Jan. 14</template>
                         <template slot="endData">Present</template>
+                    </rosem-history-line>
+                    <rosem-description-block subtitle="work" title="Astound Commerce" class="left-text">
+                        <template slot="description">
+                            <span class="position">Middle QA Engineer</span>
+                            <p>For the moment I'm again a QA Engineer, and I'm working on mobile app
+                                integration within one project. Started to learn new platform - Salesforce Commerce Cloud.
+                                The new one's responsibilities
+
+                            </p>
+                        </template>
+                        <div slot="additional-info">
+                            <ul>
+                                <li>API testing;</li>
+                                <li>Work with Jira, Confluence;</li>
+                            </ul>
+                        </div>
+                    </rosem-description-block>
+                </div>
+                <div class="life-cycle">
+                    <rosem-history-line :begin-year="2019" :end-year="2019">
+                        <template slot="beginData">March 15</template>
+                        <template slot="endData">Dec. 31</template>
+                    </rosem-history-line>
+                    <rosem-description-block subtitle="work" title="SMILE" class="left-text">
+                        <template slot="description">
+                            <span class="position">Project Manager</span>
+                            <p>Despite all my experience, ideas and future career ladder and everything I had in my head
+                                in that times, it happened I had to become a Project Manager in one of my 2 projects.
+                                It was a super great, new and hard in the beginning experience. The project I managed
+                                was
+                                very big and old, we had a lot of countries, which in case of any problem wrote to me.
+                                Everything was circling on the last stage - support. That is why I had to split my
+                                time into 2 projects
+                                where I'am a QA and where I'm a PM. My new errands was so
+                                different in comparison with previous one so I was feeling a little stress. As it turned out
+                                the PM work is completely different in the whole development life cycle. Being a PM I
+                                gained new vision of the client, their's problems, desires and perceived new price of
+                                the money and time. For that time the last 3 words (client, time, money) were that
+                                started my day and ended it down. So what I actually had been doing:
+                            </p>
+                        </template>
+                        <div slot="additional-info">
+                            <ul>
+                                <li>Full communication with client via email and call;
+                                </li>
+                                <li>Investigation of client's tasks and issues, communication them to the team;
+                                </li>
+                                <li>Tasks estimation and agreement</li>
+                                <li>Provided support in the CMS (Magento, Typo3);</li>
+                                <li>Identified and communicated to the client project risks</li>
+                                <li>Work with time&finance management system;</li>
+                                <li>Team's time management;</li>
+                                <li>Organizational processes management (internal meetings, team's issues resolving,
+                                    bug and task tracking system management, production releases scheduling, etc);
+                                </li>
+                            </ul>
+                        </div>
+                    </rosem-description-block>
+                </div>
+                <div class="life-cycle">
+                    <rosem-history-line :begin-year="2016" :end-year="2019">
+                        <template slot="beginData">Sep. 29</template>
+                        <template slot="endData">Dec. 31</template>
                     </rosem-history-line>
                     <rosem-description-block subtitle="work" title="SMILE" class="left-text">
                         <template slot="description">
@@ -37,12 +100,12 @@
                                 further the more interesting. JavaScript became my first strong language (despite on a
                                 couple of lessons of C++ in the first curses of the university). You may ask "why
                                 front-end" - my answer will be - it's exciting, and you always can see the result on the
-                                browser. Moreover - all people over the world could see what you made, isn't pleasure? I
+                                browser. Moreover all people over the world could see what you made, isn't a pleasure? I
                                 believe it is. Please find below a list of duties that I do every day.</p>
                         </template>
                         <div slot="additional-info">
                             <ul>
-                                <li>Functional testing, testing related to changes, cross-browser testing, usability
+                                <li>Functional testing, cross-browser testing, usability
                                     testing, regression testing;
                                 </li>
                                 <li>Experience in testing CRM and web-sites based on CMS Magento 1, Magento 2, typo3,
@@ -52,7 +115,7 @@
                                 <li> Creating test cases, checklists, bug reports, verification and maintenance;</li>
                                 <li>Writing of user’s manual;</li>
                                 <li>Work with the development team to continuously improve application;</li>
-                                <li>Work with bug tracking system Jira, Redmine;</li>
+                                <li>Work with bug tracking system Redmine;</li>
                                 <li>Also, have a practical background with graphical editors: analyze, processing and
                                     editing of mockups, raster and vector images, SVG icons;
                                 </li>
