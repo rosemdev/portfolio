@@ -82,11 +82,12 @@
             bottom: 0;
             background: linear-gradient(to top, rgba(0, 0, 0, .7) 33%, transparent);
             width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-direction: column;
-            padding: 10px 25px;
+            padding: 10px;
             font-weight: 400;
             opacity: 0;
             transition: opacity .5s ease-in-out;
@@ -128,7 +129,7 @@
             height: 20%;
 
             .location {
-                font-size: 25px;
+                font-size: 17px;
                 white-space: nowrap;
             }
 

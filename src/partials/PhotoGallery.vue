@@ -41,9 +41,9 @@
     @import "../assets/styles/design";
 
     .gallery {
-        padding: 0 8px;
+        padding: 0 1px;
         width: 100%;
-        height: 400px;
+        height: 100%;
         display: flex;
         flex-flow: column nowrap;
 
@@ -52,42 +52,33 @@
             flex-flow: row nowrap;
             width: 100%;
             height: 100%;
+            max-height: 400px;
             margin: 0 auto;
-            flex: 0.0000000001 2 25%; // 100% / rows
+            flex: 0.1 2 25%; // 100% / rows
             transition: flex 0.3s ease-in-out;
 
             & .col {
                 background-color: tomato;
-                flex: 0.0000000001 2 20%; // 100% / cols
+                flex: 0.1 2 20%; // 100% / cols
                 margin: 2px;
                 transition: flex 0.3s ease-in-out;
                 display: flex;
 
                 &:hover {
                     /*flex: 1 1 90%;*/
-                    flex: 1 2 37%;
+                    flex: 1 0 33%;
                 }
 
             }
 
             &:hover {
                 /*flex: 1 1 90%;*/
-                flex: 1 2 63%;
+                flex: 1 2 25%;
             }
 
         }
 
     }
 
-    .responsive(@tablet, { .gallery {
-        height: 900px;
-
-        & .row {
-            & .col {
-                margin: 8px;
-
-            }
-        }
-    } });
 
 </style>
