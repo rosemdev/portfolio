@@ -1,5 +1,314 @@
 <template>
     <div class="gallery">
+        <div class="traveling">
+            <div class="main-content">
+                <p class="section-title left-text hashtag" data-hashtag="Traveling">My traveling history</p>
+                <div class="travel-history" v-dialScrolling>
+                    <div class="carousel">
+                        <carousel :loop="true" :scrollPerPage="false" :perPageCustom="[[320, 1], [768, 4]]">
+                            <slide v-for="photo in flights" :key="photo.imageSrc">
+                                <img :src="photo.imageSrc"
+                                     :alt="photo.altText"
+                                     class="carousel-images"
+                                     height="500"
+                                >
+                            </slide>
+                        </carousel>
+                    </div>
+                    <div class="description" v-dialScrolling>
+                        <rosem-quote class="right-text">Here is my collection of photos form airports and plane. The
+                            first time I tried to fly was last summer - it was amazing despite that the beginning of the
+                            journey wasn't 100% lucky.
+                        </rosem-quote>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="montenegro">
+            <div class="introduction">
+                <div class="col top">
+                    <rosem-photo class="design-photo" v-dialScrolling>
+                        <img src="/images/photos/montenegro/montenegro.jpg" alt="Montenegro">
+                    </rosem-photo>
+                    <rosem-description-block subtitle="montenegro" title="First country" v-dialScrolling>
+                        <template slot="description">As I mentioned above this trip didn't start lucky. But at the same
+                            time, it was my first abroad experience. So why it was like that? The thing is our flight
+                            was delayed approximately on 15h. It was horrible, we spent all night at the airport, and
+                            got froze because of a drafty despite the summer. However, when we were finally flying over
+                            the Montenegro lands we saw so amazing landscapes, as never have seen. To get certain, see
+                            the photo gallery and short history of that below.
+                        </template>
+                    </rosem-description-block>
+                </div>
+                <div class="col bottom">
+                    <rosem-description-block subtitle="montenegro" title="Gospa od Škrpjela" class=""/>
+                    <rosem-photo class="design-photo" v-dialScrolling>
+                        <img src="/images/photos/montenegro//kotor/IMG_20180628_142446_HDR.jpg" alt="Montenegro">
+                    </rosem-photo>
+                    <rosem-description-block class=" bottom-part" v-dialScrolling>
+                        <template slot="description"><strong>Location: Gospa od Škrpjela</strong> (English: Our Lady of
+                            the Rocks). It is
+                            an artificial island created by bulwark of rocks and by sinking old and seized ships loaded
+                            with rocks. The Roman Catholic Church of Our Lady of the Rocks is the largest building on
+                            the islet; it has a museum attached. There is also a small gift shop close to the church and
+                            a navigation light at the western end of the islet.
+                        </template>
+                    </rosem-description-block>
+                </div>
+                <div class="title">
+                    <p class="section-title right-text hashtag-right" data-hashtag="I love it">Montenegro</p>
+                </div>
+            </div>
+            <div class="montenegro-memories">
+                <div class="main-content title">
+                    <p class="section-title left-text hashtag" data-hashtag="Unforgettable">Memories..</p>
+                </div>
+                <div class="memories">
+                    <div class="gallery-quotes">
+                        <p class="section-title right-text">I agree</p>
+                        <div class="quote">
+                            <blockquote>When words become unclear, I shall focus with photographs. When images become
+                                inadequate, I shall
+                                be content with silence.
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="main-content row">
+                        <div class="column">
+                            <div class="memories-description">
+                                <rosem-description-block subtitle=""
+                                                         title="Dreams come true!"
+                                                         class="left-text"
+                                                         v-dialScrolling
+                                >
+                                    <template slot="description">There is only a little part of the gorgeous landscapes
+                                        in Montenegro.
+                                        Especially we had a rest in the town called Budva is a Montenegrin town on the
+                                        Adriatic Sea. The
+                                        coastal area around Budva, called the Budva riviera, is the center of
+                                        Montenegrin tourism, known for its well-preserved medieval walled city, sandy
+                                        beaches and diverse nightlife. Budva is 2,500 years old, which makes it one of
+                                        the oldest settlements on the Adriatic coast.
+                                    </template>
+                                </rosem-description-block>
+                                <img src="/images/photos/montenegro/IMG_20180624_201126.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <img src="/images/photos/montenegro/IMG_20180624_164939.jpg" alt="">
+                            <img src="/images/photos/montenegro/IMG_20180625_164414.jpg" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="/images/photos/montenegro/IMG_20180624_203307.jpg" alt="">
+                            <img src="/images/photos/montenegro/IMG_20180624_180932.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="russia">
+            <div class="russian-memories">
+                <div class="col">
+                    <div class="block1">
+                        <p class="section-title left-text hashtag" data-hashtag="Neighbors">Russia</p>
+                    </div>
+                    <div class="wrapper block2">
+                        <rosem-photo class="design-photo" v-dialScrolling>
+                            <img src="/images/photos/russia/russia.jpg" alt="Russia">
+                        </rosem-photo>
+                        <rosem-description-block subtitle="russia"
+                                                 title="Mountains and Sea"
+                                                 class="right-text"
+                                                 v-dialScrolling
+                        >
+                            <template slot="description">Russia... The biggest country in the World. Here we had spent
+                                the exciting week and saw a lot of new customs and traditions, food... and of course
+                                beautiful places.
+                            </template>
+                        </rosem-description-block>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="wrapper block3">
+                        <rosem-photo class="design-photo" v-dialScrolling>
+                            <img src="/images/photos/russia/IMG_20180907_155849.jpg" alt="Russia">
+                        </rosem-photo>
+                        <rosem-description-block subtitle="Kislovodsk"
+                                                 title="Ring Mountain"
+                                                 class="left-text"
+                                                 v-dialScrolling
+                        >
+                            <template slot="description">The Ring Mountain is a picturesque rock formation in the
+                                vicinity of Kislovodsk, near the village of Mirny. An amazing arch of 8 meters in
+                                diameter was formed on a hill as a result of weathering of sandy rocks.
+                            </template>
+                        </rosem-description-block>
+                    </div>
+                    <div class="wrapper block4">
+                        <rosem-photo class="design-photo" v-dialScrolling>
+                            <img src="/images/photos/russia/IMG_20180708_121042_HDR.jpg" alt="Russia">
+                        </rosem-photo>
+                        <rosem-description-block subtitle="Pyatigorsk"
+                                                 title="Five peaks of the mountain Beshtau"
+                                                 class="right-text"
+                                                 v-dialScrolling
+                        >
+                            <template slot="description">Photo showing 2 of the five peaks of Mount Beshtau, which gives
+                                its name
+                                to the city of Pyatigorsk (‘five mountains’ in Russian), Stavropol Krai, in the North
+                                Caucasus region of Russia.
+                            </template>
+                        </rosem-description-block>
+                    </div>
+                </div>
+            </div>
+            <div class="moscow-memories-photos">
+                <div class="main-content">
+                    <p class="section-title left-text hashtag" data-hashtag="Capital">Moscow</p>
+                </div>
+                <div class="main-content row">
+                    <div class="column">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_132924_HDR.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_124242_HDR.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_123454.jpg" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_124313_HDR.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180804_002305.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_124910_HDR.jpg" alt="">
+                    </div>
+                    <div class="column">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_132805_HDR.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180804_002249.jpg" alt="">
+                        <img src="/images/photos/russia/russia-memories/IMG_20180716_124253_HDR.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="france">
+            <div class="france-paris">
+                <div class="col top">
+                    <rosem-photo class="design-photo" v-dialScrolling>
+                        <img src="/images/photos/france/IMG_20181124_153837.jpg" alt="Paris building">
+                    </rosem-photo>
+                    <rosem-description-block subtitle="paris"
+                                             title="Amazing architecture"
+                                             class="left-text"
+                                             v-dialScrolling
+                    >
+                        <template slot="description">I don't know whichever is the building is pictured on the photo,
+                            but it's unsurpassed, like all big city Paris.
+                        </template>
+                    </rosem-description-block>
+                    <div class="main-content title">
+                        <p class="section-title right-text hashtag-right" data-hashtag="Fairy tale...">France</p>
+                    </div>
+                </div>
+                <div class="col bottom">
+                    <div class="block1">
+                        <rosem-description-block subtitle="France"
+                                                 title="Country with old history"
+                                                 class="left-text"
+                                                 v-dialScrolling
+                        >
+                            <template slot="description">This is a country where people love their history, language,
+                                traditions, and culture.
+                            </template>
+                        </rosem-description-block>
+                        <rosem-photo class=" design-photo" v-dialScrolling>
+                            <img src="/images/photos/france/france.jpg" alt="France">
+                        </rosem-photo>
+                    </div>
+                    <div class="block2">
+                        <rosem-photo class=" design-photo" v-dialScrolling>
+                            <img src="/images/photos/france/IMG_20181124_162800.jpg" alt="Paris building">
+                        </rosem-photo>
+                        <rosem-description-block subtitle="paris"
+                                                 title="Amazing architecture"
+                                                 class="right-text"
+                                                 v-dialScrolling
+                        >
+                            <template slot="description">Paris is a city of contrasts where all modern and old buildings
+                                are in harmony with each other.
+                            </template>
+                        </rosem-description-block>
+                    </div>
+                </div>
+            </div>
+            <div class="main-content eiffel-tower" v-dialScrolling>
+                <div class="title">
+                    <p class="section-title right-text hashtag-right" data-hashtag="She is ...">Architecture</p>
+                </div>
+                <carousel :loop="true" :perPageCustom="[[320, 1], [768, 1]]">
+                    <slide v-for="photo in tower" :key="photo.imageSrc">
+                        <img :src="photo.imageSrc"
+                             :alt="photo.altText"
+                             class="carousel-images"
+                             style="sobject-fit:cover;">
+                    </slide>
+                </carousel>
+                <rosem-description-block subtitle="attractions" title="Eiffel Tower & Architecture" class="left-text">
+                    <template slot="description">Unfortunately, we had only several hours to see the most famous places.
+                        One of them is Cathédrale Notre-Dame, which was in a fire and is on the restorations for the
+                        moment. Of course, we saw one of the most famous places in the World is the Eiffel Tower. It was
+                        a magic time, especially when the tower was lit with a bright light which was enough to walk
+                        around and enjoy.
+                    </template>
+                </rosem-description-block>
+            </div>
+            <div class="montpellier">
+                <div class="main-content">
+                    <p class="section-title right-text hashtag-right" data-hashtag="comfortable">Montpellier</p>
+                </div>
+                <div class="montpellier-photo-memories">
+                    <div class="main-content row">
+                        <div class="column">
+                            <div class="memories-description">
+                                <rosem-description-block subtitle=""
+                                                         title="Montpellier"
+                                                         class="left-text"
+                                                         v-dialScrolling
+                                >
+                                    <template slot="description">is a city near the south coast of France on the
+                                        Mediterranean Sea. It is the capital of the Hérault department. It is located in
+                                        the Occitanie region. During the 19th century the city thrived on the wine
+                                        culture that it was able to produce due to the abundance of sun throughout the
+                                        year. The wine consumption in France allowed Montpellier's citizens to become
+                                        very wealthy until in the 1890's a fungal disease had spread amongst the
+                                        vineyards and the people were no longer able to grow the grapes needed for wine.
+                                    </template>
+                                </rosem-description-block>
+                                <img src="/images/photos/france/montpellier/IMG_20181128_151847.jpg" alt="">
+                                <img src="/images/photos/france/montpellier/IMG_20181125_150652.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="column">
+                            <img src="/images/photos/france/montpellier/IMG_20181125_145312.jpg" alt="">
+                            <img src="/images/photos/france/montpellier/IMG_20181125_172612.jpg" alt="">
+                            <img src="/images/photos/france/montpellier/IMG_20181128_154352.jpg" alt="">
+                        </div>
+                        <div class="column">
+                            <img src="/images/photos/france/montpellier/IMG_20181125_165758.jpg" alt="">
+                            <img src="/images/photos/france/montpellier/IMG_20181125_155618.jpg" alt="">
+                            <img src="/images/photos/france/montpellier/IMG_20181201_101956.jpg" alt="">
+                            <img src="/images/photos/france/montpellier/IMG_20181201_155351.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="gallery-quotes">
+                        <p class="section-title right-text">I agree</p>
+                        <div class="description">
+                            <rosem-quote class="right-text">No one photo could give the same emotions as you have during
+                                traveling. One of my best friends always says: "Life.. how much time we have it? Let's
+                                do everything we want". I think traveling is the most effective way to get some bright
+                                moments, curious and funny situations and sometimes even scary. So take a break and move
+                                ahead to the adventures and positive mood.
+                                Best wishes!
+                            </rosem-quote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="main-content last-quote">
             <blockquote>Photography is a way of feeling, of touching, of loving. What you have caught on film is
                 captured forever…
