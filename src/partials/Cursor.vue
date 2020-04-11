@@ -41,38 +41,18 @@
         display: none;
 
         .follower {
-            width: 12px;
-            height: 12px;
+            width: 1px;
+            height: 1px;
             background-color: #e35592;
             border-radius: 50%;
-            transition: opacity .3s;
-
-            &.target-is-hovered {
-                transform: scale(5);
-                opacity: .3;
-            }
-        }
-
-        .white-follower {
-            width: 12px;
-            height: 12px;
-            background-color: white;
-            border-radius: 50%;
-            z-index: -1;
-            position: absolute;
-            transition: transform .075s, opacity .3s;
-            will-change: transform;
+            transition: opacity .3s, transform .3s;
         }
     }
 
     .cursor.target-is-hovered {
         .follower {
-            transform: scale(5);
+            transform: scale(35);
             opacity: .3;
-        }
-
-        .white-follower {
-            opacity: 0;
         }
     }
 
