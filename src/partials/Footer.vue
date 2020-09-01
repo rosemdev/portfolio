@@ -3,13 +3,13 @@
         <div class="main-content footer">
             <div class="footer-links">
                 <ul>
-                    <li>
-                        <router-link
-                                tag="a"
-                                :to="{path: '/gallery'}"
-                        >Gallery
-                        </router-link>
-                    </li>
+<!--                    <li>-->
+<!--                        <router-link-->
+<!--                                tag="a"-->
+<!--                                :to="{path: '/gallery'}"-->
+<!--                        >Gallery-->
+<!--                        </router-link>-->
+<!--                    </li>-->
                     <li>
                         <router-link
                                 tag="a"

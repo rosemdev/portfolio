@@ -38,8 +38,14 @@
                         </template>
                         <div slot="additional-info">
                             <ul>
-                                <li>API testing;</li>
-                                <li>Work with Jira, Confluence;</li>
+                                <li>Functional testing, cross-browser testing, usability
+                                  testing, regression testing, smoke testing on the Salesforce platform</li>
+                                <li>Planning and estimations</li>
+                                <li>Investigation and using of Salesforce OCAPI</li>
+                                <li>API testing, creating scripts for checking</li>
+                                <li>Postman, writing test scripts, creating/managing of the collections, environments and variables </li>
+                                <li>Work with lots of 3rd parties, on Storefront and API levels;</li>
+                                <li>Work with Jira, Confluence, writing "How-to" guides, manuals;</li>
                             </ul>
                         </div>
                     </rosem-description-block>

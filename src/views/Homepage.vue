@@ -66,7 +66,7 @@
                         so big - but I'm on it! So let's delight in my collections of photos from some countries, I'll
                         be pleased if you share them with friends.
                     </template>
-                    <rosem-button slot="additional-info" :to="{path: 'gallery'}">gallery</rosem-button>
+<!--                    <rosem-button slot="additional-info" :to="{path: 'gallery'}">gallery</rosem-button>-->
                 </rosem-description-block>
             </div>
             <div class="social">
