@@ -46,6 +46,8 @@
                 >Message
                 </rosem-textarea>
             </div>
+          <input type="hidden" name="*honeypot" />
+          <input type="hidden" name="*subject" value="New email from rosem-portfolio!" />
         </rosem-form>
     </div>
 </template>
