@@ -1,11 +1,16 @@
-const express = require('express')
+const express = require('express');
+const path = require('path');
 
 const app = express()
 
 const port = process.env.PORT || 8081;
 
-app.get('/', (req, res) => {
-    console.log('ydssss', req, res);
+
+const publicDirectoryPath = path.join(__dirname, '../dist')
+
+app.use(express.static(publicDirectoryPath))
+
+app.get('/rosem', (req, res) => {
     res.send({rosem: 'test'});
 });
 
