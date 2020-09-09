@@ -43,7 +43,6 @@
     </div>
 </template>
 <script>
-    import RosemProgressBar from "../components/ProgressBar"
     import RosemAvatar from "../components/Avatar"
 
     export default {
@@ -57,7 +56,6 @@
         },
 
         components: {
-            RosemProgressBar,
             RosemAvatar
         },
 

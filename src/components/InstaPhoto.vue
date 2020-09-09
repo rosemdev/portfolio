@@ -20,7 +20,7 @@
     </div>
 </template>
 <script>
-    import RosemPhoto from "../components/Photo"
+    //import RosemPhoto from "../components/Photo"
 
     export default {
         data() {
@@ -42,9 +42,9 @@
             },
         },
 
-        components: {
-            RosemPhoto,
-        },
+        // components: {
+        //     RosemPhoto,
+        // },
 
         methods: {
             showMap(locationStr) {
