@@ -1,6 +1,6 @@
 <template>
     <div class="homepage">
-        <div class="main-content done-works" v-dialScrolling>
+        <div class="main-content done-works">
             <p class="section-title left-text hashtag" data-hashtag="projects">Done works</p>
             <div class="carousel">
                 <carousel :per-page="1"
@@ -25,7 +25,7 @@
         <div class="grey-background">
             <div class="main-content">
                 <p class="section-title right-text hashtag-right" data-hashtag="development">Development stages</p>
-                <div class="stages" v-dialScrolling>
+                <div class="stages">
                     <rosem-card v-for="(card, index) in cards"
                                 :key="index">
                         <div class="stage-container">
@@ -43,9 +43,7 @@
             <div class="about-me block-above">
                 <rosem-description-block subtitle="About me"
                                          title="Romanna Semenyshyn"
-                                         class=" right-text"
-                                         v-dialScrolling
-                >
+                                         class=" right-text">
                     <template slot="description">So I'm a QR engineer. I worked on different projects but always I
                         wanted to understand how the sites become 'working', how to create a page and force it engaging
                         the customers. And now I have my site but it's not the end, there are a lot of technologies I
@@ -59,9 +57,7 @@
                 <rosem-photo></rosem-photo>
                 <rosem-description-block subtitle="hobbies"
                                          title="Journey"
-                                         class=" left-text"
-                                         v-dialScrolling
-                >
+                                         class=" left-text">
                     <template slot="description">Also, I love to travel. For now, the list of visited countries is not
                         so big - but I'm on it! So let's delight in my collections of photos from some countries, I'll
                         be pleased if you share them with friends.
@@ -89,7 +85,7 @@
         <div>
             <div class="main-content">
                 <p class="section-title left-text hashtag" data-hashtag="contact">Get in touch...</p>
-                <div class=" margin contact" v-dialScrolling>
+                <div class=" margin contact">
                     <rosem-contact-form/>
                     <div class="contact-info">
                         <p class="section-title left-text">Or here...</p>

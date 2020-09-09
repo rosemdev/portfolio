@@ -3,7 +3,6 @@
             :is="component"
             v-bind="$attrs"
             @click.capture="handleClick"
-            @click.capture.native="handleClick"
             class="button">
         <slot></slot>
     </cmponent>

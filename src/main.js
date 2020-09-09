@@ -16,7 +16,6 @@ import NProgress from 'nprogress'
 import Loader from '../src/components/Loader'
 import notFound from '../src/views/404'
 import './registerServiceWorker'
-// import dialScrollingDirective from './directives/dialScrolling'
 import dialMouseTargetDirective from './directives/dialMouseTarget'
 
 NProgress.configure({ showSpinner: false });
@@ -87,8 +86,6 @@ Vue.use(VueAnalytics, {
 });
 
 Vue.filter('truncating', truncatingFilter);
-
-// Vue.directive('dialScrolling', dialScrollingDirective);
 Vue.directive('dial-mouse-target', dialMouseTargetDirective);
 
 Vue.config.productionTip = false;

@@ -32,9 +32,10 @@
             <div class="block-title">
                 <p class="section-title">You may also like</p>
             </div>
-            <div class="related-articles" v-dialScrolling>
+            <div class="related-articles">
                 <router-link v-for="(relArticle, index) in relatedArticles"
                              :key="index"
+                             :to="{name:'article', params: {article: relArticle.slug}}">
                              :to="{name:'article', params: {article: relArticle.slug}}">
                     <rosem-card>
                         <div class="related-background">

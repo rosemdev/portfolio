@@ -1,7 +1,7 @@
 <template>
     <div class="thank-you-page">
         <div class="main-content signature">
-            <div class="image" v-dialScrolling>
+            <div class="image">
                 <img src="../assets/images/icons/winning-project.svg" alt="">
             </div>
             <div>
