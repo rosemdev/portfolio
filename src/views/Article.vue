@@ -78,7 +78,6 @@
 </template>
 <script>
 
-    import RosemLoader from "../components/Loader"
     import RosemCard from "../components/Card"
     import RosemScrollButton from "../ui-components/ScrollButton"
     import Debounce from "../utils/debounce"
@@ -106,7 +105,6 @@
         },
 
         components: {
-            RosemLoader,
             RosemScrollButton,
             RosemCard,
             RosemAvatar

@@ -15,14 +15,17 @@
     export default {
         props: {
             beginYear: {
-                type: Number,
+              type: Number,
+              required: false
             },
 
             endYear: {
-                type: Number,
+              type: Number,
+              required: false
             },
             endData: {
-                type: Number,
+              type: Number,
+              required: false
             }
         },
         computed: {

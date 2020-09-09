@@ -31,7 +31,8 @@
                         <rosem-tag v-for="tag in article.tags" :key="tag" :tag="tag"></rosem-tag>
                     </div>
                     <div class="publication-date">
-                        <rosem-history :begin-year="getDate(article.publicationDate).year">
+                        <rosem-history
+                            :begin-year="getDate(article.publicationDate).year">
                             <template slot="beginData">{{ getDate(article.publicationDate).date}}</template>
                         </rosem-history>
                     </div>
