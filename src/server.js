@@ -7,10 +7,12 @@ const app = express()
 
 const port = process.env.PORT || 8081;
 const publicDirectoryPath = path.join(__dirname, '../dist');
-const urlencodedParser = bodyParser.urlencoded({extended: false})
+const urlencodedParser = bodyParser.urlencoded({extended: true})
 
 app.use(express.static(publicDirectoryPath));
-app.use(urlencodedParser)
+app.use(urlencodedParser);
+app.use(bodyParser.json());
+
 
 app.get('/rosem',(req, res) => {
     res.send({rosem: 'test'});
@@ -18,18 +20,17 @@ app.get('/rosem',(req, res) => {
 
 app.post('/contact', urlencodedParser, [
     check('name')
-        .exists().withMessage('defaultValidationErrors.invalidNumberField')
-        .isLength({min: 5}).withMessage('defaultValidationErrors.invalidNumberField')
-    
+    .isLength({min: 7}).withMessage('Too short')
 ], (req, res) => {
 
     const errors = validationResult(req);
 
     if(!errors.isEmpty()) {
-        res.json(errors.array());
+        return res.status(400).json({errors: errors.array()});
     }
 
-    res.status(200).json({test: 'from server'});
+    console.log('body:', req.body);
+    res.status(200).send(req.body);
 
 });
 

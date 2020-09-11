@@ -1,5 +1,12 @@
 <template>
-    <form @submit.prevent="onSubmit" novalidate action="/contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
+    <form
+        @submit.prevent="onSubmit"
+        novalidate action="/contact"
+        method="POST" data-netlify="true"
+        data-netlify-recaptcha="true"
+        ref="contactForm"
+        enctype="application/x-www-form-urlencoded"
+    >
         <slot></slot>
         <footer>
 <!--            <rosem-button class="colorful" type="submit" name="*redirect">{{ buttonName }}</rosem-button>-->
@@ -37,15 +44,29 @@
         },
 
         methods: {
-            onSubmit(event) {
+            async onSubmit() {
                 this.valid = true;
+                const data = {};
 
                 for (let field of this.fields) {
+                    data[field.$refs.input.name] = field.value;
+
                     if (!field.checkValidity(field.$refs.input)) {
                         this.valid = false;
+
+                        break;
                     }
                 }
-                this.getFormValidationRes(URL);
+
+
+            console.log(JSON.stringify(data), 'fields');
+
+            let headers = {};
+            headers['Content-Type'] = "application/json";
+
+            let serverData =  await  this.request(URL, 'POST', JSON.stringify(data), headers);
+            console.log(serverData, 'back from server');
+
             },
 
             redirectIntoThanksPage () {
@@ -56,20 +77,29 @@
 
             },
 
-          async getFormValidationRes(url) {
-              console.log('fetch');
+          async request(url, method = 'GET', body = null, headers = {}) {
+              console.log(headers);
+              
             try {
+
+              console.log('fetch' ,body);
               const response = await fetch(url, {
-                method: "POST",
+                method,
+                body,
+                headers
               });
 
-              let data = await response.json();
+              const data = await response.json();
+
+              if(!response.ok) {
+                console.log(data, 'Something went wrong');
+              }
 
               console.log(data);
               return data;
 
             } catch (error) {
-              console?.error?.(error);
+              console.log(error);
             }
           },
         },

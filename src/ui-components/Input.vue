@@ -4,6 +4,7 @@
         <input
                 ref="input"
                 v-bind="$attrs"
+                v-model="value"
                 :id=" _uid"
                 @blur="checkValidity($event.target)"
                 @invalid.prevent="valid = false"
@@ -25,6 +26,7 @@
 
         data() {
             return {
+                value: '',
                 required: this.$attrs.required,
             }
         },
