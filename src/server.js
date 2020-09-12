@@ -3,7 +3,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const {check, validationResult} = require('express-validator');
 
-const serverValidationErrors = require('./data/serverValidationErrors')
+const serverValidationErrors = require('./data/serverValidationErrors');
+const sendEmail = require('./sendEmail');
 
 const app = express()
 
@@ -16,7 +17,7 @@ app.use(express.static(publicDirectoryPath));
 app.use(urlencodedParser);
 app.use(bodyParser.json());
 
-
+// All GET request handled by INDEX file
 app.get('*',(req, res) => {
     res.sendFile(index);
 });
@@ -48,8 +49,19 @@ app.post('/contact', urlencodedParser, [
         return res.status(400).json({errors: errors.array()});
     }
 
-    console.log('body:', req.body);
     res.status(200).send(req.body);
+
+    const emailData ={
+        from: {
+            name: `${req.body.name} ${req.body.lastName}`,
+            address: req.body.email
+        },
+        text: req.body.message
+    }
+
+    const {from, text} = emailData;
+
+    sendEmail(from, text);
 
 });
 

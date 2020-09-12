@@ -36,6 +36,9 @@
                 input.setCustomValidity('');
                 input.checkValidity();
 
+                console.log(this.$refs.input);
+                
+
                 for (let type of VALIDATION_TYPES) {                 
                     if (input.validity[type]) {
                         input.setCustomValidity(defaultValidationErrors[type](input));

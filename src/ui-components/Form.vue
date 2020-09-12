@@ -1,8 +1,10 @@
 <template>
     <form
         @submit.prevent="onSubmit"
-        novalidate action="/contact"
-        method="POST" data-netlify="true"
+        novalidate 
+        action="/contact"
+        method="POST" 
+        data-netlify="true"
         data-netlify-recaptcha="true"
         ref="contactForm"
         enctype="application/x-www-form-urlencoded"
@@ -78,9 +80,7 @@
                 if(serverData && serverData.errors) {
 
                     for (const error of serverData.errors) {
-                        const field = this.fields.find((field)=> {
-                            console.log('Roooooooooooooooosem');
-                            
+                        const field = this.fields.find((field)=> {                            
                             return field.$refs.input.name === error.param;
                         });
 
@@ -90,10 +90,8 @@
                         }
                         
                         
-                    }
-                    
-                        this.valid = false;
-                
+                    } 
+
                 } else {
                     this.valid = true;
                 }
@@ -122,11 +120,6 @@
               });
 
               const data = await response.json();
-
-              if(!response.ok) {
-                console.log(data, 'Something went wrong');
-              }
-
               return data;
 
             } catch (error) {
