@@ -20,6 +20,13 @@
         data() {
             return {
                 valid: true,
+                serverValidationMessage: '',
+            }
+        },
+
+        computed: {
+            validationMessage() {
+                return this.serverValidationMessage || this.$refs.input.validationMessage || '';
             }
         },
 
@@ -29,7 +36,7 @@
                 input.setCustomValidity('');
                 input.checkValidity();
 
-                for (let type of VALIDATION_TYPES) {
+                for (let type of VALIDATION_TYPES) {                 
                     if (input.validity[type]) {
                         input.setCustomValidity(defaultValidationErrors[type](input));
                     }

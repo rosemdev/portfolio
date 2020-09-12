@@ -21,7 +21,6 @@
 </template>
 <script>
     import RosemButton from "../ui-components/Button"
-    import defaultValidationErrors from "../data/defaultValidationErrors"
 
     const URL = '/contact'
 
@@ -43,7 +42,6 @@
             return {
                 fields: [],
                 valid: true,
-                defaultValidationErrors
             }
         },
 
@@ -55,39 +53,52 @@
             async onSubmit() {
                 const data = {};
 
+                //client valudation
                 for (let field of this.fields) {
                     data[field.$refs.input.name] = field.value;
-                    console.log(field.$refs.input);
 
                     if (!field.checkValidity(field.$refs.input)) {
                         this.valid = false;
                     }
                 }
 
+                //server validation            
+                let requestOptions = {
+                    url: URL,
+                    method:'POST',
+                    body: JSON.stringify(data),
+                    headers: {'Content-Type' : "application/json"}
+                }
 
-                let headers = {};
-                headers['Content-Type'] = "application/json";
+                let {url, method, body, headers} = requestOptions;
 
-                let serverData =  await  this.request(URL, 'POST', JSON.stringify(data), headers);
-                console.log(serverData, 'back from server');
+                let serverData =  await  this.request(url, method, body, headers);
+                console.log(serverData, 'back from server');               
 
                 if(serverData && serverData.errors) {
-                    this.valid = false;
 
-                    for (let field of this.fields) {
+                    for (const error of serverData.errors) {
+                        const field = this.fields.find((field)=> {
+                            console.log('Roooooooooooooooosem');
+                            
+                            return field.$refs.input.name === error.param;
+                        });
+
+                        if(field) {
+                            field.valid = false;
+                            field.serverValidationMessage = error.msg;
+                        }
                         
-                        this.matchMessage(error, field.$refs.input);
+                        
+                    }
                     
-                }
+                        this.valid = false;
+                
                 } else {
                     this.valid = true;
                 }
             
 
-
-            },
-
-            matchMessage(error, field) {
 
             },
 

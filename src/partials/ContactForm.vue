@@ -8,7 +8,8 @@
                         minLength="2"
                         placeholder="your name"
                         required="true"
-                        name="name">
+                        name="name"
+                >
                     Name
                 </rosem-input>
                 <rosem-input
@@ -67,7 +68,7 @@
             RosemInput,
             RosemTextarea,
         },
-
+        
         methods: {},
     }
 </script>

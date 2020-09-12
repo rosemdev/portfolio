@@ -14,7 +14,3 @@ module.exports = {
     noTitle:'Please, use correct format',
     general:  'The value you entered for this field is invalid.'
 };
-
-//exports.default = serverValidationErrors;
-
-//exports.errorMessages = serverValidationErrors;

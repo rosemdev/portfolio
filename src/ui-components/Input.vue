@@ -12,7 +12,7 @@
         <span :class="[{error: !valid}, 'red-line']"></span>
         <transition name="fade" mode="out-in">
             <span v-if="!valid" class="error error-message">
-                <span>{{$refs.input.validationMessage}}</span>
+                <span>{{validationMessage}}</span>
             </span>
         </transition>
     </div>

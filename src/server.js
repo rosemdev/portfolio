@@ -9,6 +9,7 @@ const app = express()
 
 const port = process.env.PORT || 8081;
 const publicDirectoryPath = path.join(__dirname, '../dist');
+const index = path.resolve(publicDirectoryPath, 'index.html');
 const urlencodedParser = bodyParser.urlencoded({extended: true})
 
 app.use(express.static(publicDirectoryPath));
@@ -16,8 +17,8 @@ app.use(urlencodedParser);
 app.use(bodyParser.json());
 
 
-app.get('/rosem',(req, res) => {
-    res.send({rosem: 'test'});
+app.get('*',(req, res) => {
+    res.sendFile(index);
 });
 
 app.post('/contact', urlencodedParser, [
