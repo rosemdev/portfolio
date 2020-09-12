@@ -25,9 +25,11 @@ app.get('*',(req, res) => {
 app.post('/contact', urlencodedParser, [
     check(['name', 'lastName', 'message'])
     .exists().withMessage(serverValidationErrors.valueMissing)
-    .not().isEmpty().withMessage(serverValidationErrors.valueMissing)
+    .not().isEmpty().withMessage(serverValidationErrors.valueMissing),
+
+    check('name', 'lastName')
     .isLength({min: 7, max: 15}).withMessage(serverValidationErrors.tooShort)
-    .isLength({max: 15}).withMessage(serverValidationErrors.tooLong),
+    .isLength({max: 40}).withMessage(serverValidationErrors.tooLong),
 
     check(['phone'])
     .optional()
@@ -38,7 +40,8 @@ app.post('/contact', urlencodedParser, [
     check('email')
     .exists().withMessage(serverValidationErrors.valueMissing)
     .isEmail().withMessage(serverValidationErrors.invalidEmail)
-    .normalizeEmail(),
+    .normalizeEmail()
+    
 ], (req, res) => {
     console.log(serverValidationErrors.valueMissing);
     
