@@ -10,12 +10,19 @@
         <slot></slot>
         <footer>
 <!--            <rosem-button class="colorful" type="submit" name="*redirect">{{ buttonName }}</rosem-button>-->
-            <rosem-button class="colorful" type="submit">{{ buttonName }}</rosem-button>
+            <rosem-button 
+                class="colorful" 
+                type="submit"
+            >
+                {{ buttonName }}
+            </rosem-button>
         </footer>
     </form>
 </template>
 <script>
     import RosemButton from "../ui-components/Button"
+    import defaultValidationErrors from "../data/defaultValidationErrors"
+
     const URL = '/contact'
 
     export default {
@@ -35,7 +42,8 @@
         data() {
             return {
                 fields: [],
-                valid: true
+                valid: true,
+                defaultValidationErrors
             }
         },
 
@@ -45,27 +53,41 @@
 
         methods: {
             async onSubmit() {
-                this.valid = true;
                 const data = {};
 
                 for (let field of this.fields) {
                     data[field.$refs.input.name] = field.value;
+                    console.log(field.$refs.input);
 
                     if (!field.checkValidity(field.$refs.input)) {
                         this.valid = false;
-
-                        break;
                     }
                 }
 
 
-            console.log(JSON.stringify(data), 'fields');
+                let headers = {};
+                headers['Content-Type'] = "application/json";
 
-            let headers = {};
-            headers['Content-Type'] = "application/json";
+                let serverData =  await  this.request(URL, 'POST', JSON.stringify(data), headers);
+                console.log(serverData, 'back from server');
 
-            let serverData =  await  this.request(URL, 'POST', JSON.stringify(data), headers);
-            console.log(serverData, 'back from server');
+                if(serverData && serverData.errors) {
+                    this.valid = false;
+
+                    for (let field of this.fields) {
+                        
+                        this.matchMessage(error, field.$refs.input);
+                    
+                }
+                } else {
+                    this.valid = true;
+                }
+            
+
+
+            },
+
+            matchMessage(error, field) {
 
             },
 
@@ -78,7 +100,6 @@
             },
 
           async request(url, method = 'GET', body = null, headers = {}) {
-              console.log(headers);
               
             try {
 
@@ -95,7 +116,6 @@
                 console.log(data, 'Something went wrong');
               }
 
-              console.log(data);
               return data;
 
             } catch (error) {

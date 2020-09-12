@@ -6,6 +6,7 @@
                 ref="input"
                 @blur="checkValidity($event.target)"
                 v-bind="$attrs"
+                v-model="value"
                 @invalid.prevent="valid = false"
         ></textarea>
         <span :class="[{error: !valid}, 'red-line']"></span>
@@ -27,6 +28,7 @@
         data() {
             return {
                 required: this.$attrs.required,
+                value: ''
             }
         },
 

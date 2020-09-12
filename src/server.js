@@ -3,6 +3,8 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const {check, validationResult} = require('express-validator');
 
+const serverValidationErrors = require('./data/serverValidationErrors')
+
 const app = express()
 
 const port = process.env.PORT || 8081;
@@ -19,9 +21,25 @@ app.get('/rosem',(req, res) => {
 });
 
 app.post('/contact', urlencodedParser, [
-    check('name')
-    .isLength({min: 7}).withMessage('Too short')
+    check(['name', 'lastName', 'message'])
+    .exists().withMessage(serverValidationErrors.valueMissing)
+    .not().isEmpty().withMessage(serverValidationErrors.valueMissing)
+    .isLength({min: 7, max: 15}).withMessage(serverValidationErrors.tooShort)
+    .isLength({max: 15}).withMessage(serverValidationErrors.tooLong),
+
+    check(['phone'])
+    .optional()
+    .isMobilePhone().withMessage(serverValidationErrors.badInput)
+    .isNumeric().withMessage(serverValidationErrors.invalidNumberField),
+
+
+    check('email')
+    .exists().withMessage(serverValidationErrors.valueMissing)
+    .isEmail().withMessage(serverValidationErrors.invalidEmail)
+    .normalizeEmail(),
 ], (req, res) => {
+    console.log(serverValidationErrors.valueMissing);
+    
 
     const errors = validationResult(req);
 
