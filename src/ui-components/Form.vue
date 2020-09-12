@@ -11,7 +11,6 @@
     >
         <slot></slot>
         <footer>
-<!--            <rosem-button class="colorful" type="submit" name="*redirect">{{ buttonName }}</rosem-button>-->
             <rosem-button 
                 class="colorful" 
                 type="submit"
@@ -94,17 +93,12 @@
 
                 } else {
                     this.valid = true;
+                    this.$el.reset();
+                    this.$router.push({ name: 'ThankYou'});
+                    
                 }
             
 
-
-            },
-
-            redirectIntoThanksPage () {
-                let location = window.location.origin +  '/thankyou';
-                let button = this.$el.querySelector('.button');
-
-                button.setAttribute('value', location);
 
             },
 

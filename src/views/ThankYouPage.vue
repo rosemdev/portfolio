@@ -37,6 +37,21 @@
         components: {
             RosemButton
         },
+
+        beforeRouteEnter(to, from, next){
+            next(vm => { 
+            //access to component instance via `vm` 
+            if(from.path !== '/contact'){
+                next({ path: '/'});
+                console.log(from, to);
+
+            } else {
+                next();
+            }
+        
+        
+    })
+} 
     }
 </script>
 <style lang="less" scoped>
