@@ -101,18 +101,13 @@
 <script>
 
     import {cards, descriptions, socialIconsLinks, socialLinks} from "../data/data"
-    import RosemHeader from "../partials/Header"
     import RosemButton from "../ui-components/Button"
     import RosemDescriptionBlock from "../components/DescriptionBlock"
-    import RosemHistoryLine from "../components/HistoryLine"
     import RosemSocialBlock from "../components/SocialBlock"
     import RosemPhoto from "../components/Photo"
     import RosemCard from "../components/Card"
     import {Carousel, Slide} from "vue-carousel"
     import RosemSlideDescription from "../partials/SlideContent"
-    import RosemFooter from "../partials/Footer"
-    import RosemForm from "../ui-components/Form"
-    import RosemInput from "../ui-components/Input"
     import RosemContactForm from "../partials/ContactForm"
     import formLeavePreventing from "../utils/formLeavePreventing"
 
@@ -135,17 +130,12 @@
 
         components: {
             RosemSlideDescription,
-            RosemHeader,
             RosemButton,
             RosemDescriptionBlock,
             RosemPhoto,
-            RosemHistoryLine,
             RosemSocialBlock,
             RosemCard,
-            RosemForm,
-            RosemInput,
             RosemContactForm,
-            RosemFooter,
             Carousel,
             Slide,
         },

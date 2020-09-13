@@ -19,7 +19,7 @@
                     <li><img src="../assets/images/icons/skills/ES6.png" alt=""></li>
                     <li><img src="../assets/images/icons/skills/Vue.js.png" alt=""></li>
                     <li><img src="../assets/images/icons/skills/git.png" alt=""></li>
-                    <li><img src="../assets/images/icons/skills/sql.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/postman-logo.png" alt=""></li>
                     <li><img src="../assets/images/icons/skills/linux.png" alt=""></li>
                     <li><img src="../assets/images/icons/skills/photoshop.png" alt=""></li>
                     <li><img src="../assets/images/icons/skills/adobe-illustrator.png" alt=""></li>
