@@ -2,7 +2,7 @@
     <div class="contact-page">
         <div class="main-content form">
             <p>Let's get down to the business</p>
-            <rosem-contact-form></rosem-contact-form>
+            <rosem-contact-form ref='form'></rosem-contact-form>
             <div class="social-contact">
                 <rosem-social-block :socialLinks="socialIconsLinks"></rosem-social-block>
             </div>
@@ -43,9 +43,8 @@
         beforeRouteLeave (to, from, next) {
             let closeResult = formLeavePreventing('.contact-form');
             if (closeResult) {
-                next();
+                next();           
             }
-
         }
     }
 </script>

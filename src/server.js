@@ -30,7 +30,7 @@ app.post('/contact', urlencodedParser, [
     .isLength({min: 7, max: 15}).withMessage(serverValidationErrors.tooShort)
     .isLength({max: 40}).withMessage(serverValidationErrors.tooLong),
 
-    check(['lastName'])
+    check(['lastName',])
     .exists().withMessage(serverValidationErrors.valueMissing)
     .notEmpty().withMessage(serverValidationErrors.valueMissing)
     .bail()
@@ -46,7 +46,6 @@ app.post('/contact', urlencodedParser, [
 
     check(['phone'])
     .optional({checkFalsy: true})
-    .isMobilePhone().withMessage(serverValidationErrors.badInput)
     .isNumeric().withMessage(serverValidationErrors.invalidNumberField),
 
 

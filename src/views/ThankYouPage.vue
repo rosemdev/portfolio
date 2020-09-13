@@ -44,8 +44,6 @@
             //access to component instance via `vm` 
             if(from.path !== '/contact'){
                 next({ path: '/'});
-                console.log(from, to);
-
             } else {
                 next();
             }  

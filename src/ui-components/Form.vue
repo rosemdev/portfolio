@@ -54,7 +54,7 @@
             async onSubmit() {
                 const data = {};
 
-                //client valudation
+                //client validation
                 for (let field of this.fields) {
                     data[field.$refs.input.name] = field.value;
 
@@ -95,15 +95,14 @@
                 } else {
                     this.valid = true;
                     this.$el.reset();
-                    this.$router.push({ name: 'ThankYou'});
-                    
+                    this.$router.replace({ name: 'ThankYou'});
                 }
             
 
 
             },
 
-          async request(url, method = 'GET', body = null, headers = {}) {
+            async request(url, method = 'GET', body = null, headers = {}) {
               
             try {
 

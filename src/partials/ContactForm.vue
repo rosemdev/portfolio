@@ -31,7 +31,7 @@
                         type="tel"
                         placeholder="your telephone"
                         name="phone"
-                        pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                        pattern="^(?:[+\d].*\d|\d)$"
                         title="telephone"
                 >Phone Number
                 </rosem-input>
@@ -54,8 +54,6 @@
                 >Message
                 </rosem-textarea>
             </div>
-<!--          <input type="hidden" name="*honeypot" />-->
-<!--          <input type="hidden" name="*subject" value="New email from rosem-portfolio!" />-->
         </rosem-form>
     </div>
 </template>
