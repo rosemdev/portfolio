@@ -1,3 +1,5 @@
+import CurrencyExchnage from "../assets/images/myWorks/monobankAPI.png";
+import Calculator from "../assets/images/myWorks/calculator.png";
 import TravelAgency from "../assets/images/myWorks/travelAgency.png";
 import mobApp from "../assets/images/myWorks/mobApp.png";
 import ToDoList from "../assets/images/myWorks/todoList.png";
@@ -90,6 +92,24 @@ export let descriptions = [
     {
         id: '0001',
         type: 'webtool',
+        name: 'Currency Exchnage',
+        imageSource: CurrencyExchnage,
+        moreLink: '',
+        siteLink: 'https://rosem-currency-exchange.netlify.app',
+        text: "It is simple and easy app to convert money for popular currencies using Monobank API, the most powerful bank in Ukraine."
+    },
+    {
+        id: '0002',
+        type: 'webtool',
+        name: 'Calculator',
+        imageSource: Calculator,
+        moreLink: '',
+        siteLink: 'https://github.com/rosemdev/calculator',
+        text: "At first it should have been an easy calculator, but later I decided to make it more complicated and almost lost my mind with how much it is difficult to write a calculator."
+    },
+    {
+        id: '0003',
+        type: 'webtool',
         name: 'ToDo List',
         imageSource: ToDoList,
         moreLink: '',
@@ -98,7 +118,7 @@ export let descriptions = [
     },
 
     {
-        id: '0002',
+        id: '0004',
         type: 'landing page',
         name: 'Travel Agency',
         imageSource: TravelAgency,
@@ -108,7 +128,7 @@ export let descriptions = [
     },
 
     {
-        id: '0003',
+        id: '0005',
         type: 'landing page',
         name: 'Mob app',
         imageSource: mobApp,

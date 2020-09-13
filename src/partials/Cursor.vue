@@ -43,7 +43,6 @@
         .follower {
             width: 1px;
             height: 1px;
-            background-color: #e35592;
             border-radius: 50%;
             transition: opacity .3s, transform .3s;
         }
