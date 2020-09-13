@@ -78,6 +78,7 @@ export const routes = [
         component: "views/ThankYouPage",
         meta: {
             layout: "layouts/OneColumnLayout",
+            isRedirectFromContact: false
         },
     },
     {

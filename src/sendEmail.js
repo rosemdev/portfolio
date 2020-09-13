@@ -20,9 +20,7 @@ const sendEmail = (from, text) => {
     
     transport.sendMail(message, function(err, info) {
         if (err) {
-          console.log(err)
-        } else {
-          console.log(info);
+          console.log(err, info)
         }
     });
 }

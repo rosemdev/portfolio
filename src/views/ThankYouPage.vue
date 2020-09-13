@@ -39,17 +39,20 @@
         },
 
         beforeRouteEnter(to, from, next){
-            //eslint-disable-next-line
             next(vm => { 
-            //access to component instance via `vm` 
-            if(from.path !== '/contact'){
-                next({ path: '/'});
-            } else {
+        
+            if(vm.$route.meta.isRedirectFromContact) {
                 next();
-            }  
-    })
-} 
-    }
+            } else {
+                next({ path: '/'});
+            }            
+        })},
+
+        beforeRouteLeave(to, from, next) {
+            this.$route.meta.isRedirectFromContact = false;
+            next();
+        }
+    }    
 </script>
 <style lang="less" scoped>
 

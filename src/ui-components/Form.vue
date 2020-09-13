@@ -88,14 +88,15 @@
                             field.valid = false;
                             field.serverValidationMessage = error.msg;
                         }
-                        
-                        
                     } 
 
                 } else {
                     this.valid = true;
                     this.$el.reset();
-                    this.$router.replace({ name: 'ThankYou'});
+                    
+                    this.$router.replace({ name: 'ThankYou'}, () => {
+                        this.$route.meta.isRedirectFromContact = true;
+                    });
                 }
             
 
@@ -105,8 +106,6 @@
             async request(url, method = 'GET', body = null, headers = {}) {
               
             try {
-
-              console.log('fetch' ,body);
               const response = await fetch(url, {
                 method,
                 body,

@@ -53,9 +53,7 @@ app.post('/contact', urlencodedParser, [
     .exists().withMessage(serverValidationErrors.valueMissing)
     .notEmpty().withMessage(serverValidationErrors.valueMissing)    
     
-], (req, res) => {
-    console.log(serverValidationErrors.valueMissing);
-    
+], (req, res) => {   
 
     const errors = validationResult(req);
 
