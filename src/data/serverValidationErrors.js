@@ -1,7 +1,7 @@
 module.exports = {
     valueMissing: 'This field is required, please fill it!',
     typeMismatch: `Please, input data in correct format for required type`,
-    tooShort: `Please enter minimum 2 symbols`,
+    tooShort: `Please enter minimum 7 symbols`,
     tooLong:`Please enter maximum 15 symbols`,
     stepMismatch:  `Please follow step 1`,
     patternMismatch: `Please follow requested format`,

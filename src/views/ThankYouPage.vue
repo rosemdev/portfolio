@@ -39,6 +39,7 @@
         },
 
         beforeRouteEnter(to, from, next){
+            //eslint-disable-next-line
             next(vm => { 
             //access to component instance via `vm` 
             if(from.path !== '/contact'){
@@ -47,9 +48,7 @@
 
             } else {
                 next();
-            }
-        
-        
+            }  
     })
 } 
     }

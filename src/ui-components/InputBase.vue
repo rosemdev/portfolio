@@ -20,28 +20,27 @@
         data() {
             return {
                 valid: true,
+                clientValidationMessage: '',
                 serverValidationMessage: '',
             }
         },
 
         computed: {
             validationMessage() {
-                return this.serverValidationMessage || this.$refs.input.validationMessage || '';
+                return this.serverValidationMessage || this.clientValidationMessage || '';
             }
         },
 
         methods: {
             checkValidity(input) {
                 this.valid = true;
-                input.setCustomValidity('');
-                input.checkValidity();
-
-                console.log(this.$refs.input);
-                
+                input.setCustomValidity('');                
+                input.checkValidity();               
 
                 for (let type of VALIDATION_TYPES) {                 
                     if (input.validity[type]) {
-                        input.setCustomValidity(defaultValidationErrors[type](input));
+                        this.clientValidationMessage = defaultValidationErrors[type](input);
+                        input.setCustomValidity(this.clientValidationMessage);
                     }
                 }
 

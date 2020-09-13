@@ -9,6 +9,7 @@
                         placeholder="your name"
                         required="true"
                         name="name"
+                        title="name"
                 >
                     Name
                 </rosem-input>
@@ -19,15 +20,19 @@
                         required="true"
                         placeholder="your last name"
                         name="lastName"
+                        title="last name"
+                        
                 >
                     Last Name
                 </rosem-input>
             </div>
             <div class="user-social">
                 <rosem-input
-                        type="text"
+                        type="tel"
                         placeholder="your telephone"
                         name="phone"
+                        pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
+                        title="telephone"
                 >Phone Number
                 </rosem-input>
                 <rosem-input
@@ -35,6 +40,7 @@
                         required="true"
                         placeholder="your email"
                         name="email"
+                        title="email"
                 >Email
                 </rosem-input>
             </div>
@@ -44,6 +50,7 @@
                         placeholder="leave your message..."
                         name="message"
                         rows="3" cols="5"
+                        title="message"
                 >Message
                 </rosem-textarea>
             </div>

@@ -79,8 +79,9 @@
                 if(serverData && serverData.errors) {
 
                     for (const error of serverData.errors) {
-                        const field = this.fields.find((field)=> {                            
-                            return field.$refs.input.name === error.param;
+                                                
+                        const field = this.fields.find((field)=> {                              
+                            return field.$refs.input.name === error.param;  
                         });
 
                         if(field) {
@@ -121,11 +122,6 @@
             }
           },
         },
-
-        // mounted() {
-        //     this.redirectIntoThanksPage();
-        // }
-
     }
 </script>
 <style lang="less" scoped>

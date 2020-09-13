@@ -23,24 +23,36 @@ app.get('*',(req, res) => {
 });
 
 app.post('/contact', urlencodedParser, [
-    check(['name', 'lastName', 'message'])
+    check(['name'])
     .exists().withMessage(serverValidationErrors.valueMissing)
-    .not().isEmpty().withMessage(serverValidationErrors.valueMissing),
-
-    check('name', 'lastName')
+    .notEmpty().withMessage(serverValidationErrors.valueMissing)
+    .bail()
     .isLength({min: 7, max: 15}).withMessage(serverValidationErrors.tooShort)
     .isLength({max: 40}).withMessage(serverValidationErrors.tooLong),
 
+    check(['lastName'])
+    .exists().withMessage(serverValidationErrors.valueMissing)
+    .notEmpty().withMessage(serverValidationErrors.valueMissing)
+    .bail()
+    .isLength({min: 7, max: 15}).withMessage(serverValidationErrors.tooShort)
+    .isLength({max: 40}).withMessage(serverValidationErrors.tooLong),
+
+    check(['email'])
+    .exists().withMessage(serverValidationErrors.valueMissing)
+    .notEmpty().withMessage(serverValidationErrors.valueMissing)
+    .bail()
+    .isEmail().withMessage(serverValidationErrors.invalidEmail)
+    .normalizeEmail(),
+
     check(['phone'])
-    .optional()
+    .optional({checkFalsy: true})
     .isMobilePhone().withMessage(serverValidationErrors.badInput)
     .isNumeric().withMessage(serverValidationErrors.invalidNumberField),
 
 
-    check('email')
+    check('message')
     .exists().withMessage(serverValidationErrors.valueMissing)
-    .isEmail().withMessage(serverValidationErrors.invalidEmail)
-    .normalizeEmail()
+    .notEmpty().withMessage(serverValidationErrors.valueMissing)    
     
 ], (req, res) => {
     console.log(serverValidationErrors.valueMissing);
