@@ -27,14 +27,14 @@ app.post('/contact', urlencodedParser, [
     .exists().withMessage(serverValidationErrors.valueMissing)
     .notEmpty().withMessage(serverValidationErrors.valueMissing)
     .bail()
-    .isLength({min: 7, max: 15}).withMessage(serverValidationErrors.tooShort)
+    .isLength({min: 2, max: 15}).withMessage(serverValidationErrors.tooShort)
     .isLength({max: 40}).withMessage(serverValidationErrors.tooLong),
 
     check(['lastName',])
     .exists().withMessage(serverValidationErrors.valueMissing)
     .notEmpty().withMessage(serverValidationErrors.valueMissing)
     .bail()
-    .isLength({min: 7, max: 15}).withMessage(serverValidationErrors.tooShort)
+    .isLength({min: 2, max: 15}).withMessage(serverValidationErrors.tooShort)
     .isLength({max: 40}).withMessage(serverValidationErrors.tooLong),
 
     check(['email'])
@@ -63,17 +63,17 @@ app.post('/contact', urlencodedParser, [
 
     res.status(200).send(req.body);
 
-    const emailData ={
-        from: {
-            name: `${req.body.name} ${req.body.lastName}`,
-            address: req.body.email
-        },
-        text: req.body.message
+    const template_params = {
+        to_name: 'Romanna',
+        from_name: `${req.body.name} ${req.body.lastName}`,
+        from_last_name: req.body.lastName,
+        from_email: req.body.email,
+        phone: req.body.phone,
+        message: req.body.message,
+        reply_to: req.body.email
     }
 
-    const {from, text} = emailData;
-
-    sendEmail(from, text);
+    sendEmail(template_params);
 
 });
 

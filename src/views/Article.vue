@@ -36,7 +36,6 @@
                 <router-link v-for="(relArticle, index) in relatedArticles"
                              :key="index"
                              :to="{name:'article', params: {article: relArticle.slug}}">
-                             :to="{name:'article', params: {article: relArticle.slug}}">
                     <rosem-card>
                         <div class="related-background">
                             <prismic-image :field="relArticle.background"/>
@@ -61,7 +60,7 @@
             </div>
             <div class="article-details">
                 <p>
-                   Still have questions? - leave a comment I would be grateful to help!
+                   Still have questions? - leave a comment I would be happy to help!
                 </p>
             </div>
             <div class="main-content">
