@@ -9,6 +9,9 @@
     "server": "nodemon src/server.js",
     "lint": "vue-cli-service lint"
   },
+  "engines": {
+    "node": "14.8.0"
+  },
   "dependencies": {
     "@vue/cli": "^4.5.4",
     "@vue/cli-service": "^4.5.4",
