@@ -59,7 +59,7 @@
                     data[field.$refs.input.name] = field.value;
 
                     if (!field.checkValidity(field.$refs.input)) {
-                        this.valid = false;
+                         return this.valid = false;
                     }
                 }
 
