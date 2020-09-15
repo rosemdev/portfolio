@@ -88,17 +88,17 @@
                             field.valid = false;
                             field.serverValidationMessage = error.msg;
                         }
-                    } 
-
-                } else {
-                    this.valid = true;
-                    this.$el.reset();
+                    }
                     
-                    this.$router.replace({ name: 'ThankYou'}, () => {
-                        this.$route.meta.isRedirectFromContact = true;
-                    });
+                    return;
                 }
-            
+
+                this.valid = true;
+                this.$el.reset();
+                    
+                this.$router.replace({ name: 'ThankYou'}, () => {
+                    this.$route.meta.isRedirectFromContact = true;
+                });
 
 
             },
