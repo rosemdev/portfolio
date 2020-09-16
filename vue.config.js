@@ -11,7 +11,8 @@ const productionPlugins = [
             '/blog/development-stages', '/blog/gradient-component'
         ],
         renderer: new PuppeteerRenderer({
-            renderAfterElementExists: '#app'
+            renderAfterElementExists: '#app',
+            args: ['--no-sandbox']
         }),
     }),
 ];
