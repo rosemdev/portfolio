@@ -12,8 +12,11 @@ const productionPlugins = [
         ],
         renderer: new PuppeteerRenderer({
             renderAfterElementExists: '#app',
-            args: ['--no-sandbox', '--disable-setuid-sandbox'],
-            headless: true
+            launch: {
+                args: ['--no-sandbox', '--disable-setuid-sandbox'],
+                headless: true
+            }
+            
         }),
     }),
 ];
