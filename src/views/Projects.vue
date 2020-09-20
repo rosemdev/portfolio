@@ -196,8 +196,6 @@
     </div>
 </template>
 <script>
-    import RosemButton from "../ui-components/Button"
-    import RosemQuote from "../components/Quote";
     import RosemDescriptionBlock from "../components/DescriptionBlock";
 
 
@@ -214,8 +212,6 @@
         },
 
         components: {
-            RosemButton,
-            RosemQuote,
             RosemDescriptionBlock
         },
     }

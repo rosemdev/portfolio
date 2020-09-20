@@ -201,7 +201,7 @@ export default new Vuex.Store({
 
                 function getCarouselImages() {
                     let carousel = [];
-                    if (item.hasOwnProperty('carousel_media')) {
+                    if (Object.prototype.hasOwnProperty.call(item, 'carousel_media')) {
                         item.carousel_media.forEach(carouselItem => {
                             carousel.push(carouselItem.images.standard_resolution.url);
                         });
