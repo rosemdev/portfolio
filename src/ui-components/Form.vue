@@ -23,7 +23,7 @@
 <script>
     import RosemButton from "../ui-components/Button"
 
-    const URL = '/contact'
+    const URL = 'https://rosem-portfolio-contact-form.herokuapp.com/contact'
 
     export default {
         provide() {
@@ -104,6 +104,8 @@
             },
 
             async request(url, method = 'GET', body = null, headers = {}) {
+                console.log(url);
+                
               
             try {
               const response = await fetch(url, {
