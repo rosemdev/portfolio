@@ -23,7 +23,6 @@ const productionPlugins = [
 
 
 module.exports = {
-    parallel: false,
     configureWebpack: (config) => {
         if (process.env.NODE_ENV === 'production') {
             config.plugins.push(...productionPlugins);

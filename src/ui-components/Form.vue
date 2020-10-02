@@ -74,7 +74,7 @@
                 let {url, method, body, headers} = requestOptions;
 
                 let serverData =  await  this.request(url, method, body, headers);
-                console.log(serverData, 'back from server');               
+                // console.log(serverData, 'back from server');               
 
                 if(serverData && serverData.errors) {
 
@@ -104,9 +104,7 @@
             },
 
             async request(url, method = 'GET', body = null, headers = {}) {
-                console.log(url);
-                
-              
+               
             try {
               const response = await fetch(url, {
                 method,
