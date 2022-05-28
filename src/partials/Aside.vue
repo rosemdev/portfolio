@@ -23,20 +23,26 @@
                     <li><img src="../assets/images/icons/skills/linux.png" alt=""></li>
                     <li><img src="../assets/images/icons/skills/photoshop.png" alt=""></li>
                     <li><img src="../assets/images/icons/skills/adobe-illustrator.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/sfcc-logo.jpg" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/bitbucket-logo.png" alt=""></li>
+                    <li><img src="../assets/images/icons/skills/atlassian.png" alt=""></li>
                 </ul>
             </div>
             <div class="additional-info">
                 <p class="heading">Additionally:</p>
                 <ul>
-                    <li>Experience with RESTful Services and APIs</li>
-                    <li>Responsive and Mobile Design</li>
-                    <li>Cross-Browser Development</li>
-                    <li>Browser Developer Tools</li>
-                    <li>Testing and Debugging</li>
-                    <li>Git and Version Control Systems</li>
                     <li>Problem Solving Skills</li>
                     <li>A knack for teamwork</li>
-                    <li>Content Management Systems and E-commerce Platforms (as a QA)</li>
+                    <li>Quick learning</li>
+                    <li>Desire to self-development</li>
+                    <li>Persistence, patience, flexible, good-natured and enthusiastic</li>
+                    <!-- <li>Experience with RESTful Services and APIs</li> -->
+                    <!-- <li>Responsive and Mobile Design</li> -->
+                    <!-- <li>Cross-Browser Development</li> -->
+                    <!-- <li>Browser Developer Tools</li> -->
+                    <!-- <li>Testing and Debugging</li> -->
+                    <!-- <li>Git and Version Control Systems</li> -->
+                    <!-- <li>Content Management Systems and E-commerce Platforms (as a QA)</li> -->
                 </ul>
             </div>
         </div>

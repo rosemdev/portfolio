@@ -23,9 +23,34 @@
             </div>
             <div class="resume">
                 <div class="life-cycle">
-                    <rosem-history-line :begin-year="2020">
-                        <template slot="beginData">Jan. 14</template>
+                    <rosem-history-line :begin-year="2021">
+                        <template slot="beginData">Jun. 15</template>
                         <template slot="endData">Present</template>
+                    </rosem-history-line>
+                    <rosem-description-block subtitle="work" title="Astound Commerce" class="left-text">
+                        <template slot="description">
+                            <span class="position">SFCC Web Developer</span>
+                            <p>Finally, I reached my dream and became a Web Developer on the great and ambitious platform SFCC. 
+                                In the middle of summer, I'll celebrate an anniversary. It is a great pleasure for me to work in this role,
+                                I feel I can realize myself more and more, as this role has a more high career ceiling. 
+                            </p>
+                        </template>
+                        <div slot="additional-info">
+                            <ul>
+                                <li>Work on the SiteGenesis;</li>
+                                <li>Tasks investigation and estimation;</li>
+                                <li>Making Clarifications request to the Client;</li>
+                                <li>Writing TSD, and How-to guides;</li>
+                                <li>Helping QAs to test the done work;</li>
+                                <li>Working with OCAPI in terms of development now;</li>
+                            </ul>
+                        </div>
+                    </rosem-description-block>
+                </div>
+                <div class="life-cycle">
+                    <rosem-history-line :begin-year="2020" :end-year="2021">
+                        <template slot="beginData">Jan. 14</template>
+                        <template slot="endData">Jun 14</template>
                     </rosem-history-line>
                     <rosem-description-block subtitle="work" title="Astound Commerce" class="left-text">
                         <template slot="description">

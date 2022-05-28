@@ -104,7 +104,7 @@ export let descriptions = [
         name: 'Calculator',
         imageSource: Calculator,
         moreLink: '',
-        siteLink: 'https://github.com/rosemdev/calculator',
+        siteLink: 'https://rosem-calculator.netlify.app',
         text: "At first it should have been an easy calculator, but later I decided to make it more complicated and almost lost my mind with how much it is difficult to write a calculator."
     },
     {
