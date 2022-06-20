@@ -2,11 +2,10 @@
     <rosem-gradient>
         <div class="main-content intro" slot="gradientContent">
             <h1>Hello! I'm rosem</h1>
-            <h2>And I like to create pretty cool websites</h2>
-            <p>I'm an experienced Quality Assurance Engineer. Skilled in software quality, manual testing, and
-                cross-browser compatibility. I'm working with e-commerce sphere, especially with content management
-                systems like Magento 1/2, Typo3, Drupal and so on... and I love frontend so much and wanna become a
-                developer. So welcome to the portfolio, this is my first and the biggest project on VueJS. Feel free to
+            <h2>And this is my porfolio!</h2>
+            <p>I am a meticulous web developer with 1  year of Salesforce Commerce Cloud development experience and over 5 years of QA experience. 
+                I'm working in the e-commerce sphere, and love it so much. But in my free time, I like to create contemporary, fascinating, and cool websites using new technologies. 
+                So welcome to the portfolio, this is my first and the biggest project on VueJS. Feel free to
                 contact me if you have questions or just to talk! Let's go!</p>
             <rosem-theme></rosem-theme>
         </div>

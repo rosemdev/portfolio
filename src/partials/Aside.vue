@@ -34,15 +34,10 @@
                     <li>Problem Solving Skills</li>
                     <li>A knack for teamwork</li>
                     <li>Quick learning</li>
-                    <li>Desire to self-development</li>
+                    <li>Desire for self-development</li>
+                    <li>Driven and diligent</li>
+                    <li>Team player with an eye for detail</li>
                     <li>Persistence, patience, flexible, good-natured and enthusiastic</li>
-                    <!-- <li>Experience with RESTful Services and APIs</li> -->
-                    <!-- <li>Responsive and Mobile Design</li> -->
-                    <!-- <li>Cross-Browser Development</li> -->
-                    <!-- <li>Browser Developer Tools</li> -->
-                    <!-- <li>Testing and Debugging</li> -->
-                    <!-- <li>Git and Version Control Systems</li> -->
-                    <!-- <li>Content Management Systems and E-commerce Platforms (as a QA)</li> -->
                 </ul>
             </div>
         </div>

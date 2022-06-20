@@ -37,12 +37,15 @@
                         </template>
                         <div slot="additional-info">
                             <ul>
-                                <li>Work on the SiteGenesis;</li>
+                                <li>Work in a web development team to develop enterprise-level eCommerce solutions by using a server-side ECMAScript-based language and common client-side JS;</li>
+                                <li>Dev experience with Salesforce OCAPI</li>
                                 <li>Tasks investigation and estimation;</li>
                                 <li>Making Clarifications request to the Client;</li>
-                                <li>Writing TSD, and How-to guides;</li>
-                                <li>Helping QAs to test the done work;</li>
-                                <li>Working with OCAPI in terms of development now;</li>
+                                <li>Writing TSD, How-to guides, test recommendations;</li>
+                                <li>Collaboration with front-end development, QA teams, and dev team;</li>
+                                <li>Collaboration directly with a client;</li>
+                                <li>Tasks analysis and writing of clarifications of requirements;</li> 
+                                <li>Creating estimation, personal organization;</li>
                             </ul>
                         </div>
                     </rosem-description-block>
@@ -221,7 +224,7 @@
                 </div>
                 <div class="get-resume">
                     <rosem-button
-                            href="../../data/CV_Romanna_Semenyshyn.docx.odt"
+                            href="../../data/CV_Romanna_Semenyshyn.pdf"
                             download
                             class="dark"
                     >get resume
