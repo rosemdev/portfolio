@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@vue/cli": "^4.5.4",
-    "@vue/cli-service": "^4.5.4",
+    "@vue/cli-service": "^5.0.8",
     "babel-eslint": "^10.1.0",
     "babel-plugin-prismjs": "^2.0.1",
     "date-fns": "^1.30.1",
