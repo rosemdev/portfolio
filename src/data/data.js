@@ -6,8 +6,8 @@ import ToDoList from "../assets/images/myWorks/todoList.png";
 import linkedinSocialImage from '../assets/images/icons/linkedin-logo.svg'
 import githubSocialImage from '../assets/images/icons/github-sign.svg'
 import facebookSocialImage from '../assets/images/icons/facebook-app-logo.svg'
-import skypeSocialImage from '../assets/images/icons/skype-symbol.svg'
-import twitterSocialImage from '../assets/images/icons/twitter-sign.svg'
+import teamsSocialImage from '../assets/images/icons/teams.svg'
+import XSocialImage from '../assets/images/icons/x.svg'
 import facebookWhSocialImage from '../assets/images/icons/facebook-app-logo_white.svg'
 import linkedinWHWhSocialImage from '../assets/images/icons/linkedin-logo-white.svg'
 
@@ -75,15 +75,15 @@ export let socialShareNetworks = [
 
     },
     {
-        network: 'skype',
+        network: 'teams',
         isIcon: true,
-        src: skypeSocialImage
+        src: teamsSocialImage
 
     },
     {
-        network: 'twitter',
+        network: 'X',
         isIcon: true,
-        src: twitterSocialImage
+        src: XSocialImage
 
     }
 ];
