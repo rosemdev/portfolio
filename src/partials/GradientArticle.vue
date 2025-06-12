@@ -161,7 +161,6 @@
                 width: 100%;
                 margin: auto;
                 font-size: 1.3em;
-                font-style: italic;
             }
         }
 
