@@ -75,13 +75,13 @@ export let socialShareNetworks = [
 
     },
     {
-        network: 'teams',
+        network: 'scype',
         isIcon: true,
         src: teamsSocialImage
 
     },
     {
-        network: 'X',
+        network: 'twitter',
         isIcon: true,
         src: XSocialImage
 
