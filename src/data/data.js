@@ -75,7 +75,7 @@ export let socialShareNetworks = [
 
     },
     {
-        network: 'scype',
+        network: 'skype',
         isIcon: true,
         src: teamsSocialImage
 
