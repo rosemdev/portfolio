@@ -29,8 +29,6 @@
     @import "../assets/styles/design";
 
     .intro {
-        padding-top: 5rem;
-        padding-bottom: 10rem;
         color: white;
 
         h1, h2 {
@@ -55,9 +53,6 @@
 
     .responsive(@desktop, {
         .intro {
-            padding-top: 12rem;
-            padding-bottom: 17rem;
-
             h1 {
                 font-size: 2rem;
             }
